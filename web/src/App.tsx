@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import type { Artifact, EmulatorFrame, EmulatorStream, Feature, Phase, PhaseNumber, Project, ProjectInput, Review } from "./types";
 import { mockService } from "./mockService";
-import { checkCodeArts, createCodeArtsSession, loadCodeArtsCredentials, promptCodeArtsSession, saveCodeArtsCredentials, type CodeArtsConnection, type CodeArtsCredentials } from "./codearts";
+import { checkCodeArts, createCodeArtsSession, loadCodeArtsCredentials, promptCodeArtsSession, saveCodeArtsCredentials, waitForCodeArtsResult, type CodeArtsConnection, type CodeArtsCredentials, type CodeArtsMessage } from "./codearts";
 
 const statusLabels: Record<Phase["status"], string> = {
   pending: "待执行",
@@ -57,10 +57,10 @@ function useProject(id?: string) {
 function App() {
   return (
     <Routes>
-      <Route element={<AppShell />}>
+      <Route element={<LiveAppShell />}>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects/new" element={<NewProjectPage />} />
-        <Route path="/projects/:id" element={<ProjectPage />} />
+        <Route path="/projects/new" element={<LiveNewProjectPage />} />
+        <Route path="/projects/:id" element={<LiveProjectPage />} />
         <Route path="/projects/:id/report" element={<ReportPage />} />
         <Route path="/projects/:id/delivery" element={<DeliveryPage />} />
         <Route path="*" element={<NotFound />} />
@@ -111,6 +111,16 @@ function AppShell() {
   );
 }
 
+function LiveAppShell() {
+  const [projects, setProjects] = useState<Project[]>(() => mockService.listProjects());
+  const [connection, setConnection] = useState<CodeArtsConnection | null>(null);
+  const [codeArtsOpen, setCodeArtsOpen] = useState(false);
+  useEffect(() => mockService.subscribeAll(setProjects), []);
+  useEffect(() => { checkCodeArts(loadCodeArtsCredentials()).then(setConnection); }, []);
+  const active = projects.find((project) => project.status === "running" || project.status === "review");
+  return <div className="app-shell"><aside className="sidebar"><Link className="brand" to="/"><span className="brand-mark">脱</span><span><strong>脱胎换骨</strong><small>国产化迁移工作台</small></span></Link><div className="workspace-label">WORKSPACE <span className="live-dot" /></div><nav className="main-nav"><NavLink to="/" end className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}><span>◈</span>项目总览</NavLink><NavLink to="/projects/new" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}><span>＋</span>新建迁移</NavLink>{active && <NavLink to={`/projects/${active.id}`} className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}><span>▣</span>当前工作台</NavLink>}</nav><div className="sidebar-section-title">最近项目</div><div className="recent-projects">{projects.slice(0, 4).map((project) => <Link key={project.id} to={`/projects/${project.id}`} className="recent-project"><span className={`project-dot ${project.status}`} /><span><b>{project.name}</b><small>{project.source.type === "github" ? "GitHub 源码" : "ZIP 源码"}</small></span></Link>)}</div><div className="sidebar-footer"><button className="environment-card environment-button" onClick={() => setCodeArtsOpen(true)}><span className={`pulse-icon ${connection?.connected ? "connected" : ""}`}>✦</span><div><b>{connection?.connected ? "CodeArts Agent" : "CodeArts 未连接"}</b><small>{connection?.connected ? "本地桥接 · 已连接" : "点击配置本地服务"}</small></div><span className={`online-pill ${connection?.connected ? "connected" : ""}`}>{connection?.connected ? "在线" : "配置"}</span></button><div className="user-chip"><span className="avatar">审</span><span><b>当前审核员</b><small>Local Workspace</small></span></div></div></aside><main className="main-content"><div className={`demo-banner ${connection?.connected ? "live-banner" : ""}`}><span>✦</span>{connection?.connected ? "真实执行模式 · CodeArts Space / AgentTeam" : "CodeArts Agent 未连接 · 新任务将无法启动真实推理"}<span className="banner-link" onClick={() => setCodeArtsOpen(true)}>{connection?.connected ? "查看连接状态 →" : "连接 CodeArts →"}</span></div><div className="page-content"><Outlet /></div></main>{codeArtsOpen && <CodeArtsConnectDialog initial={loadCodeArtsCredentials()} onClose={() => setCodeArtsOpen(false)} onConnected={(value) => { setConnection(value); setCodeArtsOpen(false); }} />}</div>;
+}
+
 function HomePage() {
   const projects = mockService.listProjects();
   const running = projects.filter((project) => project.status === "running").length;
@@ -146,6 +156,7 @@ function NewProjectPage() {
   const [name, setName] = useState("");
   const [sourceValue, setSourceValue] = useState("");
   const [fileName, setFileName] = useState("");
+  const [executionMode, setExecutionMode] = useState<"codearts-agentteam" | "demo">("codearts-agentteam");
   const [error, setError] = useState("");
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -153,10 +164,29 @@ function NewProjectPage() {
     if (!name.trim()) return setError("请先填写项目名称");
     if (sourceType === "github" && !/^https?:\/\/(www\.)?github\.com\/.+/.test(value)) return setError("请输入有效的 GitHub 公共仓库链接");
     if (sourceType === "zip" && !/\.zip$/i.test(value)) return setError("请选择 .zip 格式的 Android 项目");
-    const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value });
+    const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value, executionMode });
     navigate(`/projects/${project.id}`);
   };
   return <div className="new-project-page"><div className="page-heading"><div><p className="eyebrow">NEW MIGRATION / SOURCE INTAKE</p><h1>新建迁移任务</h1><p className="heading-subtitle">先把源项目交给工作台，语义分析会从这里开始。</p></div><Link to="/" className="ghost-button">← 返回项目总览</Link></div><div className="new-project-layout"><form className="intake-card" onSubmit={submit}><div className="card-title-row"><div><span className="section-index">01</span><h2>选择源项目</h2></div><span className="required-note">均为演示输入</span></div><div className="source-toggle"><button type="button" className={sourceType === "github" ? "toggle active" : "toggle"} onClick={() => { setSourceType("github"); setError(""); }}>◖ GitHub 链接</button><button type="button" className={sourceType === "zip" ? "toggle active" : "toggle"} onClick={() => { setSourceType("zip"); setError(""); }}>▣ Android ZIP</button></div>{sourceType === "github" ? <label className="field-label">GitHub 公共仓库链接<input value={sourceValue} onChange={(event) => setSourceValue(event.target.value)} placeholder="https://github.com/example/android-project" /></label> : <label className="file-drop"><input type="file" accept=".zip" onChange={(event) => { const file = event.target.files?.[0]; setFileName(file?.name ?? ""); setError(""); }} /><span className="upload-icon">↑</span><b>{fileName || "点击选择 Android 项目压缩包"}</b><small>{fileName ? "文件已选择，提交后进入演示流程" : "支持 .zip，建议不超过 50 MB"}</small></label>}<div className="field-divider" /><div className="card-title-row compact"><div><span className="section-index">02</span><h2>任务信息</h2></div></div><label className="field-label">迁移项目名称<input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：机器视觉质检助手迁移" /></label>{error && <div className="form-error">! {error}</div>}<button className="primary-button wide" type="submit"><span>✦</span> 创建并开始 Phase 1 <span className="button-arrow">→</span></button><p className="form-hint">创建后会自动播放 Mock Agent Team 事件流，每个阶段结束等待人工审核。</p></form><aside className="intake-aside"><div className="aside-card"><p className="eyebrow">WORKFLOW PREVIEW</p><h3>四步完成一次迁移</h3><div className="preview-steps">{[{n: "01", t: "识胎", d: "源项目语义重建" }, { n: "02", t: "验旧", d: "Android 行为基线" }, { n: "03", t: "换骨", d: "鸿蒙迁移生成" }, { n: "04", t: "验神", d: "功能一致性验证" }].map((step, index) => <div className="preview-step" key={step.n}><span>{step.n}</span><div><b>{step.t}</b><small>{step.d}</small></div>{index < 3 && <i>↓</i>}</div>)}</div></div><div className="aside-tip"><span>ⓘ</span><p>初版使用演示数据，后续可替换为真实 CodeArts、Android 和 HarmonyOS Runner。</p></div></aside></div></div>;
+}
+
+function LiveNewProjectPage() {
+  const navigate = useNavigate();
+  const [sourceType, setSourceType] = useState<"github" | "zip">("github");
+  const [sourceValue, setSourceValue] = useState("");
+  const [name, setName] = useState("");
+  const [executionMode, setExecutionMode] = useState<"codearts-agentteam" | "demo">("codearts-agentteam");
+  const [error, setError] = useState("");
+  const submit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const value = sourceValue.trim();
+    if (!name.trim()) return setError("请先填写项目名称");
+    if (sourceType === "github" && !/^https?:\/\/(www\.)?github\.com\/.+/.test(value)) return setError("请输入有效的 GitHub 仓库链接");
+    if (sourceType === "zip" && !/\.zip$/i.test(value)) return setError("请选择 .zip 格式的 Android 项目");
+    const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value, executionMode });
+    navigate(`/projects/${project.id}`);
+  };
+  return <div className="new-project-page"><div className="page-heading"><div><p className="eyebrow">NEW MIGRATION / SOURCE INTAKE</p><h1>新建迁移任务</h1><p className="heading-subtitle">输入源项目后，直接启动真实 CodeArts AgentTeam 推理。</p></div><Link to="/" className="ghost-button">← 返回项目总览</Link></div><div className="new-project-layout"><form className="intake-card" onSubmit={submit}><div className="card-title-row"><div><span className="section-index">01</span><h2>选择源项目</h2></div><span className="required-note">必填</span></div><div className="source-toggle"><button type="button" className={sourceType === "github" ? "toggle active" : "toggle"} onClick={() => { setSourceType("github"); setSourceValue(""); setError(""); }}>GitHub 链接</button><button type="button" className={sourceType === "zip" ? "toggle active" : "toggle"} onClick={() => { setSourceType("zip"); setSourceValue(""); setError(""); }}>Android ZIP</button></div>{sourceType === "github" ? <label className="field-label">GitHub 公共仓库链接<input value={sourceValue} onChange={(event) => setSourceValue(event.target.value)} placeholder="https://github.com/example/android-project" /></label> : <label className="file-drop"><input type="file" accept=".zip" onChange={(event) => { setSourceValue(event.target.files?.[0]?.name ?? ""); setError(""); }} /><span className="upload-icon">↑</span><b>{sourceValue || "点击选择 Android 项目压缩包"}</b><small>{sourceValue ? "已选择；真实构建前需上传到 CodeArts 工作目录" : "支持 .zip，建议不超过 50 MB"}</small></label>}<div className="field-divider" /><div className="card-title-row compact"><div><span className="section-index">02</span><h2>任务信息</h2></div></div><label className="field-label">迁移项目名称<input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：机器视觉质检助手迁移" /></label><div className="execution-mode-picker"><div className="mode-picker-heading"><span className="eyebrow">EXECUTION MODE</span><b>选择执行引擎</b></div><button type="button" className={executionMode === "codearts-agentteam" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("codearts-agentteam")}><strong>CodeArts Space / AgentTeam</strong><small>真实大模型推理、团队调度和工具执行</small></button><button type="button" className={executionMode === "demo" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("demo")}><strong>本地演示</strong><small>仅播放固定数据，不产生真实构建</small></button></div>{error && <div className="form-error">! {error}</div>}<button className="primary-button wide" type="submit">启动迁移 <span className="button-arrow">→</span></button><p className="form-hint">选择 CodeArts AgentTeam 后，Phase 进度只由真实会话结果推进。</p></form><aside className="intake-aside"><div className="aside-card"><p className="eyebrow">LIVE WORKFLOW</p><h3>四阶段真实门禁</h3><div className="preview-steps">{[{n: "01", t: "识胎", d: "源项目语义重建" }, { n: "02", t: "验旧", d: "Android 行为基线" }, { n: "03", t: "换骨", d: "HarmonyOS 迁移生成" }, { n: "04", t: "验神", d: "功能一致性验证" }].map((step, index) => <div className="preview-step" key={step.n}><span>{step.n}</span><div><b>{step.t}</b><small>{step.d}</small></div>{index < 3 && <i>↓</i>}</div>)}</div></div><div className="aside-tip"><span>ⓘ</span><p>真实模式要求本机 CodeArts Agent 已登录并可用。GitHub 项目会由 Agent 在工作目录检出；ZIP 上传接口将在后续版本补齐。</p></div></aside></div></div>;
 }
 
 function ProjectPage() {
@@ -173,6 +203,20 @@ function ProjectPage() {
   return <div className="workspace-page"><div className="workspace-header"><div className="breadcrumb"><Link to="/">项目总览</Link><span>/</span><b>{project.name}</b></div><div className="workspace-actions"><span className="demo-tag">DEMO DATA</span><Link to={`/projects/${project.id}/report`} className="ghost-button small">查看报告</Link><Link to={`/projects/${project.id}/delivery`} className="primary-button small">交付中心 <span>→</span></Link></div></div><div className="workspace-title"><div><p className="eyebrow">MIGRATION RUN / {project.id.toUpperCase()}</p><h1>{project.name}</h1><p className="heading-subtitle">{project.source.type === "github" ? "GitHub 公共仓库" : "Android 项目压缩包"} · 创建于 {new Date(project.createdAt).toLocaleDateString("zh-CN")}</p></div><div className="run-health"><span className="live-dot" /> <b>{project.status === "completed" ? "迁移已完成" : "工作流运行中"}</b><small>revision {selected.revision}.0</small></div></div><PhaseRail phases={project.phases} selected={selectedPhase} onSelect={setSelectedPhase} /><div className="workspace-grid"><aside className="workspace-left"><FeatureSidebar features={project.features} phase={selected} /><ArtifactList artifacts={selected.artifacts} /></aside><section className="workspace-center"><PhaseContent project={project} phase={selected} /><div className="review-bar"><div><span className={`review-dot ${canReview ? "active" : ""}`} /><div><b>{canReview ? "本阶段等待人工审核" : selected.status === "running" ? "Agent Team 正在执行" : statusLabels[selected.status]}</b><small>{canReview ? "确认交付物后才能进入下一阶段" : "所有阶段状态和事件均来自 Mock Service"}</small></div></div><div className="review-actions">{selected.status === "running" && <><button className="icon-button" onClick={() => selected.paused ? mockService.resumePhase(project.id, selected.number) : mockService.pausePhase(project.id, selected.number)}>{selected.paused ? "▶ 继续" : "Ⅱ 暂停"}</button><button className="icon-button" onClick={() => mockService.skipPhase(project.id, selected.number)}>跳过等待</button></>}{canReview && <button className="primary-button" onClick={() => setReviewOpen(true)}>打开审核 <span>→</span></button>}{selected.status === "approved" || selected.status === "completed" ? <button className="icon-button" onClick={() => mockService.restartPhase(project.id, selected.number)}>↻ 重新演示</button> : null}</div></div></section><aside className="workspace-right"><AgentTimeline phase={selected} /><RunControls project={project} phase={selected} /></aside></div>{reviewOpen && <ReviewDialog phase={selected} onClose={() => setReviewOpen(false)} onSubmit={performReview} />}</div>;
 }
 
+function LiveProjectPage() {
+  const { id } = useParams();
+  const project = useProject(id);
+  const [selectedPhase, setSelectedPhase] = useState<PhaseNumber>(project?.currentPhase ?? 1);
+  const [reviewOpen, setReviewOpen] = useState(false);
+  useEffect(() => { if (project?.currentPhase) setSelectedPhase(project.currentPhase); }, [project?.currentPhase]);
+  if (!project) return <NotFound />;
+  const selected = project.phases.find((phase) => phase.number === selectedPhase) ?? project.phases[0];
+  const canReview = selected.status === "review_required";
+  const real = project.executionMode === "codearts-agentteam" && !project.demo;
+  const performReview = (review: Review) => { mockService.reviewPhase(project.id, selected.number, review); setReviewOpen(false); };
+  return <div className="workspace-page"><div className="workspace-header"><div className="breadcrumb"><Link to="/">项目总览</Link><span>/</span><b>{project.name}</b></div><div className="workspace-actions"><span className={real ? "live-tag" : "demo-tag"}>{real ? "LIVE · CODEARTS" : "DEMO DATA"}</span><Link to={`/projects/${project.id}/report`} className="ghost-button small">查看报告</Link><Link to={`/projects/${project.id}/delivery`} className="primary-button small">交付中心 <span>→</span></Link></div></div><div className="workspace-title"><div><p className="eyebrow">MIGRATION RUN / {project.id.toUpperCase()}</p><h1>{project.name}</h1><p className="heading-subtitle">{project.source.type === "github" ? "GitHub 源码" : "Android ZIP"} · {real ? "CodeArts Space / AgentTeam" : "本地演示"}</p></div><div className="run-health"><span className="live-dot" /><b>{project.status === "completed" ? "迁移已完成" : real ? "真实工作流运行中" : "演示工作流"}</b><small>revision {selected.revision}.0</small></div></div><PhaseRail phases={project.phases} selected={selectedPhase} onSelect={setSelectedPhase} /><div className="workspace-grid"><aside className="workspace-left"><FeatureSidebar features={project.features} phase={selected} /><ArtifactList artifacts={selected.artifacts} /></aside><section className="workspace-center"><PhaseContent project={project} phase={selected} /><div className="review-bar"><div><span className={`review-dot ${canReview ? "active" : ""}`} /><div><b>{canReview ? "本阶段等待人工审核" : selected.status === "running" ? (real ? "CodeArts AgentTeam 正在执行" : "演示工作流正在执行") : statusLabels[selected.status]}</b><small>{canReview ? "确认真实会话结果后才能进入下一阶段" : real ? "状态由 CodeArts AgentTeam 会话结果驱动" : "本项目使用本地演示数据"}</small></div></div><div className="review-actions">{selected.status === "running" && !real && <><button className="icon-button" onClick={() => selected.paused ? mockService.resumePhase(project.id, selected.number) : mockService.pausePhase(project.id, selected.number)}>{selected.paused ? "▶ 继续" : "Ⅱ 暂停"}</button><button className="icon-button" onClick={() => mockService.skipPhase(project.id, selected.number)}>跳过等待</button></>}{canReview && <button className="primary-button" onClick={() => setReviewOpen(true)}>打开审核 <span>→</span></button>}{(selected.status === "approved" || selected.status === "completed") && !real && <button className="icon-button" onClick={() => mockService.restartPhase(project.id, selected.number)}>↻ 重新演示</button>}</div></div></section><aside className="workspace-right"><AgentTimeline phase={selected} /><RunControls project={project} phase={selected} /></aside></div>{reviewOpen && <ReviewDialog phase={selected} onClose={() => setReviewOpen(false)} onSubmit={performReview} />}</div>;
+}
+
 function PhaseRail({ phases, selected, onSelect }: { phases: Phase[]; selected: PhaseNumber; onSelect: (phase: PhaseNumber) => void }) {
   return <div className="phase-rail">{phases.map((phase, index) => <button key={phase.number} className={`phase-rail-item ${selected === phase.number ? "selected" : ""} ${statusClasses[phase.status]}`} onClick={() => onSelect(phase.number)}><span className="phase-number">{phase.code}</span><span className="phase-rail-text"><b>{phase.shortTitle}</b><small>{phase.title.split("·")[1]?.trim()}</small></span><span className="phase-rail-status">{phase.status === "running" ? <span className="spinner" /> : phase.status === "approved" || phase.status === "completed" ? "✓" : phase.status === "review_required" ? "!" : "·"}</span>{index < phases.length - 1 && <i className="rail-connector" />}</button>)}</div>;
 }
@@ -186,10 +230,18 @@ function ArtifactList({ artifacts }: { artifacts: Artifact[] }) {
 }
 
 function PhaseContent({ project, phase }: { project: Project; phase: Phase }) {
+  if (project.executionMode === "codearts-agentteam" && !project.demo) return <RealPhaseContent project={project} phase={phase} />;
   if (phase.number === 1) return <PhaseOne phase={phase} features={project.features} />;
   if (phase.number === 2) return <PhaseTwo phase={phase} />;
   if (phase.number === 3) return <PhaseThree phase={phase} />;
   return <PhaseFour project={project} phase={phase} />;
+}
+
+function RealPhaseContent({ project, phase }: { project: Project; phase: Phase }) {
+  const eyebrow = phase.number === 1 ? "SEMANTIC RECONSTRUCTION / PHASE 01" : phase.number === 2 ? "ANDROID BASELINE / PHASE 02" : phase.number === 3 ? "HARMONYOS GENERATION / PHASE 03" : "FUNCTIONAL PARITY / PHASE 04";
+  const execution = phase.execution;
+  const response = execution?.response?.trim();
+  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow={eyebrow} /><div className="real-evidence-card"><div className="real-evidence-heading"><div><span className="eyebrow">REAL CODEARTS EVIDENCE</span><h3>{execution?.status === "succeeded" ? "AgentTeam 已返回真实结果" : execution?.status === "failed" ? "AgentTeam 执行失败" : "等待 AgentTeam 真实执行"}</h3></div><span className={`execution-status ${execution?.status ?? "idle"}`}>{execution?.status ?? "idle"}</span></div><div className="real-evidence-meta"><span>模式 <b>CodeArts Space / AgentTeam</b></span><span>Agent <b>{execution?.agent ?? "team-leader"}</b></span><span>Session <code>{execution?.sessionId ?? "尚未创建"}</code></span></div>{execution?.error && <div className="real-error">{execution.error}</div>}{response && <pre className="real-response">{response}</pre>}{!response && !execution?.error && <div className="real-waiting">页面不会生成固定分析、构建日志或一致性分数。CodeArts 返回真实消息后，这里才会显示可审核证据。</div>}</div>{phase.number === 2 && phase.emulator && <div className="runner-placeholder"><div><span className="eyebrow">ANDROID RUNNER</span><h3>等待真实 Android 模拟器</h3><p>当前只保留 Runner 接口位置；不会用本地帧流冒充真实执行。</p></div><EmulatorPanel stream={phase.emulator} /></div>}{phase.number === 4 && <div className="runner-placeholder"><div><span className="eyebrow">HARMONYOS RUNNER</span><h3>等待真实 HarmonyOS 模拟器</h3><p>一致性判别将在真实鸿蒙运行轨迹和 Android 基线都返回后生成。</p></div></div>}</div>;
 }
 
 function PhaseHeader({ phase, eyebrow }: { phase: Phase; eyebrow: string }) {
@@ -247,46 +299,80 @@ function EmulatorPanel({ stream, compact = false }: { stream: EmulatorStream; co
 }
 
 function AgentTimeline({ phase }: { phase: Phase }) {
-  const events = phase.events.slice(-7).reverse();
-  return <div className="timeline-panel"><div className="timeline-heading"><div><span className="eyebrow">AGENT TEAM ACTIVITY</span><h3>执行时间线</h3></div><span className="event-live"><i /> {phase.status === "running" ? "实时" : "已固化"}</span></div>{events.length ? <div className="timeline-list">{events.map((event) => <div className="timeline-event" key={event.id}><span className={`timeline-icon event-${event.type}`}>{event.type === "thinking" ? "✦" : event.type === "tool" ? "⌁" : event.type === "build" ? "⌘" : event.type === "test" ? "✓" : "·"}</span><div><b>{event.agent}</b><p>{event.message}</p><small>{formatTime(event.timestamp)}</small></div></div>)}</div> : <div className="timeline-empty"><span>✦</span><p>等待 Agent Team 开始工作<br /><small>阶段启动后会显示实时事件</small></p></div>}<div className="timeline-footer"><span>Session</span><code>team_{phase.number}_demo_8f21</code><button>复制</button></div></div>;
+  const events = phase.events.slice(-10).reverse();
+  const sessionId = phase.execution?.sessionId;
+  return <div className="timeline-panel"><div className="timeline-heading"><div><span className="eyebrow">AGENT TEAM ACTIVITY</span><h3>执行时间线</h3></div><span className="event-live"><i /> {phase.execution?.mode === "codearts-agentteam" ? (phase.execution.status === "running" || phase.execution.status === "starting" ? "CodeArts 实时" : "CodeArts 已归档") : phase.status === "running" ? "演示实时" : "演示已固化"}</span></div>{events.length ? <div className="timeline-list">{events.map((event) => <div className="timeline-event" key={event.id}><span className={`timeline-icon event-${event.type}`}>{event.type === "thinking" ? "✦" : event.type === "tool" ? "⌁" : event.type === "build" ? "⌘" : event.type === "test" ? "✓" : "·"}</span><div><b>{event.agent}</b><p>{event.message}</p><small>{formatTime(event.timestamp)}</small></div></div>)}</div> : <div className="timeline-empty"><span>✦</span><p>等待 Agent Team 开始工作<br /><small>阶段启动后会显示实时事件</small></p></div>}<div className="timeline-footer"><span>Session</span><code>{sessionId ?? "尚未创建真实会话"}</code>{sessionId && <button onClick={() => navigator.clipboard?.writeText(sessionId)}>复制</button>}</div></div>;
 }
 
 function RunControls({ project, phase }: { project: Project; phase: Phase }) {
   const [runningCodeArts, setRunningCodeArts] = useState(false);
   const [codeArtsMessage, setCodeArtsMessage] = useState("");
+  const runningRef = useRef(false);
   const runWithCodeArts = async () => {
+    if (runningRef.current) return;
+    runningRef.current = true;
     setRunningCodeArts(true);
     setCodeArtsMessage("正在连接 CodeArts Agent…");
     const credentials = loadCodeArtsCredentials();
     const health = await checkCodeArts(credentials);
     if (!health.connected) {
       setCodeArtsMessage(health.message + "。点击左侧环境卡片配置账号。");
+      runningRef.current = false;
       setRunningCodeArts(false);
       return;
     }
     const session = await createCodeArtsSession(`脱胎换骨 · ${project.name} · Phase ${phase.number}`, credentials);
     if (!session.accepted || !session.session?.id) {
       setCodeArtsMessage(session.message);
+      runningRef.current = false;
       setRunningCodeArts(false);
       return;
     }
+    mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "starting", sessionId: session.session.id, agent: "team-leader", startedAt: new Date().toISOString() });
     const prompt = [
-      "你是脱胎换骨迁移系统的 CodeArts Agent Team Leader。",
+      "你是脱胎换骨迁移系统的 CodeArts Agent Team Leader。当前会话必须使用 CodeArts Space 的 AgentTeam 模式，由 team-leader 真实调度团队成员。",
       `请针对项目“${project.name}”执行 Phase ${phase.number}（${phase.title}）的分析，`,
       `输入来源：${project.source.value}。`,
-      "本次是 Web 工作台接入验证，请先输出可追踪的执行计划、风险和预计交付物；如果当前会话具备工程目录和工具，再继续执行实际分析。",
+      project.source.type === "github" ? `请先将该 GitHub 项目检出到当前 CodeArts 工作目录，再读取真实源代码。` : "当前输入是浏览器选择的 ZIP；如果本地工作目录中找不到该压缩包，请明确报告缺少源文件，不要伪造构建结果。",
+      "不要只输出演示计划或固定模板：必须使用工具读取源文件，按阶段实际分析、修改或构建，并在最后返回真实命令、文件变更、构建/测试输出和仍未完成事项。",
     ].join(" ");
-    const result = await promptCodeArtsSession(session.session.id, prompt, credentials);
-    if (result.accepted) {
-      const raw = typeof result.response === "string" ? result.response : result.response ? JSON.stringify(result.response) : "";
+    const result = await promptCodeArtsSession(session.session.id, prompt, credentials, { agent: "team-leader", mode: "agent-team" });
+    const livePartIds = new Set<string>();
+    const resolved = result.accepted && result.pending
+      ? await waitForCodeArtsResult(session.session.id, result.messageId, credentials, { timeoutMs: 90000, onUpdate: (message: CodeArtsMessage) => {
+          (message.parts ?? []).forEach((part) => {
+            if (!part.id || livePartIds.has(part.id) || !part.text?.trim()) return;
+            livePartIds.add(part.id);
+            const agentName = typeof message.info?.agent === "string" ? message.info.agent : "CodeArts AgentTeam";
+            mockService.recordCodeArtsEvent?.(project.id, phase.number, { agent: agentName === "team-leader" ? "Team Leader" : agentName, type: part.type === "tool" ? "tool" : part.type === "reasoning" ? "thinking" : "system", message: part.text.replace(/\s+/g, " ").slice(0, 280) });
+          });
+        } })
+      : result;
+    if (resolved.accepted) {
+      const raw = typeof resolved.response === "string" ? resolved.response : resolved.response ? JSON.stringify(resolved.response) : "";
       const preview = raw.replace(/\s+/g, " ").slice(0, 110);
       setCodeArtsMessage(`已触发真实 CodeArts 推理（会话 ${session.session.id.slice(0, 12)}…）${preview ? ` · ${preview}${raw.length > 110 ? "…" : ""}` : ""}`);
+      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "succeeded", sessionId: session.session.id, agent: "team-leader", completedAt: new Date().toISOString(), response: raw });
     } else {
-      setCodeArtsMessage(result.message);
+      setCodeArtsMessage(`${resolved.message} · session ${session.session.id.slice(0, 12)}…`);
+      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "failed", sessionId: session.session.id, agent: "team-leader", completedAt: new Date().toISOString(), error: resolved.message });
     }
     setRunningCodeArts(false);
+    runningRef.current = false;
   };
-  return <div className="run-controls"><div className="side-panel-heading"><span className="eyebrow">RUN CONTROLS</span><span className="secure-label">LOCAL</span></div><div className="control-row"><span>当前 revision</span><b>{phase.revision}.0</b></div><div className="control-row"><span>事件数量</span><b>{phase.events.length}</b></div><div className="control-row"><span>数据来源</span><b className="mint-text">Mock Service</b></div><button className="codearts-run-button" onClick={runWithCodeArts} disabled={runningCodeArts}>{runningCodeArts ? "CodeArts 推理中…" : "⌁ 发送到 CodeArts Agent"}</button>{codeArtsMessage && <p className="codearts-message">{codeArtsMessage}</p>}{project.demo && <button className="outline-button" onClick={() => mockService.resetDemo(project.id)}>↻ 从头播放示例</button>}</div>;
+  const [autoRunKey, setAutoRunKey] = useState("");
+  const autoRunRef = useRef("");
+  useEffect(() => {
+    const key = `${project.id}:${phase.number}:${phase.revision}`;
+    if (project.executionMode === "codearts-agentteam" && !project.demo && phase.status === "running" && autoRunRef.current !== key && autoRunKey !== key && !runningCodeArts && !runningRef.current) {
+      autoRunRef.current = key;
+      setAutoRunKey(key);
+      void runWithCodeArts();
+    }
+  }, [project.id, phase.number, phase.revision, phase.status, autoRunKey, runningCodeArts]);
+  const isReal = project.executionMode === "codearts-agentteam" && !project.demo;
+  if (!isReal) return <div className="run-controls"><div className="side-panel-heading"><span className="eyebrow">RUN CONTROLS</span><span className="secure-label">DEMO</span></div><div className="control-row"><span>当前 revision</span><b>{phase.revision}.0</b></div><div className="control-row"><span>运行模式</span><b className="muted-value">本地演示</b></div><div className="control-row"><span>数据来源</span><b className="muted-value">固定数据</b></div><button className="outline-button" onClick={() => mockService.resetDemo(project.id)}>↻ 从头播放示例</button></div>;
+  return <div className="run-controls"><div className="side-panel-heading"><span className="eyebrow">RUN CONTROLS</span><span className="secure-label">{project.demo ? "DEMO" : "LIVE"}</span></div><div className="control-row"><span>当前 revision</span><b>{phase.revision}.0</b></div><div className="control-row"><span>事件数量</span><b>{phase.events.length}</b></div><div className="control-row"><span>运行模式</span><b className={project.demo ? "muted-value" : "mint-text"}>{project.demo ? "本地演示" : "CodeArts Space / AgentTeam"}</b></div><div className="control-row"><span>会话状态</span><b>{phase.execution?.sessionId ? phase.execution.status : "未启动"}</b></div><button className="codearts-run-button" onClick={runWithCodeArts} disabled={runningCodeArts || project.demo}>{runningCodeArts ? "CodeArts AgentTeam 推理中…" : project.demo ? "演示项目不可发起真实构建" : "启动真实 AgentTeam"}</button>{codeArtsMessage && <p className="codearts-message">{codeArtsMessage}</p>}{project.demo && <button className="outline-button" onClick={() => mockService.resetDemo(project.id)}>↻ 从头播放示例</button>}</div>;
 }
 
 function StatusBadge({ status }: { status: Phase["status"] }) {

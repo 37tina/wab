@@ -75,6 +75,18 @@ export interface Phase {
   review?: Review;
   paused?: boolean;
   emulator?: EmulatorStream;
+  execution?: PhaseExecution;
+}
+
+export interface PhaseExecution {
+  mode: "demo" | "codearts-agentteam";
+  status: "idle" | "starting" | "running" | "succeeded" | "failed";
+  sessionId?: string;
+  agent?: string;
+  startedAt?: string;
+  completedAt?: string;
+  response?: string;
+  error?: string;
 }
 
 export interface Project {
@@ -89,6 +101,7 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
   demo: boolean;
+  executionMode?: "demo" | "codearts-agentteam";
   features: Feature[];
   phases: Phase[];
 }
@@ -97,6 +110,7 @@ export interface ProjectInput {
   name: string;
   sourceType: "github" | "zip";
   sourceValue: string;
+  executionMode?: "demo" | "codearts-agentteam";
 }
 
 export interface MigrationService {
@@ -110,6 +124,8 @@ export interface MigrationService {
   skipPhase(id: string, phase: PhaseNumber): void;
   reviewPhase(id: string, phase: PhaseNumber, review: Review): void;
   resetDemo(id: string): void;
+  recordCodeArtsExecution?(id: string, phase: PhaseNumber, execution: PhaseExecution): void;
+  recordCodeArtsEvent?(id: string, phase: PhaseNumber, event: Omit<AgentEvent, "id" | "timestamp">): void;
   subscribe(id: string, callback: (project: Project) => void): () => void;
   subscribeAll(callback: (projects: Project[]) => void): () => void;
 }

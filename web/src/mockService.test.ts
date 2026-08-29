@@ -45,4 +45,19 @@ describe("MockMigrationService", () => {
 
     expect(persisted.some((item) => item.id === project.id)).toBe(true);
   });
+
+  it("keeps a real AgentTeam phase running until CodeArts returns", () => {
+    const service = new MockMigrationServiceImpl();
+    const project = service.createProject({ name: "真实 AgentTeam", sourceType: "github", sourceValue: "https://github.com/example/real", executionMode: "codearts-agentteam" });
+
+    vi.advanceTimersByTime(6000);
+    expect(service.getProject(project.id)?.phases[0].status).toBe("running");
+    expect(service.getProject(project.id)?.phases[0].events).toHaveLength(1);
+
+    service.recordCodeArtsExecution(project.id, 1, { mode: "codearts-agentteam", status: "succeeded", sessionId: "ses_real", response: "真实构建完成" });
+    const updated = service.getProject(project.id);
+    expect(updated?.phases[0].status).toBe("review_required");
+    expect(updated?.phases[0].execution?.sessionId).toBe("ses_real");
+    expect(updated?.phases[0].events.some((event) => event.message.includes("真实会话结果"))).toBe(true);
+  });
 });

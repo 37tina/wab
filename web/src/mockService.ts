@@ -6,6 +6,7 @@ import type {
   Feature,
   MigrationService,
   Phase,
+  PhaseExecution,
   PhaseNumber,
   Project,
   ProjectInput,
@@ -119,6 +120,7 @@ function phase(number: PhaseNumber, status: Phase["status"] = "pending"): Phase 
     revision: 1,
     events: [],
     artifacts,
+    execution: { mode: "demo", status: "idle" },
     emulator: number === 2 ? emulator("android", "offline") : number === 4 ? emulator("harmony", "offline") : undefined
   };
 }
@@ -135,6 +137,7 @@ function baseProject(input: ProjectInput, demo = false): Project {
     createdAt,
     updatedAt: createdAt,
     demo,
+    executionMode: input.executionMode ?? "demo",
     features: features.map((item) => ({ ...item })),
     phases
   };
@@ -197,18 +200,56 @@ export class MockMigrationServiceImpl implements MigrationService {
     const target = project?.phases.find((item) => item.number === number);
     if (!project || !target || this.timers.has(`${id}-${number}`)) return;
     target.status = "running";
+    const isReal = project.executionMode === "codearts-agentteam" && !project.demo;
+    target.execution = { mode: isReal ? "codearts-agentteam" : "demo", status: isReal ? "starting" : "running", startedAt: now() };
     target.paused = false;
     target.progress = 0;
     target.review = undefined;
-    if (number === 2 && target.emulator) target.emulator = { ...target.emulator, status: "live", currentStep: "启动 Android 模拟器" };
-    if (number === 4 && target.emulator) target.emulator = { ...target.emulator, status: "live", currentStep: "启动 HarmonyOS 模拟器" };
+    if (number === 2 && target.emulator) target.emulator = { ...target.emulator, status: isReal ? "offline" : "live", currentStep: isReal ? "等待真实 Android Runner 接入" : "启动 Android 模拟器" };
+    if (number === 4 && target.emulator) target.emulator = { ...target.emulator, status: isReal ? "offline" : "live", currentStep: isReal ? "等待真实 HarmonyOS Runner 接入" : "启动 HarmonyOS 模拟器" };
     project.status = "running";
     project.currentPhase = number;
     project.updatedAt = now();
-    target.events = [{ id: `${number}-start-${Date.now()}`, agent: "Team Leader", type: "system", message: `开始执行 Phase ${number}`, timestamp: now() }];
+    target.events = [{ id: `${number}-start-${Date.now()}`, agent: isReal ? "CodeArts AgentTeam" : "Team Leader", type: "system", message: isReal ? `已请求 CodeArts Space / AgentTeam 执行 Phase ${number}` : `开始执行 Phase ${number}`, timestamp: now() }];
     this.persist();
     this.emit(project);
-    this.schedule(id, number, 0);
+    if (!isReal) this.schedule(id, number, 0);
+  }
+
+  recordCodeArtsExecution(id: string, number: PhaseNumber, execution: PhaseExecution) {
+    const project = this.projects.find((item) => item.id === id);
+    const target = project?.phases.find((item) => item.number === number);
+    if (!project || !target) return;
+    target.execution = { ...target.execution, ...execution, mode: "codearts-agentteam", response: execution.response?.slice(0, 20000) };
+    if (execution.sessionId) {
+      target.events.push({ id: `${number}-codearts-${Date.now()}`, agent: execution.agent ?? "CodeArts AgentTeam", type: execution.status === "failed" ? "system" : "thinking", message: execution.status === "succeeded" ? "CodeArts AgentTeam 已返回真实推理结果" : execution.error ? `CodeArts AgentTeam 执行失败：${execution.error}` : `CodeArts AgentTeam 会话 ${execution.sessionId} 已启动`, timestamp: now() });
+    }
+    if (execution.status === "succeeded" && execution.response?.trim()) {
+      const preview = execution.response.replace(/\s+/g, " ").slice(0, 240);
+      target.events.push({ id: `${number}-codearts-result-${Date.now()}`, agent: "CodeArts AgentTeam", type: "tool", message: `真实会话结果：${preview}${execution.response.length > 240 ? "…" : ""}`, timestamp: now() });
+    }
+    if (execution.status === "succeeded") {
+      target.status = "review_required";
+      target.progress = 100;
+      project.status = "review";
+      if (target.emulator && target.execution?.mode === "demo") target.emulator.status = "replay";
+    } else if (execution.status === "failed") {
+      target.status = "running";
+      project.status = "running";
+    }
+    project.updatedAt = now();
+    this.persist();
+    this.emit(project);
+  }
+
+  recordCodeArtsEvent(id: string, number: PhaseNumber, event: Omit<AgentEvent, "id" | "timestamp">) {
+    const project = this.projects.find((item) => item.id === id);
+    const target = project?.phases.find((item) => item.number === number);
+    if (!project || !target) return;
+    target.events.push({ ...event, id: `${number}-codearts-event-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, timestamp: now() });
+    project.updatedAt = now();
+    this.persist();
+    this.emit(project);
   }
 
   private schedule(id: string, number: PhaseNumber, index: number) {
