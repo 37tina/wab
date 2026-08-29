@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import type { Artifact, EmulatorFrame, EmulatorStream, Feature, Phase, PhaseNumber, Project, ProjectInput, Review } from "./types";
 import { mockService } from "./mockService";
-import { checkCodeArts, createCodeArtsSession, loadCodeArtsCredentials, promptCodeArtsSession, saveCodeArtsCredentials, waitForCodeArtsResult, type CodeArtsConnection, type CodeArtsCredentials, type CodeArtsMessage } from "./codearts";
+import { checkCodeArts, createCodeArtsSession, loadCodeArtsCredentials, promptCodeArtsSession, saveCodeArtsCredentials, waitForCodeArtsResult, type CodeArtsConnection, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
 
 const statusLabels: Record<Phase["status"], string> = {
   pending: "待执行",
@@ -56,9 +56,11 @@ function useProject(id?: string) {
 
 function App() {
   return (
+    <>
     <Routes>
       <Route element={<LiveAppShell />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/codearts-test" element={<CodeArtsTestPage />} />
         <Route path="/projects/new" element={<LiveNewProjectPage />} />
         <Route path="/projects/:id" element={<LiveProjectPage />} />
         <Route path="/projects/:id/report" element={<ReportPage />} />
@@ -66,6 +68,8 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
+    <Link to="/codearts-test" className="global-codearts-test-link">⌁ CodeArts 实测</Link>
+    </>
   );
 }
 
@@ -119,6 +123,109 @@ function LiveAppShell() {
   useEffect(() => { checkCodeArts(loadCodeArtsCredentials()).then(setConnection); }, []);
   const active = projects.find((project) => project.status === "running" || project.status === "review");
   return <div className="app-shell"><aside className="sidebar"><Link className="brand" to="/"><span className="brand-mark">脱</span><span><strong>脱胎换骨</strong><small>国产化迁移工作台</small></span></Link><div className="workspace-label">WORKSPACE <span className="live-dot" /></div><nav className="main-nav"><NavLink to="/" end className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}><span>◈</span>项目总览</NavLink><NavLink to="/projects/new" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}><span>＋</span>新建迁移</NavLink>{active && <NavLink to={`/projects/${active.id}`} className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}><span>▣</span>当前工作台</NavLink>}</nav><div className="sidebar-section-title">最近项目</div><div className="recent-projects">{projects.slice(0, 4).map((project) => <Link key={project.id} to={`/projects/${project.id}`} className="recent-project"><span className={`project-dot ${project.status}`} /><span><b>{project.name}</b><small>{project.source.type === "github" ? "GitHub 源码" : "ZIP 源码"}</small></span></Link>)}</div><div className="sidebar-footer"><button className="environment-card environment-button" onClick={() => setCodeArtsOpen(true)}><span className={`pulse-icon ${connection?.connected ? "connected" : ""}`}>✦</span><div><b>{connection?.connected ? "CodeArts Agent" : "CodeArts 未连接"}</b><small>{connection?.connected ? "本地桥接 · 已连接" : "点击配置本地服务"}</small></div><span className={`online-pill ${connection?.connected ? "connected" : ""}`}>{connection?.connected ? "在线" : "配置"}</span></button><div className="user-chip"><span className="avatar">审</span><span><b>当前审核员</b><small>Local Workspace</small></span></div></div></aside><main className="main-content"><div className={`demo-banner ${connection?.connected ? "live-banner" : ""}`}><span>✦</span>{connection?.connected ? "真实执行模式 · CodeArts Space / AgentTeam" : "CodeArts Agent 未连接 · 新任务将无法启动真实推理"}<span className="banner-link" onClick={() => setCodeArtsOpen(true)}>{connection?.connected ? "查看连接状态 →" : "连接 CodeArts →"}</span></div><div className="page-content"><Outlet /></div></main>{codeArtsOpen && <CodeArtsConnectDialog initial={loadCodeArtsCredentials()} onClose={() => setCodeArtsOpen(false)} onConnected={(value) => { setConnection(value); setCodeArtsOpen(false); }} />}</div>;
+}
+
+function CodeArtsTestPage() {
+  const [credentials, setCredentials] = useState<CodeArtsCredentials>(() => loadCodeArtsCredentials());
+  const [instruction, setInstruction] = useState("请回复 CODEARTS_CONNECTION_OK，并用一句话说明你当前使用的执行模式。不要修改任何文件。");
+  const [status, setStatus] = useState<"idle" | "checking" | "running" | "succeeded" | "failed">("idle");
+  const [health, setHealth] = useState<CodeArtsConnection | null>(null);
+  const [session, setSession] = useState<CodeArtsRunResult | null>(null);
+  const [result, setResult] = useState<CodeArtsRunResult | null>(null);
+  const [messages, setMessages] = useState<CodeArtsMessage[]>([]);
+  const [error, setError] = useState("");
+  const [startedAt, setStartedAt] = useState<string | null>(null);
+  const [elapsed, setElapsed] = useState<number | null>(null);
+  const runningRef = useRef(false);
+
+  const runTest = async () => {
+    if (runningRef.current || !instruction.trim()) return;
+    runningRef.current = true;
+    const started = Date.now();
+    setStartedAt(new Date(started).toISOString());
+    setElapsed(null);
+    setError("");
+    setHealth(null);
+    setSession(null);
+    setResult(null);
+    setMessages([]);
+    setStatus("checking");
+    try {
+      const checked = await checkCodeArts(credentials);
+      setHealth(checked);
+      if (!checked.connected) {
+        setStatus("failed");
+        setError(checked.message);
+        return;
+      }
+      saveCodeArtsCredentials(credentials);
+      setStatus("running");
+      const created = await createCodeArtsSession(`脱胎换骨 · 临时连接测试 · ${new Date(started).toLocaleTimeString("zh-CN")}`, credentials);
+      setSession(created);
+      if (!created.accepted || !created.session?.id) {
+        setStatus("failed");
+        setError(created.message);
+        return;
+      }
+      const submitted = await promptCodeArtsSession(created.session.id, instruction.trim(), credentials, { agent: "team-leader", mode: "agent-team" });
+      if (!submitted.accepted) {
+        setResult(submitted);
+        setStatus("failed");
+        setError(submitted.message);
+        return;
+      }
+      const resolved = submitted.pending
+        ? await waitForCodeArtsResult(created.session.id, submitted.messageId, credentials, {
+            timeoutMs: 120000,
+            pollMs: 1200,
+            onUpdate: (message) => setMessages((current) => {
+              const key = message.info?.id;
+              if (key && current.some((item) => item.info?.id === key)) return current;
+              return [...current, message];
+            }),
+          })
+        : submitted;
+      setResult(resolved);
+      setStatus(resolved.accepted ? "succeeded" : "failed");
+      if (!resolved.accepted) setError(resolved.message);
+    } catch (caught) {
+      setStatus("failed");
+      setError(caught instanceof Error ? caught.message : "CodeArts 测试请求失败");
+    } finally {
+      setElapsed(Date.now() - started);
+      runningRef.current = false;
+    }
+  };
+
+  const responseText = typeof result?.response === "string" ? result.response : result?.response ? JSON.stringify(result.response, null, 2) : "";
+  const statusLabel = status === "idle" ? "尚未测试" : status === "checking" ? "健康检查中" : status === "running" ? "真实推理中" : status === "succeeded" ? "测试通过" : "测试失败";
+  return <div className="codearts-test-page">
+    <div className="page-heading"><div><p className="eyebrow">TEMPORARY DIAGNOSTICS / REAL REQUEST</p><h1>CodeArts 实测</h1><p className="heading-subtitle">输入一条指令，直接验证本机 CodeArts AgentTeam 是否真的返回了 AI 结果。</p></div><Link to="/" className="ghost-button">← 返回项目总览</Link></div>
+    <div className="codearts-test-grid">
+      <section className="codearts-test-form">
+        <div className="card-title-row"><div><span className="section-index">LIVE</span><h2>发送真实测试指令</h2></div><span className={`test-status-pill ${status}`}>{statusLabel}</span></div>
+        <div className="codearts-test-warning"><strong>这不是 Mock 测试</strong><span>点击后会调用本地 AgentKernel，创建独立测试会话，并发送 AgentTeam 请求。不会读取或修改迁移项目。</span></div>
+        <label className="field-label">CodeArts 用户名<input value={credentials.username} onChange={(event) => setCredentials({ ...credentials, username: event.target.value })} placeholder="codearts" /></label>
+        <label className="field-label">本地服务密码（可选）<input type="password" value={credentials.password} onChange={(event) => setCredentials({ ...credentials, password: event.target.value })} placeholder="留空则使用本机 Agent 凭据" /></label>
+        <label className="field-label">发送给 AgentTeam 的指令<textarea value={instruction} onChange={(event) => setInstruction(event.target.value)} rows={6} placeholder="输入你希望 CodeArts 回答的内容" /></label>
+        <button className="primary-button wide codearts-test-submit" onClick={runTest} disabled={status === "checking" || status === "running" || !instruction.trim()}>{status === "checking" ? "检查 CodeArts 服务…" : status === "running" ? "等待 CodeArts AI 回复…" : "发送并获取真实回复"}<span>→</span></button>
+        <p className="form-hint">请求参数固定为 <code>agent: team-leader</code>、<code>mode: agent-team</code>；页面展示的 session/message 均来自接口响应。</p>
+      </section>
+      <section className="codearts-test-evidence">
+        <div className="card-title-row"><div><span className="section-index">EVIDENCE</span><h2>连接与推理证据</h2></div><span className="evidence-live-dot" /></div>
+        <div className="evidence-check-list">
+          <div className={health?.connected ? "evidence-check passed" : "evidence-check"}><span>{health?.connected ? "✓" : "1"}</span><div><b>AgentKernel 健康检查</b><small>{health ? `${health.message} · HTTP ${health.status}` : "尚未请求 /api/codearts/global/health"}</small></div></div>
+          <div className={session?.accepted ? "evidence-check passed" : "evidence-check"}><span>{session?.accepted ? "✓" : "2"}</span><div><b>独立测试会话</b><small>{session?.session?.id ? session.session.id : "尚未创建 /api/codearts/session"}</small></div></div>
+          <div className={result?.messageId ? "evidence-check passed" : "evidence-check"}><span>{result?.messageId ? "✓" : "3"}</span><div><b>AgentTeam 异步请求</b><small>{result?.messageId ? `messageID ${result.messageId}` : "尚未发送 prompt_async"}</small></div></div>
+          <div className={status === "succeeded" ? "evidence-check passed" : "evidence-check"}><span>{status === "succeeded" ? "✓" : "4"}</span><div><b>AI 回复</b><small>{messages.length ? `已收到 ${messages.length} 条会话消息` : "等待 CodeArts 返回 assistant message"}</small></div></div>
+        </div>
+        {(error || result?.message) && status === "failed" && <div className="codearts-test-error">{error || result?.message}</div>}
+        {responseText && <div className="codearts-response"><div className="response-heading"><span>CODEARTS RESPONSE</span><small>真实 assistant 输出</small></div><pre>{responseText}</pre></div>}
+        {!responseText && status === "running" && <div className="codearts-response waiting"><div className="response-heading"><span>WAITING FOR ASSISTANT</span><small>正在轮询真实会话消息</small></div><div className="test-loader"><i /><i /><i /></div></div>}
+        <div className="codearts-test-meta"><span>模式 <b>CodeArts Space / AgentTeam</b></span><span>Agent <b>team-leader</b></span><span>耗时 <b>{elapsed === null ? "—" : `${(elapsed / 1000).toFixed(1)}s`}</b></span>{startedAt && <span>开始 <b>{formatTime(startedAt)}</b></span>}</div>
+      </section>
+    </div>
+  </div>;
 }
 
 function HomePage() {
