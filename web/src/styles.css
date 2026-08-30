@@ -611,6 +611,79 @@ a.task-row:hover { background: #f7faff; }
 .runner-placeholder p { margin: 8px 0 0; color: var(--text-2); font-size: 13px; line-height: 1.6; }
 .runner-placeholder .emulator-card { margin: 0; }
 
+/* Design tokens from the current visual specification. Keep the shell light,
+   use elevation only for primary surfaces, and leave dense data rows flat. */
+:root {
+  --card-padding: 24px;
+  --card-gap: 16px;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  --button-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+  --nav-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+  --modal-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+}
+
+/* Card surfaces */
+.stat-card, .task-table, .overview-strip, .phase-rail, .side-panel,
+.timeline-panel, .run-controls, .intake-card, .aside-card, .analysis-card,
+.data-table-card, .test-run-card, .codebase-card, .agent-team-card,
+.difference-card, .report-table-card, .delivery-hero, .delivery-artifact,
+.real-evidence-card, .runner-placeholder, .dual-emulators, .summary-copy,
+.trace-card, .review-bar, .report-hero, .delivery-ready {
+  box-shadow: var(--card-shadow);
+}
+.intake-card, .aside-card, .analysis-card, .data-table-card, .test-run-card,
+.codebase-card, .agent-team-card, .difference-card, .report-table-card,
+.delivery-hero, .real-evidence-card, .runner-placeholder, .dual-emulators,
+.summary-copy, .review-bar, .report-hero, .delivery-ready {
+  padding: var(--card-padding);
+}
+.stat-card { padding: var(--card-padding); }
+.delivery-artifact { padding: var(--card-padding); }
+.side-panel, .timeline-panel, .run-controls { padding: var(--card-padding); }
+.workspace-left, .workspace-right, .intake-aside { gap: var(--card-gap); }
+.project-list { gap: var(--card-gap); }
+
+/* Actions */
+.primary-button, .ghost-button {
+  min-height: 44px;
+  height: auto;
+  padding: 12px 24px;
+  margin: 8px 0;
+  box-shadow: var(--button-shadow);
+}
+.primary-button.small, .ghost-button.small {
+  min-height: 36px;
+  padding: 10px 18px;
+  margin: 4px 0;
+}
+.icon-button, .outline-button {
+  min-height: 36px;
+  height: auto;
+  padding: 10px 18px;
+  box-shadow: var(--button-shadow);
+}
+.outline-button { margin-top: 12px; }
+.codearts-run-button { box-shadow: var(--button-shadow); }
+
+/* Top navigation */
+.topnav {
+  padding: 0 16px;
+  box-shadow: var(--nav-shadow);
+}
+.topnav a {
+  padding: 16px 0;
+  margin: 0 16px;
+}
+
+/* Dialog surface */
+.modal-backdrop { padding: 24px; }
+.review-dialog {
+  margin: 24px;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: var(--modal-shadow);
+}
+
 .test-loader { display: flex; gap: 6px; padding: 20px 13px; }
 .test-loader i { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); animation: pulse 1s infinite; }
 .test-loader i:nth-child(2) { animation-delay: .15s; }
@@ -644,3 +717,337 @@ a.task-row:hover { background: #f7faff; }
 .dialog-response { max-height: 220px; margin-top: 12px; }
 .codearts-dialog .test-loader { padding: 14px 0; }
 .codearts-dialog .codearts-test-warning { margin: 14px 0 14px; }
+
+/* ===== 比赛展示优化：证据优先、减少卡片层级 ===== */
+body { min-width: 320px; line-height: 1.5; }
+.page-content { padding-top: 30px; }
+.heading-subtitle { font-size: 15px; line-height: 1.65; }
+.eyebrow, .card-label, .section-index, .required-note { font-size: 13px; }
+
+/* 首页首屏只保留一个有层次的主视觉，其余信息回到平面列表。 */
+.home-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr); gap: 34px; min-height: 270px; margin-bottom: 28px; padding: 34px 38px; overflow: hidden; border: 1px solid #cbdcf5; border-radius: 16px; background: linear-gradient(118deg, #eaf3ff 0%, #ffffff 58%, #f4f9ff 100%); }
+.home-hero::before { position: absolute; top: 0; left: 38px; width: 76px; height: 3px; background: linear-gradient(90deg, #c82333 0 28%, var(--brand) 28% 100%); content: ""; }
+.home-hero::after { position: absolute; right: -90px; bottom: -130px; width: 330px; height: 330px; border: 1px solid rgba(43, 124, 246, .15); border-radius: 50%; content: ""; }
+.hero-copy, .hero-flow { position: relative; z-index: 1; }
+.hero-copy { max-width: 620px; }
+.hero-copy h1 { margin: 7px 0 12px; color: #13233d; font-size: 30px; letter-spacing: -.02em; }
+.hero-copy > p:not(.eyebrow) { max-width: 580px; margin: 0; color: #34445b; font-size: 16px; line-height: 1.75; }
+.hero-actions { display: flex; align-items: center; gap: 18px; margin-top: 22px; }
+.hero-actions .primary-button { margin: 0; }
+.hero-text-link { color: var(--brand-deep); font-size: 14px; }
+.hero-text-link span { margin-left: 5px; }
+.hero-proof { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 27px; color: #53647a; font-size: 13px; }
+.hero-proof span { display: inline-flex; align-items: baseline; gap: 5px; }
+.hero-proof b { color: #1f6ae0; font-size: 19px; font-weight: 650; }
+.hero-flow { display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 20px 24px; border-left: 1px solid #d8e5f7; }
+.flow-caption { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; color: #53647a; font-size: 13px; font-weight: 600; }
+.flow-caption code { color: #7890ad; font-size: 10px; letter-spacing: .06em; }
+.flow-track { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 10px; }
+.flow-node { min-width: 0; padding: 16px 12px 14px; border: 1px solid #d4dfef; border-radius: 10px; background: rgba(255, 255, 255, .88); }
+.flow-node > span { display: block; margin-bottom: 10px; color: var(--brand); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.flow-node b, .flow-node small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.flow-node b { color: #1a2c46; font-size: 14px; }
+.flow-node small { margin-top: 4px; color: #6c7d92; font-size: 12px; }
+.flow-node.agent { border-color: #9fc5fa; background: #f4f8ff; }
+.flow-node.agent > span { color: #174fae; }
+.flow-node.target > span { color: #2f9e44; }
+.flow-arrow { color: #7e9bc2; font-size: 22px; font-style: normal; }
+.flow-foot { display: flex; align-items: center; gap: 7px; margin-top: 24px; color: #53647a; font-size: 12px; }
+.flow-foot .live-dot { width: 7px; height: 7px; }
+.home-section-heading { display: flex; align-items: flex-end; justify-content: space-between; margin: 0 0 10px; }
+.home-section-heading .eyebrow { margin-bottom: 3px; }
+.home-section-heading h2 { margin: 0; font-size: 19px; }
+.home-section-heading > span { color: var(--text-3); font-size: 13px; }
+
+/* 指标只承担阅读作用，不再重复成为四张浮起的卡片。 */
+.stats-grid { gap: 0; margin-bottom: 27px; padding: 8px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat-card { min-height: 78px; padding: 14px 22px; border: 0; border-right: 1px solid var(--line); border-radius: 0; background: transparent; box-shadow: none; }
+.stat-card:first-child { padding-left: 0; }
+.stat-card:last-child { border-right: 0; }
+.stat-card p { margin-bottom: 5px; color: var(--text-3); font-size: 13px; }
+.stat-value { font-size: 26px; }
+
+/* 取消嵌套面板的统一投影，只有主视觉、对话框和当前审核门禁使用阴影。 */
+.stat-card, .task-table, .overview-strip, .phase-rail, .side-panel, .timeline-panel, .run-controls,
+.intake-card, .aside-card, .aside-tip, .analysis-card, .data-table-card, .test-run-card, .codebase-card,
+.agent-team-card, .difference-card, .report-table-card, .delivery-hero, .delivery-artifact, .real-evidence-card,
+.runner-placeholder, .dual-emulators, .summary-copy, .trace-card, .report-hero, .delivery-ready { box-shadow: none; }
+.home-hero, .review-dialog { box-shadow: 0 8px 24px rgba(31, 83, 148, .10); }
+.real-evidence-card { border-left: 3px solid var(--brand); }
+.timeline-panel, .run-controls { border-radius: 8px; }
+.analysis-card, .data-table-card, .test-run-card, .codebase-card, .agent-team-card, .difference-card, .report-table-card, .delivery-artifact { border-radius: 8px; }
+.task-table, .overview-strip, .phase-rail, .summary-copy, .report-hero, .delivery-hero { border-radius: 8px; }
+
+/* 工作台证据带：把“真实/演示、会话、事件、产物”放到同一条视线中。 */
+.evidence-ribbon { display: grid; grid-template-columns: minmax(230px, 1fr) auto minmax(220px, auto); align-items: center; gap: 18px; min-height: 64px; margin: 0 0 18px; padding: 11px 18px; border: 1px solid #d7e2f2; border-left: 4px solid var(--brand); border-radius: 8px; background: #fff; }
+.evidence-ribbon.is-real { border-left-color: var(--green); }
+.evidence-ribbon-main { display: flex; align-items: center; gap: 10px; }
+.evidence-ribbon-dot { width: 9px; height: 9px; flex: 0 0 auto; border-radius: 50%; background: var(--orange); }
+.is-real .evidence-ribbon-dot { background: var(--green); box-shadow: 0 0 0 4px var(--green-bg); }
+.evidence-ribbon-main b, .evidence-ribbon-main span { display: block; }
+.evidence-ribbon-main b { color: var(--text); font-size: 14px; }
+.evidence-ribbon-main span { margin-top: 2px; color: var(--text-3); font-size: 12px; }
+.evidence-ribbon-items { display: flex; align-items: center; gap: 18px; color: var(--text-3); font-size: 12px; white-space: nowrap; }
+.evidence-ribbon-items b { margin-right: 3px; color: var(--text); font-size: 15px; }
+.evidence-ribbon-note { color: var(--text-3); font-size: 12px; text-align: right; }
+
+/* 把人工审核提升为当前阶段的固定门禁。 */
+.review-bar { position: sticky; bottom: 14px; z-index: 4; margin-top: 18px; border-left: 4px solid var(--brand); border-radius: 8px; background: #f5f9ff; box-shadow: 0 4px 14px rgba(31, 83, 148, .12); }
+.review-bar b { font-size: 15px; }
+.review-actions .primary-button { margin: 0; }
+.phase-header h2 { font-size: 19px; }
+.phase-header p:last-child { font-size: 14px; line-height: 1.6; }
+.timeline-event p, .test-item small, .difference-row p { font-size: 14px; line-height: 1.55; }
+.task-row, .table-row { font-size: 14px; }
+
+/* 动态内容的可读焦点和状态，不只依赖颜色。 */
+.timeline-panel:focus-within, .emulator-card:focus-within { outline: 2px solid rgba(43, 124, 246, .35); outline-offset: 2px; }
+.primary-button:focus-visible, .ghost-button:focus-visible, .icon-button:focus-visible, .topnav a:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+@media (max-width: 1120px) {
+  .home-hero { grid-template-columns: 1fr; gap: 22px; }
+  .hero-flow { padding: 18px 0 0; border-top: 1px solid #d8e5f7; border-left: 0; }
+  .workspace-grid { grid-template-columns: minmax(0, 1fr) 280px; gap: 14px; }
+  .evidence-ribbon { grid-template-columns: 1fr auto; }
+  .evidence-ribbon-note { grid-column: 1 / -1; text-align: left; }
+}
+@media (max-width: 760px) {
+  .topbar { height: auto; min-height: 56px; flex-wrap: wrap; gap: 10px 16px; padding: 10px 18px; }
+  .topnav { order: 3; width: 100%; height: 38px; overflow-x: auto; }
+  .topnav a { margin: 0 10px; padding: 8px 0; white-space: nowrap; }
+  .topbar-right { margin-left: auto; }
+  .page-content { padding: 20px 16px 38px; }
+  .hero-copy h1 { font-size: 25px; }
+  .home-hero { padding: 26px 22px; }
+  .flow-track { grid-template-columns: 1fr; gap: 7px; }
+  .flow-arrow { transform: rotate(90deg); justify-self: center; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card:nth-child(2) { border-right: 0; }
+  .stat-card:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .stat-card:first-child { padding-left: 0; }
+  .evidence-ribbon, .workspace-grid { grid-template-columns: 1fr; }
+  .evidence-ribbon-items { gap: 12px; flex-wrap: wrap; }
+  .evidence-ribbon-note { grid-column: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* ===== Huawei Cloud visual language =====
+   Extracted from the public CodeArts page: HuaweiSans/Helvetica typography,
+   white canvas, Huawei red brand action, near-black headings, cool gray rules,
+   and restrained 1px/4px elevation. Keep red for identity and primary intent;
+   reserve green/amber for execution states. */
+:root {
+  --bg: #f5f5f6;
+  --card: #ffffff;
+  --line: #dfe1e6;
+  --line-strong: #b9bec8;
+  --text: #252b3a;
+  --text-2: #575d6c;
+  --text-3: #8a8e99;
+  --brand: #c7000b;
+  --brand-deep: #a80712;
+  --brand-bg: #fff4f4;
+  --brand-line: #f0c7ca;
+  --violet: #526ecc;
+  --violet-bg: #eef0fc;
+  --mono: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+  font-family: "HuaweiSans", "Frutiger", "Helvetica Neue", "Helvetica", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+}
+
+.topbar { height: 72px; padding: 0 36px; gap: 30px; background: rgba(255, 255, 255, .98); backdrop-filter: none; }
+.brand { gap: 11px; }
+.brand-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--brand); font-size: 16px; }
+.brand strong { color: #191919; font-size: 16px; letter-spacing: .02em; }
+.topnav { gap: 2px; padding: 0; box-shadow: none; }
+.topnav a { margin: 0 16px; padding: 16px 0; color: #191919; }
+.topnav a.active { color: var(--brand); }
+.topnav a.active::after { right: 0; left: 0; height: 2px; border-radius: 0; background: var(--brand); }
+.env-pill { height: 32px; border-radius: 2px; }
+.env-pill:hover { color: var(--brand); border-color: var(--brand); }
+.avatar { border-radius: 2px; color: var(--brand); background: var(--brand-bg); }
+.demo-banner { color: #7f1d24; border-bottom-color: var(--brand-line); background: var(--brand-bg); }
+.demo-banner.live-banner { color: #2f7d3a; border-bottom-color: #cdeebd; background: #f4fbef; }
+.banner-link { color: var(--brand); }
+.live-banner .banner-link { color: var(--green-deep); }
+
+.primary-button { background: #191919; border-radius: 2px; }
+.primary-button:hover { background: #000; }
+.ghost-button { color: #191919; border-color: #252b3a; border-radius: 2px; }
+.ghost-button:hover, .icon-button:hover, .outline-button:hover { color: var(--brand); border-color: var(--brand); }
+.codearts-run-button { color: #191919; border-color: #252b3a; border-radius: 2px; }
+.codearts-run-button:hover:not(:disabled) { color: #fff; border-color: #191919; background: #191919; }
+.toggle { border-radius: 2px; }
+.toggle.active { color: var(--brand); border-color: var(--brand); background: var(--brand-bg); }
+.mode-option { border-radius: 2px; }
+.mode-option.active { border-color: var(--brand); background: var(--brand-bg); }
+.mode-option.active strong { color: var(--brand-deep); }
+
+.home-hero { margin: -30px -28px 28px; padding: 52px 38px 44px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: #fff; box-shadow: none; }
+.home-hero::before { left: 38px; width: 62px; height: 3px; background: var(--brand); }
+.home-hero::after { right: 4%; bottom: -170px; border-color: rgba(199, 0, 11, .08); }
+.hero-copy h1 { color: #191919; font-size: 32px; font-weight: 700; }
+.hero-copy > p:not(.eyebrow) { color: #3f4652; }
+.hero-proof b { color: var(--brand); }
+.hero-text-link { color: var(--brand); }
+.hero-flow { border-left-color: var(--line); }
+.flow-caption { color: #252b3a; }
+.flow-caption code { color: var(--text-3); }
+.flow-node { border-color: var(--line); border-radius: 2px; box-shadow: 0 1px 4px 0 rgba(128, 132, 145, .12); }
+.flow-node.agent { border-color: #e3aeb2; background: var(--brand-bg); }
+.flow-node.agent > span { color: var(--brand); }
+.flow-node.target > span { color: var(--green-deep); }
+.flow-arrow { color: #9098a5; }
+.home-section-heading h2 { color: #191919; }
+
+.stat-card { border-radius: 0; }
+.task-table, .overview-strip, .phase-rail, .timeline-panel, .run-controls, .intake-card, .aside-card, .aside-tip,
+.analysis-card, .data-table-card, .test-run-card, .codebase-card, .agent-team-card, .difference-card, .report-table-card,
+.delivery-hero, .delivery-artifact, .real-evidence-card, .runner-placeholder, .dual-emulators, .summary-copy,
+.trace-card, .report-hero, .delivery-ready, .evidence-ribbon { border-radius: 2px; }
+.task-table, .overview-strip, .phase-rail, .timeline-panel, .run-controls, .intake-card, .aside-card, .aside-tip,
+.analysis-card, .data-table-card, .test-run-card, .codebase-card, .agent-team-card, .difference-card, .report-table-card,
+.delivery-hero, .delivery-artifact, .real-evidence-card, .runner-placeholder, .dual-emulators, .summary-copy,
+.trace-card, .report-hero, .delivery-ready, .evidence-ribbon { box-shadow: 0 1px 4px 0 rgba(128, 132, 145, .12); }
+.review-bar { border-radius: 2px; border-left-color: var(--brand); }
+.phase-rail-item.selected { background: var(--brand-bg); }
+.phase-rail-item.selected .phase-number { color: var(--brand); border-color: var(--brand-line); }
+.phase-rail-item.selected .phase-rail-text b { color: var(--brand-deep); }
+.phase-rail-item.status-review .phase-rail-status { color: var(--brand); }
+.phase-number { border-radius: 2px; }
+.status-review { color: var(--brand-deep); background: var(--brand-bg); }
+.project-dot.review { background: var(--brand); }
+.package-icon { color: var(--brand); border-color: var(--brand-line); background: var(--brand-bg); border-radius: 2px; }
+.delivery-artifact:hover { border-color: var(--brand); background: var(--brand-bg); }
+.report-nav a i, .timeline-footer button, .delivery-artifact > i { color: var(--brand); }
+.real-evidence-card { border-left-color: var(--brand); }
+.evidence-ribbon { border-left-color: var(--brand); }
+.evidence-ribbon.is-real { border-left-color: var(--green); }
+
+@media (max-width: 760px) {
+  .topbar { padding: 10px 18px; }
+  .home-hero { margin-right: -16px; margin-left: -16px; padding-right: 22px; padding-left: 22px; }
+  .home-hero::before { left: 22px; }
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .home-hero { margin-right: -20px; margin-left: -20px; padding-right: 28px; padding-left: 28px; }
+  .home-hero::before { left: 28px; }
+}
+
+/* ===== 当前工作台：主内容优先的横向布局 ===== */
+.workspace-grid { grid-template-columns: minmax(0, 1.42fr) minmax(318px, .58fr); gap: 22px; }
+.workspace-center { display: contents; }
+.workspace-center > .phase-content { grid-column: 1; min-width: 0; }
+.workspace-center > .review-bar { grid-column: 1 / -1; width: 100%; }
+.workspace-right { position: sticky; top: 104px; grid-column: 2; grid-row: 1; min-width: 0; gap: 14px; }
+.workspace-right .timeline-panel, .workspace-right .run-controls { width: 100%; }
+.timeline-list { max-height: 390px; }
+.workspace-title { margin-bottom: 13px; }
+.overview-strip, .phase-rail, .evidence-ribbon { margin-bottom: 14px; }
+.phase-header { margin-bottom: 14px; }
+
+/* Phase 1：分析块高度相近，避免某一列独自留下空白。 */
+.analysis-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.analysis-card { min-height: 178px; }
+.data-table-card { margin-top: 12px; }
+
+/* Phase 2：模拟器成为主舞台，测试清单作为连续的右侧证据栏。 */
+.execution-layout { grid-template-columns: minmax(390px, 1.15fr) minmax(280px, .85fr); gap: 16px; align-items: stretch; }
+.execution-layout > .emulator-card { display: flex; flex-direction: column; min-height: 488px; }
+.execution-layout > .emulator-card .device-frame { max-width: 280px; margin: 23px auto 20px; }
+.execution-layout > .emulator-card .device-screen { min-height: 390px; }
+.execution-layout > .emulator-card .emulator-foot { margin-top: auto; }
+.execution-layout > .test-run-card { min-height: 488px; }
+.test-list { margin-top: 6px; }
+
+/* Phase 3：代码证据和 Agent 团队并排，利用完整横向空间。 */
+.migration-overview { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(270px, .85fr); gap: 14px; align-items: stretch; }
+.migration-overview > .codebase-card, .migration-overview > .agent-team-card { min-width: 0; }
+.migration-overview > .agent-team-card { display: flex; flex-direction: column; }
+.migration-overview > .agent-team-card .agent-quote { margin-top: auto; }
+
+/* Phase 4：双端对照使用更大的设备画面，VS 连接线只占很窄的中轴。 */
+.dual-emulators { padding: 22px; }
+.dual-grid { grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); gap: 12px; }
+.dual-device .emulator-card { width: 100%; }
+.emulator-card.compact .device-frame { max-width: 205px; margin-top: 16px; }
+.emulator-card.compact .device-screen { min-height: 300px; border-radius: 15px; }
+.emulator-card.compact .device-body { padding: 68px 14px 10px; }
+.emulator-card.compact .device-appbar { top: 23px; right: 11px; left: 11px; font-size: 9px; }
+.emulator-card.compact .device-topbar { padding: 7px 10px; font-size: 7px; }
+.emulator-card.compact .device-body h4 { margin-top: 7px; font-size: 16px; }
+.emulator-card.compact .screen-subtitle, .emulator-card.compact .screen-kicker { font-size: 8px; }
+.emulator-card.compact .screen-metric { top: 73px; right: 15px; font-size: 13px; }
+.emulator-card.compact .screen-card { right: 12px; bottom: 52px; left: 12px; padding: 8px; font-size: 8px; }
+.emulator-card.compact .screen-actions { right: 13px; bottom: 31px; left: 13px; }
+.emulator-card.compact .screen-nav { bottom: 9px; }
+.emulator-card.compact .device-home-indicator { bottom: 4px; width: 34px; }
+.emulator-card.compact .emulator-foot { padding: 11px 12px; }
+.emulator-card.compact .emulator-step b { max-width: 150px; font-size: 11px; }
+.emulator-card.compact .emulator-step small { font-size: 9px; }
+.emulator-card.compact .step-index { font-size: 12px; }
+.emulator-card.compact .emulator-controls button { width: 24px; height: 24px; font-size: 9px; }
+
+/* ===== 统一字体层级：页面主信息不再被过多小字切碎 ===== */
+:root { --font-body: 14px; --font-label: 13px; --font-caption: 12px; --font-title: 20px; }
+body { font-size: var(--font-body); line-height: 1.55; }
+h1 { font-size: 24px; line-height: 1.25; }
+h2 { font-size: var(--font-title); line-height: 1.35; }
+h3 { font-size: 16px; line-height: 1.4; }
+p { line-height: 1.6; }
+small { font-size: var(--font-caption); line-height: 1.45; }
+.eyebrow, .card-label, .section-index, .required-note, .muted-value { font-size: var(--font-label); line-height: 1.45; }
+.heading-subtitle, .phase-header p:last-child, .analysis-card p, .summary-copy > p { font-size: 14px; }
+.workspace-title h1 { font-size: 24px; }
+.phase-header h2 { font-size: 20px; }
+.section-heading h2, .home-section-heading h2 { font-size: 18px; }
+.demo-tag, .live-tag, .checksum-label, .secure-label, .count-badge,
+.health-pill, .risk-count, .resolved-pill, .risk-label, .table-status,
+.sync-pill, .event-live, .timeline-footer, .report-stat small, .ready-label,
+.execution-status { font-size: var(--font-caption); }
+.task-name small, .task-time, .phase-rail-text small, .phase-progress span,
+.overview-item b span, .risk-list small, .table-note, .emulator-name small,
+.emulator-step small, .test-item em, .trace-footer, .agent-member small,
+.device-label small, .real-evidence-meta, .delivery-artifact small,
+.delivery-ready small, .aside-tip, .preview-step small, .mode-option small,
+.form-hint, .mock-note, .timeline-empty small, .codearts-message { font-size: var(--font-caption); }
+.phase-rail-text small, .overview-item b span, .emulator-step small,
+.delivery-artifact small, .agent-member small, .preview-step small { line-height: 1.5; }
+.task-name b, .task-row, .table-row, .table-row b, .timeline-event p,
+.test-item small, .difference-row p, .real-waiting, .codearts-message { font-size: 14px; }
+.timeline-event b, .test-item b, .report-nav a, .manifest-row, .control-row { font-size: 13px; }
+.timeline-event small, .timeline-footer code, .trace-card small, .real-evidence-meta code,
+.codearts-test-meta, .execution-status { font-size: 12px; }
+
+@media (max-width: 1180px) {
+  .workspace-grid { grid-template-columns: minmax(0, 1.28fr) minmax(290px, .72fr); gap: 16px; }
+  .execution-layout { grid-template-columns: minmax(330px, 1.05fr) minmax(260px, .95fr); }
+  .migration-overview { grid-template-columns: minmax(0, 1.35fr) minmax(250px, .85fr); }
+}
+@media (max-width: 900px) {
+  .workspace-right { position: static; grid-column: 1; grid-row: 2; }
+  .workspace-grid, .analysis-grid, .execution-layout, .migration-overview { grid-template-columns: 1fr; }
+  .workspace-center > .phase-content { grid-column: 1; grid-row: 1; }
+  .workspace-center > .review-bar { grid-column: 1; grid-row: 3; }
+  .execution-layout > .emulator-card, .execution-layout > .test-run-card { min-height: 0; }
+  .dual-grid { grid-template-columns: 1fr; }
+  .dual-connector { flex-direction: row; justify-content: center; }
+  .dual-connector i { transform: rotate(90deg); }
+}
+
+/* 页面收口：把右侧结束后的空白变成一条轻量的审计信息带。 */
+.workspace-page { padding-bottom: 0; }
+.page-content:has(.workspace-page) { padding-bottom: 16px; }
+.workspace-page + * { margin-top: 0; }
+.workspace-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 42px; margin-top: 12px; padding: 0 2px; border-top: 1px solid var(--line); color: var(--text-3); font-size: 12px; }
+.workspace-footer > span { display: inline-flex; align-items: center; gap: 7px; }
+.workspace-footer > span:first-child { color: var(--text-2); }
+.workspace-footer i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.workspace-footer i.waiting { background: var(--orange); }
+.workspace-footer a { color: var(--brand); }
+@media (max-width: 760px) {
+  .workspace-footer { align-items: flex-start; flex-direction: column; gap: 6px; padding: 10px 0; }
+}
