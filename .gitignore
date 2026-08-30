@@ -1,0 +1,17 @@
+# 依赖
+node_modules/
+
+# 构建产物（部署时手动上传，不入库，避免把构建时注入的环境变量带进仓库）
+dist/
+web/dist/
+
+# 环境变量与密钥
+.env
+.env.*
+!.env.example
+
+# 日志与杂项
+*.log
+coverage/
+.DS_Store
+Thumbs.db

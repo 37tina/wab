@@ -52,6 +52,9 @@ export interface CodeArtsRunResult {
   messageId?: string;
 }
 
+/** deploy: VITE_API_BASE injects cloud backend URL; local dev keeps relative path via Vite bridge */
+const API_BASE: string = (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, "") ?? "";
+
 const STORAGE_KEY = "tuotaihuangu_codearts_connection_v1";
 
 export interface CodeArtsCredentials {
@@ -105,7 +108,7 @@ function errorMessage(data: unknown, fallback: string): string {
 
 export async function checkCodeArts(credentials = loadCodeArtsCredentials()): Promise<CodeArtsConnection> {
   try {
-    const response = await fetch("/api/codearts/global/health", { headers: authHeader(credentials) });
+    const response = await fetch(`${API_BASE}/api/codearts/global/health`, { headers: authHeader(credentials) });
     const data = await readJson(response);
     if (!response.ok) {
       return {
@@ -133,7 +136,7 @@ export async function createCodeArtsSession(
   options: { directory?: string } = {},
 ): Promise<CodeArtsRunResult> {
   try {
-    const response = await fetch("/api/codearts/session", {
+    const response = await fetch(`${API_BASE}/api/codearts/session`, {
       method: "POST",
       headers: { "Content-Type": "application/json", ...authHeader(credentials) },
       body: JSON.stringify({ title, ...(options.directory ? { directory: options.directory } : {}) }),
@@ -163,7 +166,7 @@ export async function promptCodeArtsSession(
 ): Promise<CodeArtsRunResult> {
   const messageId = requestId();
   try {
-    const response = await fetch(`/api/codearts/session/${encodeURIComponent(sessionId)}/prompt_async`, {
+    const response = await fetch(`${API_BASE}/api/codearts/session/${encodeURIComponent(sessionId)}/prompt_async`, {
       method: "POST",
       headers: { "Content-Type": "application/json", ...authHeader(credentials) },
       body: JSON.stringify({
@@ -186,7 +189,7 @@ export async function getCodeArtsMessages(
   sessionId: string,
   credentials = loadCodeArtsCredentials(),
 ): Promise<CodeArtsMessage[]> {
-  const response = await fetch(`/api/codearts/session/${encodeURIComponent(sessionId)}/message?limit=100`, {
+  const response = await fetch(`${API_BASE}/api/codearts/session/${encodeURIComponent(sessionId)}/message?limit=100`, {
     headers: authHeader(credentials),
   });
   const data = await readJson(response);
