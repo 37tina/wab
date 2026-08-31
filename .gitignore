@@ -34,3 +34,4 @@ backend/.mirror-*.json
 # 模拟器/系统临时文件
 *.log
 .DS_Store
+config.json

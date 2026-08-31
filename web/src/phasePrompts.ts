@@ -2,7 +2,10 @@
 // 提示词不复述 skill 内容（避免转述失真），要求 AgentTeam 先用 read 工具读完整 skill 文档
 // 与 Reference map 再按其流程执行；项目相关值（名称/源/工作区）由表单运行时注入。
 
-export const SKILL_ROOT = "/Users/rainyday/Desktop/finale/skill";
+// skill 根目录：由后端 /api/env 注入（App 启动时 setSkillRoot）；默认取 import.meta 相对定位失败时的空串并在工单生成时报警
+let SKILL_ROOT = "";
+export function setSkillRoot(root: string) { if (root) SKILL_ROOT = root; }
+export function getSkillRoot() { return SKILL_ROOT; }
 
 /** 迁移路径套件路由：(source, target) → skill 套件目录（薄壳 4 文件 + _shared 内核） */
 const SUITE_ROUTES: Record<string, { dir: string; form: string; sourceInventory?: string }> = {

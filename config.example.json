@@ -1,0 +1,10 @@
+{
+  "$comment": "复制为 config.json（后端）并按本机环境修改；前端配置经 /api/env 自动注入，无需单独配置",
+  "skillRoot": "<SKILL_ROOT>",
+  "runWorkspace": "<RUN_WORKSPACE>",
+  "hdcBin": "<HDC_BIN>",
+  "adbBin": "<ADB_BIN>",
+  "androidSerial": "emulator-5554",
+  "harmonySerial": "127.0.0.1:5557",
+  "wsScrcpyUrl": "http://localhost:8000"
+}

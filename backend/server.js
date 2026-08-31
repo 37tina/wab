@@ -7,6 +7,23 @@ const gateway = require("./agentGateway");
 const skillGov = require("./skillGovernance");
 
 const PORT = process.env.PORT || 8080;
+
+// ---- 环境配置（可移植化）：MIG_* 环境变量 > 根目录 config.json > 默认占位值 ----
+const HOME = process.env.HOME ?? "";
+function loadEnvConfig() {
+  let fileConfig = {};
+  try { fileConfig = JSON.parse(readFileSync(join(__dirname, "..", "config.json"), "utf8")); } catch { /* 未配置时用默认 */ }
+  return {
+    skillRoot: process.env.MIG_SKILL_ROOT || fileConfig.skillRoot || join(__dirname, "..", "skill"),
+    runWorkspace: process.env.MIG_RUN_WORKSPACE || fileConfig.runWorkspace || join(HOME, "migrate-runs"),
+    hdcBin: process.env.MIG_HDC_BIN || fileConfig.hdcBin || "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+    adbBin: process.env.MIG_ADB_BIN || fileConfig.adbBin || join(HOME, "Library/Android/sdk/platform-tools/adb"),
+    androidSerial: process.env.MIG_ANDROID_SERIAL || fileConfig.androidSerial || "emulator-5554",
+    harmonySerial: process.env.MIG_HARMONY_SERIAL || fileConfig.harmonySerial || "127.0.0.1:5557",
+    wsScrcpyUrl: process.env.MIG_WS_SCRCPY_URL || fileConfig.wsScrcpyUrl || "http://localhost:8000",
+  };
+}
+const ENV_CONFIG = loadEnvConfig();
 const CORS_ORIGIN = process.env.CORS_ORIGIN || "*";
 // 支持多源: 逗号分隔列表, 每项去除尾斜杠归一化; 命中则回显请求 Origin, 否则回落第一个值 (含 "*" 时直接放行)
 const CORS_ORIGINS = CORS_ORIGIN.split(",")
@@ -92,6 +109,16 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Max-Age", "600");
   if (req.method === "OPTIONS") return res.status(204).end();
   next();
+});
+
+app.get("/api/env", (_req, res) => {
+  res.json({
+    skillRoot: ENV_CONFIG.skillRoot,
+    runWorkspace: ENV_CONFIG.runWorkspace,
+    androidSerial: ENV_CONFIG.androidSerial,
+    harmonySerial: ENV_CONFIG.harmonySerial,
+    wsScrcpyUrl: ENV_CONFIG.wsScrcpyUrl,
+  });
 });
 
 app.get("/health", async (req, res) => {
@@ -292,7 +319,7 @@ app.all("/api/codearts/*", async (req, res) => {
 });
 
 // ---- 鸿蒙模拟器实时画面（hdc snapshot 两步抓帧 + 缓存轮询） ----
-const HDC_BIN = "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc";
+const HDC_BIN = ENV_CONFIG.hdcBin;
 const harmonyLatest = new Map(); // serial -> Buffer
 const harmonyLastPoll = new Map();
 function captureHarmonyFrame(serial) {
@@ -445,7 +472,7 @@ function startScreenrecord() {
   if (androidH264.proc) return;
   try {
     const proc = require("node:child_process").spawn(
-      ADB_BIN, ["-s", "emulator-5554", "exec-out",
+      ADB_BIN, ["-s", ENV_CONFIG.androidSerial, "exec-out",
         "screenrecord --size 720x1600 --bit-rate 8000000 --time-limit 180 --output-format=h264 -"],
       { stdio: ["ignore", "pipe", "ignore"] },
     );
@@ -618,7 +645,7 @@ castWss.on("connection", (client, req) => {
 // HDC 反向控制：tap / swipe / text / key
 function hdcRun(args) {
   return new Promise((resolve) => {
-    execFile(HDC_BIN, ["-t", "127.0.0.1:5557", ...args], { timeout: 6000 }, (error, stdout, stderr) => {
+    execFile(HDC_BIN, ["-t", ENV_CONFIG.harmonySerial, ...args], { timeout: 6000 }, (error, stdout, stderr) => {
       resolve({ ok: !error, out: String(stdout || stderr || "").slice(0, 200) });
     });
   });
@@ -627,7 +654,7 @@ function hdcRun(args) {
 
 function adbRun(args) {
   return new Promise((resolve) => {
-    execFile(ADB_BIN, ["-s", "emulator-5554", ...args], { timeout: 6000 }, (error, stdout, stderr) => {
+    execFile(ADB_BIN, ["-s", ENV_CONFIG.androidSerial, ...args], { timeout: 6000 }, (error, stdout, stderr) => {
       resolve({ ok: !error, out: String(stdout || stderr || "").slice(0, 200) });
     });
   });
@@ -803,7 +830,7 @@ app.get("/api/run/recent", (req, res) => {
 
 // ---- Android 模拟器实时画面：MJPEG 广播流（单抓帧循环，多客户端共享，~3fps 只读） ----
 const { execFile } = require("node:child_process");
-const ADB_BIN = join(process.env.HOME ?? "", "Library/Android/sdk/platform-tools/adb");
+const ADB_BIN = ENV_CONFIG.adbBin;
 const castClients = new Map(); // serial -> Set<res>
 const castLatest = new Map(); // serial -> Buffer（最近一帧，新客户端立即出图）
 function castSleep(ms) { return new Promise((resolve) => { setTimeout(resolve, ms); }); }
@@ -929,7 +956,7 @@ app.get("/api/run/anomalies", (req, res) => {
 
 // ---- RUN 真实证据数据 API：overview / phase/:n / file ----
 // 唯一数据来源 = migration-runs 下最新 MIG-* RUN 的产物文件；所有指标实时从文件计算，禁止编造。
-const DEFAULT_RUN_WORKSPACE = "/Users/rainyday/Desktop/finale/migration-runs";
+const DEFAULT_RUN_WORKSPACE = ENV_CONFIG.runWorkspace;
 const { resolve: pathResolve, sep: pathSep, extname: pathExtname } = require("node:path");
 
 function resolveRunRoot(workspace) {

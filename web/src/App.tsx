@@ -6,7 +6,7 @@ import type { EmulatorFrame, EmulatorStream, Feature, Phase, PhaseNumber, Projec
 import { mockService } from "./mockService";
 import { addAgentModel, BUILTIN_MODELS, checkCodeArts, checkWorkspaceDir, createCodeArtsSession, fetchAgentModels, getCodeArtsMessages, fetchSessionSummary, fetchTeamState, flattenModelOptions, isAbsoluteLocalPath, loadCodeArtsCredentials, loadRunModel, loadTestWorkspaceDir, parseRunModel, promptCodeArtsSession, removeAgentModel, saveCodeArtsCredentials, saveRunModel, saveTestWorkspaceDir, updateAgentTarget, waitForCodeArtsResult, createSkillProposal, decideSkillProposal, fetchSkillFile, fetchSkillProposals, fetchSkillTree, type AgentModelInput, type AgentProviderInfo, type AgentTeamState, type SkillProposal, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
 import { agentSourceLabel, agentTargetLabel, useAgentConnection } from "./useAgentConnection";
-import { phasePrompt } from "./phasePrompts";
+import { phasePrompt, setSkillRoot } from "./phasePrompts";
 
 const statusLabels: Record<Phase["status"], string> = {
   pending: "待执行",
@@ -101,6 +101,9 @@ function useProject(id?: string) {
   return project;
 }
 
+declare global {
+  interface Window { __MIG_ENV__?: { skillRoot?: string; androidSerial?: string; harmonySerial?: string; wsScrcpyUrl?: string }; }
+}
 /** 全局错误边界：白屏变为可见错误（投射组件异常不再击穿整页） */
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { error: string | null }> {
   constructor(props: { children: React.ReactNode }) {
@@ -144,6 +147,13 @@ function App() {
 }
 
 function LiveAppShell() {
+  // 环境注入：skill 根目录等由后端 /api/env 提供（可移植化，路径不再硬编码）
+  useEffect(() => {
+    void fetch("/api/env").then((r) => (r.ok ? r.json() : null)).then((env) => {
+      (window as unknown as { __MIG_ENV__?: Record<string, string> }).__MIG_ENV__ = env;
+      if (env?.skillRoot) setSkillRoot(String(env.skillRoot));
+    }).catch(() => {});
+  }, []);
   const [projects, setProjects] = useState<Project[]>(() => mockService.listProjects());
   const [codeArtsOpen, setCodeArtsOpen] = useState(false);
   const [skillGovOpen, setSkillGovOpen] = useState(false);
@@ -1957,11 +1967,11 @@ function ProjectChatWorkspace({ project }: { project: Project }) {
       </div>}
       <PhaseEvidencePanel workspaceDir={project.workspaceDir} phase={selectedPhase} />
       {selectedPhase === 2 && <div className="p2-live-layout">
-        <div className="p2-cast-col"><AndroidCastPanel serial="emulator-5554" /></div>
+        <div className="p2-cast-col"><AndroidCastPanel serial={window.__MIG_ENV__?.androidSerial ?? "emulator-5554"} /></div>
         <div className="p2-activity-col"><LiveActivityPanel workspaceDir={project.workspaceDir} /></div>
       </div>}
       {selectedPhase === 4 && <div className="p4-dual-layout">
-        <div className="p4-cast-col"><AndroidCastPanel serial="emulator-5554" /></div>
+        <div className="p4-cast-col"><AndroidCastPanel serial={window.__MIG_ENV__?.androidSerial ?? "emulator-5554"} /></div>
         <div className="p4-cast-col"><HarmonyCast serial="127.0.0.1:5557" /></div>
         <div className="p4-activity-bar"><LiveActivityPanel workspaceDir={project.workspaceDir} /></div>
       </div>}
