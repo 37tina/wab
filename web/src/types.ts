@@ -89,8 +89,8 @@ export interface PhaseExecution {
   error?: string;
 }
 
-export type SourcePlatform = "android" | "windows" | "legacy-desktop";
-export type TargetPlatform = "harmony-phone" | "harmony-pc" | "vehicle";
+export type SourcePlatform = "android" | "ios" | "web" | "windows" | "macos" | "tablet" | "watch" | "legacy";
+export type TargetPlatform = "harmony-phone" | "harmony-pc" | "harmony-tablet" | "harmony-watch" | "automotive";
 
 export interface Project {
   id: string;

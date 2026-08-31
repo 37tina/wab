@@ -4,11 +4,73 @@
 
 export const SKILL_ROOT = "/Users/rainyday/Desktop/finale/skill";
 
+/** 迁移路径套件路由：(source, target) → skill 套件目录（薄壳 4 文件 + _shared 内核） */
+const SUITE_ROUTES: Record<string, { dir: string; form: string; sourceInventory?: string }> = {
+  "ios>harmony-phone": { dir: "ios-to-harmony-phone", form: "phone", sourceInventory: "inventory-ios.md" },
+  "macos>harmony-pc": { dir: "mac-to-harmony-pc", form: "pc", sourceInventory: "inventory-macos.md" },
+  "web>harmony": { dir: "web-to-harmony", form: "phone" },
+  "windows>harmony-pc": { dir: "windows-to-harmony-pc", form: "pc" },
+  "android>harmony-tablet": { dir: "tablet-to-harmony-tablet", form: "tablet" },
+  "android>harmony-watch": { dir: "watch-to-harmony-watch", form: "watch" },
+  "legacy>automotive": { dir: "legacy-to-automotive", form: "automotive" },
+};
+
+const PHASE_READINGS: Record<number, { shell: string; cores: string[] }> = {
+  1: { shell: "controller.md", cores: ["controller-core.md"] },
+  2: { shell: "inventory.md", cores: ["inventory-core.md"] },
+  3: { shell: "scaffold.md", cores: ["scaffold-core-{form}.md"] },
+  4: { shell: "implementation.md", cores: ["verify-core.md"] },
+};
+
+/** 非 android-phone 路径的通用工单（薄壳体系：skill 是流程主体，工单只做路由与纪律绑定） */
+function suitePrompt(phase: 1 | 2 | 3 | 4, ctx: PhasePromptContext, route: { dir: string; form: string; sourceInventory?: string }): string {
+  const reading = PHASE_READINGS[phase];
+  const cores = reading.cores.map((c) => c.replace("{form}", route.form));
+  const files = [
+    `${SKILL_ROOT}/_shared/00-CONVENTIONS.md`,
+    `${SKILL_ROOT}/${route.dir}/${reading.shell}`,
+    ...cores.map((c) => `${SKILL_ROOT}/_shared/${c}`),
+    ...(phase === 2 && route.sourceInventory ? [`${SKILL_ROOT}/_shared/${route.sourceInventory}`] : []),
+  ];
+  const duty: Record<number, string> = {
+    1: "冻结迁移基线：按 controller 内核产出 scope 冻结件（功能范围/迁移政策/test_seed/双端环境/输入指纹/验收标准），Gate 1 自检后输出冻结完成报告。",
+    2: "源端深度理解：按 inventory 内核九步产出功能语义地图、行为契约（六要素+强断言）、分级验证与运行取证（源端取证可用性以薄壳差异节为准，不可用按其降级策略记 GAP）、对账四态与数据关系，Gate 2 自检后输出盘点报告。",
+    3: "目标端承载：按 scaffold 内核分面搭壳（page/sheet·dialog/container 三规则）+ UI 蓝图四字段 + interface-only 数据契约 + 真实构建/安装/启动冒烟（命令按 CONVENTIONS 双平台表），Gate 3 自检后输出骨架报告。",
+    4: "实现与双端差分：按 verify 内核逐功能实现（原生优先）→ 双端执行同一行为考卷 → 四维机器判分 → DIFF 只修目标端（≤2 轮转人工）→ Gate 4 自检，输出终局汇总（含四维结果与待人工裁决项）。",
+  };
+  const lines = [
+    `你是脱胎换骨迁移系统的迁移控制器（Controller），现在执行项目「${ctx.projectName}」的 Phase ${phase}（${ctx.sourcePlatformLabel} → 鸿蒙目标端）。`,
+    `源项目：${ctx.sourceValue}（${ctx.sourcePlatformLabel}）；工作区目录：${ctx.workspaceDir}/<RUN-ID>（本次 run 的全部产物落此目录，<RUN-ID> 由本次 run 生成并全程沿用）。`,
+    "",
+    "## 第一步：读取完整 Skill（禁止凭记忆执行）",
+    "先用 read 工具完整阅读以下文档（顺序即依赖顺序），严格按其流程执行，不要自行发挥或跳步：",
+  ];
+  for (const f of files) lines.push(`- ${f}`);
+  lines.push(
+    "",
+    "## 本阶段职责",
+    duty[phase],
+    "",
+    "## 执行纪律（controller-core 铁律，任何路径不变）",
+    "- 产物全部由真实脚本/命令生成并如实留痕；禁止手工拼装、禁止编造输出、禁止用演示数据冒充运行结果",
+    "- 证据不可变：旧产物只取代不修改；GAP 必须显式（feature_id + 原因码），禁止静默吞掉",
+    "- 无法执行的环境按薄壳降级策略处理并记 TOOL_GAP/GAP；模型/机器不得自我放行，完成后输出终局汇总并进入 WAITING_HUMAN_REVIEW",
+    "- 工具链路径以 CONVENTIONS 的 Mac/Windows 双平台表为准，本机实际位置先实测再写入环境冻结",
+    "",
+    "## 本机环境（macOS）",
+    "- DevEco/hvigor/hdc：/Applications/DevEco-Studio.app/（详见 CONVENTIONS 双平台表与薄壳环境节）",
+    "- 源端工具链可用性以开工实测为准（不可用如实记 TOOL_ABSENCE 并按薄壳降级策略处理）",
+  );
+  return lines.join("\n");
+}
+
 export interface PhasePromptContext {
   projectName: string;
   sourceValue: string;
   sourcePlatformLabel: string;
   workspaceDir: string;
+  /** 目标端（默认 harmony-phone 保持向后兼容）；与 sourcePlatformLabel 组成路由键 */
+  targetPlatform?: string;
 }
 
 /** 本机环境（四阶段共享，逐字注入每个工单） */
@@ -161,6 +223,14 @@ const DUTY_4 = [
 const DUTY: Record<number, string> = { 1: DUTY_1, 2: DUTY_2, 3: DUTY_3, 4: DUTY_4 };
 
 export function phasePrompt(number: 1 | 2 | 3 | 4, ctx: PhasePromptContext): string {
+  const target = (ctx.targetPlatform ?? "harmony-phone").toLowerCase();
+  const SOURCE_KEYS: Record<string, string> = {
+    "android app": "android", "ios app": "ios", "web 应用": "web", "windows 桌面软件": "windows",
+    "macos 应用": "macos", "android 平板应用": "android", "android wear 应用": "android", "遗留系统": "legacy",
+  };
+  const sourceKey = SOURCE_KEYS[ctx.sourcePlatformLabel.toLowerCase()] ?? (ctx.sourcePlatformLabel.toLowerCase().includes("android") ? "android" : ctx.sourcePlatformLabel.toLowerCase().split(/\s|\(|-/)[0]);
+  const matched = SUITE_ROUTES[`${sourceKey}>${target}`];
+  if (matched) return suitePrompt(number, ctx, matched);
   return [
     header(number, ctx),
     "",

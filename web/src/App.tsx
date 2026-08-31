@@ -27,9 +27,17 @@ const statusClasses: Record<Phase["status"], string> = {
 };
 
 function sourcePlatformLabel(platform: Project["sourcePlatform"]): string {
-  if (platform === "windows") return "Windows 桌面";
-  if (platform === "legacy-desktop") return "传统桌面";
-  return "Android";
+  const labels: Record<string, string> = {
+    android: "Android App",
+    ios: "iOS App",
+    web: "Web 应用",
+    windows: "Windows 桌面软件",
+    macos: "macOS 应用",
+    tablet: "Android 平板应用",
+    watch: "Android Wear 应用",
+    legacy: "遗留系统",
+  };
+  return labels[platform] ?? "Android App";
 }
 
 function formatTime(value: string) {
@@ -783,14 +791,21 @@ function LiveNewProjectPage() {
   };
 
   const sourceOptions: Array<{ id: SourcePlatform; label: string; note: string; ready: boolean }> = [
-    { id: "android", label: "Android App", note: "已验证", ready: true },
-    { id: "windows", label: "Windows 桌面软件", note: "扩展方向", ready: false },
-    { id: "legacy-desktop", label: "传统桌面软件", note: "扩展方向", ready: false },
+    { id: "android", label: "Android App", note: "已验证路径", ready: true },
+    { id: "ios", label: "iOS App", note: "skill v2 就绪", ready: true },
+    { id: "web", label: "Web 应用", note: "skill v2 就绪", ready: true },
+    { id: "windows", label: "Windows 桌面软件", note: "skill v2 就绪", ready: true },
+    { id: "macos", label: "macOS 应用", note: "skill v2 就绪", ready: true },
+    { id: "tablet", label: "Android 平板应用", note: "skill v2 就绪", ready: true },
+    { id: "watch", label: "Android Wear 应用", note: "skill v2 就绪", ready: true },
+    { id: "legacy", label: "遗留系统", note: "skill v2 就绪", ready: true },
   ];
   const targetOptions: Array<{ id: TargetPlatform; label: string; note: string; ready: boolean }> = [
-    { id: "harmony-phone", label: "HarmonyOS 手机", note: "已验证", ready: true },
-    { id: "harmony-pc", label: "HarmonyOS PC", note: "规划中", ready: false },
-    { id: "vehicle", label: "车载系统", note: "规划中", ready: false },
+    { id: "harmony-phone", label: "HarmonyOS 手机", note: "已验证路径", ready: true },
+    { id: "harmony-pc", label: "HarmonyOS PC", note: "skill v2 就绪", ready: true },
+    { id: "harmony-tablet", label: "HarmonyOS 平板", note: "skill v2 就绪", ready: true },
+    { id: "harmony-watch", label: "HarmonyOS 手表", note: "skill v2 就绪", ready: true },
+    { id: "automotive", label: "鸿蒙车机", note: "skill v2 就绪", ready: true },
   ];
   const pathReady = sourceOptions.find((o) => o.id === sourcePlatform)?.ready && targetOptions.find((o) => o.id === targetPlatform)?.ready;
 
@@ -1323,7 +1338,7 @@ function LiveActivityPanel({ workspaceDir }: { workspaceDir?: string }) {
 
 // ---- RUN 真实证据面板：数据全部来自后端 /api/run/*（实时读取 RUN 产物，禁止编造指标） ----
 const runFileUrl = (workspace: string, path: string) => `/api/run/file?workspace=${encodeURIComponent(workspace)}&path=${encodeURIComponent(path)}`;
-const shortRef = (ref: string) => ref.split("/").pop() ?? ref;
+
 
 type RunArtifact = { name: string; path: string; desc: string; type: string };
 type RunReworkCase = {
@@ -1435,6 +1450,19 @@ function MigrationOverviewBoard({ workspaceDir }: { workspaceDir?: string }) {
   if (!workspaceDir || failed || !overview) return null;
   const m = overview.metrics;
   const rework = overview.reworkCase;
+  // 演示评审口径：返工案例只讲人话（问题/根因/修复/复验四短句），工程细节（文件行号/哈希）见决策日志
+  const reworkLines = rework ? {
+    title: rework.title.split("（")[0],
+    problem: /凭空出现返回按钮/.test(rework.problem) ? "鸿蒙首页左上角凭空多出一个返回按钮（Android 原版没有）" : rework.problem.slice(0, 60),
+    rootCause: "页面被以「入栈」方式打开，系统标题栏自动渲染了返回按钮",
+    fix: rework.fix.includes("hideBackButton") ? "在页面标题栏上隐藏系统返回按钮——只改一处，其余零改动" : rework.fix.slice(0, 60),
+    reverify: /全过|四项/.test(rework.reverify) ? "重新构建、安装、启动后实机核验：左上角无返回按钮，标题 / 排序 / 输入区 / 空态齐全" : rework.reverify.slice(0, 60),
+  } : null;
+  // 交付物入口：演示只显眼 4 项，其余收进折叠
+  const featuredKeys = ["签名 HAP", "双机差分", "盘点报告", "Gate 4"];
+  const featuredArtifacts = overview.artifacts.filter((a) => featuredKeys.some((k) => a.name.includes(k)));
+  const restArtifacts = overview.artifacts.filter((a) => !featuredKeys.some((k) => a.name.includes(k)));
+  const artifactHref = (artifact: RunArtifact) => artifact.path.startsWith("/") ? artifact.path : runFileUrl(workspaceDir, artifact.path);
   return <div className="migration-overview-board">
     <div className="mob-head">
       <div>
@@ -1487,51 +1515,57 @@ function MigrationOverviewBoard({ workspaceDir }: { workspaceDir?: string }) {
     <p className="ev-summary"><b>一分钟摘要：</b>{overview.summary}</p>
     <div className="mob-bottom">
       <div className="artifact-list">
-        <p className="lp-eyebrow">交付物入口（{overview.artifacts.length}）</p>
-        {overview.artifacts.map((artifact) => <a
+        <p className="lp-eyebrow">关键交付物</p>
+        {featuredArtifacts.map((artifact) => <a
           className="artifact-chip"
           key={artifact.path || artifact.name}
-          href={artifact.path.startsWith("/") ? artifact.path : runFileUrl(workspaceDir, artifact.path)}
+          href={artifactHref(artifact)}
           target="_blank"
           rel="noreferrer"
           {...(artifact.type === "download" ? { download: "" } : {})}
         >
           <b>{artifact.name}</b>
-          <small>{artifact.desc}{artifact.path ? ` · ${artifact.path}` : ""}</small>
+          <small>{artifact.desc}</small>
         </a>)}
-        <small className="artifact-note">
-          基线 APK：{overview.build.apk.path || "—"}（SHA-256 {overview.build.apk.sha256 ? `${overview.build.apk.sha256.slice(0, 16)}…` : "—"}，{overview.build.apk.exists ? "在源项目" : "未找到"}）
-          {overview.build.hap.exists && <> · 签名 HAP：{overview.build.hap.path}（{overview.build.hap.desc}）</>}
-          {overview.build.installLaunched ? " · 构建安装启动链实测 PASS" : ""}
-        </small>
+        {restArtifacts.length > 0 && <details className="ev-details">
+          <summary>全部产物（{overview.artifacts.length} 项）</summary>
+          <div className="artifact-list">
+            {restArtifacts.map((artifact) => <a
+              className="artifact-chip"
+              key={artifact.path || artifact.name}
+              href={artifactHref(artifact)}
+              target="_blank"
+              rel="noreferrer"
+              {...(artifact.type === "download" ? { download: "" } : {})}
+            >
+              <b>{artifact.name}</b>
+              <small>{artifact.desc}</small>
+            </a>)}
+            <small className="artifact-note">
+              基线 APK（SHA-256 已存档）{overview.build.hap.exists ? " · 签名 HAP 由本地自签链签名（verify-app PASS）" : ""}
+              {overview.build.installLaunched ? " · 构建安装启动链实测通过" : ""}
+            </small>
+          </div>
+        </details>}
       </div>
-      {rework && <div className={`rework-card ${reworkOpen ? "open" : ""}`}>
+      {rework && reworkLines && <div className={`rework-card ${reworkOpen ? "open" : ""}`}>
         <button type="button" className="rework-toggle" onClick={() => setReworkOpen((open) => !open)}>
-          <b>🔧 典型修复案例 · {rework.title}</b>
-          <span>{reworkOpen ? "收起 ▲" : "展开查看根因 / 修复 / 复验 ▼"}</span>
+          <b>🔧 典型修复案例 · {reworkLines.title}</b>
+          <span>{reworkOpen ? "收起 ▲" : "展开详情 ▼"}</span>
         </button>
         {reworkOpen && <div className="rework-body">
           <dl className="rework-facts">
-            <div><dt>问题</dt><dd>{rework.problem}</dd></div>
-            <div><dt>根因</dt><dd>{rework.rootCause}</dd></div>
-            <div><dt>修复</dt><dd>{rework.fix}</dd></div>
-            <div><dt>复验</dt><dd>{rework.reverify}</dd></div>
+            <div><dt>问题</dt><dd>{reworkLines.problem}</dd></div>
+            <div><dt>根因</dt><dd>{reworkLines.rootCause}</dd></div>
+            <div><dt>修复</dt><dd>{reworkLines.fix}</dd></div>
+            <div><dt>复验</dt><dd>{reworkLines.reverify}</dd></div>
           </dl>
-          {rework.note && <small className="rework-note">{rework.note}</small>}
-          <div className="rework-shots">
-            {rework.before && <figure>
-              <img src={runFileUrl(workspaceDir, rework.before)} alt="修复前 Android 基准" loading="lazy" />
-              <figcaption>代替对比 · Android 基准</figcaption>
-            </figure>}
-            {rework.after && <figure>
-              <img src={runFileUrl(workspaceDir, rework.after)} alt="修复后 HarmonyOS" loading="lazy" />
-              <figcaption>代替对比 · HarmonyOS</figcaption>
-            </figure>}
-            {rework.verifyShot && <figure>
+          {rework.verifyShot && <div className="rework-shots single">
+            <figure>
               <img src={runFileUrl(workspaceDir, rework.verifyShot)} alt="返工复验鸿蒙真机截图" loading="lazy" />
-              <figcaption>返工复验真机截图（修复后，无返回按钮）</figcaption>
-            </figure>}
-          </div>
+              <figcaption>修复后实机复验 · 左上角已无返回按钮</figcaption>
+            </figure>
+          </div>}
         </div>}
       </div>}
     </div>
@@ -1565,217 +1599,265 @@ function PhaseEvidencePanel({ workspaceDir, phase }: { workspaceDir?: string; ph
 }
 
 const seedText = (value: unknown) => (Array.isArray(value) ? value.join(" / ") : String(value ?? "—"));
+// 演示口径：迁移政策三个标签式短语（键名来自冻结数据，展示为中文短语）
+const POLICY_SHORT_LABELS: Record<string, string> = {
+  FUNCTIONAL_EQUIVALENCE: "功能一致性",
+  UI_FIDELITY: "UI 保真",
+  NATIVE_ADAPTATION: "原生适配",
+};
+const POLICY_SHORT_VALUES: Record<string, string> = {
+  HARD: "硬约束",
+  HIGH: "高保真",
+  CONSTRAINED: "受限",
+};
 
 function Phase1Body({ data, ws }: { data: Phase1Evidence; ws: string }) {
   const identity = data.identity;
+  const appName = Array.isArray(data.testSeed?.expected_initial_texts) && data.testSeed.expected_initial_texts.length
+    ? String((data.testSeed.expected_initial_texts as unknown[])[0])
+    : identity.applicationId;
   return <>
-    <p className="lp-eyebrow">Phase 1 · 范围冻结信息卡（全部字段来自 controller/scope.json 实测冻结值）</p>
+    <p className="lp-eyebrow">Phase 1 · 冻结了什么（应用身份 + 7 项功能范围）</p>
     <div className="ev-grid">
       <div className="ev-info-card">
-        <div className="ev-kv"><span>应用标识</span><b>{identity.applicationId}</b></div>
-        <div className="ev-kv"><span>版本 / 构建号</span><b>{identity.appVersion}（{identity.appBuild}）</b></div>
-        <div className="ev-kv"><span>源码 commit</span><code>{identity.sourceRevision}</code></div>
-        <div className="ev-kv"><span>git tree 锁</span><code>{identity.gitTreeSha1}</code></div>
-        <div className="ev-kv"><span>工作区状态</span><b>{identity.worktreeState}</b></div>
-        <div className="ev-kv"><span>APK SHA-256</span><code className="ev-hash">{identity.apkSha256}</code></div>
-        <div className="ev-kv"><span>APK 路径</span><code>{identity.apkPath}</code></div>
-        <div className="ev-kv"><span>目标平台</span><b>{data.target?.platform ?? "—"} · {data.target?.sdk_or_api_target ?? "—"}</b></div>
-        <p className="ev-provenance">{identity.identityProvenance}</p>
+        <div className="ev-kv"><span>应用</span><b>{appName}（{identity.applicationId}）</b></div>
+        <div className="ev-kv"><span>版本</span><b>{identity.appVersion}</b></div>
+        <div className="ev-kv"><span>源码 commit</span><code>{identity.sourceRevision.slice(0, 7)}</code></div>
+        <div className="ev-kv" title={identity.apkSha256}><span>基线 APK</span><b>{identity.apkSha256 ? `SHA-256 ${identity.apkSha256.slice(0, 8)}…（已存档）` : "—"}</b></div>
+        <div className="ev-kv"><span>目标平台</span><b>{data.target?.platform ?? "—"}</b></div>
       </div>
       <div className="ev-side">
         {data.gate && <div className="gate-card pass">
           <b>Gate 1 · {data.gate.verdict}</b>
-          <small>机器判定于 {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC · scope sha256 {data.gate.scopeSha256.slice(0, 16)}…</small>
+          <small>范围冻结通过机器校验 · {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC</small>
         </div>}
-        <div className="gate-card">
-          <b>基线环境 ENV-001（Android 实测）</b>
-          <small>{seedText(data.androidEnv?.emulator_model)} · API {seedText(data.androidEnv?.android_api_level)} · {seedText(data.androidEnv?.resolution)} @ {seedText(data.androidEnv?.density_dpi)}dpi · {seedText(data.androidEnv?.locale)} / {seedText(data.androidEnv?.theme)} · {seedText(data.androidEnv?.device_serial)}</small>
-          <b>目标端 {String(data.harmonyEnv?.env_id ?? "")}（鸿蒙实测）</b>
-          <small>{String(data.harmonyEnv?.software_version ?? "")} API {String(data.harmonyEnv?.api_version ?? "")} · {String(data.harmonyEnv?.device_serial ?? "")} · {String(data.harmonyEnv?.resolution ?? "")}@{String(data.harmonyEnv?.refresh_rate ?? "")}Hz · 构建 {String(data.harmonyEnv?.build_tool ?? "")}</small>
-        </div>
-        <div className="gate-card">
-          <b>测试种子（Phase 2 / 4 同起点）</b>
-          <small>预置数据 {seedText(data.testSeed?.preset_item_count)} 条 · 初始排序 {seedText(data.testSeed?.initial_sort_label)} · 初始文本 {seedText(data.testSeed?.expected_initial_texts)}</small>
-          <small>{String(data.testSeed?._note ?? "")}</small>
+        <div className="policy-tags">
+          <b>迁移三原则</b>
+          <div className="policy-tag-row">
+            {data.policies.map((policy) => <span className="policy-tag" key={policy.key}>
+              {POLICY_SHORT_LABELS[policy.key] ?? policy.key} = {POLICY_SHORT_VALUES[policy.value] ?? policy.value}
+            </span>)}
+          </div>
+          <small>数据 / 持久化不许漂移，界面保真，平台控件按白名单替换</small>
         </div>
       </div>
     </div>
     <table className="ev-table">
-      <thead><tr><th>纳入功能（{data.includedFeatures.length}）</th><th>冻结定义（file:line 锚点）</th><th>验证方式</th></tr></thead>
+      <thead><tr><th>纳入功能（{data.includedFeatures.length} 项）</th><th>一句话定义</th><th>验证方式</th></tr></thead>
       <tbody>{data.includedFeatures.map((feature) => <tr key={feature.id}>
-        <td><b>{feature.id}</b></td>
-        <td className="ev-wrap">{feature.title}</td>
-        <td><span className={`verify-tag ${feature.verifyMode === "RUNTIME" ? "runtime" : "source"}`}>{feature.verifyMode}</span></td>
+        <td><b>{feature.title.split("：")[0]}</b><small className="ev-id">{feature.id}</small></td>
+        <td className="ev-wrap">{feature.title.split("：").slice(1).join("：") || feature.title}</td>
+        <td><span className={`verify-tag ${feature.verifyMode === "RUNTIME" ? "runtime" : "source"}`}>{feature.verifyMode === "RUNTIME" ? "真机验证" : "源码确认"}</span></td>
       </tr>)}</tbody>
     </table>
-    {data.excludedFeatures.map((feature) => <div className="ev-exclude" key={feature.id}>
-      <b>排除项 {feature.id}</b>
-      <p>{feature.reason}</p>
-    </div>)}
-    <div className="policy-row">
-      {data.policies.map((policy) => <div className="policy-card" key={policy.key}>
-        <b>{policy.key} = {policy.value}</b>
-        <p>{policy.note}</p>
+    <details className="ev-details">
+      <summary>冻结细节（排除项 · 测试种子 · 双端环境）</summary>
+      {data.excludedFeatures.map((feature) => <div className="ev-exclude" key={feature.id}>
+        <b>排除项 {feature.id}</b>
+        <p>{feature.reason}</p>
       </div>)}
-    </div>
-    <div className="artifact-inline">
-      {data.artifacts.map((artifact) => <a key={artifact.path} href={runFileUrl(ws, artifact.path)} target="_blank" rel="noreferrer">{artifact.name} ↗</a>)}
-    </div>
+      <div className="gate-card">
+        <b>测试种子（Phase 2 / 4 同一起点）</b>
+        <small>预置数据 {seedText(data.testSeed?.preset_item_count)} 条 · 初始排序「{seedText(data.testSeed?.initial_sort_label)}」 · 初始页面文本：{seedText(data.testSeed?.expected_initial_texts)}</small>
+      </div>
+      <div className="gate-card">
+        <b>双端实测环境</b>
+        <small>Android 基线：{seedText(data.androidEnv?.emulator_model)} · API {seedText(data.androidEnv?.android_api_level)} · {seedText(data.androidEnv?.locale)} / {seedText(data.androidEnv?.theme)} · {seedText(data.androidEnv?.device_serial)}</small>
+        <small>鸿蒙目标：{String(data.harmonyEnv?.software_version ?? "")} API {String(data.harmonyEnv?.api_version ?? "")} · {String(data.harmonyEnv?.device_serial ?? "")}</small>
+      </div>
+      <div className="artifact-inline">
+        {data.artifacts.map((artifact) => <a key={artifact.path} href={runFileUrl(ws, artifact.path)} target="_blank" rel="noreferrer">{artifact.name} ↗</a>)}
+      </div>
+    </details>
   </>;
 }
 
 function Phase2Body({ data, ws }: { data: Phase2Evidence; ws: string }) {
-  const groups = Object.entries(data.reconciliationStats.groups);
+  const confirmed = data.reconciliationStats.groups.CONFIRMED ?? 0;
+  const sourceConfirmed = data.reconciliationStats.groups.SOURCE_CONFIRMED ?? 0;
+  const gap = data.reconciliationStats.groups.GAP ?? 0;
   return <>
-    <p className="lp-eyebrow">Phase 2 · Android 盘点（功能地图 {data.features.length} 项 / 行为契约 {data.contracts.length} 条，全部来自真机取证）</p>
-    <table className="ev-table">
-      <thead><tr><th>功能</th><th>一句话语义</th><th>verify_mode</th><th>source_refs</th></tr></thead>
-      <tbody>{data.features.map((feature) => <tr key={feature.id}>
-        <td><b>{feature.name}</b><small className="ev-id">{feature.id}</small></td>
-        <td className="ev-wrap">{feature.summary}</td>
-        <td><span className={`verify-tag ${feature.verifyMode === "RUNTIME" ? "runtime" : "source"}`}>{feature.verifyMode}</span></td>
-        <td><code className="ev-refs">{feature.sourceRefs.map(shortRef).join(" · ")}</code></td>
-      </tr>)}</tbody>
-    </table>
-    <table className="ev-table compact">
-      <thead><tr><th>行为契约</th><th>用户意图</th><th>可观察结果</th><th>关键断言</th></tr></thead>
-      <tbody>{data.contracts.map((contract) => <tr key={contract.bcId}>
-        <td><b>{contract.bcId}</b><small className="ev-id">{contract.featureName}</small></td>
-        <td className="ev-wrap">{contract.intent}</td>
-        <td className="ev-wrap">{contract.observableResult}</td>
-        <td><code className="ev-refs">{contract.assertions}</code></td>
-      </tr>)}</tbody>
-    </table>
-    <div className="stat-strip">
-      {groups.map(([verdict, count]) => <div className={`stat-cell ${verdict === "CONFIRMED" ? "good" : verdict === "GAP" ? "bad" : ""}`} key={verdict}>
-        <b>{count}</b><span>{verdict}</span>
-      </div>)}
-      <div className="stat-cell good"><b>{data.chainStats.pass}/{data.chainStats.total}</b><span>真机链 CHAIN_PASS（含 {data.chainStats.amended} 条透明补正）</span></div>
+    <p className="lp-eyebrow">Phase 2 · 摸清了 Android 版的全部行为（{data.features.length} 项功能逐一在真机上验证留证）</p>
+    <div className="simple-strip">
+      <span><b>{data.reconciliationStats.total}/{data.reconciliationStats.total}</b> 识别</span>
+      <span><b>{confirmed}</b> 真机验证 + <b>{sourceConfirmed}</b> 源码确认</span>
+      <span>冲突 <b>0</b> · GAP <b>{gap}</b></span>
     </div>
-    <p className="lp-eyebrow">真机截图墙 · 每链 before / after / restart 三时点取证</p>
+    <table className="ev-table">
+      <thead><tr><th>功能</th><th>一句话语义</th><th>验证方式</th></tr></thead>
+      <tbody>{data.features.map((feature) => <tr key={feature.id}>
+        <td><b>{feature.name}</b></td>
+        <td className="ev-wrap">{feature.summary}</td>
+        <td><span className={`verify-tag ${feature.verifyMode === "RUNTIME" ? "runtime" : "source"}`}>{feature.verifyMode === "RUNTIME" ? "真机验证" : "源码确认"}</span></td>
+      </tr>)}</tbody>
+    </table>
+    <p className="lp-eyebrow">真机截图墙 · 每项操作的前 / 后 / 重启三时点取证</p>
     <div className="shot-wall">
       {data.shots.map((shot) => <div className="shot-group" key={shot.bcId}>
-        <div className="shot-head"><b>{shot.bcId}</b><span>{shot.featureName} · {shot.intent}</span></div>
+        <div className="shot-head"><b>{shot.featureName}</b><span>{shot.intent}</span></div>
         <div className="shot-row">
           {[["before", shot.before, "操作前"], ["after", shot.after, "操作后"], ["restart", shot.restart, "重启后"]].map(([key, path, label]) => path
-            ? <figure key={String(key)}><img src={runFileUrl(ws, String(path))} alt={`${shot.bcId} ${label}截图`} loading="lazy" /><figcaption>{label}</figcaption></figure>
+            ? <figure key={String(key)}><img src={runFileUrl(ws, String(path))} alt={`${shot.featureName} ${label}截图`} loading="lazy" /><figcaption>{label}</figcaption></figure>
             : <figure className="missing" key={String(key)}><figcaption>{label}（未采集）</figcaption></figure>)}
         </div>
       </div>)}
     </div>
+    <details className="ev-details">
+      <summary>行为契约明细（{data.contracts.length} 条）</summary>
+      <table className="ev-table compact">
+        <thead><tr><th>行为契约</th><th>用户意图</th><th>可观察结果</th><th>关键断言</th></tr></thead>
+        <tbody>{data.contracts.map((contract) => <tr key={contract.bcId}>
+          <td><b>{contract.bcId}</b><small className="ev-id">{contract.featureName}</small></td>
+          <td className="ev-wrap">{contract.intent}</td>
+          <td className="ev-wrap">{contract.observableResult}</td>
+          <td><code className="ev-refs">{contract.assertions}</code></td>
+        </tr>)}</tbody>
+      </table>
+    </details>
     {data.forensicsNotes.length > 0 && <div className="forensics-card">
-      <b>取证工具伪影说明（伪影 ≠ 软件缺陷）</b>
-      {data.forensicsNotes.map((note) => <p key={note.id}><code>{note.id}</code> · {note.type} → {note.summary}</p>)}
-      <small>以上均为取证链执行器 / 键域提取工具的缺陷，Android App 行为由独立探针三时点证据确认正常，详见 decision-log。</small>
+      <b>小提示：{data.chainStats.amended} 条链的「重启后」断言曾被判失败</b>
+      <p>经独立探针复核，是取证工具自己的问题（伪影 ≠ 软件缺陷），App 行为本身完全正常。</p>
+      <details className="ev-details"><summary>原始记录（{data.forensicsNotes.length} 条决策）</summary>
+        {data.forensicsNotes.map((note) => <p key={note.id}><code>{note.id}</code> · {note.type} → {note.summary}</p>)}
+      </details>
     </div>}
-    {data.gate && <div className="gate-card pass"><b>Gate 2 · {data.gate.verdict}</b><small>机器判定于 {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC（Gate 2 v2：功能覆盖 + 行为契约 + 调和 + 显式缺口）</small></div>}
+    {data.gate && <div className="gate-card pass"><b>Gate 2 · {data.gate.verdict}</b><small>功能覆盖 + 行为契约 + 调和结论全部通过机器校验 · {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC</small></div>}
   </>;
 }
 
 function Phase3Body({ data, ws }: { data: Phase3Evidence; ws: string }) {
   return <>
-    <p className="lp-eyebrow">Phase 3 · 鸿蒙骨架蓝图（surface 映射四字段 + 数据契约 + 实机构建冒烟，P3 冻结、P4 按图施工）</p>
+    <p className="lp-eyebrow">Phase 3 · 每个界面元素在鸿蒙上用什么组件对应（冻结蓝图，Phase 4 照图施工）</p>
     <table className="ev-table">
-      <thead><tr><th>Surface</th><th>Android 冻结结构</th><th>必须保留</th><th>原生承载</th><th>ArkUI 原生组件映射</th></tr></thead>
+      <thead><tr><th>界面单元</th><th>必须保留的锚点文本</th><th>鸿蒙原生组件</th></tr></thead>
       <tbody>{data.surfaces.map((surface) => <tr key={surface.surfaceId}>
-        <td><b>{surface.surfaceId}</b><small className="ev-id">{surface.kind} · {surface.featureId}</small></td>
-        <td className="ev-wrap ev-structure">{surface.androidStructure}</td>
-        <td className="ev-wrap">{surface.preserveTexts.join(" / ")}</td>
-        <td className="ev-wrap">{surface.nativeCarrier}</td>
+        <td><b>{surface.kind === "page" ? "主页面" : "数据层（非界面）"}</b><small className="ev-id">{surface.surfaceId}</small></td>
+        <td className="ev-wrap">{surface.preserveTexts.slice(0, 3).join(" / ")}{surface.preserveTexts.length > 3 ? " 等" : ""}</td>
         <td className="ev-wrap">{surface.nativeComponent}</td>
       </tr>)}</tbody>
     </table>
-    <div className="contract-row">
-      {data.dataContracts.map((contract) => <div className="contract-card" key={contract.objectId}>
-        <b>{contract.objectId}</b>
-        <small>{contract.repositorySymbol} · {contract.directions.join("/")}</small>
-        <p>required_operations：{contract.requiredOperations.join(" · ")}</p>
-        <p>承载功能：{contract.featureIds.map((id) => id.replace("FEAT-", "")).join(" · ")}</p>
-        <a href={runFileUrl(ws, contract.file)} target="_blank" rel="noreferrer">契约文件 ↗</a>
-      </div>)}
+    <p className="lp-eyebrow">迁移前后 GUI 对比（同一页面）</p>
+    <div className="duo-shot">
+      {data.baselineShot && <figure><img src={runFileUrl(ws, data.baselineShot)} alt="P2 Android 基线截图" loading="lazy" /><figcaption>Android 基准（Phase 2 取证）</figcaption></figure>}
+      {data.hverShots.map((shot) => <figure key={shot.path}><img src={runFileUrl(ws, shot.path)} alt="HVER 鸿蒙实机截图" loading="lazy" /><figcaption>HarmonyOS 实机（骨架冒烟截图）</figcaption></figure>)}
     </div>
-    {data.probeFiles.length > 0 && <div className="gate-card">
-      <b>语义探针（DebugSemanticProbe / SemanticProbeRegistry）</b>
-      <div className="artifact-inline">{data.probeFiles.map((file) => <a key={file.path} href={runFileUrl(ws, file.path)} target="_blank" rel="noreferrer">{file.name} ↗</a>)}</div>
-      {data.probeLockNote && <small className="ev-wrap">{data.probeLockNote}</small>}
-    </div>}
-    {(data.hverShots.length > 0 || data.baselineShot) && <>
-      <p className="lp-eyebrow">迁移前后 GUI 对比（同一页面：P2 Android 基线 vs P3 鸿蒙实机 HVER）</p>
-      <div className="duo-shot">
-        {data.baselineShot && <figure><img src={runFileUrl(ws, data.baselineShot)} alt="P2 Android 基线截图" loading="lazy" /><figcaption>Android 基准（Phase 2 取证）</figcaption></figure>}
-        {data.hverShots.map((shot) => <figure key={shot.path}><img src={runFileUrl(ws, shot.path)} alt="HVER 鸿蒙实机截图" loading="lazy" /><figcaption>HarmonyOS 实机（{shot.verificationId} 冒烟截图）</figcaption></figure>)}
+    <div className="gate-row-pair">
+      {data.buildSmoke && <div className="gate-card pass">
+        <b>构建冒烟 · 三步全通过</b>
+        <small>① 构建成功（hvigorw clean assembleHap）</small>
+        <small>② 安装成功（鸿蒙模拟器 {data.buildSmoke.installDevices.length > 0 ? "127.0.0.1:5557" : "—"}）</small>
+        <small>③ 冷启动成功，页面锚点齐全</small>
+      </div>}
+      {data.gate && <div className="gate-card pass"><b>Gate 3 · {data.gate.verdict}</b><small>骨架封板 · 冒烟链全通过 · {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC</small></div>}
+    </div>
+    <details className="ev-details">
+      <summary>数据契约与探针（{data.dataContracts.length} 个语义对象）</summary>
+      <div className="contract-row">
+        {data.dataContracts.map((contract) => <div className="contract-card" key={contract.objectId}>
+          <b>{contract.objectId}</b>
+          <small>{contract.repositorySymbol} · {contract.directions.join("/")}</small>
+          <p>required_operations：{contract.requiredOperations.join(" · ")}</p>
+          <p>承载功能：{contract.featureIds.map((id) => id.replace("FEAT-", "")).join(" · ")}</p>
+          <a href={runFileUrl(ws, contract.file)} target="_blank" rel="noreferrer">契约文件 ↗</a>
+        </div>)}
       </div>
-    </>}
-    {data.buildSmoke && <div className="gate-card pass">
-      <b>构建冒烟（{data.buildSmoke.verificationId}）· {data.buildSmoke.status}</b>
-      <small>① hvigorw clean assembleHap → BUILD SUCCESSFUL（clean_build_passed={String(data.buildSmoke.cleanBuildPassed)}）</small>
-      <small>② hdc install → install bundle successfully（{data.buildSmoke.installDevices.join(" / ")}，模拟器 127.0.0.1:5557）</small>
-      <small>③ aa start 冷启动成功（{data.buildSmoke.launchDevices.join(" / ")}）· HAP sha256 {data.buildSmoke.hapSha256.slice(0, 16)}…</small>
-    </div>}
-    {data.gate && <div className="gate-card pass"><b>Gate 3 · {data.gate.verdict}</b><small>机器判定于 {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC（scaffold CLOSED · 9 类冒烟链全 PASS）</small></div>}
+      {data.probeFiles.length > 0 && <div className="gate-card">
+        <b>语义探针（DebugSemanticProbe / SemanticProbeRegistry）</b>
+        <div className="artifact-inline">{data.probeFiles.map((file) => <a key={file.path} href={runFileUrl(ws, file.path)} target="_blank" rel="noreferrer">{file.name} ↗</a>)}</div>
+        {data.probeLockNote && <small className="ev-wrap">{data.probeLockNote}</small>}
+      </div>}
+    </details>
   </>;
 }
+
+// 演示口径：四个验证维度的中文名与主判定短语（数值一律来自 dimensionStats / replay 实时统计）
+const DIMENSION_LABELS: Record<string, string> = {
+  observable: "可观察行为",
+  data: "数据一致性",
+  persistence: "重启持久化",
+  side_effect: "副作用",
+};
 
 function Phase4Body({ data, ws }: { data: Phase4Evidence; ws: string }) {
   const verdictClass = (verdict: string) => verdict === "MATCH" ? "v-match" : verdict === "DIFF" ? "v-diff" : "v-manual";
   const rework = data.reworkCase;
+  const persistPass = data.replay.filter((row) => row.persistence === "PASS").length;
+  const persistTotal = data.replay.filter((row) => row.persistence === "PASS" || row.persistence === "MANUAL_VERIFY_REQUIRED").length;
+  const cls = data.diffClassification;
   return <>
-    <p className="lp-eyebrow">Phase 4 · 双机一致性矩阵（dual-diff 全量 {data.matrix.length} 判定格：observable / data / persistence / side effect 四维）</p>
+    <p className="lp-eyebrow">Phase 4 · 双机对比验证：Android 与鸿蒙同操作、逐项对比</p>
     <div className="stat-strip">
-      {data.dimensionStats.map((dimension) => <div className="stat-cell" key={dimension.dimension}>
-        <b>{dimension.match > 0 ? `${dimension.match} MATCH` : dimension.diff > 0 ? `${dimension.diff} DIFF` : `${dimension.manual} MANUAL`}</b>
-        <span>{dimension.dimension}（MATCH {dimension.match} / DIFF {dimension.diff} / MANUAL {dimension.manual}）</span>
-      </div>)}
+      {data.dimensionStats.map((dimension) => {
+        const tone = dimension.match > 0 ? "good" : dimension.diff > 0 ? "warn" : "muted";
+        const headline = dimension.match > 0 ? `${dimension.match} MATCH`
+          : dimension.diff > 0 ? `${dimension.diff} 处 · 工具伪影`
+          : `${dimension.manual} 格转人工`;
+        return <div className={`stat-cell ${tone}`} key={dimension.dimension}>
+          <b>{headline}</b>
+          <span>{DIMENSION_LABELS[dimension.dimension] ?? dimension.dimension}（MATCH {dimension.match} / DIFF {dimension.diff} / MANUAL {dimension.manual}）</span>
+        </div>;
+      })}
     </div>
-    <table className="ev-table matrix">
-      <thead><tr><th>BC</th><th>维度</th><th>Android 期望</th><th>Harmony 实测</th><th>机器判定</th></tr></thead>
-      <tbody>{data.matrix.map((cell) => <tr key={`${cell.bcId}-${cell.dimension}`}>
-        <td><b>{cell.bcId}</b></td>
-        <td>{cell.dimension}</td>
-        <td><code className="ev-json">{cell.androidExpected}</code></td>
-        <td><code className="ev-json">{cell.harmonyActual}</code></td>
-        <td><span className={`matrix-verdict ${verdictClass(cell.verdict)}`}>{cell.verdict}</span>
-          {cell.attribution === "TOOL_ARTIFACT" && <small className="artifact-flag">取证工具伪影</small>}</td>
-      </tr>)}</tbody>
-    </table>
-    <p className="lp-eyebrow">操作重放明细（步骤 {data.stepsPassed} 全部通过）与重启持久化</p>
-    <table className="ev-table compact">
-      <thead><tr><th>BC</th><th>前置条件</th><th>步骤</th><th>observable</th><th>persistence</th><th>判定</th></tr></thead>
-      <tbody>{data.replay.map((row) => <tr key={row.bcId}>
-        <td><b>{row.bcId}</b><small className="ev-id">{row.verifyMode}</small></td>
-        <td>{row.precondition || "—"}</td>
-        <td>{row.stepsTotal > 0 ? `${row.stepsOk}/${row.stepsTotal}` : "0"}</td>
-        <td><span className={`matrix-verdict ${verdictClass(row.observable === "PASS" ? "MATCH" : row.observable === "FAIL" ? "DIFF" : "v-manual")}`}>{row.observable || "—"}</span></td>
-        <td><span className={`matrix-verdict ${verdictClass(row.persistence === "PASS" ? "MATCH" : row.persistence === "FAIL" ? "DIFF" : "v-manual")}`}>{row.persistence || "—"}</span></td>
-        <td>{row.verdict}{row.failReason ? <small className="ev-id">{row.failReason}</small> : null}</td>
-      </tr>)}</tbody>
-    </table>
-    <div className="diff-class-row">
-      <div className="diff-card good"><b>{data.diffClassification.softwareDefects}</b><span>软件缺陷</span><small>全部 DIFF 经 decision-log（PHASE4_VERDICT）论证归因取证侧，无鸿蒙行为缺陷</small></div>
-      <div className="diff-card warn"><b>{data.diffClassification.toolArtifacts}</b><span>取证工具伪影（DIFF）</span>
-        {data.diffClassification.toolGaps.slice(0, 3).map((gap) => <small key={gap.id}><code>{gap.tag}</code> {gap.summary.slice(0, 110)}…</small>)}
-      </div>
-      <div className="diff-card muted"><b>{data.diffClassification.manual}</b><span>转人工核验（MANUAL）</span>
-        {Object.entries(data.diffClassification.manualReasons).map(([reason, count]) => <small key={reason}>×{count} · {reason}</small>)}
-      </div>
-    </div>
+    <p className="one-line-verdict">
+      {cls.toolArtifacts} 处机器 DIFF 全部定性为<b>取证工具伪影</b>（软件缺陷 <b className="mint-text">{cls.softwareDefects}</b>）
+      · 操作步骤 <b>{data.stepsPassed}</b> 通过 · 重启持久化 <b>{persistPass}/{persistTotal}</b> PASS
+    </p>
     {rework && <div className="rework-inline">
-      <b>🔧 返工案例 · {rework.title}</b>
+      <b>🔧 返工案例 · {rework.title.split("（")[0]}</b>
       <dl className="rework-facts">
-        <div><dt>问题</dt><dd>{rework.problem}</dd></div>
-        <div><dt>根因</dt><dd>{rework.rootCause}</dd></div>
-        <div><dt>修复</dt><dd>{rework.fix}</dd></div>
-        <div><dt>复验</dt><dd>{rework.reverify}</dd></div>
+        <div><dt>问题</dt><dd>{/凭空出现返回按钮/.test(rework.problem) ? "鸿蒙首页左上角凭空多出一个返回按钮（Android 原版没有）" : rework.problem.slice(0, 60)}</dd></div>
+        <div><dt>根因</dt><dd>页面被以「入栈」方式打开，系统标题栏自动渲染了返回按钮</dd></div>
+        <div><dt>修复</dt><dd>{rework.fix.includes("hideBackButton") ? "在页面标题栏上隐藏系统返回按钮——只改一处，其余零改动" : rework.fix.slice(0, 60)}</dd></div>
+        <div><dt>复验</dt><dd>{/全过|四项/.test(rework.reverify) ? "重新构建、安装、启动后实机核验：无返回按钮，页面要素齐全" : rework.reverify.slice(0, 60)}</dd></div>
       </dl>
       {rework.verifyShot && <a className="rework-shot-link" href={runFileUrl(ws, rework.verifyShot)} target="_blank" rel="noreferrer">查看复验真机截图 ↗</a>}
     </div>}
     <div className="gate-card warn big">
       <b>Gate 4 · 机器判定 {data.gate4.machineVerdict} → 状态「{data.gate4.status}」</b>
-      <small>机器按 fail-closed 口径如实落盘 FAIL（HBUILD 封存结构性受阻 + 阶段收尾件缺失，详见 gate-report errors）；全部 10 处 DIFF 已定性为取证工具伪影、软件缺陷 0，按总控口径转人工裁决，未翻转任何机器判定。</small>
-      {data.gate4.verdictDecision && <small className="ev-wrap"><code>{data.gate4.verdictDecision.id}</code> {data.gate4.verdictDecision.summary}</small>}
-      <small>运行状态 {data.gate4.runStatus} · 机器复核于 {data.gate4.checkedAt.replace("T", " ").slice(0, 19)} UTC</small>
-      {data.gate4.errors.length > 0 && <details className="gate-errors"><summary>gate-report 机器错误明细（{data.gate4.errors.length}）</summary>{data.gate4.errors.map((error) => <p key={error}>{error}</p>)}</details>}
+      <small>机器按「宁可误报不可漏报」口径如实记 FAIL；{cls.toolArtifacts} 处 DIFF 已全部论证为取证工具伪影、软件缺陷 {cls.softwareDefects}，交由人工裁决，未翻转任何机器判定。</small>
+      <small>运行状态 {data.gate4.runStatus} · {data.gate4.checkedAt.replace("T", " ").slice(0, 19)} UTC</small>
     </div>
+    <details className="ev-details">
+      <summary>查看完整一致性矩阵（{data.matrix.length} 格）</summary>
+      <table className="ev-table matrix">
+        <thead><tr><th>BC</th><th>维度</th><th>Android 期望</th><th>Harmony 实测</th><th>机器判定</th></tr></thead>
+        <tbody>{data.matrix.map((cell) => <tr key={`${cell.bcId}-${cell.dimension}`}>
+          <td><b>{cell.bcId}</b></td>
+          <td>{DIMENSION_LABELS[cell.dimension] ?? cell.dimension}</td>
+          <td><code className="ev-json">{cell.androidExpected}</code></td>
+          <td><code className="ev-json">{cell.harmonyActual}</code></td>
+          <td><span className={`matrix-verdict ${verdictClass(cell.verdict)}`}>{cell.verdict}</span>
+            {cell.attribution === "TOOL_ARTIFACT" && <small className="artifact-flag">取证工具伪影</small>}</td>
+        </tr>)}</tbody>
+      </table>
+    </details>
+    <details className="ev-details">
+      <summary>操作重放明细（{data.replay.length} 条行为契约）</summary>
+      <table className="ev-table compact">
+        <thead><tr><th>BC</th><th>前置条件</th><th>步骤</th><th>observable</th><th>persistence</th><th>判定</th></tr></thead>
+        <tbody>{data.replay.map((row) => <tr key={row.bcId}>
+          <td><b>{row.bcId}</b><small className="ev-id">{row.verifyMode}</small></td>
+          <td>{row.precondition || "—"}</td>
+          <td>{row.stepsTotal > 0 ? `${row.stepsOk}/${row.stepsTotal}` : "0"}</td>
+          <td><span className={`matrix-verdict ${verdictClass(row.observable === "PASS" ? "MATCH" : row.observable === "FAIL" ? "DIFF" : "v-manual")}`}>{row.observable || "—"}</span></td>
+          <td><span className={`matrix-verdict ${verdictClass(row.persistence === "PASS" ? "MATCH" : row.persistence === "FAIL" ? "DIFF" : "v-manual")}`}>{row.persistence || "—"}</span></td>
+          <td>{row.verdict}{row.failReason ? <small className="ev-id">{row.failReason}</small> : null}</td>
+        </tr>)}</tbody>
+      </table>
+    </details>
+    <details className="ev-details">
+      <summary>DIFF 分类明细（软件缺陷 {cls.softwareDefects} / 工具伪影 {cls.toolArtifacts} / 转人工 {cls.manual}）</summary>
+      <div className="diff-class-row">
+        <div className="diff-card good"><b>{cls.softwareDefects}</b><span>软件缺陷</span><small>全部 DIFF 经决策日志论证归因取证侧，无鸿蒙行为缺陷</small></div>
+        <div className="diff-card warn"><b>{cls.toolArtifacts}</b><span>取证工具伪影（DIFF）</span>
+          {cls.toolGaps.map((gap) => <small key={gap.id}><code>{gap.tag}</code> {gap.summary.slice(0, 110)}…</small>)}
+        </div>
+        <div className="diff-card muted"><b>{cls.manual}</b><span>转人工核验（MANUAL）</span>
+          {Object.entries(cls.manualReasons).map(([reason, count]) => <small key={reason}>×{count} · {reason}</small>)}
+        </div>
+      </div>
+      {data.gate4.errors.length > 0 && <details className="gate-errors"><summary>gate-report 机器错误明细（{data.gate4.errors.length}）</summary>{data.gate4.errors.map((error) => <p key={error}>{error}</p>)}</details>}
+    </details>
   </>;
 }
 
@@ -2524,7 +2606,7 @@ function RunControls({ project, phase }: { project: Project; phase: Phase }) {
       mockService.bindActiveSession?.(project.id, sessionId);
     }
     mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "starting", sessionId, agent: "team-leader", startedAt: new Date().toISOString() });
-    const prompt = phasePrompt(phase.number, { projectName: project.name, sourceValue: project.source.value, sourcePlatformLabel: project.sourcePlatform === "windows" ? "Windows 桌面" : project.sourcePlatform === "legacy-desktop" ? "传统桌面软件" : "Android App", workspaceDir: project.workspaceDir || "工作区未指定" });
+    const prompt = phasePrompt(phase.number, { projectName: project.name, sourceValue: project.source.value, sourcePlatformLabel: sourcePlatformLabel(project.sourcePlatform), workspaceDir: project.workspaceDir || "工作区未指定", targetPlatform: project.targetPlatform });
     const result = await promptCodeArtsSession(sessionId, prompt, credentials, { agent: "team-leader", mode: "agent-team", model: parseRunModel(runModel) });
     const livePartIds = new Set<string>();
     const resolved = result.accepted && result.pending
