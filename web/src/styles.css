@@ -1751,3 +1751,19 @@ small { font-size: var(--font-caption); line-height: 1.45; }
 .one-line-verdict b { color: var(--orange-deep, #d46b08); }
 .gate-row-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 1100px) { .gate-row-pair { grid-template-columns: 1fr; } }
+
+/* ===== 动效层（framer-motion 配套）：渐层标题 ===== */
+.hero-gradient-text {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  background: linear-gradient(105deg, #1a1a1a 0%, #1f6ae0 55%, #2f9e44 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient-text { -webkit-text-fill-color: initial; background: none; }
+}

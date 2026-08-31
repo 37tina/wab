@@ -7,6 +7,7 @@ import { mockService } from "./mockService";
 import { addAgentModel, BUILTIN_MODELS, checkCodeArts, checkWorkspaceDir, createCodeArtsSession, fetchAgentModels, getCodeArtsMessages, fetchSessionSummary, fetchTeamState, flattenModelOptions, isAbsoluteLocalPath, loadCodeArtsCredentials, loadRunModel, loadTestWorkspaceDir, parseRunModel, promptCodeArtsSession, removeAgentModel, saveCodeArtsCredentials, saveRunModel, saveTestWorkspaceDir, updateAgentTarget, waitForCodeArtsResult, createSkillProposal, decideSkillProposal, fetchSkillFile, fetchSkillProposals, fetchSkillTree, type AgentModelInput, type AgentProviderInfo, type AgentTeamState, type SkillProposal, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
 import { agentSourceLabel, agentTargetLabel, useAgentConnection } from "./useAgentConnection";
 import { phasePrompt, setSkillRoot } from "./phasePrompts";
+import { FadeIn, FadeInOnScroll, HeroTitle, LiftCard } from "./motion";
 
 const statusLabels: Record<Phase["status"], string> = {
   pending: "待执行",
@@ -683,12 +684,12 @@ function HomePage() {
       <section className="home-hero" aria-labelledby="home-hero-title">
         <div className="hero-copy">
           <p className="eyebrow">跨平台软件迁移 · 功能一致性保障</p>
-          <h1 id="home-hero-title">平台可换，功能语义不丢。</h1>
-          <p className="hero-sub">面向异构软件平台的智能迁移系统：多智能体完成软件语义理解、目标平台原生适配与双端行为验证，让迁移后的软件仍然正确工作。<b>当前已完成 Android → HarmonyOS 的端到端工程验证</b>，架构可扩展至桌面、车载等终端场景。</p>
-          <div className="hero-actions"><Link to="/projects/new" className="primary-button">开始一次迁移 <span>→</span></Link><a className="hero-text-link" href="#migration-outcomes">查看迁移成果 ↓</a></div>
-          <div className="hero-proof"><span><b>4</b>阶段门禁</span><span><b>2</b>端运行证据</span><span><b>0</b>占位页面</span><span><b>1</b>份可追溯报告</span></div>
+          <HeroTitle>平台可换，功能语义不丢。</HeroTitle>
+          <FadeIn delay={0.16}><p className="hero-sub">面向异构软件平台的智能迁移系统：多智能体完成软件语义理解、目标平台原生适配与双端行为验证，让迁移后的软件仍然正确工作。<b>当前已完成 Android → HarmonyOS 的端到端工程验证</b>，架构可扩展至桌面、车载等终端场景。</p></FadeIn>
+          <FadeIn delay={0.24}><div className="hero-actions"><Link to="/projects/new" className="primary-button">开始一次迁移 <span>→</span></Link><a className="hero-text-link" href="#migration-outcomes">查看迁移成果 ↓</a></div></FadeIn>
+          <FadeIn delay={0.32}><div className="hero-proof"><span><b>4</b>阶段门禁</span><span><b>2</b>端运行证据</span><span><b>0</b>占位页面</span><span><b>1</b>份可追溯报告</span></div></FadeIn>
         </div>
-        <div className="hero-flow" aria-label="跨平台迁移架构">
+        <FadeIn delay={0.4}><div className="hero-flow" aria-label="跨平台迁移架构">
           <div className="flow-caption"><span>迁移架构</span><code>MULTI-PLATFORM</code></div>
           <div className="lp-flow hero-lp-flow">
             <div className="lp-flow-col">
@@ -706,26 +707,26 @@ function HomePage() {
             </div>
           </div>
           <div className="flow-foot"><span className="live-dot" />实线为已完成端到端验证的路径，虚线为架构预留的扩展方向</div>
-        </div>
+        </div></FadeIn>
       </section>
 
       <section className="outcome-section" id="migration-outcomes" aria-labelledby="outcome-title">
         <div className="home-section-heading"><div><p className="eyebrow">迁移成果速览</p><h2 id="outcome-title">做了什么、解决了什么、效果怎么样</h2></div><span>以 Android → HarmonyOS 已验证案例呈现</span></div>
         <div className="outcome-grid">
-          <div className="outcome-card">
+          <FadeInOnScroll><LiftCard className="outcome-card">
             <p className="eyebrow">GUI 迁移前后对比</p>
             <div className="outcome-compare">
               <div className="lp-shot compact">Android 原版<small>真机截图位</small></div>
               <div className="lp-shot compact">HarmonyOS 迁移版<small>真机截图位</small></div>
             </div>
             <p className="outcome-desc">视觉结构<b>高还原</b>，交互组件<b>原生适配</b>（Tabs / Navigation / Toggle）。</p>
-          </div>
-          <div className="outcome-card">
+          </LiftCard></FadeInOnScroll>
+          <FadeInOnScroll delay={0.08}><LiftCard className="outcome-card">
             <p className="eyebrow">功能一致性测试</p>
             <div className="outcome-matrix">{[["新增 Todo", "数据写入并展示"], ["完成任务", "completed = true"], ["列表排序", "重启后保持"], ["语言切换", "en · 重启保持"]].map(([name, detail]) => <div className="outcome-matrix-row" key={name}><span>{name}</span><small>{detail}</small><i className="lp-match">MATCH</i></div>)}</div>
             <p className="outcome-desc">双端各跑一遍同一行为契约，机器比较数据 / 状态 / 持久化结果。</p>
-          </div>
-          <div className="outcome-card">
+          </LiftCard></FadeInOnScroll>
+          <FadeInOnScroll delay={0.16}><LiftCard className="outcome-card">
             <p className="eyebrow">典型问题自动修复</p>
             <div className="outcome-fixflow">
               <span className="lp-match diff">Persistence DIFF</span>
@@ -733,7 +734,7 @@ function HomePage() {
             </div>
             <div className="outcome-build"><span>构建安装 <b>PASS</b></span><span>占位页面 <b>0</b></span><span>可运行 HAP <b>✓</b></span></div>
             <p className="outcome-desc">发现差异 → 自动定位 → 只修迁移端 → 重验通过，全程留痕可追溯。</p>
-          </div>
+          </LiftCard></FadeInOnScroll>
         </div>
       </section>
 
@@ -2340,7 +2341,7 @@ function PhaseHeader({ phase, eyebrow }: { phase: Phase; eyebrow: string }) {
  *  内容口径对齐 android-harmony-migration-controller 及三个专家 Skill 的真实工作流。 */
 
 function PhaseActions({ items }: { items: string[] }) {
-  return <div className="phase-actions">{items.map((action, index) => <div className="phase-action" key={action}><i>{index + 1}</i><span>{action}</span></div>)}</div>;
+  return <div className="phase-actions">{items.map((action, index) => <FadeIn key={action} delay={index * 0.07}><div className="phase-action"><i>{index + 1}</i><span>{action}</span></div></FadeIn>)}</div>;
 }
 
 interface PhaseAgentInfo { name: string; short: string; duty: string; badge?: string; }
@@ -2396,7 +2397,7 @@ function PhaseGate({ gate, checks }: { gate: number; checks: string }) {
 
 function PhaseOne({ phase }: { phase: Phase }) {
   return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 01 · 迁移基线建立" />
-    <div className="phase-goal">明确“迁什么、迁到哪、什么算迁移成功”。</div>
+    <FadeIn><div className="phase-goal">明确“迁什么、迁到哪、什么算迁移成功”。</div></FadeIn>
     <PhaseActions items={[
       "识别功能范围、数据范围与关键业务能力，划定纳入 / 排除清单",
       "冻结源码 Git 版本、APK 指纹、双端运行环境与工具策略",
@@ -2430,7 +2431,7 @@ function PhaseTwo({ phase }: { phase: Phase }) {
     { k: "副作用", v: "无系统级影响" },
   ];
   return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 02 · 源软件深度理解" />
-    <div className="phase-goal">不仅识别页面，更理解每个功能实际是怎么工作的。</div>
+    <FadeIn><div className="phase-goal">不仅识别页面，更理解每个功能实际是怎么工作的。</div></FadeIn>
     <PhaseActions items={[
       "扫描源码建立功能语义地图：每个功能锚定到源码 file:line",
       "逐功能编写行为契约六要素：意图 / 操作 / 数据 / 可见结果 / 重启持久 / 副作用",
@@ -2459,7 +2460,7 @@ function PhaseThree({ phase }: { phase: Phase }) {
     ["长列表", "List + LazyForEach"],
   ];
   return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 03 · 目标平台原生迁移" />
-    <div className="phase-goal">保留原软件的视觉与信息结构，同时转化为目标平台的原生实现方式。</div>
+    <FadeIn><div className="phase-goal">保留原软件的视觉与信息结构，同时转化为目标平台的原生实现方式。</div></FadeIn>
     <PhaseActions items={[
       "按功能承载面搭壳：页面建路由、弹层挂模态、容器不建壳",
       "冻结 UI 蓝图：原应用视觉与信息结构高保留，标准交互映射原生组件",
@@ -2482,7 +2483,7 @@ function PhaseThree({ phase }: { phase: Phase }) {
 
 function PhaseFour({ phase }: { phase: Phase }) {
   return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 04 · 一致性验证与自动修复" />
-    <div className="phase-goal">迁过去不算完成，功能结果一致才算完成。</div>
+    <FadeIn><div className="phase-goal">迁过去不算完成，功能结果一致才算完成。</div></FadeIn>
     <PhaseActions items={[
       "同一份行为契约双端各自执行：Android 是基准 oracle，HarmonyOS 是被验证方",
       "机器对比四类结果：可观察 / 数据 / 持久化 / 副作用——比结果，不比路径",
