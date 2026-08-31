@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink, Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
-import type { EmulatorFrame, EmulatorStream, Feature, Phase, PhaseNumber, Project, ProjectInput, Review } from "./types";
+import { Link, NavLink, Outlet, Route, Routes, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import type { EmulatorFrame, EmulatorStream, Feature, Phase, PhaseNumber, Project, ProjectInput, Review, SourcePlatform, TargetPlatform } from "./types";
 import { mockService } from "./mockService";
-import { checkCodeArts, createCodeArtsSession, loadCodeArtsCredentials, promptCodeArtsSession, saveCodeArtsCredentials, waitForCodeArtsResult, type CodeArtsConnection, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
+import { addAgentModel, BUILTIN_MODELS, checkCodeArts, checkWorkspaceDir, createCodeArtsSession, fetchAgentModels, getCodeArtsMessages, fetchTeamState, flattenModelOptions, isAbsoluteWindowsPath, loadCodeArtsCredentials, loadRunModel, loadTestWorkspaceDir, parseRunModel, promptCodeArtsSession, removeAgentModel, saveCodeArtsCredentials, saveRunModel, saveTestWorkspaceDir, updateAgentTarget, waitForCodeArtsResult, createSkillProposal, decideSkillProposal, fetchSkillFile, fetchSkillProposals, fetchSkillTree, type AgentModelInput, type AgentProviderInfo, type AgentTeamState, type SkillProposal, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
+import { agentSourceLabel, agentTargetLabel, useAgentConnection } from "./useAgentConnection";
+import { phasePrompt } from "./phasePrompts";
 
 const statusLabels: Record<Phase["status"], string> = {
   pending: "待执行",
@@ -22,13 +24,11 @@ const statusClasses: Record<Phase["status"], string> = {
   completed: "status-approved"
 };
 
-const demoAndroidFrames: EmulatorFrame[] = [
-  { id: "android-home", title: "质检工作台", subtitle: "今日任务 12 个", accent: "#39d2a8", detail: "选择图片开始一次新的质检任务", metric: "12" },
-  { id: "android-import", title: "导入质检图片", subtitle: "支持 JPG / PNG", accent: "#7c8cff", detail: "正在读取生产线样本_0428.png" },
-  { id: "android-running", title: "AI 缺陷检测", subtitle: "模型推理中 · 68%", accent: "#ffb454", detail: "正在扫描图像中的边缘与表面纹理", metric: "68%" },
-  { id: "android-result", title: "检测完成", subtitle: "发现 2 个疑似缺陷", accent: "#ff7b82", detail: "缺陷类型：划痕、边缘缺口", metric: "02" },
-  { id: "android-history", title: "历史记录", subtitle: "最近 7 天", accent: "#39d2a8", detail: "任务 #QC-0428 已归档" }
-];
+function sourcePlatformLabel(platform: Project["sourcePlatform"]): string {
+  if (platform === "windows") return "Windows 桌面";
+  if (platform === "legacy-desktop") return "传统桌面";
+  return "Android";
+}
 
 function formatTime(value: string) {
   const date = new Date(value);
@@ -73,12 +73,21 @@ function App() {
 
 function LiveAppShell() {
   const [projects, setProjects] = useState<Project[]>(() => mockService.listProjects());
-  const [connection, setConnection] = useState<CodeArtsConnection | null>(null);
   const [codeArtsOpen, setCodeArtsOpen] = useState(false);
+  const [skillGovOpen, setSkillGovOpen] = useState(false);
+  const { status: agent } = useAgentConnection();
   useEffect(() => mockService.subscribeAll(setProjects), []);
-  useEffect(() => { checkCodeArts(loadCodeArtsCredentials()).then(setConnection); }, []);
+  const connected = Boolean(agent?.reachable && agent?.healthy);
   const active = projects.find((project) => project.status === "running" || project.status === "review");
   const navClass = ({ isActive }: { isActive: boolean }) => isActive ? "active" : "";
+  const pillTitle = agent
+    ? `${agent.target} · ${agentSourceLabel(agent.source)}${agent.error ? ` · ${agent.error}` : ""}`
+    : "正在检测本机 CodeArts Agent…";
+  const bannerReason = agent
+    ? agent.reachable
+      ? "Agent 健康检查未通过"
+      : agent.error || "目标端口没有服务在监听"
+    : "正在自动发现本机 Agent…";
   return <div className="app-shell">
     <header className="topbar">
       <Link className="brand" to="/"><span className="brand-mark">脱</span><strong>脱胎换骨</strong></Link>
@@ -88,25 +97,59 @@ function LiveAppShell() {
         {active && <NavLink to={`/projects/${active.id}`} className={navClass}>当前工作台</NavLink>}
       </nav>
       <div className="topbar-right">
-        <button className="env-pill" onClick={() => setCodeArtsOpen(true)}><span className={`env-dot ${connection?.connected ? "connected" : ""}`} />{connection?.connected ? "CodeArts 已连接" : "CodeArts 未连接"}</button>
+        <button className="refresh-button" onClick={() => setSkillGovOpen(true)}>Skill 治理</button>
+        <button className="env-pill" onClick={() => setCodeArtsOpen(true)} title={pillTitle}>
+          <span className={`env-dot ${connected ? "connected" : agent ? "unreachable" : ""}`} />
+          {connected ? `CodeArts 已连接 · ${agentTargetLabel(agent?.target)}` : agent ? "CodeArts 未连接" : "CodeArts 检测中…"}
+        </button>
         <span className="user-chip"><span className="avatar">审</span>当前审核员</span>
       </div>
     </header>
-    <div className={`demo-banner ${connection?.connected ? "live-banner" : ""}`}>{connection?.connected ? "真实执行模式 · CodeArts Space / AgentTeam" : "CodeArts Agent 未连接 · 新任务将无法启动真实推理"}<span className="banner-link" onClick={() => setCodeArtsOpen(true)}>{connection?.connected ? "查看连接状态 →" : "连接 CodeArts →"}</span></div>
+    <div className={`demo-banner ${connected ? "live-banner" : ""}`}>
+      {connected
+        ? `真实执行模式 · CodeArts Space / AgentTeam · ${agentTargetLabel(agent?.target)}`
+        : `CodeArts Agent 未连接（${bannerReason}）· 新任务将无法启动真实推理`}
+      <span className="banner-link" onClick={() => setCodeArtsOpen(true)}>{connected ? "查看连接状态 →" : "排查连接 →"}</span>
+    </div>
     <main className="main-content"><div className="page-content"><Outlet /></div></main>
-    {codeArtsOpen && <CodeArtsTestDialog initial={loadCodeArtsCredentials()} onClose={() => setCodeArtsOpen(false)} onConnected={(value) => setConnection(value)} />}
+    {codeArtsOpen && <CodeArtsConnectionDialog initial={loadCodeArtsCredentials()} onClose={() => setCodeArtsOpen(false)} />}
+    {skillGovOpen && <SkillGovernanceDialog onClose={() => setSkillGovOpen(false)} />}
   </div>;
 }
 
-function CodeArtsTestDialog({ initial, onClose, onConnected }: { initial: CodeArtsCredentials; onClose: () => void; onConnected: (value: CodeArtsConnection) => void }) {
+function CodeArtsConnectionDialog({ initial, onClose }: { initial: CodeArtsCredentials; onClose: () => void }) {
+  const { status: agent, refreshing, refresh } = useAgentConnection();
   const [credentials, setCredentials] = useState<CodeArtsCredentials>(initial);
-  const [instruction, setInstruction] = useState("请回复 CODEARTS_CONNECTION_OK，并用一句话说明你当前使用的执行模式。不要修改任何文件。");
+  const [instruction, setInstruction] = useState("请用 background-task 同时并行派发两个 team-mate 子代理：一个查询政治方面的最新新闻，一个查询AI圈的最新新闻（可用 webfetch 访问新闻网站）。两个都完成后，用 background-output 收集结果并汇总汇报每个子代理的产出。不要亲自执行，也不要用 Task 顺序执行。");
   const [status, setStatus] = useState<"idle" | "checking" | "running" | "succeeded" | "failed">("idle");
   const [result, setResult] = useState<CodeArtsRunResult | null>(null);
   const [messages, setMessages] = useState<CodeArtsMessage[]>([]);
   const [error, setError] = useState("");
   const [elapsed, setElapsed] = useState<number | null>(null);
+  const [targetDraft, setTargetDraft] = useState("");
+  const [targetMessage, setTargetMessage] = useState("");
+  const [savingTarget, setSavingTarget] = useState(false);
+  const [testDir, setTestDir] = useState(() => loadTestWorkspaceDir());
+  const [modelsOpen, setModelsOpen] = useState(false);
+  const [runModel, setRunModel] = useState(() => loadRunModel());
+  const [modelOptions, setModelOptions] = useState(() => flattenModelOptions([]));
   const runningRef = useRef(false);
+  useEffect(() => { void fetchAgentModels().then((list) => { if (list) setModelOptions(flattenModelOptions(list)); }); }, []);
+  const connected = Boolean(agent?.reachable && agent?.healthy);
+
+  const applyTarget = async () => {
+    if (savingTarget) return;
+    setSavingTarget(true);
+    setTargetMessage("");
+    const saved = await updateAgentTarget(targetDraft.trim());
+    if (!saved.ok) {
+      setTargetMessage(saved.error ?? "保存失败");
+    } else {
+      setTargetMessage(targetDraft.trim() ? "已保存，后续请求将使用该地址" : "已清除覆盖，恢复自动发现");
+      await refresh();
+    }
+    setSavingTarget(false);
+  };
 
   const runTest = async () => {
     if (runningRef.current || !instruction.trim()) return;
@@ -121,19 +164,21 @@ function CodeArtsTestDialog({ initial, onClose, onConnected }: { initial: CodeAr
       const checked = await checkCodeArts(credentials);
       if (!checked.connected) {
         setStatus("failed");
-        setError(checked.message);
+        setError(checked.hint ? `${checked.message}。${checked.hint}` : checked.message);
+        void refresh();
         return;
       }
       saveCodeArtsCredentials(credentials);
-      onConnected(checked);
+      saveTestWorkspaceDir(testDir);
+      void refresh();
       setStatus("running");
-      const created = await createCodeArtsSession(`脱胎换骨 · 连接测试 · ${new Date(started).toLocaleTimeString("zh-CN")}`, credentials);
+      const created = await createCodeArtsSession(`脱胎换骨 · 连接测试 · ${new Date(started).toLocaleTimeString("zh-CN")}`, credentials, { directory: testDir.trim() || undefined });
       if (!created.accepted || !created.session?.id) {
         setStatus("failed");
         setError(created.message);
         return;
       }
-      const submitted = await promptCodeArtsSession(created.session.id, instruction.trim(), credentials, { agent: "team-leader", mode: "agent-team" });
+      const submitted = await promptCodeArtsSession(created.session.id, instruction.trim(), credentials, { agent: "team-leader", mode: "agent-team", model: parseRunModel(runModel) });
       if (!submitted.accepted) {
         setResult(submitted);
         setStatus("failed");
@@ -165,17 +210,342 @@ function CodeArtsTestDialog({ initial, onClose, onConnected }: { initial: CodeAr
 
   const responseText = typeof result?.response === "string" ? result.response : result?.response ? JSON.stringify(result.response, null, 2) : "";
   const statusLabel = status === "idle" ? "尚未测试" : status === "checking" ? "健康检查中" : status === "running" ? "推理中" : status === "succeeded" ? "测试通过" : "测试失败";
-  return <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><div className="review-dialog codearts-dialog">
-    <div className="dialog-top"><div><h2>CodeArts 连接测试</h2><p>向本机 AgentKernel 发送一条真实指令，验证 AgentTeam 推理可用。</p></div><div className="dialog-top-right"><span className={`test-status-pill ${status}`}>{statusLabel}</span><button className="close-button" onClick={onClose}>×</button></div></div>
-    <div className="codearts-test-warning"><strong>这不是 Mock 测试</strong><span>会创建独立测试会话，不读取或修改迁移项目。</span></div>
+  return <><div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><div className="review-dialog codearts-dialog">
+    <div className="dialog-top"><div><h2>CodeArts 连接</h2><p>网关自动发现本机 AgentKernel 端口。默认指令会通过 Task 工具真实派发子智能体，直接验证 Space AgentTeam 团队协作可用。</p></div><div className="dialog-top-right"><span className={`test-status-pill ${status}`}>{statusLabel}</span><button className="close-button" onClick={onClose}>×</button></div></div>
+    <div className="agent-card">
+      <div className="agent-card-top">
+        <span className={`agent-state-pill ${connected ? "ok" : "bad"}`}><i />{agent ? (connected ? "已连接" : "未连接") : "检测中…"}</span>
+        <span className="agent-card-actions">
+          <button className="refresh-button" onClick={() => setModelsOpen(true)}>模型管理</button>
+          <button className="refresh-button" onClick={() => void refresh()} disabled={refreshing}>{refreshing ? "检测中…" : "↻ 重新检测"}</button>
+        </span>
+      </div>
+      <div className="agent-target-row">
+        <code>{agent ? agentTargetLabel(agent.target) : "—"}</code>
+        {agent && <span className="agent-source-badge">{agentSourceLabel(agent.source)}</span>}
+        {agent?.discovered?.pidAlive && <span className="agent-source-badge neutral">PID {agent.discovered.pid}</span>}
+      </div>
+      <div className="agent-meta">
+        <span>版本 <b>{agent?.version ?? agent?.discovered?.version ?? "—"}</b></span>
+        <span>延迟 <b>{agent?.reachable ? `${agent.latencyMs ?? "—"} ms` : "—"}</b></span>
+        <span>认证 <b>{agent?.authMode === "user" ? "页面凭据" : agent?.authMode === "env" ? "环境变量" : agent?.authMode === "auto" ? "本机托管凭据" : "未配置"}</b></span>
+        <span>检测于 <b>{agent ? formatTime(agent.checkedAt) : "—"}</b></span>
+      </div>
+      {!connected && agent?.error && <div className="agent-error-line">{agent.error}</div>}
+      {connected && agent?.source === "default" && <div className="agent-error-line">正在使用默认端口连接。若本机 Agent 实际端口不同，请在下方手动指定。</div>}
+    </div>
+    <label className="field-label">手动指定本机地址（可选）
+      <div className="target-override-row">
+        <input value={targetDraft} onChange={(event) => setTargetDraft(event.target.value)} placeholder={agent ? agent.target : "http://127.0.0.1:16217"} />
+        <button className="ghost-button" onClick={() => void applyTarget()} disabled={savingTarget}>{savingTarget ? "保存中…" : "保存"}</button>
+      </div>
+      <small className="field-note">仅支持本机地址；清空后保存即恢复自动发现。{targetMessage && <b className={targetMessage.startsWith("已") ? "mint-text" : "error-text"}> {targetMessage}</b>}</small>
+    </label>
+    <div className="field-divider" />
     <label className="field-label">用户名<input value={credentials.username} onChange={(event) => setCredentials({ ...credentials, username: event.target.value })} placeholder="codearts" /></label>
     <label className="field-label">本地服务密码（可选）<input type="password" value={credentials.password} onChange={(event) => setCredentials({ ...credentials, password: event.target.value })} placeholder="留空则使用本机 Agent 凭据" /></label>
+    <label className="field-label">测试工作区目录（可选）<input value={testDir} onChange={(event) => setTestDir(event.target.value)} placeholder={isAbsoluteWindowsPath(testDir) || !testDir ? "留空则使用 Agent 默认目录" : "请输入本机绝对路径，如 D:\\code\\test-workspace"} /><small className={`field-note ${testDir.trim() && !isAbsoluteWindowsPath(testDir) ? "error-text" : ""}`}>{testDir.trim() && !isAbsoluteWindowsPath(testDir) ? "请输入本机绝对路径" : "测试会话将在此目录中运行，避免写入 Agent 安装目录。"}</small></label>
+    <label className="field-label">执行模型<select value={runModel} onChange={(event) => { setRunModel(event.target.value); saveRunModel(event.target.value); }}>{modelOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><small className="field-note">连接测试与真实 AgentTeam 执行共用此选择；含 Space 内置模型与已配置的自定义模型。</small></label>
     <label className="field-label">测试指令<textarea value={instruction} onChange={(event) => setInstruction(event.target.value)} rows={3} placeholder="输入你希望 CodeArts 回答的内容" /></label>
     <button className="primary-button wide" onClick={runTest} disabled={status === "checking" || status === "running" || !instruction.trim()}>{status === "checking" ? "检查 CodeArts 服务…" : status === "running" ? "等待回复…" : "发送测试指令"}<span>→</span></button>
     {(error || result?.message) && status === "failed" && <div className="codearts-test-error">{error || result?.message}</div>}
     {responseText && <pre className="real-response dialog-response">{responseText}</pre>}
     {!responseText && status === "running" && <div className="test-loader"><i /><i /><i /></div>}
     <div className="codearts-test-meta"><span>Agent <b>team-leader</b></span><span>消息 <b>{messages.length}</b></span><span>耗时 <b>{elapsed === null ? "—" : `${(elapsed / 1000).toFixed(1)}s`}</b></span></div>
+  </div></div>
+  {modelsOpen && <ModelManagerDialog onClose={() => setModelsOpen(false)} />}</>;
+}
+
+function SkillGovernanceDialog({ onClose }: { onClose: () => void }) {
+  const [skills, setSkills] = useState<Array<{ skill: string; files: Array<{ path: string; size: number }> }> | null>(null);
+  const [selectedFile, setSelectedFile] = useState("");
+  const [fileContent, setFileContent] = useState("");
+  const [proposals, setProposals] = useState<SkillProposal[] | null>(null);
+  const [draft, setDraft] = useState("");
+  const [reason, setReason] = useState("");
+  const [author, setAuthor] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  const reload = async () => {
+    const [tree, list] = await Promise.all([fetchSkillTree(), fetchSkillProposals()]);
+    setSkills(tree);
+    setProposals(list);
+  };
+  useEffect(() => { void reload(); }, []);
+
+  const openFile = async (path: string) => {
+    setSelectedFile(path);
+    setError("");
+    setDraft("");
+    const content = await fetchSkillFile(path);
+    if (content === null) return setError("读取文件失败");
+    setFileContent(content);
+  };
+
+  const startEdit = () => setDraft(fileContent);
+
+  const submitProposal = async () => {
+    if (busy) return;
+    setError(""); setMessage("");
+    if (!selectedFile) return setError("请先选择 skill 文件");
+    if (!draft.trim()) return setError("请点击「基于当前内容编辑」后修改");
+    if (!reason.trim()) return setError("必须填写修改理由（审核依据）");
+    setBusy(true);
+    const result = await createSkillProposal({ path: selectedFile, newContent: draft, reason: reason.trim(), author: author.trim() || "agent" });
+    setBusy(false);
+    if (!result.ok) return setError(result.error ?? "提交失败");
+    setMessage("提案已提交，等待人工审核。审核通过前 skill 文件不会被修改。");
+    setDraft(""); setReason("");
+    await reload();
+  };
+
+  const decide = async (id: string, decision: "approved" | "rejected") => {
+    if (busy) return;
+    setBusy(true);
+    const comment = decision === "rejected" ? window.prompt("驳回理由（会反馈给提案方）：") ?? "" : "";
+    if (decision === "rejected" && !comment) { setBusy(false); return; }
+    const result = await decideSkillProposal(id, decision, comment);
+    setBusy(false);
+    if (!result.ok) return setError(result.error ?? "操作失败");
+    setMessage(decision === "approved" ? "已通过：新内容写入 skill 文件（原文件已备份）。若在正式 run 中，请按 TOOL_GAP 规则重启 run。" : "已驳回。");
+    await reload();
+  };
+
+  const pending = proposals?.filter((p) => p.status === "pending") ?? [];
+  const decided = proposals?.filter((p) => p.status !== "pending").slice(0, 6) ?? [];
+  return <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><div className="review-dialog codearts-dialog skill-dialog">
+    <div className="dialog-top"><div><h2>Skill 治理</h2><p>智能体可对 skill 提交修改提案；审核通过前文件不会被改动，通过后写入并自动备份。</p></div><div className="dialog-top-right"><span className="test-status-pill idle">{pending.length ? `${pending.length} 条待审` : "无待审"}</span><button className="close-button" onClick={onClose}>×</button></div></div>
+    {error && <div className="codearts-test-error">{error}</div>}
+    {message && <div className="model-form-message model-success">{message}</div>}
+    <div className="skill-layout">
+      <div className="skill-tree">
+        {(skills ?? []).map((group) => <div key={group.skill}>
+          <p className="lp-eyebrow">{group.skill}</p>
+          {group.files.filter((f) => f.path.endsWith(".md") || f.path.endsWith(".yaml")).slice(0, 12).map((file) => <button key={file.path} className={`skill-file ${selectedFile === file.path ? "active" : ""}`} onClick={() => void openFile(file.path)}>{file.path.split("/").slice(1).join("/")}</button>)}
+        </div>)}
+        {!skills && <p className="field-note">正在读取 skill 目录…</p>}
+      </div>
+      <div className="skill-main">
+        {!selectedFile && <p className="field-note">← 从左侧选择 skill 文件查看内容</p>}
+        {selectedFile && !draft && <>
+          <div className="skill-file-head"><code>{selectedFile}</code><button className="refresh-button" onClick={startEdit}>基于当前内容编辑</button></div>
+          <pre className="skill-content">{fileContent.slice(0, 4000)}{fileContent.length > 4000 ? "\n…（仅预览前 4000 字，编辑时为全文）" : ""}</pre>
+        </>}
+        {selectedFile && draft && <>
+          <div className="skill-file-head"><code>{selectedFile} · 编辑中</code></div>
+          <textarea className="skill-editor" value={draft} onChange={(event) => setDraft(event.target.value)} spellCheck={false} />
+          <div className="field-label">修改理由（必填，审核依据）<input value={reason} onChange={(event) => setReason(event.target.value)} placeholder="为什么需要改这个 skill？改动的依据是什么？" /></div>
+          <div className="field-label">提案方<input value={author} onChange={(event) => setAuthor(event.target.value)} placeholder="例如：android-migration-inventory / agent" /></div>
+          <div className="dialog-actions"><button className="ghost-button" onClick={() => setDraft("")}>取消编辑</button><button className="primary-button" onClick={() => void submitProposal()} disabled={busy}>{busy ? "提交中…" : "提交提案待审"}</button></div>
+        </>}
+      </div>
+    </div>
+    <div className="field-divider" />
+    <p className="lp-eyebrow">审核队列</p>
+    <div className="skill-review-list">
+      {pending.length === 0 && <p className="field-note">暂无待审提案。</p>}
+      {pending.map((proposal) => <div className="skill-review-row" key={proposal.id}>
+        <div className="skill-review-info"><b>{proposal.path}</b><small>{proposal.author} · {proposal.originalLines} → {proposal.newLines} 行</small><p>{proposal.reason}</p></div>
+        <div className="skill-review-actions"><button className="refresh-button danger" onClick={() => void decide(proposal.id, "rejected")} disabled={busy}>驳回</button><button className="refresh-button" onClick={() => void decide(proposal.id, "approved")} disabled={busy}>通过并写入</button></div>
+      </div>)}
+      {decided.map((proposal) => <div className="skill-review-row decided" key={proposal.id}>
+        <div className="skill-review-info"><b>{proposal.path}</b><small>{proposal.author} · {proposal.status === "approved" ? "已通过并写入" : "已驳回"}{proposal.reviewerComment ? ` · ${proposal.reviewerComment}` : ""}</small></div>
+      </div>)}
+    </div>
+  </div></div>;
+}
+
+const PROVIDER_PRESETS: Array<{ id: string; name: string; baseURL: string }> = [
+  { id: "deepseek", name: "深度求索 DeepSeek", baseURL: "https://api.deepseek.com" },
+  { id: "glm", name: "智谱 GLM", baseURL: "https://open.bigmodel.cn/api/coding/paas/v4" },
+  { id: "qwen", name: "阿里云通义千问", baseURL: "https://dashscope.aliyuncs.com/compatible-mode/v1" },
+  { id: "moonshot", name: "月之暗面 Kimi", baseURL: "https://api.moonshot.cn/v1" },
+  { id: "openai", name: "OpenAI", baseURL: "https://api.openai.com/v1" },
+];
+
+function ModelManagerDialog({ onClose }: { onClose: () => void }) {
+  const [providers, setProviders] = useState<AgentProviderInfo[] | null>(null);
+  const [loadError, setLoadError] = useState("");
+  const [notice, setNotice] = useState("");
+  const [addOpen, setAddOpen] = useState(false);
+
+  const load = async () => {
+    setLoadError("");
+    const list = await fetchAgentModels();
+    if (list === null) setLoadError("无法读取模型列表：请确认后端网关与本机 Agent 正在运行。");
+    setProviders(list);
+  };
+  useEffect(() => { void load(); }, []);
+
+  const remove = async (providerID: string, modelID: string) => {
+    setLoadError("");
+    const result = await removeAgentModel(providerID, modelID);
+    if (result.ok) {
+      if (result.providers) setProviders(result.providers);
+      setNotice(`已从客户端配置移除模型 ${modelID}`);
+    } else {
+      setLoadError(result.error ?? "删除失败");
+    }
+  };
+
+  const totalModels = (providers?.reduce((sum, p) => sum + p.models.length, 0) ?? 0) + BUILTIN_MODELS.length;
+  return <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><div className="review-dialog codearts-dialog model-dialog">
+    <div className="dialog-top"><div><h2>模型管理</h2><p>与 CodeArts 客户端共用同一份模型配置；新增的模型写入客户端配置文件，重启 Agent 后在客户端和执行中同步生效。</p></div><div className="dialog-top-right"><span className="test-status-pill idle">{providers ? `已有 ${totalModels} 个模型` : "加载中"}</span><button className="close-button" onClick={onClose}>×</button></div></div>
+    {notice && <div className="model-form-message model-success">{notice}</div>}
+    {loadError && <div className="codearts-test-error">{loadError}</div>}
+    <div className="model-list">
+      <div className="model-provider-card">
+        <div className="model-provider-top"><b>客户端内置模型</b><span className="agent-source-badge">Space 内置</span><code className="model-baseurl">inferhub-provider</code><span className="model-key">由登录态提供</span></div>
+        {BUILTIN_MODELS.map((model) => <div className="model-row" key={model.id}>
+          <span className="model-name" title={model.desc}><b>{model.name}</b><small>{model.desc}{model.verified ? "" : " · 注册 ID 待确认"}</small></span>
+          <span className="model-row-right"><span className="agent-source-badge neutral">内置</span></span>
+        </div>)}
+      </div>
+      {(providers ?? []).map((provider) => <div className="model-provider-card" key={provider.providerID}>
+        <div className="model-provider-top"><b>{provider.name}</b><span className="agent-source-badge neutral">{provider.providerID}</span><span className="agent-source-badge">{provider.npm.includes("anthropic") ? "Anthropic Messages" : "OpenAI 兼容"}</span>{provider.baseURL && <code className="model-baseurl">{provider.baseURL}</code>}<span className="model-key">{provider.apiKeyMasked ? `Key ${provider.apiKeyMasked}` : "未配置 Key"}</span></div>
+        {provider.models.length === 0 && <div className="model-row"><small className="field-note">该服务商暂无模型</small></div>}
+        {provider.models.map((model) => <div className="model-row" key={model.modelID}>
+          <span className="model-name" title={model.modelDesc || model.modelID}><b>{model.modelName}</b><small>{model.modelID}{model.modelDesc ? ` · ${model.modelDesc}` : ""}</small></span>
+          <span className="model-row-right">
+            <span className="agent-source-badge">{model.isCustomModel ? "自定义" : "客户端内置"}</span>
+            {model.contextWindow > 0 && <small className="field-note">{Math.round(model.contextWindow / 1000)}K 上下文</small>}
+            {model.isCustomModel && <button className="refresh-button danger" onClick={() => void remove(provider.providerID, model.modelID)}>删除</button>}
+          </span>
+        </div>)}
+      </div>)}
+    </div>
+    <div className="dialog-actions model-dialog-actions"><button className="ghost-button" onClick={onClose}>关闭</button><button className="primary-button" onClick={() => setAddOpen(true)}>＋ 添加模型</button></div>
+    {addOpen && <AddModelDialog providers={providers ?? []} onClose={() => setAddOpen(false)} onAdded={(message, list) => { setNotice(message); if (list) setProviders(list); }} />}
+  </div></div>;
+}
+
+function AddModelDialog({ providers, onClose, onAdded }: { providers: AgentProviderInfo[]; onClose: () => void; onAdded: (message: string, providers?: AgentProviderInfo[]) => void }) {
+  const [tab, setTab] = useState<"provider" | "custom">("provider");
+  const [apiFormat, setApiFormat] = useState<"openai" | "anthropic">("openai");
+  const [providerChoice, setProviderChoice] = useState("");
+  const [modelID, setModelID] = useState("");
+  const [modelName, setModelName] = useState("");
+  const [apiKey, setApiKey] = useState("");
+  const [showKey, setShowKey] = useState(false);
+  const [advOpen, setAdvOpen] = useState(false);
+  const [contextWindow, setContextWindow] = useState("");
+  const [outputWindow, setOutputWindow] = useState("");
+  const [apiURL, setApiURL] = useState("");
+  const [customModelID, setCustomModelID] = useState("");
+  const [customModelName, setCustomModelName] = useState("");
+  const [customKey, setCustomKey] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const existing = providers.find((p) => p.providerID === providerChoice);
+  const preset = PROVIDER_PRESETS.find((p) => p.id === providerChoice);
+  const providerKnown = providers.some((p) => p.providerID === providerChoice);
+  const knownModels = existing?.models.map((m) => m.modelID) ?? [];
+
+  const submit = async () => {
+    if (submitting) return;
+    setError("");
+    let input: AgentModelInput;
+    if (tab === "provider") {
+      if (!providerChoice) return setError("请先选择模型提供商");
+      if (!modelID.trim()) return setError("请填写模型 ID");
+      if (!providerKnown && !apiKey.trim()) return setError("该服务商尚未配置 API Key，请填写");
+      input = {
+        providerID: providerChoice,
+        providerName: preset?.name ?? existing?.name ?? providerChoice,
+        baseURL: providerKnown ? "" : preset?.baseURL ?? "",
+        apiKey: apiKey.trim(),
+        modelID: modelID.trim(),
+        modelName: modelName.trim() || modelID.trim(),
+        modelDesc: "",
+        contextWindow: contextWindow ? Number(contextWindow) : undefined,
+        outputContextWindow: outputWindow ? Number(outputWindow) : undefined,
+      };
+    } else {
+      if (!/^https?:\/\//.test(apiURL.trim())) return setError("请填写有效的模型 URL（以 http(s):// 开头，不要以斜杠结尾）");
+      if (!customModelID.trim()) return setError("请填写模型 ID");
+      input = {
+        providerID: apiFormat === "anthropic" ? "custom-anthropic" : "custom",
+        providerName: "自定义",
+        baseURL: apiURL.trim().replace(/\/+$/, ""),
+        apiKey: customKey.trim(),
+        modelID: customModelID.trim(),
+        modelName: customModelName.trim() || customModelID.trim(),
+        modelDesc: "",
+        apiFormat,
+        contextWindow: contextWindow ? Number(contextWindow) : undefined,
+        outputContextWindow: outputWindow ? Number(outputWindow) : undefined,
+      };
+    }
+    setSubmitting(true);
+    const result = await addAgentModel(input);
+    setSubmitting(false);
+    if (!result.ok) return setError(result.error ?? "新增模型失败");
+    onAdded(`模型「${input.modelName}」已写入客户端配置文件，重启 CodeArts Agent 后生效。`, result.providers);
+  };
+
+  return <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><div className="review-dialog add-model-dialog">
+    <div className="dialog-top"><div><h2>添加模型</h2></div><button className="close-button" onClick={onClose}>×</button></div>
+    <div className="model-tabs">
+      <button type="button" className={`model-tab ${tab === "provider" ? "active" : ""}`} onClick={() => { setTab("provider"); setError(""); }}>模型提供商</button>
+      <button type="button" className={`model-tab ${tab === "custom" ? "active" : ""}`} onClick={() => { setTab("custom"); setError(""); }}>自定义配置</button>
+    </div>
+    {tab === "provider" ? <>
+      <label className="field-label">模型提供商
+        <select value={providerChoice} onChange={(event) => setProviderChoice(event.target.value)}>
+          <option value="">请选择模型提供商</option>
+          {PROVIDER_PRESETS.map((presetItem) => <option key={presetItem.id} value={presetItem.id}>{presetItem.name}{providers.some((p) => p.providerID === presetItem.id) ? "（已配置）" : ""}</option>)}
+          {providers.filter((p) => !PROVIDER_PRESETS.some((presetItem) => presetItem.id === p.providerID)).map((p) => <option key={p.providerID} value={p.providerID}>{p.name}（已配置）</option>)}
+        </select>
+      </label>
+      <label className="field-label">模型 ID <span className="help-dot" title="服务商的模型标识，例如 glm-5.3-flash">?</span>
+        <input list="known-model-ids" value={modelID} onChange={(event) => setModelID(event.target.value)} placeholder="请选择或输入模型 ID" maxLength={64} />
+        <datalist id="known-model-ids">{knownModels.map((id) => <option key={id} value={id} />)}</datalist>
+      </label>
+      <label className="field-label"><span className="label-row">模型展示名称 <span className="help-dot" title="展示在客户端和执行列表里的名称">?</span><em className="char-count">{modelName.length}/64</em></span>
+        <input value={modelName} onChange={(event) => setModelName(event.target.value)} placeholder="请输入模型展示名称，例如：OpenAI-3-Next" maxLength={64} />
+      </label>
+      <label className="field-label"><span className="label-row">API Key{existing?.hasApiKey && <em className="char-count">已配置，留空沿用原 Key</em>}</span>
+        <span className="key-input-wrap">
+          <input type={showKey ? "text" : "password"} value={apiKey} onChange={(event) => setApiKey(event.target.value)} placeholder="请输入API密钥" />
+          <button type="button" className="key-toggle" onClick={() => setShowKey((value) => !value)} aria-label={showKey ? "隐藏密钥" : "显示密钥"}>{showKey ? "隐蔽" : "👁"}</button>
+        </span>
+      </label>
+    </> : <>
+      <label className="field-label">API格式
+        <select value={apiFormat} onChange={(event) => setApiFormat(event.target.value as "openai" | "anthropic")}>
+          <option value="openai">OpenAI Chat Completions</option>
+          <option value="anthropic">Anthropic Messages</option>
+        </select>
+      </label>
+      <label className="field-label">模型URL
+        <input value={apiURL} onChange={(event) => setApiURL(event.target.value)} placeholder="请输入模型URL" />
+        <small className="field-note">{apiFormat === "anthropic" ? "请填写Anthropic API服务端点地址，不要以斜杠结尾。" : "请填写OpenAI API服务端点地址，不要以斜杠结尾。系统会自动补充 /chat/completions 路径。"}</small>
+      </label>
+      <label className="field-label"><span className="label-row">模型ID<em className="char-count">{customModelID.length}/64</em></span>
+        <input value={customModelID} onChange={(event) => setCustomModelID(event.target.value)} placeholder="请输入模型ID" maxLength={64} />
+      </label>
+      <label className="field-label"><span className="label-row">模型展示名称<em className="char-count">{customModelName.length}/64</em></span>
+        <input value={customModelName} onChange={(event) => setCustomModelName(event.target.value)} placeholder="请输入模型展示名称，例如：OpenAI-3-Next" maxLength={64} />
+      </label>
+      <label className="field-label">API Key
+        <span className="key-input-wrap">
+          <input type={showKey ? "text" : "password"} value={customKey} onChange={(event) => setCustomKey(event.target.value)} placeholder="请输入API密钥" />
+          <button type="button" className="key-toggle" onClick={() => setShowKey((value) => !value)} aria-label={showKey ? "隐藏密钥" : "显示密钥"}>{showKey ? "隐蔽" : "👁"}</button>
+        </span>
+      </label>
+    </>}
+    <button type="button" className="adv-toggle" onClick={() => setAdvOpen((value) => !value)}>高级配置 <span>{advOpen ? "⌄" : "›"}</span></button>
+    {advOpen && <div className="adv-grid">
+      <label className="field-label">上下文窗口（tokens）<input type="number" min={0} value={contextWindow} onChange={(event) => setContextWindow(event.target.value)} placeholder="128000" /></label>
+      <label className="field-label">最大输出（tokens）<input type="number" min={0} value={outputWindow} onChange={(event) => setOutputWindow(event.target.value)} placeholder="8192" /></label>
+      <small className="field-note model-span2">其余参数保持客户端默认值。</small>
+    </div>}
+    <div className="model-disclaimer"><b>ⓘ 免责声明</b><p>不对第三方模型的可用性、合规性及安全性承担责任。使用前请评估相关模型并查阅其许可协议，确保符合法规要求。</p></div>
+    {error && <div className="codearts-test-error">{error}</div>}
+    <div className="dialog-actions"><button className="ghost-button" onClick={onClose}>取消</button><button className="primary-button" onClick={() => void submit()} disabled={submitting}>{submitting ? "正在写入…" : "确认"}</button></div>
   </div></div>;
 }
 
@@ -189,24 +559,61 @@ function HomePage() {
     <div className="home-page">
       <section className="home-hero" aria-labelledby="home-hero-title">
         <div className="hero-copy">
-          <p className="eyebrow">国产化迁移 · 功能一致性验证</p>
+          <p className="eyebrow">跨平台软件迁移 · 功能一致性保障</p>
           <h1 id="home-hero-title">平台可换，功能语义不丢。</h1>
-          <p>把 Android 源码交给 CodeArts AgentTeam，经过语义重建、行为取证、鸿蒙生成和双端验证，交付一套可追溯的迁移结果。</p>
-          <div className="hero-actions"><Link to="/projects/new" className="primary-button">开始一次迁移 <span>→</span></Link><a className="hero-text-link" href="#migration-tasks">查看最近任务 <span>↓</span></a></div>
-          <div className="hero-proof"><span><b>4</b>阶段门禁</span><span><b>2</b>端运行证据</span><span><b>1</b>份可追溯报告</span></div>
+          <p className="hero-sub">面向异构软件平台的智能迁移系统：多智能体完成软件语义理解、目标平台原生适配与双端行为验证，让迁移后的软件仍然正确工作。<b>当前已完成 Android → HarmonyOS 的端到端工程验证</b>，架构可扩展至桌面、车载等终端场景。</p>
+          <div className="hero-actions"><Link to="/projects/new" className="primary-button">开始一次迁移 <span>→</span></Link><a className="hero-text-link" href="#migration-outcomes">查看迁移成果 ↓</a></div>
+          <div className="hero-proof"><span><b>4</b>阶段门禁</span><span><b>2</b>端运行证据</span><span><b>0</b>占位页面</span><span><b>1</b>份可追溯报告</span></div>
         </div>
-        <div className="hero-flow" aria-label="Android 到 HarmonyOS 的迁移流程">
-          <div className="flow-caption"><span>迁移证据链</span><code>ANDROID → HARMONYOS</code></div>
-          <div className="flow-track">
-            <div className="flow-node source"><span>源</span><b>Android</b><small>源码与行为</small></div>
-            <i className="flow-arrow">→</i>
-            <div className="flow-node agent"><span>AI</span><b>AgentTeam</b><small>语义与生成</small></div>
-            <i className="flow-arrow">→</i>
-            <div className="flow-node target"><span>目标</span><b>HarmonyOS</b><small>运行与交付</small></div>
+        <div className="hero-flow" aria-label="跨平台迁移架构">
+          <div className="flow-caption"><span>迁移架构</span><code>MULTI-PLATFORM</code></div>
+          <div className="lp-flow hero-lp-flow">
+            <div className="lp-flow-col">
+              <div className="lp-node solid">Android<small>已验证</small></div>
+              <div className="lp-node dashed">Windows<small>可扩展</small></div>
+              <div className="lp-node dashed">传统桌面软件<small>可扩展</small></div>
+            </div>
+            <div className="lp-flow-arrow">→</div>
+            <div className="lp-node contract">平台无关<br />功能语义契约<small>Feature Map · Behavior Contract</small></div>
+            <div className="lp-flow-arrow">→</div>
+            <div className="lp-flow-col">
+              <div className="lp-node solid">HarmonyOS 手机<small>已验证</small></div>
+              <div className="lp-node dashed">HarmonyOS PC<small>规划中</small></div>
+              <div className="lp-node dashed">车载等异构终端<small>规划中</small></div>
+            </div>
           </div>
-          <div className="flow-foot"><span className="live-dot" />每个阶段都留下可审核证据</div>
+          <div className="flow-foot"><span className="live-dot" />实线为已完成端到端验证的路径，虚线为架构预留的扩展方向</div>
         </div>
       </section>
+
+      <section className="outcome-section" id="migration-outcomes" aria-labelledby="outcome-title">
+        <div className="home-section-heading"><div><p className="eyebrow">迁移成果速览</p><h2 id="outcome-title">做了什么、解决了什么、效果怎么样</h2></div><span>以 Android → HarmonyOS 已验证案例呈现</span></div>
+        <div className="outcome-grid">
+          <div className="outcome-card">
+            <p className="eyebrow">GUI 迁移前后对比</p>
+            <div className="outcome-compare">
+              <div className="lp-shot compact">Android 原版<small>真机截图位</small></div>
+              <div className="lp-shot compact">HarmonyOS 迁移版<small>真机截图位</small></div>
+            </div>
+            <p className="outcome-desc">视觉结构<b>高还原</b>，交互组件<b>原生适配</b>（Tabs / Navigation / Toggle）。</p>
+          </div>
+          <div className="outcome-card">
+            <p className="eyebrow">功能一致性测试</p>
+            <div className="outcome-matrix">{[["新增 Todo", "数据写入并展示"], ["完成任务", "completed = true"], ["列表排序", "重启后保持"], ["语言切换", "en · 重启保持"]].map(([name, detail]) => <div className="outcome-matrix-row" key={name}><span>{name}</span><small>{detail}</small><i className="lp-match">MATCH</i></div>)}</div>
+            <p className="outcome-desc">双端各跑一遍同一行为契约，机器比较数据 / 状态 / 持久化结果。</p>
+          </div>
+          <div className="outcome-card">
+            <p className="eyebrow">典型问题自动修复</p>
+            <div className="outcome-fixflow">
+              <span className="lp-match diff">Persistence DIFF</span>
+              <div className="outcome-fixchain">定位 SettingsRepository → 修复持久化 → 二次重放 <b>MATCH ✓</b></div>
+            </div>
+            <div className="outcome-build"><span>构建安装 <b>PASS</b></span><span>占位页面 <b>0</b></span><span>可运行 HAP <b>✓</b></span></div>
+            <p className="outcome-desc">发现差异 → 自动定位 → 只修迁移端 → 重验通过，全程留痕可追溯。</p>
+          </div>
+        </div>
+      </section>
+
       <div className="home-section-heading" id="migration-tasks"><div><p className="eyebrow">工作台总览</p><h2>迁移任务</h2></div><span>所有版本均可回到阶段证据</span></div>
       <div className="stats-grid"><StatCard label="进行中的迁移" value={String(running).padStart(2, "0")} /><StatCard label="已完成交付" value={String(completed).padStart(2, "0")} /><StatCard label="登记功能点" value={String(features.length).padStart(2, "0")} unit="项" /><StatCard label="已确认功能" value={String(covered).padStart(2, "0")} unit="项" /></div>
       <div className="task-table">
@@ -214,7 +621,7 @@ function HomePage() {
         {projects.map((project) => { const current = project.phases.find((phase) => phase.number === project.currentPhase); const completedPhases = project.phases.filter((phase) => phase.status === "approved" || phase.status === "completed").length; return (
           <Link to={`/projects/${project.id}`} className="task-row" key={project.id}>
             <span className="task-name"><b>{project.name}</b></span>
-            <span>{project.source.type === "github" ? "GitHub 仓库" : "Android ZIP"}</span>
+            <span>{sourcePlatformLabel(project.sourcePlatform)} · {project.source.type === "github" ? "GitHub" : "ZIP"}</span>
             <span>{String(project.currentPhase).padStart(2, "0")} · {current?.shortTitle}</span>
             <span>{completedPhases}/4</span>
             <span><StatusBadge status={current?.status ?? "pending"} /></span>
@@ -223,10 +630,11 @@ function HomePage() {
           </Link>
         ); })}
       </div>
-      <p className="mock-note"><span>ⓘ</span> 当前为演示数据</p>
+      <p className="mock-note"><span>ⓘ</span> 任务表为演示数据；成果速览中的截图位与指标将在接入真实运行记录后填充</p>
     </div>
   );
 }
+
 
 function StatCard({ label, value, unit }: { label: string; value: string; unit?: string }) {
   return <div className="stat-card"><p>{label}</p><div className="stat-value">{value}<small>{unit}</small></div></div>;
@@ -234,26 +642,109 @@ function StatCard({ label, value, unit }: { label: string; value: string; unit?:
 
 function LiveNewProjectPage() {
   const navigate = useNavigate();
+  const [sourcePlatform, setSourcePlatform] = useState<SourcePlatform>("android");
+  const [targetPlatform, setTargetPlatform] = useState<TargetPlatform>("harmony-phone");
   const [sourceType, setSourceType] = useState<"github" | "zip">("github");
   const [sourceValue, setSourceValue] = useState("");
   const [name, setName] = useState("");
   const [executionMode, setExecutionMode] = useState<"codearts-agentteam" | "demo">("codearts-agentteam");
+  const [workspaceDir, setWorkspaceDir] = useState("");
+  const [dirStatus, setDirStatus] = useState<"unknown" | "checking" | "exists" | "missing" | "invalid">("unknown");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const value = workspaceDir.trim();
+    if (!value) return setDirStatus("unknown");
+    if (!isAbsoluteWindowsPath(value)) return setDirStatus("invalid");
+    setDirStatus("checking");
+    const timer = window.setTimeout(async () => {
+      const result = await checkWorkspaceDir(value);
+      if (!result) return setDirStatus("unknown");
+      setDirStatus(result.exists && result.isDirectory !== false ? "exists" : "missing");
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [workspaceDir]);
+
+  const dirNotes: Record<typeof dirStatus, string> = {
+    unknown: "Agent 将在该目录中检出源码并执行构建，不同任务建议使用不同目录。",
+    checking: "正在检查目录…",
+    exists: "✓ 目录已存在，Agent 将直接使用。",
+    missing: "目录当前不存在，Agent 运行时会自动创建。",
+    invalid: "请输入本机绝对路径，例如 D:\\code\\workspace",
+  };
+
+  const sourceOptions: Array<{ id: SourcePlatform; label: string; note: string; ready: boolean }> = [
+    { id: "android", label: "Android App", note: "已验证", ready: true },
+    { id: "windows", label: "Windows 桌面软件", note: "扩展方向", ready: false },
+    { id: "legacy-desktop", label: "传统桌面软件", note: "扩展方向", ready: false },
+  ];
+  const targetOptions: Array<{ id: TargetPlatform; label: string; note: string; ready: boolean }> = [
+    { id: "harmony-phone", label: "HarmonyOS 手机", note: "已验证", ready: true },
+    { id: "harmony-pc", label: "HarmonyOS PC", note: "规划中", ready: false },
+    { id: "vehicle", label: "车载系统", note: "规划中", ready: false },
+  ];
+  const pathReady = sourceOptions.find((o) => o.id === sourcePlatform)?.ready && targetOptions.find((o) => o.id === targetPlatform)?.ready;
+
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
     const value = sourceValue.trim();
+    const workspace = workspaceDir.trim();
     if (!name.trim()) return setError("请先填写项目名称");
+    if (!pathReady) return setError("该迁移路径为扩展方向，当前版本已验证 Android App → HarmonyOS 手机");
     if (sourceType === "github" && !/^https?:\/\/(www\.)?github\.com\/.+/.test(value)) return setError("请输入有效的 GitHub 仓库链接");
-    if (sourceType === "zip" && !/\.zip$/i.test(value)) return setError("请选择 .zip 格式的 Android 项目");
-    const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value, executionMode });
+    if (sourceType === "zip" && !/\.zip$/i.test(value)) return setError("请选择 .zip 格式的源项目压缩包");
+    if (executionMode === "codearts-agentteam") {
+      if (!workspace) return setError("真实执行需要指定 CodeArts 工作区目录");
+      if (!isAbsoluteWindowsPath(workspace)) return setError("工作区目录需为本机绝对路径，例如 D:\\code\\workspace");
+    }
+    const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value, executionMode, workspaceDir: executionMode === "codearts-agentteam" ? workspace : undefined, sourcePlatform, targetPlatform });
     navigate(`/projects/${project.id}`);
   };
-  return <div className="new-project-page"><div className="page-heading"><div><h1>新建迁移任务</h1><p className="heading-subtitle">输入源项目后，直接启动真实 CodeArts AgentTeam 推理。</p></div><Link to="/" className="ghost-button">← 返回项目总览</Link></div><div className="new-project-layout"><form className="intake-card" onSubmit={submit}><div className="card-title-row"><div><span className="section-index">01</span><h2>选择源项目</h2></div><span className="required-note">必填</span></div><div className="source-toggle"><button type="button" className={sourceType === "github" ? "toggle active" : "toggle"} onClick={() => { setSourceType("github"); setSourceValue(""); setError(""); }}>GitHub 链接</button><button type="button" className={sourceType === "zip" ? "toggle active" : "toggle"} onClick={() => { setSourceType("zip"); setSourceValue(""); setError(""); }}>Android ZIP</button></div>{sourceType === "github" ? <label className="field-label">GitHub 公共仓库链接<input value={sourceValue} onChange={(event) => setSourceValue(event.target.value)} placeholder="https://github.com/example/android-project" /></label> : <label className="file-drop"><input type="file" accept=".zip" onChange={(event) => { setSourceValue(event.target.files?.[0]?.name ?? ""); setError(""); }} /><span className="upload-icon">↑</span><b>{sourceValue || "点击选择 Android 项目压缩包"}</b><small>{sourceValue ? "已选择；真实构建前需上传到 CodeArts 工作目录" : "支持 .zip，建议不超过 50 MB"}</small></label>}<div className="field-divider" /><div className="card-title-row compact"><div><span className="section-index">02</span><h2>任务信息</h2></div></div><label className="field-label">迁移项目名称<input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：机器视觉质检助手迁移" /></label><div className="execution-mode-picker"><div className="mode-picker-heading"><b>选择执行引擎</b></div><button type="button" className={executionMode === "codearts-agentteam" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("codearts-agentteam")}><strong>CodeArts Space / AgentTeam</strong><small>真实大模型推理、团队调度和工具执行</small></button><button type="button" className={executionMode === "demo" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("demo")}><strong>本地演示</strong><small>仅播放固定数据，不产生真实构建</small></button></div>{error && <div className="form-error">! {error}</div>}<button className="primary-button wide" type="submit">启动迁移 <span className="button-arrow">→</span></button></form><aside className="intake-aside"><div className="aside-card"><p className="eyebrow">执行流程</p><h3>四阶段真实门禁</h3><div className="preview-steps">{[{n: "01", t: "识胎", d: "源项目语义重建" }, { n: "02", t: "验旧", d: "Android 行为基线" }, { n: "03", t: "换骨", d: "HarmonyOS 迁移生成" }, { n: "04", t: "验神", d: "功能一致性验证" }].map((step, index) => <div className="preview-step" key={step.n}><span>{step.n}</span><div><b>{step.t}</b><small>{step.d}</small></div>{index < 3 && <i>↓</i>}</div>)}</div></div><div className="aside-tip"><span>ⓘ</span><p>真实模式要求本机 CodeArts Agent 已登录并可用。GitHub 项目会由 Agent 在工作目录检出；ZIP 上传接口将在后续版本补齐。</p></div></aside></div></div>;
+  return <div className="new-project-page"><div className="page-heading"><div><h1>新建迁移任务</h1><p className="heading-subtitle">选择源平台与目标平台，启动跨平台迁移与一致性验证。</p></div><Link to="/" className="ghost-button">← 返回项目总览</Link></div><div className="new-project-layout"><form className="intake-card" onSubmit={submit}>
+    <div className="card-title-row"><div><span className="section-index">01</span><h2>选择迁移路径</h2></div><span className="required-note">必填</span></div>
+    <label className="field-label">源平台<span className="field-sub">当前已验证 Android；其余为架构预留的扩展方向</span>
+      <div className="platform-picker">{sourceOptions.map((option) => <button type="button" key={option.id} className={`platform-option ${sourcePlatform === option.id ? "active" : ""} ${option.ready ? "" : "dashed"}`} onClick={() => { setSourcePlatform(option.id); setError(""); }}><b>{option.label}</b><small>{option.note}</small></button>)}</div>
+    </label>
+    <label className="field-label">目标平台<span className="field-sub">当前已验证 HarmonyOS 手机；PC 与车载为规划中</span>
+      <div className="platform-picker">{targetOptions.map((option) => <button type="button" key={option.id} className={`platform-option ${targetPlatform === option.id ? "active" : ""} ${option.ready ? "" : "dashed"}`} onClick={() => { setTargetPlatform(option.id); setError(""); }}><b>{option.label}</b><small>{option.note}</small></button>)}</div>
+    </label>
+    {!pathReady && <div className="form-error">! 该迁移路径为扩展方向，暂不可执行。当前版本已完成 Android App → HarmonyOS 手机的端到端验证。</div>}
+    <div className="field-divider" />
+    <div className="card-title-row"><div><span className="section-index">02</span><h2>源项目</h2></div></div>
+    <div className="source-toggle"><button type="button" className={sourceType === "github" ? "toggle active" : "toggle"} onClick={() => { setSourceType("github"); setSourceValue(""); setError(""); }}>GitHub 链接</button><button type="button" className={sourceType === "zip" ? "toggle active" : "toggle"} onClick={() => { setSourceType("zip"); setSourceValue(""); setError(""); }}>源项目 ZIP</button></div>
+    {sourceType === "github" ? <label className="field-label">源项目仓库链接<input value={sourceValue} onChange={(event) => setSourceValue(event.target.value)} placeholder="https://github.com/example/project" /></label> : <label className="file-drop"><input type="file" accept=".zip" onChange={(event) => { setSourceValue(event.target.files?.[0]?.name ?? ""); setError(""); }} /><span className="upload-icon">↑</span><b>{sourceValue || "点击选择源项目压缩包"}</b><small>{sourceValue ? "已选择；真实构建前需上传到 CodeArts 工作目录" : "支持 .zip，建议不超过 50 MB"}</small></label>}
+    <div className="field-divider" />
+    <div className="card-title-row compact"><div><span className="section-index">03</span><h2>任务信息</h2></div></div>
+    <label className="field-label">迁移项目名称<input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：待办应用跨平台迁移" /></label>
+    <div className="execution-mode-picker"><div className="mode-picker-heading"><b>选择执行引擎</b></div><button type="button" className={executionMode === "codearts-agentteam" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("codearts-agentteam")}><strong>CodeArts Space / AgentTeam</strong><small>真实大模型推理、团队调度和工具执行</small></button><button type="button" className={executionMode === "demo" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("demo")}><strong>本地演示</strong><small>仅播放固定数据，不产生真实构建</small></button></div>
+    {executionMode === "codearts-agentteam" && <label className="field-label">CodeArts 工作区目录<input value={workspaceDir} onChange={(event) => setWorkspaceDir(event.target.value)} placeholder="D:\\code\\migration-workspace" /><small className={`field-note ${dirStatus === "exists" ? "mint-text" : dirStatus === "invalid" ? "error-text" : ""}`}>{dirNotes[dirStatus]}</small></label>}
+    {error && <div className="form-error">! {error}</div>}
+    <button className="primary-button wide" type="submit" disabled={!pathReady}>启动迁移 <span className="button-arrow">→</span></button>
+  </form><aside className="intake-aside"><div className="aside-card"><p className="eyebrow">执行流程</p><h3>四阶段迁移门禁</h3><div className="preview-steps">{[{ n: "01", t: "基线建立", d: "冻结迁什么与验收标准" }, { n: "02", t: "深度理解", d: "功能语义地图与行为契约" }, { n: "03", t: "原生迁移", d: "受控原生化组件映射" }, { n: "04", t: "差分修复", d: "双端重放至 MATCH" }].map((step, index) => <div className="preview-step" key={step.n}><span>{step.n}</span><div><b>{step.t}</b><small>{step.d}</small></div>{index < 3 && <i>↓</i>}</div>)}</div></div><div className="aside-tip"><span>ⓘ</span><p>迁移单位是“用户功能与行为”而非页面：语义契约作为中间层，使源端与目标端解耦，同一套验证方法可复用到其他平台组合。当前已验证 Android → HarmonyOS，其余路径为扩展方向。</p></div></aside></div></div>;
 }
+
 
 function LiveProjectPage() {
   const { id } = useParams();
   const project = useProject(id);
+  const [searchParams, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    const syncId = searchParams.get("sync");
+    if (!syncId || !project || project.demo) return;
+    const phaseNo = phaseFromNumber(Number(searchParams.get("phase") ?? project.currentPhase));
+    const target = project.phases.find((item) => item.number === phaseNo);
+    if (!target || target.execution?.status === "succeeded") { setSearchParams({}, { replace: true }); return; }
+    void getCodeArtsMessages(syncId, loadCodeArtsCredentials()).then((messages) => {
+      const text = messages
+        .filter((item) => item.info?.role === "assistant" && item.info?.time?.completed)
+        .map((item) => (item.parts ?? []).filter((part) => part.type === "text" && part.text?.trim()).map((part) => part.text).join("\n"))
+        .join("\n\n");
+      if (text.trim()) {
+        mockService.recordCodeArtsExecution?.(project.id, phaseNo, { mode: "codearts-agentteam", status: "succeeded", sessionId: syncId, agent: "team-leader", completedAt: new Date().toISOString(), response: text });
+      }
+      setSearchParams({}, { replace: true });
+    }).catch(() => setSearchParams({}, { replace: true }));
+  }, [searchParams, project]);
   const [selectedPhase, setSelectedPhase] = useState<PhaseNumber>(project?.currentPhase ?? 1);
   const [reviewOpen, setReviewOpen] = useState(false);
   useEffect(() => { if (project?.currentPhase) setSelectedPhase(project.currentPhase); }, [project?.currentPhase]);
@@ -281,14 +772,14 @@ function PhaseRail({ phases, selected, onSelect }: { phases: Phase[]; selected: 
 
 function PhaseContent({ project, phase }: { project: Project; phase: Phase }) {
   if (project.executionMode === "codearts-agentteam" && !project.demo) return <RealPhaseContent project={project} phase={phase} />;
-  if (phase.number === 1) return <PhaseOne phase={phase} features={project.features} />;
+  if (phase.number === 1) return <PhaseOne phase={phase} />;
   if (phase.number === 2) return <PhaseTwo phase={phase} />;
   if (phase.number === 3) return <PhaseThree phase={phase} />;
-  return <PhaseFour project={project} phase={phase} />;
+  return <PhaseFour phase={phase} />;
 }
 
 function RealPhaseContent({ project, phase }: { project: Project; phase: Phase }) {
-  const eyebrow = phase.number === 1 ? "阶段 01 · 语义重建" : phase.number === 2 ? "阶段 02 · 行为基线" : phase.number === 3 ? "阶段 03 · 迁移生成" : "阶段 04 · 一致性验证";
+  const eyebrow = phase.number === 1 ? "阶段 01 · 迁移基线建立" : phase.number === 2 ? "阶段 02 · 源软件深度理解" : phase.number === 3 ? "阶段 03 · 目标平台原生迁移" : "阶段 04 · 一致性验证与自动修复";
   const execution = phase.execution;
   const response = execution?.response?.trim();
   return <div className="phase-content"><PhaseHeader phase={phase} eyebrow={eyebrow} /><div className="real-evidence-card"><div className="real-evidence-heading"><div><h3>{execution?.status === "succeeded" ? "AgentTeam 已返回真实结果" : execution?.status === "failed" ? "AgentTeam 执行失败" : "等待 AgentTeam 真实执行"}</h3></div><span className={`execution-status ${execution?.status ?? "idle"}`}>{execution?.status ?? "idle"}</span></div><div className="real-evidence-meta"><span>模式 <b>CodeArts Space / AgentTeam</b></span><span>Agent <b>{execution?.agent ?? "team-leader"}</b></span><span>Session <code>{execution?.sessionId ?? "尚未创建"}</code></span></div>{execution?.error && <div className="real-error">{execution.error}</div>}{response && <pre className="real-response">{response}</pre>}{!response && !execution?.error && <div className="real-waiting">页面不会生成固定分析、构建日志或一致性分数。CodeArts 返回真实消息后，这里才会显示可审核证据。</div>}</div>{phase.number === 2 && phase.emulator && <div className="runner-placeholder"><div><h3>等待真实 Android 模拟器</h3><p>当前只保留 Runner 接口位置；不会用本地帧流冒充真实执行。</p></div><EmulatorPanel stream={phase.emulator} /></div>}{phase.number === 4 && <div className="runner-placeholder"><div><h3>等待真实 HarmonyOS 模拟器</h3><p>一致性判别将在真实鸿蒙运行轨迹和 Android 基线都返回后生成。</p></div></div>}</div>;
@@ -298,40 +789,177 @@ function PhaseHeader({ phase, eyebrow }: { phase: Phase; eyebrow: string }) {
   return <div className="phase-header"><div><p className="eyebrow">{eyebrow} <span className="phase-live-label">{phase.status === "running" ? "· 执行中" : phase.status === "review_required" ? "· 待审核" : ""}</span></p><h2>{phase.title}</h2><p>{phase.description}</p></div><div className="phase-progress"><strong>{String(phase.progress).padStart(2, "0")}<small>%</small></strong><span>阶段进度</span></div></div>;
 }
 
-function PhaseOne({ phase, features }: { phase: Phase; features: Feature[] }) {
-  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 01 · 语义重建" /><div className="analysis-grid"><div className="analysis-card analysis-highlight"><div className="card-topline"><span className="card-label">源项目健康度</span><span className="health-pill">良好</span></div><div className="health-score">86<span>/100</span></div><p>源项目结构清晰，已识别关键迁移边界。</p><div className="health-bars"><span><i style={{ width: "92%" }} /><small>可构建性</small></span><span><i style={{ width: "82%" }} /><small>依赖可替代性</small></span><span><i style={{ width: "76%" }} /><small>隐式逻辑可见度</small></span></div></div><div className="analysis-card"><div className="card-topline"><span className="card-label">语义结构</span><span className="muted-value">86 个文件</span></div><div className="graph-visual"><span className="graph-node node-main">业务入口</span><span className="graph-node node-a">图片导入</span><span className="graph-node node-b">检测服务</span><span className="graph-node node-c">历史记录</span><i className="graph-line line-a" /><i className="graph-line line-b" /><i className="graph-line line-c" /></div><p>Codebase 索引已完成，功能节点之间的调用关系已建立。</p></div><div className="analysis-card risk-card"><div className="card-topline"><span className="card-label">迁移风险</span><span className="risk-count">3 项</span></div><div className="risk-list"><span><i>!</i><b>视觉模型字段</b><small>需要跨端字段映射</small></span><span><i>!</i><b>权限申请流程</b><small>目标平台 API 不同</small></span><span><i>·</i><b>历史数据格式</b><small>建议保留兼容层</small></span></div></div></div><div className="data-table-card"><div className="card-title-row"><div><h3>功能语义契约</h3></div><span className="table-note">revision {phase.revision}.0</span></div><div className="feature-table"><div className="table-row table-head"><span>功能</span><span>语义说明</span><span>风险级别</span><span>状态</span></div>{features.map((feature) => <div className="table-row" key={feature.id}><span><b>{feature.name}</b></span><span>{feature.description}</span><span><span className={`risk-label ${feature.status}`}>{feature.status === "covered" ? "低" : feature.status === "partial" ? "中" : "高"}</span></span><span><span className={`table-status ${feature.status}`}>{feature.status === "covered" ? "已覆盖" : feature.status === "partial" ? "需复核" : "待分析"}</span></span></div>)}</div></div></div>;
+/** 四阶段统一结构：一句话目标 + 3 个核心动作 + 1 个最能说明问题的可视化 */
+
+/** 四阶段统一结构：一句话目标 + 3 个核心动作 + 1 个最能说明问题的可视化 + 阶段门禁
+ *  内容口径对齐 android-harmony-migration-controller 及三个专家 Skill 的真实工作流。 */
+
+function PhaseActions({ items }: { items: string[] }) {
+  return <div className="phase-actions">{items.map((action, index) => <div className="phase-action" key={action}><i>{index + 1}</i><span>{action}</span></div>)}</div>;
+}
+
+interface PhaseAgentInfo { name: string; short: string; duty: string; badge?: string; }
+
+/** 各阶段协作智能体（对齐 skill 六代理模型与 roles-and-authority 角色定义） */
+const PHASE_AGENTS: Record<number, PhaseAgentInfo[]> = {
+  1: [
+    { name: "迁移控制器", short: "控", duty: "冻结输入、签发工单、重算机器门禁、路由返工", badge: "全程在岗" },
+    { name: "人工审核员", short: "审", duty: "机器 PASS 后审核放行：APPROVED / REWORK / DEVIATION", badge: "模型永不放行" },
+  ],
+  2: [
+    { name: "Android 语义分析师", short: "析", duty: "功能语义地图与行为契约，逐条锚定源码 file:line" },
+    { name: "Android 运行验证官", short: "验", duty: "高风险功能真机实跑行为链，密封运行证据", badge: "Runtime Oracle" },
+    { name: "迁移控制器", short: "控", duty: "源码↔运行对账四态判定与 Gate 2 重算" },
+  ],
+  3: [
+    { name: "Harmony 架构负责人", short: "架", duty: "承载面规划与 UI 蓝图冻结，唯一可冻结环境角色" },
+    { name: "导航与页面壳代理", short: "航", duty: "路由注册表与页面壳，不写业务逻辑" },
+    { name: "工具链与脚手架代理", short: "链", duty: "构建 / 安装 / 启动冒烟与密封截图" },
+    { name: "公共 UI 代理", short: "UI", duty: "主题、色板、加载 / 空 / 错误壳等通用资产" },
+    { name: "能力契约代理", short: "约", duty: "编译期 interface-only 契约，无实现无假数据" },
+    { name: "架构验收代理", short: "收", duty: "只验证不修改，视觉逐张核验密封截图", badge: "不得自证" },
+  ],
+  4: [
+    { name: "功能实现负责人", short: "实", duty: "按功能工单实现，接线语义数据探针" },
+    { name: "鸿蒙 UI 代理", short: "UI", duty: "原生组件落地，视觉还原达标" },
+    { name: "业务与数据代理", short: "数", duty: "数据契约对接与持久化实现" },
+    { name: "模拟器验证执行者", short: "执", duty: "双端按各自步骤执行，采集四类结果" },
+    { name: "一致性验收代理", short: "收", duty: "Gate 4 独立重算，生产者证据不能自证", badge: "不得自证" },
+    { name: "迁移控制器", short: "控", duty: "差分结果路由修复回环，两轮未收敛转人工", badge: "全程在岗" },
+  ],
+};
+
+function PhaseAgents({ phaseNumber }: { phaseNumber: number }) {
+  const agents = PHASE_AGENTS[phaseNumber] ?? [];
+  if (!agents.length) return null;
+  return <div className="phase-agents">
+    <p className="lp-eyebrow">阶段协作智能体 · 每个角色独立留痕，一个任务不能充当两个角色</p>
+    <div className="phase-agent-grid">{agents.map((agent) => <div className="phase-agent-card" key={agent.name}>
+      <span className="phase-agent-avatar">{agent.short}</span>
+      <span className="phase-agent-info"><b>{agent.name}</b><small>{agent.duty}</small></span>
+      {agent.badge && <em className="agent-source-badge">{agent.badge}</em>}
+    </div>)}</div>
+  </div>;
+}
+
+function PhaseGate({ gate, checks }: { gate: number; checks: string }) {
+  return <div className="phase-gate"><b>Gate {gate}</b><span>{checks}</span><em>机器判定 → 人工审核放行 · 证据不可变留痕</em></div>;
+}
+
+function PhaseOne({ phase }: { phase: Phase }) {
+  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 01 · 迁移基线建立" />
+    <div className="phase-goal">明确“迁什么、迁到哪、什么算迁移成功”。</div>
+    <PhaseActions items={[
+      "识别功能范围、数据范围与关键业务能力，划定纳入 / 排除清单",
+      "冻结源码 Git 版本、APK 指纹、双端运行环境与工具策略",
+      "确定等价判据与允许的平台原生适配边界，形成统一验收标准",
+    ]} />
+    <div className="phase-viz">
+      <p className="lp-eyebrow">迁移范围与冻结基线</p>
+      <div className="lp-flow">
+        <div className="lp-flow-col"><div className="lp-node solid">Android / Cresto<small>源码 + APK 冻结</small></div></div>
+        <div className="lp-flow-arrow">→</div>
+        <div className="lp-node contract">12 项核心功能<small>功能 / 数据 / 环境三重冻结</small></div>
+        <div className="lp-flow-arrow">→</div>
+        <div className="lp-flow-col"><div className="lp-node solid">HarmonyOS<small>目标环境冻结</small></div></div>
+      </div>
+      <div className="phase-contract-quote">
+        <b>核心等价契约</b>
+        <p>UI 结构与交互可按目标平台原生规范改造，但用户意图、存储数据、业务计算、状态转换、可观察结果、持久化与副作用必须语义等价——全部四个阶段共用这一条判据。</p>
+      </div>
+    </div>
+    <PhaseAgents phaseNumber={1} />
+    <PhaseGate gate={1} checks="冻结清单完整 · 范围无歧义 · 验收标准可执行" />
+  </div>;
 }
 
 function PhaseTwo({ phase }: { phase: Phase }) {
-  const stream = phase.emulator ?? { platform: "android" as const, status: "live" as const, frames: demoAndroidFrames, currentFrame: 0, currentStep: "执行测试用例", streamType: "mock" as const };
-  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 02 · 行为基线" /><div className="execution-layout"><EmulatorPanel stream={stream} /><div className="test-run-card"><div className="card-topline"><span className="card-label">测试用例</span><span className="live-tag">● RUNNING</span></div><div className="test-summary"><strong>05</strong><span>条核心用例</span></div><div className="test-list"><TestItem code="TC-001" name="项目启动与首页加载" state="passed" time="1.2s" /><TestItem code="TC-002" name="导入质检图片" state="passed" time="3.8s" /><TestItem code="TC-003" name="完成缺陷检测" state="running" time="进行中" /><TestItem code="TC-004" name="查看结果详情" state="pending" time="排队中" /><TestItem code="TC-005" name="查询历史记录" state="pending" time="排队中" /></div><div className="trace-footer"><span>↗</span> 已保存 3 个执行轨迹快照 <b>查看轨迹 →</b></div></div></div><div className="evidence-strip"><div><span className="eyebrow">已采集证据</span><h3>Android 行为基线</h3></div><EvidenceThumb title="首页" accent="#39d2a8" /><EvidenceThumb title="导入图片" accent="#7c8cff" /><EvidenceThumb title="检测结果" accent="#ff7b82" /><div className="evidence-more">+2<br /><small>查看全部</small></div></div></div>;
-}
-
-function TestItem({ code, name, state, time }: { code: string; name: string; state: "passed" | "running" | "pending"; time: string }) {
-  return <div className="test-item"><span className={`test-state ${state}`}>{state === "passed" ? "✓" : state === "running" ? "◌" : "·"}</span><span><b>{code}</b><small>{name}</small></span><em>{time}</em></div>;
-}
-
-function EvidenceThumb({ title, accent }: { title: string; accent: string }) {
-  return <div className="evidence-thumb"><div className="thumb-screen" style={{ "--thumb-accent": accent } as React.CSSProperties}><span /><i /><b /></div><small>{title}</small></div>;
+  const contract = [
+    { k: "意图", v: "把界面切换为英文" },
+    { k: "操作", v: "设置 → 语言 → English" },
+    { k: "数据", v: "locale = en" },
+    { k: "可见结果", v: "全部文案变英文" },
+    { k: "重启持久", v: "杀进程重启仍为英文" },
+    { k: "副作用", v: "无系统级影响" },
+  ];
+  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 02 · 源软件深度理解" />
+    <div className="phase-goal">不仅识别页面，更理解每个功能实际是怎么工作的。</div>
+    <PhaseActions items={[
+      "扫描源码建立功能语义地图：每个功能锚定到源码 file:line",
+      "逐功能编写行为契约六要素：意图 / 操作 / 数据 / 可见结果 / 重启持久 / 副作用",
+      "高风险功能在 Android 真机实跑行为链，建立可判定的运行基线",
+    ]} />
+    <div className="phase-viz phase-two-cols">
+      <div className="phase-contract">
+        <p className="lp-eyebrow">Behavior Contract · 切换语言</p>
+        <div className="phase-contract-grid">{contract.map((item) => <div className="phase-contract-cell" key={item.k}><small>{item.k}</small><span>{item.v}</span></div>)}</div>
+        <div className="phase-verify-modes"><span className="lp-match">RUNTIME 真机实跑</span><span className="agent-source-badge neutral">SOURCE_CONFIRM 源码确认</span></div>
+        <p className="phase-note">增删改 / 持久化 / 语言 / 主题类功能必须真机验证；纯展示与容器宿主由源码确认，不为证明“被访问过”硬跑。</p>
+      </div>
+      <div className="lp-shot">Android 真机截图<br /><small>替换为实际运行截图</small></div>
+    </div>
+    <div className="phase-stats"><span><b>45</b> 页面</span><span><b>XX</b> 项功能语义</span><span><b>XX</b> 条行为契约</span><span><b>XX</b> 条运行证据</span></div>
+    <PhaseAgents phaseNumber={2} />
+    <PhaseGate gate={2} checks="功能全覆盖 · 契约完整 · 高风险均已验证或显式记 GAP" />
+  </div>;
 }
 
 function PhaseThree({ phase }: { phase: Phase }) {
-  const agents = [{ name: "Harmony 架构 Agent", role: "ArkUI / 状态模型", state: "working", initials: "架" }, { name: "UI 迁移 Agent", role: "页面和资源", state: "done", initials: "UI" }, { name: "API 迁移 Agent", role: "平台能力映射", state: "done", initials: "API" }, { name: "Repair Agent", role: "编译问题修复", state: "working", initials: "修" }];
-  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 03 · 迁移生成" /><div className="migration-overview"><div className="codebase-card"><div className="card-topline"><span className="card-label">HarmonyOS 工程</span><span className="live-tag">ArkTS</span></div><div className="codebase-layout"><div className="file-tree"><FileTreeLine name="harmony-project" folder depth={0} /><FileTreeLine name="entry" folder depth={1} open /><FileTreeLine name="pages" folder depth={2} open /><FileTreeLine name="Index.ets" depth={3} active /><FileTreeLine name="Result.ets" depth={3} /><FileTreeLine name="History.ets" depth={3} /><FileTreeLine name="services" folder depth={2} /><FileTreeLine name="DetectionService.ets" depth={3} /><FileTreeLine name="module.json5" depth={1} /></div><div className="code-preview"><div className="code-tabs"><span className="active">Index.ets</span><span>DetectionService.ets</span></div><pre><code><i>01</i> <b>struct</b> <strong>Index</strong> &#123;{`\n`}<i>02</i>   <b>@State</b> isRunning: <strong>boolean</strong> = <strong>false</strong>{`\n`}<i>03</i>   <b>build</b>() &#123;{`\n`}<i>04</i>     <strong>Column</strong>() &#123;{`\n`}<i>05</i>       <strong>Text</strong>(<em>"质检工作台"</em>){`\n`}<i>06</i>       <strong>UploadCard</strong>(&#123;{`\n`}<i>07</i>         onStart: () =&gt; <strong>this</strong>.runDetection(){`\n`}<i>08</i>       &#125;){`\n`}<i>09</i>     &#125;{`\n`}<i>10</i>   &#125;{`\n`}<i>11</i> &#125;</code></pre><span className="code-cursor" /></div></div><div className="build-status"><span className="spinner" /> hvigor assembleHap <b>编译中</b><span className="build-time">01:42</span></div></div><div className="agent-team-card"><div className="card-topline"><span className="card-label">Agent 团队</span><span className="muted-value">4 个成员</span></div><div className="agent-member-list">{agents.map((agent) => <div className="agent-member" key={agent.name}><span className={`member-avatar ${agent.state}`}>{agent.initials}</span><span><b>{agent.name}</b><small>{agent.role}</small></span><span className={`member-state ${agent.state}`}>{agent.state === "done" ? "完成" : "工作中"}</span></div>)}</div><div className="agent-quote"><span>“</span><p>字段映射修复已准备，正在重新执行构建。</p></div></div></div><div className="diff-callout"><span>●</span><div><b>当前修复焦点</b><p><code>DetectionService.ets</code> 的 <code>defectCount</code> 字段已从 Android `result.count` 映射完成。</p></div><span className="callout-status">待验证</span></div></div>;
+  const mappings = [
+    ["底部导航", "Tabs"],
+    ["页面跳转", "Navigation + NavPathStack"],
+    ["弹层", "Dialog / Sheet"],
+    ["开关", "Toggle"],
+    ["长列表", "List + LazyForEach"],
+  ];
+  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 03 · 目标平台原生迁移" />
+    <div className="phase-goal">保留原软件的视觉与信息结构，同时转化为目标平台的原生实现方式。</div>
+    <PhaseActions items={[
+      "按功能承载面搭壳：页面建路由、弹层挂模态、容器不建壳",
+      "冻结 UI 蓝图：原应用视觉与信息结构高保留，标准交互映射原生组件",
+      "建立数据契约接口（仅接口不含业务逻辑），打通数据进出口",
+    ]} />
+    <div className="phase-viz phase-two-cols">
+      <div className="phase-mapping">
+        <p className="lp-eyebrow">原生组件映射（受控原生化，非自由重设计）</p>
+        {mappings.map(([from, to]) => <div className="phase-mapping-row" key={from}><span>{from}</span><i>→</i><b>{to}</b></div>)}
+      </div>
+      <div className="lp-case-grid phase-mini-compare">
+        <div className="lp-shot compact">迁移前 · Android GUI<small>截图位</small></div>
+        <div className="lp-shot compact">迁移后 · HarmonyOS GUI<small>截图位</small></div>
+      </div>
+    </div>
+    <p className="phase-note">自定义交互仅在原生组件无法表达时允许，且必须登记理由——从规则上杜绝“用 ArkUI 写出 Android 味 UI”。</p>
+    <PhaseAgents phaseNumber={3} />
+    <PhaseGate gate={3} checks="承载面全覆盖 · 数据契约无孤儿 · 构建冒烟链通过" />
+  </div>;
 }
 
-function FileTreeLine({ name, folder, depth, open, active }: { name: string; folder?: boolean; depth: number; open?: boolean; active?: boolean }) {
-  return <div className={`file-tree-line ${active ? "active" : ""}`} style={{ paddingLeft: `${depth * 16 + 8}px` }}><span>{folder ? (open ? "⌄" : "›") : "·"}</span><span className={folder ? "folder-name" : "file-name"}>{name}</span></div>;
-}
-
-function PhaseFour({ project, phase }: { project: Project; phase: Phase }) {
-  const harmony = phase.emulator ?? { platform: "harmony" as const, status: "live" as const, frames: [], currentFrame: 0, currentStep: "执行一致性用例", streamType: "mock" as const };
-  const android: EmulatorStream = { platform: "android", status: "replay", frames: demoAndroidFrames, currentFrame: 3, currentStep: "检测结果对照", streamType: "mock" };
-  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 04 · 一致性验证" /><div className="parity-summary"><div className="parity-score"><span className="eyebrow">一致性得分</span><strong>94<span>/100</span></strong><small>对照 Android 基线</small></div><div className="parity-bars"><ParityBar label="功能流程" value={100} tone="mint" /><ParityBar label="业务输出" value={96} tone="blue" /><ParityBar label="视觉语义" value={91} tone="violet" /><ParityBar label="异常处理" value={78} tone="amber" /></div></div><div className="dual-emulators"><div className="dual-header"><div><span className="eyebrow">双端对照回放</span><h3>同一条语义用例，两个运行时</h3></div><span className="sync-pill"><i />同步步骤 04 / 05</span></div><div className="dual-grid"><div className="dual-device"><div className="device-label"><span className="platform-dot android" />Android 基线 <small>REPLAY</small></div><EmulatorPanel stream={android} compact /></div><div className="dual-connector"><span>VS</span><i>⇄</i></div><div className="dual-device"><div className="device-label"><span className="platform-dot harmony" />HarmonyOS 迁移 <small>LIVE</small></div><EmulatorPanel stream={harmony} compact /></div></div></div><div className="difference-card"><div className="card-title-row"><div><h3>差异根因定位</h3></div><span className="resolved-pill">✓ 已修复 1 项</span></div><div className="difference-row"><span className="difference-icon">!</span><div><b>结果字段映射差异</b><p>Android 输出 <code>result.count</code>，HarmonyOS 初始输出为空。修复 Agent 已更新 <code>DetectionService.ets:42</code>。</p></div><span className="diff-tag">业务输出</span></div></div></div>;
-}
-
-function ParityBar({ label, value, tone }: { label: string; value: number; tone: string }) {
-  return <div className="parity-bar"><span>{label}</span><div><i className={`bar-${tone}`} style={{ width: `${value}%` }} /></div><b>{value}%</b></div>;
+function PhaseFour({ phase }: { phase: Phase }) {
+  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow="阶段 04 · 一致性验证与自动修复" />
+    <div className="phase-goal">迁过去不算完成，功能结果一致才算完成。</div>
+    <PhaseActions items={[
+      "同一份行为契约双端各自执行：Android 是基准 oracle，HarmonyOS 是被验证方",
+      "机器对比四类结果：可观察 / 数据 / 持久化 / 副作用——比结果，不比路径",
+      "DIFF 自动定位、只修迁移端并重放验证；两轮未收敛转人工接管",
+    ]} />
+    <div className="phase-viz">
+      <div className="phase-diff">
+        <div className="phase-diff-card">Android（基准）<b>切换语言 → 重启后英文</b></div>
+        <span className="lp-match diff">Persistence DIFF</span>
+        <div className="phase-diff-card">HarmonyOS 初版<b>切换语言 → 重启恢复中文</b></div>
+      </div>
+      <div className="phase-fixchain">定位 SettingsRepository <i>→</i> 只修 HarmonyOS 持久化 <i>→</i> 二次重放 <i className="ok">→ MATCH ✓</i></div>
+      <div className="phase-fourdims"><span>observable</span><span>semantic data</span><span>persistence</span><span>side effect</span></div>
+      <div className="lp-case-grid phase-mini-compare">
+        <div className="lp-shot compact">Android 原版<small>最终截图位</small></div>
+        <div className="lp-shot compact">HarmonyOS 最终版<small>最终截图位</small></div>
+      </div>
+      <div className="phase-stats"><span><b>XX/XX</b> 核心功能通过</span><span><b>XX/XX</b> 持久化测试</span><span><b>PASS</b> 构建安装</span><span><b>0</b> 占位页面</span></div>
+    </div>
+    <PhaseAgents phaseNumber={4} />
+    <PhaseGate gate={4} checks="断言全过 · 数据对账无未解释差异 · 视觉还原达标" />
+  </div>;
 }
 
 function EmulatorPanel({ stream, compact = false }: { stream: EmulatorStream; compact?: boolean }) {
@@ -351,13 +979,69 @@ function EmulatorPanel({ stream, compact = false }: { stream: EmulatorStream; co
 function AgentTimeline({ phase }: { phase: Phase }) {
   const events = phase.events.slice(-10).reverse();
   const sessionId = phase.execution?.sessionId;
-  return <div className="timeline-panel" role="region" aria-live="polite" aria-label="AgentTeam 执行时间线"><div className="timeline-heading"><div><h3>执行时间线</h3></div><span className="event-live"><i /> {phase.execution?.mode === "codearts-agentteam" ? (phase.execution.status === "running" || phase.execution.status === "starting" ? "CodeArts 实时" : "CodeArts 已归档") : phase.status === "running" ? "演示实时" : "演示已固化"}</span></div>{events.length ? <div className="timeline-list">{events.map((event) => <div className="timeline-event" key={event.id}><span className={`timeline-icon event-${event.type}`}>{event.type === "thinking" ? "•" : event.type === "tool" ? "‹›" : event.type === "build" ? "≡" : event.type === "test" ? "✓" : "·"}</span><div><b>{event.agent}</b><p>{event.message}</p><small>{formatTime(event.timestamp)}</small></div></div>)}</div> : <div className="timeline-empty"><span>·</span><p>等待 Agent Team 开始工作<br /><small>阶段启动后会显示实时事件</small></p></div>}<div className="timeline-footer"><span>Session</span><code>{sessionId ?? "尚未创建真实会话"}</code>{sessionId && <button onClick={() => navigator.clipboard?.writeText(sessionId)}>复制</button>}</div></div>;
+  const [team, setTeam] = useState<AgentTeamState | null>(null);
+  useEffect(() => {
+    if (!sessionId) return;
+    let alive = true;
+    const load = async () => {
+      const state = await fetchTeamState(sessionId);
+      if (alive && state && (Object.keys(state.members).length || state.tasks.length)) setTeam(state);
+    };
+    void load();
+    const timer = window.setInterval(() => { void load(); }, 5000);
+    return () => { alive = false; window.clearInterval(timer); };
+  }, [sessionId]);
+  return <div className="timeline-panel" role="region" aria-live="polite" aria-label="AgentTeam 执行时间线"><div className="timeline-heading"><div><h3>执行时间线</h3></div><span className="event-live"><i /> {phase.execution?.mode === "codearts-agentteam" ? (phase.execution.status === "running" || phase.execution.status === "starting" ? "CodeArts 实时" : "CodeArts 已归档") : phase.status === "running" ? "演示实时" : "演示已固化"}</span></div>{events.length ? <div className="timeline-list">{events.map((event) => <div className="timeline-event" key={event.id}><span className={`timeline-icon event-${event.type}`}>{event.type === "thinking" ? "•" : event.type === "tool" ? "‹›" : event.type === "build" ? "≡" : event.type === "test" ? "✓" : "·"}</span><div><b>{event.agent}</b><p>{event.message}</p><small>{formatTime(event.timestamp)}</small></div></div>)}</div> : <div className="timeline-empty"><span>·</span><p>等待 Agent Team 开始工作<br /><small>阶段启动后会显示实时事件</small></p></div>}{team && <div className="team-state">
+    <p className="eyebrow">AgentTeam 团队花名册</p>
+    <div className="team-members">{Object.entries(team.members).map(([name, member]) => <div className="team-member-row" key={name}>
+      <span className={`team-member-dot ${member.status}`} />
+      <b>{name}</b>
+      <small>{member.agent_type === "team-leader" ? "队长 · 编排派发" : member.description || "队员 · 执行"}</small>
+      <em>{member.status}</em>
+    </div>)}</div>
+    {team.tasks.length > 0 && <>
+      <p className="eyebrow">团队任务清单</p>
+      <div className="team-tasks">{team.tasks.map((task) => <div className="team-task-row" key={task.id}>
+        <span className={`team-task-dot ${task.status}`}>{task.status === "completed" ? "✓" : task.status === "in_progress" || task.status === "running" ? "◌" : "·"}</span>
+        <span>{task.content}{task.owner_name ? ` — ${task.owner_name}` : ""}</span>
+        <em>{task.status}</em>
+      </div>)}</div>
+    </>}
+  </div>}<div className="timeline-footer"><span>Session</span><code>{sessionId ?? "尚未创建真实会话"}</code>{sessionId && <button onClick={() => navigator.clipboard?.writeText(sessionId)}>复制</button>}</div></div>;
 }
 
 function RunControls({ project, phase }: { project: Project; phase: Phase }) {
   const [runningCodeArts, setRunningCodeArts] = useState(false);
   const [codeArtsMessage, setCodeArtsMessage] = useState("");
+  const [runModel, setRunModel] = useState(() => loadRunModel());
+  const [modelOptions, setModelOptions] = useState(() => flattenModelOptions([]));
+  const [syncOpen, setSyncOpen] = useState(false);
+  const [syncSessionId, setSyncSessionId] = useState("");
+  const [syncing, setSyncing] = useState(false);
   const runningRef = useRef(false);
+  useEffect(() => { void fetchAgentModels().then((list) => { if (list) setModelOptions(flattenModelOptions(list)); }); }, []);
+  const syncFromSession = async () => {
+    if (syncing || !syncSessionId.trim()) return;
+    setSyncing(true);
+    setCodeArtsMessage("正在读取会话 " + syncSessionId.slice(0, 14) + "… 的真实结果…");
+    try {
+      const messages = await getCodeArtsMessages(syncSessionId.trim(), loadCodeArtsCredentials());
+      const finals = messages.filter((item) => item.info?.role === "assistant" && item.info?.time?.completed);
+      const text = finals.map((item) => (item.parts ?? []).filter((part) => part.type === "text" && part.text?.trim()).map((part) => part.text).join("\n")).join("\n\n");
+      if (!text.trim()) {
+        setCodeArtsMessage("该会话暂无已完成的助手汇报，稍后再试。");
+        return;
+      }
+      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "succeeded", sessionId: syncSessionId.trim(), agent: "team-leader", completedAt: new Date().toISOString(), response: text });
+      setCodeArtsMessage("已同步真实会话结果（" + text.length + " 字）。阶段进入待审核。");
+      setSyncOpen(false);
+    } catch (error) {
+      setCodeArtsMessage("同步失败：" + (error instanceof Error ? error.message : "未知错误"));
+    } finally {
+      setSyncing(false);
+    }
+  };
+
   const runWithCodeArts = async () => {
     if (runningRef.current) return;
     runningRef.current = true;
@@ -366,30 +1050,32 @@ function RunControls({ project, phase }: { project: Project; phase: Phase }) {
     const credentials = loadCodeArtsCredentials();
     const health = await checkCodeArts(credentials);
     if (!health.connected) {
-      setCodeArtsMessage(health.message + "。点击左侧环境卡片配置账号。");
+      setCodeArtsMessage(`${health.message}。${health.hint ?? "点击右上角「CodeArts」状态可查看连接详情。"}`);
       runningRef.current = false;
       setRunningCodeArts(false);
       return;
     }
-    const session = await createCodeArtsSession(`脱胎换骨 · ${project.name} · Phase ${phase.number}`, credentials);
-    if (!session.accepted || !session.session?.id) {
-      setCodeArtsMessage(session.message);
-      runningRef.current = false;
-      setRunningCodeArts(false);
-      return;
+    // 会话延续：项目已有会话则复用（审核通过进入下一 Phase 时在同一对话继续），否则创建
+    let sessionId = project.activeSessionId;
+    if (sessionId) {
+      setCodeArtsMessage(`复用运行中的会话 ${sessionId.slice(0, 14)}… 发送 Phase ${phase.number} 工单…`);
+    } else {
+      const session = await createCodeArtsSession(`脱胎换骨 · ${project.name}`, credentials, { directory: project.workspaceDir || undefined });
+      if (!session.accepted || !session.session?.id) {
+        setCodeArtsMessage(session.message);
+        runningRef.current = false;
+        setRunningCodeArts(false);
+        return;
+      }
+      sessionId = session.session.id;
+      mockService.bindActiveSession?.(project.id, sessionId);
     }
-    mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "starting", sessionId: session.session.id, agent: "team-leader", startedAt: new Date().toISOString() });
-    const prompt = [
-      "你是脱胎换骨迁移系统的 CodeArts Agent Team Leader。当前会话必须使用 CodeArts Space 的 AgentTeam 模式，由 team-leader 真实调度团队成员。",
-      `请针对项目“${project.name}”执行 Phase ${phase.number}（${phase.title}）的分析，`,
-      `输入来源：${project.source.value}。`,
-      project.source.type === "github" ? `请先将该 GitHub 项目检出到当前 CodeArts 工作目录，再读取真实源代码。` : "当前输入是浏览器选择的 ZIP；如果本地工作目录中找不到该压缩包，请明确报告缺少源文件，不要伪造构建结果。",
-      "不要只输出演示计划或固定模板：必须使用工具读取源文件，按阶段实际分析、修改或构建，并在最后返回真实命令、文件变更、构建/测试输出和仍未完成事项。",
-    ].join(" ");
-    const result = await promptCodeArtsSession(session.session.id, prompt, credentials, { agent: "team-leader", mode: "agent-team" });
+    mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "starting", sessionId, agent: "team-leader", startedAt: new Date().toISOString() });
+    const prompt = phasePrompt(phase.number, { projectName: project.name, sourceValue: project.source.value, sourcePlatformLabel: project.sourcePlatform === "windows" ? "Windows 桌面" : project.sourcePlatform === "legacy-desktop" ? "传统桌面软件" : "Android App", workspaceDir: project.workspaceDir || "工作区未指定" });
+    const result = await promptCodeArtsSession(sessionId, prompt, credentials, { agent: "team-leader", mode: "agent-team", model: parseRunModel(runModel) });
     const livePartIds = new Set<string>();
     const resolved = result.accepted && result.pending
-      ? await waitForCodeArtsResult(session.session.id, result.messageId, credentials, { timeoutMs: 90000, onUpdate: (message: CodeArtsMessage) => {
+      ? await waitForCodeArtsResult(sessionId, result.messageId, credentials, { timeoutMs: 240000, onUpdate: (message: CodeArtsMessage) => {
           (message.parts ?? []).forEach((part) => {
             if (!part.id || livePartIds.has(part.id) || !part.text?.trim()) return;
             livePartIds.add(part.id);
@@ -401,11 +1087,15 @@ function RunControls({ project, phase }: { project: Project; phase: Phase }) {
     if (resolved.accepted) {
       const raw = typeof resolved.response === "string" ? resolved.response : resolved.response ? JSON.stringify(resolved.response) : "";
       const preview = raw.replace(/\s+/g, " ").slice(0, 110);
-      setCodeArtsMessage(`已触发真实 CodeArts 推理（会话 ${session.session.id.slice(0, 12)}…）${preview ? ` · ${preview}${raw.length > 110 ? "…" : ""}` : ""}`);
-      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "succeeded", sessionId: session.session.id, agent: "team-leader", completedAt: new Date().toISOString(), response: raw });
+      setCodeArtsMessage(`已触发真实 CodeArts 推理（会话 ${sessionId.slice(0, 12)}…）${preview ? ` · ${preview}${raw.length > 110 ? "…" : ""}` : ""}`);
+      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "succeeded", sessionId: sessionId, agent: "team-leader", completedAt: new Date().toISOString(), response: raw });
+    } else if (resolved.pending) {
+      // AgentTeam 派发可能超过页面等待时间：保持执行中状态，任务在后台继续
+      setCodeArtsMessage(`${resolved.message} · 会话 ${sessionId.slice(0, 12)}…。团队仍在后台执行，稍后可重新点击查看结果。`);
+      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "running", sessionId: sessionId, agent: "team-leader" });
     } else {
-      setCodeArtsMessage(`${resolved.message} · session ${session.session.id.slice(0, 12)}…`);
-      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "failed", sessionId: session.session.id, agent: "team-leader", completedAt: new Date().toISOString(), error: resolved.message });
+      setCodeArtsMessage(`${resolved.message} · session ${sessionId.slice(0, 12)}…`);
+      mockService.recordCodeArtsExecution?.(project.id, phase.number, { mode: "codearts-agentteam", status: "failed", sessionId: sessionId, agent: "team-leader", completedAt: new Date().toISOString(), error: resolved.message });
     }
     setRunningCodeArts(false);
     runningRef.current = false;
@@ -422,7 +1112,13 @@ function RunControls({ project, phase }: { project: Project; phase: Phase }) {
   }, [project.id, phase.number, phase.revision, phase.status, autoRunKey, runningCodeArts]);
   const isReal = project.executionMode === "codearts-agentteam" && !project.demo;
   if (!isReal) return <div className="run-controls"><div className="side-panel-heading"><span className="eyebrow">运行控制</span><span className="secure-label">DEMO</span></div><div className="control-row"><span>当前 revision</span><b>{phase.revision}.0</b></div><div className="control-row"><span>运行模式</span><b className="muted-value">本地演示</b></div><div className="control-row"><span>数据来源</span><b className="muted-value">固定数据</b></div><button className="outline-button" onClick={() => mockService.resetDemo(project.id)}>↻ 从头播放示例</button></div>;
-  return <div className="run-controls"><div className="side-panel-heading"><span className="eyebrow">运行控制</span><span className="secure-label">{project.demo ? "DEMO" : "LIVE"}</span></div><div className="control-row"><span>当前 revision</span><b>{phase.revision}.0</b></div><div className="control-row"><span>事件数量</span><b>{phase.events.length}</b></div><div className="control-row"><span>运行模式</span><b className={project.demo ? "muted-value" : "mint-text"}>{project.demo ? "本地演示" : "CodeArts Space / AgentTeam"}</b></div><div className="control-row"><span>会话状态</span><b>{phase.execution?.sessionId ? phase.execution.status : "未启动"}</b></div><button className="codearts-run-button" onClick={runWithCodeArts} disabled={runningCodeArts || project.demo}>{runningCodeArts ? "CodeArts AgentTeam 推理中…" : project.demo ? "演示项目不可发起真实构建" : "启动真实 AgentTeam"}</button>{codeArtsMessage && <p className="codearts-message">{codeArtsMessage}</p>}{project.demo && <button className="outline-button" onClick={() => mockService.resetDemo(project.id)}>↻ 从头播放示例</button>}</div>;
+  return <div className="run-controls"><div className="side-panel-heading"><span className="eyebrow">运行控制</span><span className="secure-label">{project.demo ? "DEMO" : "LIVE"}</span></div><div className="control-row"><span>当前 revision</span><b>{phase.revision}.0</b></div><div className="control-row"><span>事件数量</span><b>{phase.events.length}</b></div><div className="control-row"><span>运行模式</span><b className={project.demo ? "muted-value" : "mint-text"}>{project.demo ? "本地演示" : "CodeArts Space / AgentTeam"}</b></div><div className="control-row"><span>工作区</span><b title={project.workspaceDir ?? ""}>{shortenPath(project.workspaceDir)}</b></div><div className="control-row"><span>执行模型</span><select className="model-select" value={runModel} onChange={(event) => { setRunModel(event.target.value); saveRunModel(event.target.value); }} title="AgentTeam 真实执行使用的模型">{modelOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select></div><div className="control-row"><span>会话状态</span><b>{phase.execution?.sessionId ? phase.execution.status : "未启动"}</b></div><button className="codearts-run-button" onClick={runWithCodeArts} disabled={runningCodeArts || project.demo}>{runningCodeArts ? "CodeArts AgentTeam 推理中…" : project.demo ? "演示项目不可发起真实构建" : "启动真实 AgentTeam"}</button>{codeArtsMessage && <p className="codearts-message">{codeArtsMessage}</p>}{!project.demo && <div className="sync-session-box">{syncOpen ? <><input className="sync-session-input" value={syncSessionId} onChange={(event) => setSyncSessionId(event.target.value)} placeholder="粘贴 CodeArts 会话 ID，如 ses_xxx" /><button className="refresh-button" onClick={() => void syncFromSession()} disabled={syncing}>{syncing ? "同步中…" : "确认同步"}</button><button className="refresh-button" onClick={() => setSyncOpen(false)}>收起</button></> : <button className="text-sync-button" onClick={() => setSyncOpen(true)}>↺ 绑定已有会话同步结果</button>}</div>}{project.demo && <button className="outline-button" onClick={() => mockService.resetDemo(project.id)}>↻ 从头播放示例</button>}</div>;
+}
+
+function shortenPath(value: string | undefined, max = 28): string {
+  if (!value) return "未指定";
+  if (value.length <= max) return value;
+  return `${value.slice(0, 6)}…${value.slice(-18)}`;
 }
 
 function StatusBadge({ status }: { status: Phase["status"] }) {

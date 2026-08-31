@@ -16,10 +16,10 @@ import type {
 const STORAGE_KEY = "tuotaihuangu_projects_v1";
 
 const phaseDefinitions: Array<Pick<Phase, "number" | "code" | "title" | "shortTitle" | "description">> = [
-  { number: 1, code: "01", title: "识胎 · 源项目语义重建", shortTitle: "识胎", description: "解析源项目结构、功能语义和迁移边界" },
-  { number: 2, code: "02", title: "验旧 · Android 行为基线", shortTitle: "验旧", description: "在 Android 模拟器采集真实功能执行证据" },
-  { number: 3, code: "03", title: "换骨 · 鸿蒙迁移生成", shortTitle: "换骨", description: "协同生成 ArkTS 工程并完成编译修复" },
-  { number: 4, code: "04", title: "验神 · 功能一致性验证", shortTitle: "验神", description: "对照双端轨迹，定位差异并完成验证" }
+  { number: 1, code: "01", title: "迁移基线建立", shortTitle: "基线建立", description: "明确迁什么、迁到哪、什么算迁移成功，冻结源码与验收标准" },
+  { number: 2, code: "02", title: "源软件深度理解", shortTitle: "深度理解", description: "功能语义地图、行为契约与真机行为基线" },
+  { number: 3, code: "03", title: "目标平台原生迁移", shortTitle: "原生迁移", description: "受控原生化：保留原应用辨识度，交互映射鸿蒙原生组件" },
+  { number: 4, code: "04", title: "一致性验证与自动修复", shortTitle: "差分修复", description: "双端差分重放，DIFF 自动定位修复至 MATCH" }
 ];
 
 const features: Feature[] = [
@@ -138,6 +138,9 @@ function baseProject(input: ProjectInput, demo = false): Project {
     updatedAt: createdAt,
     demo,
     executionMode: input.executionMode ?? "demo",
+    workspaceDir: input.workspaceDir,
+    sourcePlatform: input.sourcePlatform,
+    targetPlatform: input.targetPlatform,
     features: features.map((item) => ({ ...item })),
     phases
   };
@@ -378,6 +381,19 @@ export class MockMigrationServiceImpl implements MigrationService {
     this.persist();
     this.emit(demo);
     this.startPhase(id, 1);
+  }
+
+  bindActiveSession(id: string, sessionId: string) {
+    const project = this.projects.find((item) => item.id === id);
+    if (!project) return;
+    project.activeSessionId = sessionId;
+    this.persist();
+    this.emit(project);
+  }
+
+  deleteProject(id: string) {
+    this.projects = this.projects.filter((item) => item.id !== id);
+    this.persist();
   }
 
   subscribe(id: string, callback: (project: Project) => void) {

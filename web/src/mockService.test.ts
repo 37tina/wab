@@ -46,6 +46,15 @@ describe("MockMigrationService", () => {
     expect(persisted.some((item) => item.id === project.id)).toBe(true);
   });
 
+  it("stores the user-specified CodeArts workspace directory on the project", () => {
+    const service = new MockMigrationServiceImpl();
+    const project = service.createProject({ name: "指定工作区", sourceType: "github", sourceValue: "https://github.com/example/ws", executionMode: "codearts-agentteam", workspaceDir: "D:\\code\\migration-ws" });
+
+    expect(service.getProject(project.id)?.workspaceDir).toBe("D:\\code\\migration-ws");
+    const persisted = JSON.parse(localStorage.getItem("tuotaihuangu_projects_v1") ?? "[]") as Array<{ id: string; workspaceDir?: string }>;
+    expect(persisted.find((item) => item.id === project.id)?.workspaceDir).toBe("D:\\code\\migration-ws");
+  });
+
   it("keeps a real AgentTeam phase running until CodeArts returns", () => {
     const service = new MockMigrationServiceImpl();
     const project = service.createProject({ name: "真实 AgentTeam", sourceType: "github", sourceValue: "https://github.com/example/real", executionMode: "codearts-agentteam" });

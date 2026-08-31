@@ -15,3 +15,11 @@ web/dist/
 coverage/
 .DS_Store
 Thumbs.db
+
+# skill 快照中的缓存与备份
+skill-snapshot/**/__pycache__/
+skill-snapshot/**/*.bak-*
+*.bak-*
+
+# 本地治理测试数据
+backend/skill-proposals.json

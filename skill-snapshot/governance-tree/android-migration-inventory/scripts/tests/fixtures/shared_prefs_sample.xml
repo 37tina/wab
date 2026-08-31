@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <boolean name="night_mode" value="true" />
+    <int name="max_items" value="42" />
+    <long name="last_sync_ms" value="1788006648365" />
+    <float name="scale_factor" value="1.5" />
+    <string name="locale_tag">zh-CN</string>
+    <string name="empty_note"></string>
+    <set name="pinned_filter">
+        <string>work</string>
+        <string>home</string>
+    </set>
+</map>

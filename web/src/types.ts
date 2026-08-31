@@ -89,6 +89,9 @@ export interface PhaseExecution {
   error?: string;
 }
 
+export type SourcePlatform = "android" | "windows" | "legacy-desktop";
+export type TargetPlatform = "harmony-phone" | "harmony-pc" | "vehicle";
+
 export interface Project {
   id: string;
   name: string;
@@ -102,15 +105,25 @@ export interface Project {
   updatedAt: string;
   demo: boolean;
   executionMode?: "demo" | "codearts-agentteam";
+  /** CodeArts Agent 的工作区目录；真实执行会话在该目录中检出源码与构建 */
+  workspaceDir?: string;
+  sourcePlatform?: SourcePlatform;
+  /** AgentTeam 主会话：四阶段工单连续发往同一对话 */
+  activeSessionId?: string;
+  targetPlatform?: TargetPlatform;
   features: Feature[];
   phases: Phase[];
 }
+
 
 export interface ProjectInput {
   name: string;
   sourceType: "github" | "zip";
   sourceValue: string;
   executionMode?: "demo" | "codearts-agentteam";
+  workspaceDir?: string;
+  sourcePlatform?: SourcePlatform;
+  targetPlatform?: TargetPlatform;
 }
 
 export interface MigrationService {
@@ -126,6 +139,8 @@ export interface MigrationService {
   resetDemo(id: string): void;
   recordCodeArtsExecution?(id: string, phase: PhaseNumber, execution: PhaseExecution): void;
   recordCodeArtsEvent?(id: string, phase: PhaseNumber, event: Omit<AgentEvent, "id" | "timestamp">): void;
+  bindActiveSession?(id: string, sessionId: string): void;
+  deleteProject(id: string): void;
   subscribe(id: string, callback: (project: Project) => void): () => void;
   subscribeAll(callback: (projects: Project[]) => void): () => void;
 }
