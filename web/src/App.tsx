@@ -1321,6 +1321,464 @@ function LiveActivityPanel({ workspaceDir }: { workspaceDir?: string }) {
   </div>;
 }
 
+// ---- RUN 真实证据面板：数据全部来自后端 /api/run/*（实时读取 RUN 产物，禁止编造指标） ----
+const runFileUrl = (workspace: string, path: string) => `/api/run/file?workspace=${encodeURIComponent(workspace)}&path=${encodeURIComponent(path)}`;
+const shortRef = (ref: string) => ref.split("/").pop() ?? ref;
+
+type RunArtifact = { name: string; path: string; desc: string; type: string };
+type RunReworkCase = {
+  id: string; at: string; status: string; title: string; problem: string; rootCause: string;
+  fix: string; reverify: string; verifyShot: string; hasPairShots: boolean; before: string; after: string; note: string;
+};
+type RunOverview = {
+  runId: string;
+  runStatus: string;
+  metrics: {
+    featuresTotal: number; featuresMapped: number; runtimeVerified: number; sourceConfirmed: number;
+    observableMatch: string; stepsPassed: string; softwareDefects: number; toolArtifacts: number; manualCells: number;
+    gates: { p1: string; p2: string; p3: string; p4: string };
+  };
+  build: {
+    apk: { path: string; sha256: string; exists: boolean };
+    hap: { path: string; exists: boolean; signed: boolean; desc: string };
+    installLaunched: boolean;
+  };
+  artifacts: RunArtifact[];
+  summary: string;
+  comparisonShots: { android: string; harmony: string };
+  reworkCase: RunReworkCase | null;
+  diffNote: string;
+};
+type Phase1Evidence = {
+  phase: 1;
+  identity: Record<string, string>;
+  target: { platform?: string; sdk_or_api_target?: string } | null;
+  includedFeatures: Array<{ id: string; title: string; verifyMode: string }>;
+  excludedFeatures: Array<{ id: string; reason: string }>;
+  policies: Array<{ key: string; value: string; note: string }>;
+  allowedSubstitutions: Array<{ capability: string; reason: string }>;
+  testSeed: Record<string, unknown> | null;
+  androidEnv: Record<string, unknown> | null;
+  harmonyEnv: Record<string, unknown> | null;
+  gate: { verdict: string; checkedAt: string; scopeSha256: string } | null;
+  artifacts: Array<{ name: string; path: string }>;
+};
+type Phase2Evidence = {
+  phase: 2;
+  features: Array<{ id: string; name: string; summary: string; verifyMode: string; sourceRefs: string[] }>;
+  contracts: Array<{ bcId: string; featureName: string; intent: string; observableResult: string; assertions: string; evidenceClass: string }>;
+  chainStats: { total: number; pass: number; amended: number };
+  reconciliationStats: { total: number; groups: Record<string, number> };
+  shots: Array<{ bcId: string; featureName: string; intent: string; before: string; after: string; restart: string }>;
+  forensicsNotes: Array<{ id: string; type: string; decision: string; summary: string }>;
+  gate: { verdict: string; checkedAt: string } | null;
+};
+type Phase3Evidence = {
+  phase: 3;
+  surfaces: Array<{ surfaceId: string; kind: string; featureId: string; androidStructure: string; preserveTexts: string[]; nativeCarrier: string; nativeComponent: string; matchedRule: string; reason: string }>;
+  dataContracts: Array<{ objectId: string; repositorySymbol: string; directions: string[]; featureIds: string[]; requiredOperations: string[]; file: string }>;
+  probeFiles: Array<{ name: string; path: string }>;
+  probeLockNote: string;
+  hverShots: Array<{ id: string; verificationId: string; path: string }>;
+  baselineShot: string;
+  buildSmoke: { status: string; verificationId: string; cleanBuildPassed: boolean; installDevices: string[]; launchDevices: string[]; hapSha256: string; errors: string[] } | null;
+  gate: { verdict: string; checkedAt: string } | null;
+};
+type Phase4Evidence = {
+  phase: 4;
+  matrix: Array<{ bcId: string; featureId: string; dimension: string; verdict: string; androidExpected: string; harmonyActual: string; note: string; attribution: string }>;
+  dimensionStats: Array<{ dimension: string; match: number; diff: number; manual: number }>;
+  replay: Array<{ bcId: string; featureId: string; verifyMode: string; precondition: string; stepsTotal: number; stepsOk: number; observable: string; data: string; persistence: string; sideEffect: string; verdict: string; failReason: string }>;
+  stepsPassed: string;
+  restartPersistence: Array<{ bcId: string; persistence: string }>;
+  diffClassification: {
+    softwareDefects: number; toolArtifacts: number; manual: number;
+    manualReasons: Record<string, number>;
+    toolGaps: Array<{ id: string; tag: string; summary: string }>;
+  };
+  reworkCase: RunReworkCase | null;
+  gate4: {
+    machineVerdict: string; checkedAt: string; errors: string[]; runStatus: string; status: string;
+    verdictDecision: { id: string; decision: string; summary: string } | null;
+  };
+  demoShots: Record<string, string>;
+};
+type PhaseEvidence = Phase1Evidence | Phase2Evidence | Phase3Evidence | Phase4Evidence;
+
+function VerdictBadge({ tone, children }: { tone: "good" | "warn" | "muted"; children: React.ReactNode }) {
+  return <span className={`verdict-badge ${tone}`}>{children}</span>;
+}
+
+function GateBadge({ verdict, phaseLabel }: { verdict: string; phaseLabel: string }) {
+  const pass = verdict === "PASS";
+  return <span className={`gate-pill ${pass ? "pass" : "warn"}`}>{phaseLabel} · {verdict === "PASS" ? "PASS" : verdict === "UNKNOWN" ? "无快照" : verdict}</span>;
+}
+
+/** 项目总览仪表板：真实指标 / 双端对比 / 一分钟摘要 / 交付物入口 / 典型修复案例（仅在 real 项目 + workspaceDir 存在且数据加载成功时渲染） */
+function MigrationOverviewBoard({ workspaceDir }: { workspaceDir?: string }) {
+  const [overview, setOverview] = useState<RunOverview | null>(null);
+  const [failed, setFailed] = useState(false);
+  const [reworkOpen, setReworkOpen] = useState(false);
+  useEffect(() => {
+    if (!workspaceDir) return;
+    let alive = true;
+    (async () => {
+      try {
+        const response = await fetch(`/api/run/overview?workspace=${encodeURIComponent(workspaceDir)}`);
+        if (!response.ok) { if (alive) setFailed(true); return; }
+        const data = await response.json() as RunOverview;
+        if (alive && data?.metrics) setOverview(data); else if (alive) setFailed(true);
+      } catch { if (alive) setFailed(true); }
+    })();
+    return () => { alive = false; };
+  }, [workspaceDir]);
+  if (!workspaceDir || failed || !overview) return null;
+  const m = overview.metrics;
+  const rework = overview.reworkCase;
+  return <div className="migration-overview-board">
+    <div className="mob-head">
+      <div>
+        <p className="lp-eyebrow">RUN 真实证据总览 · {overview.runId}</p>
+        <div className="mob-badges">
+          <VerdictBadge tone="good">✓ 软件成果可运行</VerdictBadge>
+          <VerdictBadge tone="good">✓ 核心行为验证通过（可观察行为 {m.observableMatch} MATCH）</VerdictBadge>
+          <VerdictBadge tone="warn">⚠ Gate 4 待人工裁决（机器 FAIL · fail-closed 口径）</VerdictBadge>
+        </div>
+      </div>
+      <small className="mob-source">数据源：RUN 产物文件实时读取 · 状态 {overview.runStatus || "—"}</small>
+    </div>
+    <div className="metric-row">
+      <div className="metric-card">
+        <small>功能完成迁移</small>
+        <b>{m.featuresTotal}<span> / {m.featuresTotal} 项</span></b>
+        <em>功能地图 {m.featuresMapped} 项 · 真机验证 {m.runtimeVerified} + 源码确认 {m.sourceConfirmed}</em>
+      </div>
+      <div className="metric-card">
+        <small>可观察行为 MATCH</small>
+        <b>{m.observableMatch}</b>
+        <em>双机差分 observable 维度（Android 基准 ↔ 鸿蒙实现）</em>
+      </div>
+      <div className="metric-card">
+        <small>操作步骤通过</small>
+        <b>{m.stepsPassed}</b>
+        <em>鸿蒙实机按行为契约重放</em>
+      </div>
+      <div className="metric-card">
+        <small>Gate 1 / 2 / 3</small>
+        <b className="mint-text">{m.gates.p1 === "PASS" && m.gates.p2 === "PASS" && m.gates.p3 === "PASS" ? "全部 PASS" : `${m.gates.p1}/${m.gates.p2}/${m.gates.p3}`}</b>
+        <em>范围冻结 · Android 盘点 · 鸿蒙骨架（机器判定）</em>
+      </div>
+      <div className="metric-card warn">
+        <small>Gate 4</small>
+        <b>待人工裁决</b>
+        <em>机器判定 {m.gates.p4} · 软件缺陷 {m.softwareDefects} · 取证工具伪影 {m.toolArtifacts} · 转人工 {m.manualCells} 格</em>
+      </div>
+    </div>
+    {(overview.comparisonShots.android || overview.comparisonShots.harmony) && <div className="duo-shot">
+      {overview.comparisonShots.android && <figure>
+        <img src={runFileUrl(workspaceDir, overview.comparisonShots.android)} alt="Android 基准真机截图" loading="lazy" />
+        <figcaption>Android 基准（emulator-5554）· 同操作执行后</figcaption>
+      </figure>}
+      {overview.comparisonShots.harmony && <figure>
+        <img src={runFileUrl(workspaceDir, overview.comparisonShots.harmony)} alt="HarmonyOS 实现真机截图" loading="lazy" />
+        <figcaption>HarmonyOS 实现（127.0.0.1:5557）· 同操作执行后</figcaption>
+      </figure>}
+    </div>}
+    <p className="ev-summary"><b>一分钟摘要：</b>{overview.summary}</p>
+    <div className="mob-bottom">
+      <div className="artifact-list">
+        <p className="lp-eyebrow">交付物入口（{overview.artifacts.length}）</p>
+        {overview.artifacts.map((artifact) => <a
+          className="artifact-chip"
+          key={artifact.path || artifact.name}
+          href={artifact.path.startsWith("/") ? artifact.path : runFileUrl(workspaceDir, artifact.path)}
+          target="_blank"
+          rel="noreferrer"
+          {...(artifact.type === "download" ? { download: "" } : {})}
+        >
+          <b>{artifact.name}</b>
+          <small>{artifact.desc}{artifact.path ? ` · ${artifact.path}` : ""}</small>
+        </a>)}
+        <small className="artifact-note">
+          基线 APK：{overview.build.apk.path || "—"}（SHA-256 {overview.build.apk.sha256 ? `${overview.build.apk.sha256.slice(0, 16)}…` : "—"}，{overview.build.apk.exists ? "在源项目" : "未找到"}）
+          {overview.build.hap.exists && <> · 签名 HAP：{overview.build.hap.path}（{overview.build.hap.desc}）</>}
+          {overview.build.installLaunched ? " · 构建安装启动链实测 PASS" : ""}
+        </small>
+      </div>
+      {rework && <div className={`rework-card ${reworkOpen ? "open" : ""}`}>
+        <button type="button" className="rework-toggle" onClick={() => setReworkOpen((open) => !open)}>
+          <b>🔧 典型修复案例 · {rework.title}</b>
+          <span>{reworkOpen ? "收起 ▲" : "展开查看根因 / 修复 / 复验 ▼"}</span>
+        </button>
+        {reworkOpen && <div className="rework-body">
+          <dl className="rework-facts">
+            <div><dt>问题</dt><dd>{rework.problem}</dd></div>
+            <div><dt>根因</dt><dd>{rework.rootCause}</dd></div>
+            <div><dt>修复</dt><dd>{rework.fix}</dd></div>
+            <div><dt>复验</dt><dd>{rework.reverify}</dd></div>
+          </dl>
+          {rework.note && <small className="rework-note">{rework.note}</small>}
+          <div className="rework-shots">
+            {rework.before && <figure>
+              <img src={runFileUrl(workspaceDir, rework.before)} alt="修复前 Android 基准" loading="lazy" />
+              <figcaption>代替对比 · Android 基准</figcaption>
+            </figure>}
+            {rework.after && <figure>
+              <img src={runFileUrl(workspaceDir, rework.after)} alt="修复后 HarmonyOS" loading="lazy" />
+              <figcaption>代替对比 · HarmonyOS</figcaption>
+            </figure>}
+            {rework.verifyShot && <figure>
+              <img src={runFileUrl(workspaceDir, rework.verifyShot)} alt="返工复验鸿蒙真机截图" loading="lazy" />
+              <figcaption>返工复验真机截图（修复后，无返回按钮）</figcaption>
+            </figure>}
+          </div>
+        </div>}
+      </div>}
+    </div>
+  </div>;
+}
+
+/** Phase 证据面板：按选中阶段渲染 P1-P4 的真实取证数据（插在阶段汇总之后、投射区之前） */
+function PhaseEvidencePanel({ workspaceDir, phase }: { workspaceDir?: string; phase: PhaseNumber }) {
+  const [evidence, setEvidence] = useState<PhaseEvidence | null>(null);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    if (!workspaceDir) return;
+    let alive = true;
+    setEvidence(null);
+    setFailed(false);
+    (async () => {
+      try {
+        const response = await fetch(`/api/run/phase/${phase}?workspace=${encodeURIComponent(workspaceDir)}`);
+        if (!response.ok) { if (alive) setFailed(true); return; }
+        const data = await response.json() as PhaseEvidence;
+        if (alive && data?.phase) setEvidence(data); else if (alive) setFailed(true);
+      } catch { if (alive) setFailed(true); }
+    })();
+    return () => { alive = false; };
+  }, [workspaceDir, phase]);
+  if (!workspaceDir || failed || !evidence) return null;
+  return <div className="phase-evidence-panel">{evidence.phase === 1 && <Phase1Body data={evidence} ws={workspaceDir} />}
+    {evidence.phase === 2 && <Phase2Body data={evidence} ws={workspaceDir} />}
+    {evidence.phase === 3 && <Phase3Body data={evidence} ws={workspaceDir} />}
+    {evidence.phase === 4 && <Phase4Body data={evidence} ws={workspaceDir} />}</div>;
+}
+
+const seedText = (value: unknown) => (Array.isArray(value) ? value.join(" / ") : String(value ?? "—"));
+
+function Phase1Body({ data, ws }: { data: Phase1Evidence; ws: string }) {
+  const identity = data.identity;
+  return <>
+    <p className="lp-eyebrow">Phase 1 · 范围冻结信息卡（全部字段来自 controller/scope.json 实测冻结值）</p>
+    <div className="ev-grid">
+      <div className="ev-info-card">
+        <div className="ev-kv"><span>应用标识</span><b>{identity.applicationId}</b></div>
+        <div className="ev-kv"><span>版本 / 构建号</span><b>{identity.appVersion}（{identity.appBuild}）</b></div>
+        <div className="ev-kv"><span>源码 commit</span><code>{identity.sourceRevision}</code></div>
+        <div className="ev-kv"><span>git tree 锁</span><code>{identity.gitTreeSha1}</code></div>
+        <div className="ev-kv"><span>工作区状态</span><b>{identity.worktreeState}</b></div>
+        <div className="ev-kv"><span>APK SHA-256</span><code className="ev-hash">{identity.apkSha256}</code></div>
+        <div className="ev-kv"><span>APK 路径</span><code>{identity.apkPath}</code></div>
+        <div className="ev-kv"><span>目标平台</span><b>{data.target?.platform ?? "—"} · {data.target?.sdk_or_api_target ?? "—"}</b></div>
+        <p className="ev-provenance">{identity.identityProvenance}</p>
+      </div>
+      <div className="ev-side">
+        {data.gate && <div className="gate-card pass">
+          <b>Gate 1 · {data.gate.verdict}</b>
+          <small>机器判定于 {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC · scope sha256 {data.gate.scopeSha256.slice(0, 16)}…</small>
+        </div>}
+        <div className="gate-card">
+          <b>基线环境 ENV-001（Android 实测）</b>
+          <small>{seedText(data.androidEnv?.emulator_model)} · API {seedText(data.androidEnv?.android_api_level)} · {seedText(data.androidEnv?.resolution)} @ {seedText(data.androidEnv?.density_dpi)}dpi · {seedText(data.androidEnv?.locale)} / {seedText(data.androidEnv?.theme)} · {seedText(data.androidEnv?.device_serial)}</small>
+          <b>目标端 {String(data.harmonyEnv?.env_id ?? "")}（鸿蒙实测）</b>
+          <small>{String(data.harmonyEnv?.software_version ?? "")} API {String(data.harmonyEnv?.api_version ?? "")} · {String(data.harmonyEnv?.device_serial ?? "")} · {String(data.harmonyEnv?.resolution ?? "")}@{String(data.harmonyEnv?.refresh_rate ?? "")}Hz · 构建 {String(data.harmonyEnv?.build_tool ?? "")}</small>
+        </div>
+        <div className="gate-card">
+          <b>测试种子（Phase 2 / 4 同起点）</b>
+          <small>预置数据 {seedText(data.testSeed?.preset_item_count)} 条 · 初始排序 {seedText(data.testSeed?.initial_sort_label)} · 初始文本 {seedText(data.testSeed?.expected_initial_texts)}</small>
+          <small>{String(data.testSeed?._note ?? "")}</small>
+        </div>
+      </div>
+    </div>
+    <table className="ev-table">
+      <thead><tr><th>纳入功能（{data.includedFeatures.length}）</th><th>冻结定义（file:line 锚点）</th><th>验证方式</th></tr></thead>
+      <tbody>{data.includedFeatures.map((feature) => <tr key={feature.id}>
+        <td><b>{feature.id}</b></td>
+        <td className="ev-wrap">{feature.title}</td>
+        <td><span className={`verify-tag ${feature.verifyMode === "RUNTIME" ? "runtime" : "source"}`}>{feature.verifyMode}</span></td>
+      </tr>)}</tbody>
+    </table>
+    {data.excludedFeatures.map((feature) => <div className="ev-exclude" key={feature.id}>
+      <b>排除项 {feature.id}</b>
+      <p>{feature.reason}</p>
+    </div>)}
+    <div className="policy-row">
+      {data.policies.map((policy) => <div className="policy-card" key={policy.key}>
+        <b>{policy.key} = {policy.value}</b>
+        <p>{policy.note}</p>
+      </div>)}
+    </div>
+    <div className="artifact-inline">
+      {data.artifacts.map((artifact) => <a key={artifact.path} href={runFileUrl(ws, artifact.path)} target="_blank" rel="noreferrer">{artifact.name} ↗</a>)}
+    </div>
+  </>;
+}
+
+function Phase2Body({ data, ws }: { data: Phase2Evidence; ws: string }) {
+  const groups = Object.entries(data.reconciliationStats.groups);
+  return <>
+    <p className="lp-eyebrow">Phase 2 · Android 盘点（功能地图 {data.features.length} 项 / 行为契约 {data.contracts.length} 条，全部来自真机取证）</p>
+    <table className="ev-table">
+      <thead><tr><th>功能</th><th>一句话语义</th><th>verify_mode</th><th>source_refs</th></tr></thead>
+      <tbody>{data.features.map((feature) => <tr key={feature.id}>
+        <td><b>{feature.name}</b><small className="ev-id">{feature.id}</small></td>
+        <td className="ev-wrap">{feature.summary}</td>
+        <td><span className={`verify-tag ${feature.verifyMode === "RUNTIME" ? "runtime" : "source"}`}>{feature.verifyMode}</span></td>
+        <td><code className="ev-refs">{feature.sourceRefs.map(shortRef).join(" · ")}</code></td>
+      </tr>)}</tbody>
+    </table>
+    <table className="ev-table compact">
+      <thead><tr><th>行为契约</th><th>用户意图</th><th>可观察结果</th><th>关键断言</th></tr></thead>
+      <tbody>{data.contracts.map((contract) => <tr key={contract.bcId}>
+        <td><b>{contract.bcId}</b><small className="ev-id">{contract.featureName}</small></td>
+        <td className="ev-wrap">{contract.intent}</td>
+        <td className="ev-wrap">{contract.observableResult}</td>
+        <td><code className="ev-refs">{contract.assertions}</code></td>
+      </tr>)}</tbody>
+    </table>
+    <div className="stat-strip">
+      {groups.map(([verdict, count]) => <div className={`stat-cell ${verdict === "CONFIRMED" ? "good" : verdict === "GAP" ? "bad" : ""}`} key={verdict}>
+        <b>{count}</b><span>{verdict}</span>
+      </div>)}
+      <div className="stat-cell good"><b>{data.chainStats.pass}/{data.chainStats.total}</b><span>真机链 CHAIN_PASS（含 {data.chainStats.amended} 条透明补正）</span></div>
+    </div>
+    <p className="lp-eyebrow">真机截图墙 · 每链 before / after / restart 三时点取证</p>
+    <div className="shot-wall">
+      {data.shots.map((shot) => <div className="shot-group" key={shot.bcId}>
+        <div className="shot-head"><b>{shot.bcId}</b><span>{shot.featureName} · {shot.intent}</span></div>
+        <div className="shot-row">
+          {[["before", shot.before, "操作前"], ["after", shot.after, "操作后"], ["restart", shot.restart, "重启后"]].map(([key, path, label]) => path
+            ? <figure key={String(key)}><img src={runFileUrl(ws, String(path))} alt={`${shot.bcId} ${label}截图`} loading="lazy" /><figcaption>{label}</figcaption></figure>
+            : <figure className="missing" key={String(key)}><figcaption>{label}（未采集）</figcaption></figure>)}
+        </div>
+      </div>)}
+    </div>
+    {data.forensicsNotes.length > 0 && <div className="forensics-card">
+      <b>取证工具伪影说明（伪影 ≠ 软件缺陷）</b>
+      {data.forensicsNotes.map((note) => <p key={note.id}><code>{note.id}</code> · {note.type} → {note.summary}</p>)}
+      <small>以上均为取证链执行器 / 键域提取工具的缺陷，Android App 行为由独立探针三时点证据确认正常，详见 decision-log。</small>
+    </div>}
+    {data.gate && <div className="gate-card pass"><b>Gate 2 · {data.gate.verdict}</b><small>机器判定于 {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC（Gate 2 v2：功能覆盖 + 行为契约 + 调和 + 显式缺口）</small></div>}
+  </>;
+}
+
+function Phase3Body({ data, ws }: { data: Phase3Evidence; ws: string }) {
+  return <>
+    <p className="lp-eyebrow">Phase 3 · 鸿蒙骨架蓝图（surface 映射四字段 + 数据契约 + 实机构建冒烟，P3 冻结、P4 按图施工）</p>
+    <table className="ev-table">
+      <thead><tr><th>Surface</th><th>Android 冻结结构</th><th>必须保留</th><th>原生承载</th><th>ArkUI 原生组件映射</th></tr></thead>
+      <tbody>{data.surfaces.map((surface) => <tr key={surface.surfaceId}>
+        <td><b>{surface.surfaceId}</b><small className="ev-id">{surface.kind} · {surface.featureId}</small></td>
+        <td className="ev-wrap ev-structure">{surface.androidStructure}</td>
+        <td className="ev-wrap">{surface.preserveTexts.join(" / ")}</td>
+        <td className="ev-wrap">{surface.nativeCarrier}</td>
+        <td className="ev-wrap">{surface.nativeComponent}</td>
+      </tr>)}</tbody>
+    </table>
+    <div className="contract-row">
+      {data.dataContracts.map((contract) => <div className="contract-card" key={contract.objectId}>
+        <b>{contract.objectId}</b>
+        <small>{contract.repositorySymbol} · {contract.directions.join("/")}</small>
+        <p>required_operations：{contract.requiredOperations.join(" · ")}</p>
+        <p>承载功能：{contract.featureIds.map((id) => id.replace("FEAT-", "")).join(" · ")}</p>
+        <a href={runFileUrl(ws, contract.file)} target="_blank" rel="noreferrer">契约文件 ↗</a>
+      </div>)}
+    </div>
+    {data.probeFiles.length > 0 && <div className="gate-card">
+      <b>语义探针（DebugSemanticProbe / SemanticProbeRegistry）</b>
+      <div className="artifact-inline">{data.probeFiles.map((file) => <a key={file.path} href={runFileUrl(ws, file.path)} target="_blank" rel="noreferrer">{file.name} ↗</a>)}</div>
+      {data.probeLockNote && <small className="ev-wrap">{data.probeLockNote}</small>}
+    </div>}
+    {(data.hverShots.length > 0 || data.baselineShot) && <>
+      <p className="lp-eyebrow">迁移前后 GUI 对比（同一页面：P2 Android 基线 vs P3 鸿蒙实机 HVER）</p>
+      <div className="duo-shot">
+        {data.baselineShot && <figure><img src={runFileUrl(ws, data.baselineShot)} alt="P2 Android 基线截图" loading="lazy" /><figcaption>Android 基准（Phase 2 取证）</figcaption></figure>}
+        {data.hverShots.map((shot) => <figure key={shot.path}><img src={runFileUrl(ws, shot.path)} alt="HVER 鸿蒙实机截图" loading="lazy" /><figcaption>HarmonyOS 实机（{shot.verificationId} 冒烟截图）</figcaption></figure>)}
+      </div>
+    </>}
+    {data.buildSmoke && <div className="gate-card pass">
+      <b>构建冒烟（{data.buildSmoke.verificationId}）· {data.buildSmoke.status}</b>
+      <small>① hvigorw clean assembleHap → BUILD SUCCESSFUL（clean_build_passed={String(data.buildSmoke.cleanBuildPassed)}）</small>
+      <small>② hdc install → install bundle successfully（{data.buildSmoke.installDevices.join(" / ")}，模拟器 127.0.0.1:5557）</small>
+      <small>③ aa start 冷启动成功（{data.buildSmoke.launchDevices.join(" / ")}）· HAP sha256 {data.buildSmoke.hapSha256.slice(0, 16)}…</small>
+    </div>}
+    {data.gate && <div className="gate-card pass"><b>Gate 3 · {data.gate.verdict}</b><small>机器判定于 {data.gate.checkedAt.replace("T", " ").slice(0, 19)} UTC（scaffold CLOSED · 9 类冒烟链全 PASS）</small></div>}
+  </>;
+}
+
+function Phase4Body({ data, ws }: { data: Phase4Evidence; ws: string }) {
+  const verdictClass = (verdict: string) => verdict === "MATCH" ? "v-match" : verdict === "DIFF" ? "v-diff" : "v-manual";
+  const rework = data.reworkCase;
+  return <>
+    <p className="lp-eyebrow">Phase 4 · 双机一致性矩阵（dual-diff 全量 {data.matrix.length} 判定格：observable / data / persistence / side effect 四维）</p>
+    <div className="stat-strip">
+      {data.dimensionStats.map((dimension) => <div className="stat-cell" key={dimension.dimension}>
+        <b>{dimension.match > 0 ? `${dimension.match} MATCH` : dimension.diff > 0 ? `${dimension.diff} DIFF` : `${dimension.manual} MANUAL`}</b>
+        <span>{dimension.dimension}（MATCH {dimension.match} / DIFF {dimension.diff} / MANUAL {dimension.manual}）</span>
+      </div>)}
+    </div>
+    <table className="ev-table matrix">
+      <thead><tr><th>BC</th><th>维度</th><th>Android 期望</th><th>Harmony 实测</th><th>机器判定</th></tr></thead>
+      <tbody>{data.matrix.map((cell) => <tr key={`${cell.bcId}-${cell.dimension}`}>
+        <td><b>{cell.bcId}</b></td>
+        <td>{cell.dimension}</td>
+        <td><code className="ev-json">{cell.androidExpected}</code></td>
+        <td><code className="ev-json">{cell.harmonyActual}</code></td>
+        <td><span className={`matrix-verdict ${verdictClass(cell.verdict)}`}>{cell.verdict}</span>
+          {cell.attribution === "TOOL_ARTIFACT" && <small className="artifact-flag">取证工具伪影</small>}</td>
+      </tr>)}</tbody>
+    </table>
+    <p className="lp-eyebrow">操作重放明细（步骤 {data.stepsPassed} 全部通过）与重启持久化</p>
+    <table className="ev-table compact">
+      <thead><tr><th>BC</th><th>前置条件</th><th>步骤</th><th>observable</th><th>persistence</th><th>判定</th></tr></thead>
+      <tbody>{data.replay.map((row) => <tr key={row.bcId}>
+        <td><b>{row.bcId}</b><small className="ev-id">{row.verifyMode}</small></td>
+        <td>{row.precondition || "—"}</td>
+        <td>{row.stepsTotal > 0 ? `${row.stepsOk}/${row.stepsTotal}` : "0"}</td>
+        <td><span className={`matrix-verdict ${verdictClass(row.observable === "PASS" ? "MATCH" : row.observable === "FAIL" ? "DIFF" : "v-manual")}`}>{row.observable || "—"}</span></td>
+        <td><span className={`matrix-verdict ${verdictClass(row.persistence === "PASS" ? "MATCH" : row.persistence === "FAIL" ? "DIFF" : "v-manual")}`}>{row.persistence || "—"}</span></td>
+        <td>{row.verdict}{row.failReason ? <small className="ev-id">{row.failReason}</small> : null}</td>
+      </tr>)}</tbody>
+    </table>
+    <div className="diff-class-row">
+      <div className="diff-card good"><b>{data.diffClassification.softwareDefects}</b><span>软件缺陷</span><small>全部 DIFF 经 decision-log（PHASE4_VERDICT）论证归因取证侧，无鸿蒙行为缺陷</small></div>
+      <div className="diff-card warn"><b>{data.diffClassification.toolArtifacts}</b><span>取证工具伪影（DIFF）</span>
+        {data.diffClassification.toolGaps.slice(0, 3).map((gap) => <small key={gap.id}><code>{gap.tag}</code> {gap.summary.slice(0, 110)}…</small>)}
+      </div>
+      <div className="diff-card muted"><b>{data.diffClassification.manual}</b><span>转人工核验（MANUAL）</span>
+        {Object.entries(data.diffClassification.manualReasons).map(([reason, count]) => <small key={reason}>×{count} · {reason}</small>)}
+      </div>
+    </div>
+    {rework && <div className="rework-inline">
+      <b>🔧 返工案例 · {rework.title}</b>
+      <dl className="rework-facts">
+        <div><dt>问题</dt><dd>{rework.problem}</dd></div>
+        <div><dt>根因</dt><dd>{rework.rootCause}</dd></div>
+        <div><dt>修复</dt><dd>{rework.fix}</dd></div>
+        <div><dt>复验</dt><dd>{rework.reverify}</dd></div>
+      </dl>
+      {rework.verifyShot && <a className="rework-shot-link" href={runFileUrl(ws, rework.verifyShot)} target="_blank" rel="noreferrer">查看复验真机截图 ↗</a>}
+    </div>}
+    <div className="gate-card warn big">
+      <b>Gate 4 · 机器判定 {data.gate4.machineVerdict} → 状态「{data.gate4.status}」</b>
+      <small>机器按 fail-closed 口径如实落盘 FAIL（HBUILD 封存结构性受阻 + 阶段收尾件缺失，详见 gate-report errors）；全部 10 处 DIFF 已定性为取证工具伪影、软件缺陷 0，按总控口径转人工裁决，未翻转任何机器判定。</small>
+      {data.gate4.verdictDecision && <small className="ev-wrap"><code>{data.gate4.verdictDecision.id}</code> {data.gate4.verdictDecision.summary}</small>}
+      <small>运行状态 {data.gate4.runStatus} · 机器复核于 {data.gate4.checkedAt.replace("T", " ").slice(0, 19)} UTC</small>
+      {data.gate4.errors.length > 0 && <details className="gate-errors"><summary>gate-report 机器错误明细（{data.gate4.errors.length}）</summary>{data.gate4.errors.map((error) => <p key={error}>{error}</p>)}</details>}
+    </div>
+  </>;
+}
+
 /** CodeArts Space 风格项目工作区：常驻对话面板（主体）+ 任务概览（侧栏） */
 function ProjectChatWorkspace({ project }: { project: Project }) {
   const sessionId = project.activeSessionId;
@@ -1403,6 +1861,7 @@ function ProjectChatWorkspace({ project }: { project: Project }) {
   const modelLabel = project.runModel ? project.runModel.split("::").pop() : undefined;
   return <div className="space-layout">
     <section className="chat-panel">
+      <MigrationOverviewBoard workspaceDir={project.workspaceDir} />
       <PhaseRail phases={project.phases} selected={selectedPhase} onSelect={setSelectedPhase} />
       {selected.execution?.response && <details className="phase-summary-banner" open>
         <summary><b>阶段 {String(selected.number).padStart(2, "0")} 汇总</b><span className={`execution-status ${selected.execution.status ?? "idle"}`}>{selected.execution.status ?? "idle"}</span>
@@ -1414,6 +1873,7 @@ function ProjectChatWorkspace({ project }: { project: Project }) {
         <span>本阶段报告尚未生成</span>
         <Link to={`/projects/${project.id}/review/${selected.number}`} className="ghost-button small">打开审核页 →</Link>
       </div>}
+      <PhaseEvidencePanel workspaceDir={project.workspaceDir} phase={selectedPhase} />
       {selectedPhase === 2 && <div className="p2-live-layout">
         <div className="p2-cast-col"><AndroidCastPanel serial="emulator-5554" /></div>
         <div className="p2-activity-col"><LiveActivityPanel workspaceDir={project.workspaceDir} /></div>

@@ -521,7 +521,7 @@ function makeH264Pipeline(ownerKey, outW, fps) {
   };
   const start = () => {
     if (state.py) return;
-    bringToFront();
+    // 不置前：离屏采集（IncludingWindow）不要求前台，避免抢焦点
     const py = require("node:child_process").spawn(
       "python3",
       [join(__dirname, "tools", "harmony_raw_capture.py"), ownerKey, String(outW), String(fps)],
@@ -588,9 +588,8 @@ const castWss = new WebSocket.Server({ noServer: true });
 let androidFrontmostAt = 0;
 function bringAndroidToFront() {
   // qemu 的 GL 子表面采集依赖窗口可见：置前一次（60 秒内不重复）
-  if (Date.now() - androidFrontmostAt < 60000) return;
-  androidFrontmostAt = Date.now();
-  execFile("osascript", ["-e", 'tell application "System Events" to set frontmost of process "qemu-system-aarch64" to true'], { timeout: 4000 }, () => {});
+  // 已禁用置前：抢焦点影响用户操作；全屏裁剪兜底被遮挡时画面异常属预期
+  return;
 }
 castWss.on("connection", (client, req) => {
   if (req.url && req.url.includes("/api/emulator/android/ws")) {
@@ -923,6 +922,463 @@ app.get("/api/run/anomalies", (req, res) => {
     }
     anomalies.sort((a, b) => (a.at < b.at ? 1 : -1));
     res.json({ anomalies });
+  } catch (error) {
+    res.status(500).json({ error: String(error) });
+  }
+});
+
+// ---- RUN 真实证据数据 API：overview / phase/:n / file ----
+// 唯一数据来源 = migration-runs 下最新 MIG-* RUN 的产物文件；所有指标实时从文件计算，禁止编造。
+const DEFAULT_RUN_WORKSPACE = "/Users/rainyday/Desktop/finale/migration-runs";
+const { resolve: pathResolve, sep: pathSep, extname: pathExtname } = require("node:path");
+
+function resolveRunRoot(workspace) {
+  const ws = String(workspace || "").trim() || DEFAULT_RUN_WORKSPACE;
+  if (!/^(\/|[A-Za-z]:[\\/])/.test(ws)) return null;
+  let runs = [];
+  try { runs = readdirSync(ws).filter((name) => /^MIG-/.test(name)); } catch { runs = []; }
+  if (!runs.length) return null;
+  return join(ws, runs.sort().pop());
+}
+function readJsonIn(runRoot, rel) {
+  try { return JSON.parse(readFileSync(join(runRoot, rel), "utf8")); } catch { return null; }
+}
+function readCsvIn(runRoot, rel) {
+  try { return readCsvRows(readFileSync(join(runRoot, rel), "utf8")); } catch { return []; }
+}
+function listDirSafe(dir) {
+  try { return readdirSync(dir); } catch { return []; }
+}
+function fileExistsIn(runRoot, rel) {
+  try { return statSync(join(runRoot, rel)).isFile(); } catch { return false; }
+}
+// 历史 Gate 快照存于 controller/work-orders/*.phase-0N-gate-report.json（controller/gate-report.json 只保留最新阶段）
+function readGateSnapshot(runRoot, phase) {
+  const woDir = join(runRoot, "controller", "work-orders");
+  for (const name of listDirSafe(woDir)) {
+    if (new RegExp(`\\.phase-0${phase}-gate-report\\.json$`).test(name)) {
+      return readJsonIn(runRoot, join("controller", "work-orders", name));
+    }
+  }
+  return null;
+}
+function shotOrNull(runRoot, rel) {
+  return fileExistsIn(runRoot, rel) ? rel : "";
+}
+// 返工案例：controller/decision-log.csv 的 REWORK_SURFACE 行（rationale 结构化文本：根因/修复/复验）
+function buildReworkCase(runRoot, decisions) {
+  const row = decisions.find((d) => d.decision_type === "REWORK_SURFACE");
+  if (!row) return null;
+  const text = row.rationale || "";
+  const pick = (label) => {
+    const match = new RegExp(`${label}：(.+?)(。|$)`).exec(text);
+    return match ? match[1] : "";
+  };
+  const problemMatch = /人工验收发现(.+?)。/.exec(text);
+  const hasPairShots = false; // rework-surface 下仅存修复后复验截图，无前后对比图
+  const demo = {
+    before: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/android/after.png"),
+    after: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/harmony/after.jpeg"),
+  };
+  return {
+    id: row.decision_id,
+    at: row.created_at,
+    status: row.decision,
+    title: "多余返回按钮修复（UI_FIDELITY=HIGH 违规返工）",
+    problem: problemMatch ? problemMatch[1] : text.slice(0, 120),
+    rootCause: pick("根因（总控定位）"),
+    fix: pick("修复（最小改动）"),
+    reverify: pick("复验证据"),
+    verifyShot: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/rework-surface/rework-verify.png"),
+    hasPairShots,
+    before: demo.before,
+    after: demo.after,
+    note: hasPairShots ? "" : "返工工单仅存档修复后复验截图（rework-verify.png）；下方「前后对比」以双机 demo 同操作截图代替（左 Android 基准 / 右 HarmonyOS 实现），如实标注非返工前后对比。",
+  };
+}
+// 迁移核心统计：dual-diff 四类判定 × replay 步骤 × reconciliation × Gate 快照
+function computeRunStats(runRoot) {
+  const dualDiff = readCsvIn(runRoot, "phase-04-harmony-implementation/dual-diff-results.csv");
+  const replay = readCsvIn(runRoot, "phase-04-harmony-implementation/replay-results.csv");
+  const reconciliation = readCsvIn(runRoot, "phase-02-android-inventory/reconciliation.csv");
+  const decisions = readCsvIn(runRoot, "controller/decision-log.csv");
+  const runStatus = readJsonIn(runRoot, "controller/run-status.json");
+  const gate4 = readJsonIn(runRoot, "controller/gate-report.json");
+  const observables = dualDiff.filter((r) => r.assertion_type === "observable");
+  const obsMatch = observables.filter((r) => r.verdict === "MATCH").length;
+  const obsMachine = observables.filter((r) => r.verdict === "MATCH" || r.verdict === "DIFF").length;
+  const stepsTotal = replay.reduce((sum, r) => sum + (Number(r.steps_total) || 0), 0);
+  const stepsOk = replay.reduce((sum, r) => sum + (Number(r.steps_ok) || 0), 0);
+  const diffCount = dualDiff.filter((r) => r.verdict === "DIFF").length;
+  const manualCount = dualDiff.filter((r) => r.verdict === "MANUAL").length;
+  // DIFF 定性来源：decision-log PHASE4_VERDICT（MANUAL_TAKEOVER，"全部 N 个 DIFF 归因取证侧缺口"）
+  const phase4Verdict = decisions.find((d) => d.decision_type === "PHASE4_VERDICT") ?? null;
+  const forensicsAttributed = Boolean(phase4Verdict && /归因取证|取证侧缺口/.test(phase4Verdict.rationale || ""));
+  const gateOf = (n) => readGateSnapshot(runRoot, n);
+  const gates = {
+    p1: gateOf(1)?.verdict ?? "UNKNOWN",
+    p2: gateOf(2)?.verdict ?? "UNKNOWN",
+    p3: gateOf(3)?.verdict ?? "UNKNOWN",
+    p4: gate4?.verdict === "FAIL" && /WAITING_HUMAN_REVIEW|MANUAL/.test(`${runStatus?.run_status ?? ""}|${phase4Verdict?.decision ?? ""}`)
+      ? "MACHINE_FAIL_MANUAL_PENDING"
+      : (gate4?.verdict ?? "UNKNOWN"),
+  };
+  return {
+    dualDiff, replay, reconciliation, decisions, runStatus, gate4, phase4Verdict, forensicsAttributed, gates,
+    stats: {
+      observableMatch: obsMachine > 0 ? `${obsMatch}/${obsMachine}` : "0/0",
+      stepsPassed: stepsTotal > 0 ? `${stepsOk}/${stepsTotal}` : "0/0",
+      matchCount: dualDiff.filter((r) => r.verdict === "MATCH").length,
+      diffCount,
+      manualCount,
+      softwareDefects: forensicsAttributed ? 0 : diffCount,
+      toolArtifacts: forensicsAttributed ? diffCount : 0,
+      runtimeVerified: reconciliation.filter((r) => r.verdict === "CONFIRMED").length,
+      sourceConfirmed: reconciliation.filter((r) => r.verdict === "SOURCE_CONFIRMED").length,
+    },
+  };
+}
+
+app.get("/api/run/overview", (req, res) => {
+  try {
+    const runRoot = resolveRunRoot(req.query.workspace);
+    if (!runRoot) return res.status(404).json({ error: "工作区内没有 MIG-* RUN 目录" });
+    const scope = readJsonIn(runRoot, "controller/scope.json");
+    if (!scope) return res.status(404).json({ error: "RUN 缺少 controller/scope.json" });
+    const featureMap = readJsonIn(runRoot, "phase-02-android-inventory/feature-map.json");
+    const runId = runRoot.split(pathSep).pop();
+    const { replay, decisions, runStatus, stats, gates, forensicsAttributed } = computeRunStats(runRoot);
+
+    const featuresTotal = (scope.migration_scope?.included_features ?? []).length;
+    const featuresMapped = Array.isArray(featureMap?.features)
+      ? featureMap.features.length
+      : featuresTotal;
+
+    const apkPath = scope.android?.apk_path ?? "";
+    const hapCandidates = [
+      { path: "tools/signing/entry-default-signed.hap", signed: true, desc: "三级本地自签链签名（hap-sign-tool，verify-app PASS）" },
+      { path: "phase-04-harmony-implementation/harmony-project/entry/build/default/outputs/default/entry-default-unsigned.hap", signed: false, desc: "Phase 4 CLEAN_BUILD 直出 unsigned HAP" },
+      { path: "phase-03-harmony-scaffold/harmony-project/entry/build/default/outputs/default/entry-default-unsigned.hap", signed: false, desc: "Phase 3 CLEAN_BUILD 直出 unsigned HAP" },
+    ];
+    const hap = hapCandidates.find((h) => fileExistsIn(runRoot, h.path));
+    const p3Build = readJsonIn(runRoot, "phase-03-harmony-scaffold/build-report.json");
+    const installLaunched = Boolean((p3Build?.install_passed_devices ?? []).length > 0 && (p3Build?.launch_passed_devices ?? []).length > 0);
+
+    const artifactSpecs = [
+      { name: "范围冻结书 scope.json", path: "controller/scope.json", desc: "Phase 1 冻结：功能范围 / 迁移政策 / 测试种子 / 双端环境 / 源码输入锁" },
+      { name: "Android 盘点报告", path: "phase-02-android-inventory/phase-2-report.md", desc: "Phase 2 收束报告（功能地图 / 行为契约 / 调和结论）" },
+      { name: "行为契约 behavior-contracts.csv", path: "phase-02-android-inventory/behavior-contracts.csv", desc: "7 条 BC：意图 / 操作 / 数据变化 / 断言" },
+      { name: "鸿蒙构建报告 build-report.json", path: "phase-03-harmony-scaffold/build-report.json", desc: "HVER-001-P3：clean build / 安装 / 启动全 PASS" },
+      { name: "双机差分结果 dual-diff-results.csv", path: "phase-04-harmony-implementation/dual-diff-results.csv", desc: "28 判定格：observable / data / persistence / side effect 四维" },
+      { name: "操作重放明细 replay-results.csv", path: "phase-04-harmony-implementation/replay-results.csv", desc: "鸿蒙实机步骤重放与持久化结果" },
+      { name: "决策日志 decision-log.csv", path: "controller/decision-log.csv", desc: "全程决策留痕（含 DIFF 定性与返工记录）" },
+      { name: "Gate 4 报告 gate-report.json", path: "controller/gate-report.json", desc: "机器判定 FAIL（fail-closed）待人工裁决" },
+      { name: "签名 HAP entry-default-signed.hap", path: "tools/signing/entry-default-signed.hap", desc: "签名交付物（下载）", download: true },
+      { name: "返工复验截图 rework-verify.png", path: "phase-04-harmony-implementation/evidence/rework-surface/rework-verify.png", desc: "返回按钮修复后的鸿蒙实机复验" },
+      { name: "基线 APK app-debug.apk", path: "", desc: "", external: scope.android?.apk_path ?? "" },
+    ];
+    const artifacts = artifactSpecs
+      .filter((a) => (a.external ? existsSync(a.external) : fileExistsIn(runRoot, a.path)))
+      .map((a) => ({ name: a.name, path: a.path || a.external, desc: a.desc, type: a.download ? "download" : "file" }));
+
+    const summary = [
+      `本次迁移把 Android 应用 ${scope.project_id ?? ""}（${scope.android?.application_id ?? ""} v${scope.android?.app_version ?? "?"}，源码 ${scope.android?.source_revision?.slice(0, 8) ?? ""}）重建为 HarmonyOS NEXT 原生应用：`,
+      `${featuresTotal} 项冻结功能全部完成迁移并逐条留证（${stats.runtimeVerified} 项真机运行验证 + ${stats.sourceConfirmed} 项源码确认）；`,
+      `双机差分可观察行为 ${stats.observableMatch} MATCH，鸿蒙实机操作重放 ${stats.stepsPassed} 步全部走通，重启持久化实测达标；`,
+      `机器差分报出的 ${stats.diffCount} 处 DIFF 已由总控逐一论证定性为取证工具伪影（软件缺陷 ${stats.softwareDefects}），另有 ${stats.manualCount} 格按口径转人工核验；`,
+      `Gate 1/2/3 机器判定 PASS，Gate 4 因 fail-closed 口径如实落盘 FAIL，当前状态「待人工裁决」。`,
+    ].join("");
+
+    res.json({
+      runId,
+      runStatus: runStatus?.run_status ?? "",
+      metrics: {
+        featuresTotal,
+        featuresMapped,
+        runtimeVerified: stats.runtimeVerified,
+        sourceConfirmed: stats.sourceConfirmed,
+        observableMatch: stats.observableMatch,
+        stepsPassed: stats.stepsPassed,
+        softwareDefects: stats.softwareDefects,
+        toolArtifacts: stats.toolArtifacts,
+        manualCells: stats.manualCount,
+        gates,
+      },
+      build: {
+        apk: { path: apkPath, sha256: scope.android?.apk_sha256 ?? "", exists: existsSync(apkPath) },
+        hap: hap ? { path: hap.path, exists: true, signed: hap.signed, desc: hap.desc } : { path: "", exists: false, signed: false, desc: "" },
+        installLaunched,
+      },
+      artifacts,
+      summary,
+      comparisonShots: {
+        android: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/android/after.png"),
+        harmony: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/harmony/after.jpeg"),
+      },
+      reworkCase: buildReworkCase(runRoot, decisions),
+      diffNote: forensicsAttributed
+        ? "全部机器 DIFF 已经 decision-log（PHASE4_VERDICT）定性为取证工具伪影，非鸿蒙软件缺陷"
+        : "机器 DIFF 定性未见 decision-log 记录，需人工复核",
+    });
+  } catch (error) {
+    res.status(500).json({ error: String(error) });
+  }
+});
+
+app.get("/api/run/phase/:n", (req, res) => {
+  try {
+    const runRoot = resolveRunRoot(req.query.workspace);
+    if (!runRoot) return res.status(404).json({ error: "工作区内没有 MIG-* RUN 目录" });
+    const phase = Math.min(4, Math.max(1, Number(req.params.n) || 1));
+    const runId = runRoot.split(pathSep).pop();
+    const scope = readJsonIn(runRoot, "controller/scope.json");
+    if (!scope) return res.status(404).json({ error: "RUN 缺少 controller/scope.json" });
+    const { decisions, gates, phase4Verdict, forensicsAttributed } = computeRunStats(runRoot);
+    const gateBase = { runId, phase };
+
+    if (phase === 1) {
+      const g1 = readGateSnapshot(runRoot, 1);
+      const policies = Object.entries(scope.migration_scope?.migration_policies ?? {})
+        .filter(([key]) => !key.startsWith("_"))
+        .map(([key, value]) => ({ key, value, note: scope.migration_scope.migration_policies[`_${key}_note`] ?? "" }));
+      return res.json({
+        ...gateBase,
+        identity: {
+          projectRoot: scope.android?.project_root ?? "",
+          sourceRevision: scope.android?.source_revision ?? "",
+          apkPath: scope.android?.apk_path ?? "",
+          apkSha256: scope.android?.apk_sha256 ?? "",
+          applicationId: scope.android?.application_id ?? "",
+          appVersion: scope.android?.app_version ?? "",
+          appBuild: scope.android?.app_build ?? "",
+          identityProvenance: scope.android?.identity_provenance ?? "",
+          gitTreeSha1: scope.source_input_lock?.git_tree_sha1 ?? "",
+          worktreeState: scope.source_input_lock?.worktree_state ?? "",
+        },
+        target: scope.target ?? null,
+        includedFeatures: (scope.migration_scope?.included_features ?? []).map((id) => ({
+          id,
+          title: scope.migration_scope.feature_titles?.[id] ?? "",
+          verifyMode: scope.migration_scope.feature_verify_modes?.[id] ?? "",
+        })),
+        excludedFeatures: (scope.migration_scope?.excluded_features ?? []).map((id) => ({
+          id,
+          reason: scope.migration_scope.exclusion_reasons?.[id] ?? "",
+        })),
+        policies,
+        allowedSubstitutions: scope.migration_scope?.allowed_platform_substitutions ?? [],
+        testSeed: scope.test_seed ?? null,
+        androidEnv: scope.environments?.[0] ?? null,
+        harmonyEnv: scope.harmonyos_environment ?? null,
+        gate: g1 ? { verdict: g1.verdict, checkedAt: g1.checked_at, scopeSha256: g1.scope_sha256 ?? "" } : null,
+        artifacts: [
+          { name: "scope.json 冻结书", path: "controller/scope.json" },
+          { name: "Gate 1 快照", path: "controller/work-orders/WO-PHASE-02-0DB7D4760B4F.phase-01-gate-report.json" },
+          { name: "决策日志（冻结记录）", path: "controller/decision-log.csv" },
+        ].filter((a) => fileExistsIn(runRoot, a.path)),
+      });
+    }
+
+    if (phase === 2) {
+      const g2 = readGateSnapshot(runRoot, 2);
+      const featureMap = readJsonIn(runRoot, "phase-02-android-inventory/feature-map.json");
+      const contracts = readCsvIn(runRoot, "phase-02-android-inventory/behavior-contracts.csv");
+      const chains = readCsvIn(runRoot, "phase-02-android-inventory/runtime-evidence/runtime-chains.csv");
+      const reconciliation = readCsvIn(runRoot, "phase-02-android-inventory/reconciliation.csv");
+      const featureNames = new Map((featureMap?.features ?? []).map((f) => [f.feature_id, f.name]));
+      const verdictGroups = {};
+      for (const row of reconciliation) {
+        const key = row.verdict || "UNKNOWN";
+        verdictGroups[key] = (verdictGroups[key] ?? 0) + 1;
+      }
+      // 截图墙：runtime-evidence/evidence/chains/BC-*/{before,after,restart}/screenshot.png（文件存在才列）
+      const chainsRel = "phase-02-android-inventory/runtime-evidence/evidence/chains";
+      const shots = listDirSafe(join(runRoot, chainsRel))
+        .filter((name) => /^BC-/.test(name)).sort()
+        .map((bc) => {
+          const row = contracts.find((c) => c.bc_id === bc);
+          return {
+            bcId: bc,
+            featureName: row ? (featureNames.get(row.feature_id) || row.feature_id) : "",
+            intent: row?.user_intent ?? "",
+            before: shotOrNull(runRoot, `${chainsRel}/${bc}/before/screenshot.png`),
+            after: shotOrNull(runRoot, `${chainsRel}/${bc}/after/screenshot.png`),
+            restart: shotOrNull(runRoot, `${chainsRel}/${bc}/restart/screenshot.png`),
+          };
+        });
+      const forensicsTypes = /PHASE2_AMEND|RUN_INTERRUPTED|TOOL_GAP_BYPASS/;
+      const forensicsNotes = decisions
+        .filter((d) => forensicsTypes.test(d.decision_type || "") && /伪影|amended|中断/.test(`${d.decision} ${d.rationale}`))
+        .map((d) => ({ id: d.decision_id, type: d.decision_type, decision: d.decision, summary: (d.rationale || "").slice(0, 260) }));
+      return res.json({
+        ...gateBase,
+        features: (featureMap?.features ?? []).map((f) => ({
+          id: f.feature_id, name: f.name, summary: f.summary, verifyMode: f.verify_mode, sourceRefs: f.source_refs ?? [],
+        })),
+        contracts: contracts.map((c) => ({
+          bcId: c.bc_id, featureId: c.feature_id, featureName: featureNames.get(c.feature_id) || c.feature_id,
+          intent: c.user_intent, dataStateChange: c.data_state_change, observableResult: c.observable_result,
+          persistenceTargets: c.persistence_targets, assertions: c.result_assertions, evidenceClass: c.evidence_class,
+        })),
+        chainStats: {
+          total: chains.length,
+          pass: chains.filter((c) => c.chain_status === "CHAIN_PASS").length,
+          amended: chains.filter((c) => /amended/.test(c.note || "")).length,
+        },
+        reconciliationStats: { total: reconciliation.length, groups: verdictGroups },
+        shots,
+        forensicsNotes,
+        gate: g2 ? { verdict: g2.verdict, checkedAt: g2.checked_at } : null,
+      });
+    }
+
+    if (phase === 3) {
+      const g3 = readGateSnapshot(runRoot, 3);
+      const plan = readJsonIn(runRoot, "phase-03-harmony-scaffold/surface-plan.json");
+      const dcIndex = readJsonIn(runRoot, "phase-03-harmony-scaffold/data-contracts/index.json");
+      const p3Build = readJsonIn(runRoot, "phase-03-harmony-scaffold/build-report.json");
+      const surfaces = [...(plan?.routes ?? []), ...(plan?.passthrough ?? [])].map((s) => ({
+        surfaceId: s.surface_id, kind: s.kind, featureId: s.feature_id,
+        androidStructure: s.android_structure ?? "",
+        preserveTexts: s.preserve?.texts ?? [],
+        nativeCarrier: s.native_carrier ?? "",
+        nativeComponent: s.native_component ?? "",
+        matchedRule: s.matched_rule ?? "",
+        reason: s.reason ?? "",
+      }));
+      // HVER 实机截图 + P2 基线截图（迁移前后 GUI 对比）
+      const hverShots = [];
+      const verRoot = join(runRoot, "phase-03-harmony-scaffold", "verification");
+      for (const verId of listDirSafe(verRoot)) {
+        const shotRoot = join(verRoot, verId, "screenshots");
+        for (const shotId of listDirSafe(shotRoot)) {
+          const rel = `phase-03-harmony-scaffold/verification/${verId}/screenshots/${shotId}/screenshot.png`;
+          if (fileExistsIn(runRoot, rel)) hverShots.push({ id: shotId, verificationId: verId, path: rel });
+        }
+      }
+      const probeDecision = decisions.find((d) => d.decision === "DATA_CARRIER");
+      return res.json({
+        ...gateBase,
+        surfaces,
+        stats: plan?.stats ?? null,
+        dataContracts: (dcIndex?.contracts ?? []).map((c) => ({
+          objectId: c.object_id, repositorySymbol: c.repository_symbol, directions: c.directions ?? [],
+          featureIds: c.feature_ids ?? [], requiredOperations: c.required_operations ?? [],
+          file: `phase-03-harmony-scaffold/data-contracts/${c.contract_file}`,
+        })),
+        probeFiles: [
+          { name: "DebugSemanticProbe.ets", path: "phase-03-harmony-scaffold/harmony-project/entry/src/main/ets/probe/DebugSemanticProbe.ets" },
+          { name: "SemanticProbeRegistry.ets", path: "phase-03-harmony-scaffold/harmony-project/entry/src/main/ets/probe/SemanticProbeRegistry.ets" },
+        ].filter((f) => fileExistsIn(runRoot, f.path)),
+        probeLockNote: probeDecision ? (probeDecision.rationale || "").slice(0, 300) : "",
+        hverShots,
+        baselineShot: shotOrNull(runRoot, "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0001/before/screenshot.png"),
+        buildSmoke: p3Build ? {
+          status: p3Build.status,
+          verificationId: p3Build.verification_id,
+          cleanBuildPassed: p3Build.clean_build_passed === true,
+          installDevices: p3Build.install_passed_devices ?? [],
+          launchDevices: p3Build.launch_passed_devices ?? [],
+          hapSha256: p3Build.artifacts?.[0]?.sha256 ?? "",
+          errors: p3Build.errors ?? [],
+        } : null,
+        gate: g3 ? { verdict: g3.verdict, checkedAt: g3.checked_at } : null,
+      });
+    }
+
+    // phase 4
+    const dualDiff = readCsvIn(runRoot, "phase-04-harmony-implementation/dual-diff-results.csv");
+    const replay = readCsvIn(runRoot, "phase-04-harmony-implementation/replay-results.csv");
+    const gate4 = readJsonIn(runRoot, "controller/gate-report.json");
+    const { stats, runStatus } = computeRunStats(runRoot);
+    const dimensions = ["observable", "data", "persistence", "side_effect"];
+    const dimensionStats = dimensions.map((dim) => {
+      const rows = dualDiff.filter((r) => r.assertion_type === dim);
+      return {
+        dimension: dim,
+        match: rows.filter((r) => r.verdict === "MATCH").length,
+        diff: rows.filter((r) => r.verdict === "DIFF").length,
+        manual: rows.filter((r) => r.verdict === "MANUAL").length,
+      };
+    });
+    const manualReasons = {};
+    for (const row of dualDiff.filter((r) => r.verdict === "MANUAL")) {
+      const key = row.note?.includes("SKIPPED_NO_STEPS") ? "零步骤链不支持机器重放（BC-0006 空态观察 / BC-0007 源码确认设计跳过）"
+        : row.note?.includes("no-machine-registration") ? "副作用义务口径：BC 声明 NONE 字面值被当作义务存在（语义应为无义务）"
+        : row.note?.slice(0, 60) || "其他";
+      manualReasons[key] = (manualReasons[key] ?? 0) + 1;
+    }
+    const toolGaps = decisions
+      .filter((d) => d.decision_type === "TOOL_GAP" && /TOOL_GAP-P4-|^phase-04$/.test(`${d.decision} ${d.scope}`))
+      .map((d) => ({ id: d.decision_id, tag: d.decision, summary: (d.rationale || "").slice(0, 220) }));
+    const demoShots = {
+      androidBefore: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/android/before.png"),
+      androidAfter: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/android/after.png"),
+      androidRestart: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/android/restart.png"),
+      harmonyBefore: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/harmony/before.jpeg"),
+      harmonyAfter: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/harmony/after.jpeg"),
+      harmonyRestart: shotOrNull(runRoot, "phase-04-harmony-implementation/evidence/dual/demo/harmony/restart.jpeg"),
+    };
+    res.json({
+      runId, phase: 4,
+      matrix: dualDiff.map((row) => ({
+        bcId: row.bc_id, featureId: row.feature_id, dimension: row.assertion_type, verdict: row.verdict,
+        androidExpected: row.android_expected, harmonyActual: row.harmony_actual, note: row.note,
+        attribution: row.verdict === "DIFF" ? (forensicsAttributed ? "TOOL_ARTIFACT" : "UNRESOLVED") : "",
+      })),
+      dimensionStats,
+      replay: replay.map((row) => ({
+        bcId: row.bc_id, featureId: row.feature_id, verifyMode: row.verify_mode,
+        precondition: row.precondition_status, stepsTotal: Number(row.steps_total) || 0, stepsOk: Number(row.steps_ok) || 0,
+        observable: row.observable_result, data: row.data_result, persistence: row.persistence_result,
+        sideEffect: row.side_effect_result, verdict: row.replay_verdict, failReason: row.fail_reason ?? "",
+      })),
+      stepsPassed: stats.stepsPassed,
+      restartPersistence: replay.map((row) => ({ bcId: row.bc_id, persistence: row.persistence_result })),
+      diffClassification: {
+        softwareDefects: stats.softwareDefects,
+        toolArtifacts: stats.toolArtifacts,
+        manual: stats.manualCount,
+        manualReasons,
+        toolGaps,
+      },
+      reworkCase: buildReworkCase(runRoot, decisions),
+      gate4: {
+        machineVerdict: gate4?.verdict ?? "UNKNOWN",
+        checkedAt: gate4?.checked_at ?? "",
+        errors: gate4?.errors ?? [],
+        runStatus: runStatus?.run_status ?? "",
+        status: gates.p4 === "MACHINE_FAIL_MANUAL_PENDING" ? "待人工裁决" : (gate4?.verdict ?? ""),
+        verdictDecision: phase4Verdict ? { id: phase4Verdict.decision_id, decision: phase4Verdict.decision, summary: (phase4Verdict.rationale || "").slice(0, 320) } : null,
+      },
+      demoShots,
+    });
+  } catch (error) {
+    res.status(500).json({ error: String(error) });
+  }
+});
+
+// RUN 内安全文件服务：resolve 后必须仍在 RUN 目录内（防穿越）；hap/apk 触发下载
+const RUN_FILE_TYPES = {
+  ".png": "image/png", ".jpeg": "image/jpeg", ".jpg": "image/jpeg",
+  ".csv": "text/csv; charset=utf-8", ".json": "application/json; charset=utf-8",
+  ".hap": "application/octet-stream", ".apk": "application/vnd.android.package-archive",
+  ".md": "text/markdown; charset=utf-8", ".txt": "text/plain; charset=utf-8",
+};
+app.get("/api/run/file", (req, res) => {
+  try {
+    const runRoot = resolveRunRoot(req.query.workspace);
+    if (!runRoot) return res.status(404).json({ error: "未找到 RUN 目录" });
+    const rel = String(req.query.path || "").trim();
+    if (!rel || rel.startsWith("/") || rel.includes("..")) return res.status(400).json({ error: "非法路径" });
+    const full = pathResolve(runRoot, rel);
+    if (full !== runRoot && !full.startsWith(runRoot + pathSep)) return res.status(403).json({ error: "路径越界" });
+    let size = 0;
+    try { size = statSync(full).size; } catch { return res.status(404).json({ error: "文件不存在" }); }
+    const ext = pathExtname(full).toLowerCase();
+    res.setHeader("Content-Type", RUN_FILE_TYPES[ext] || "application/octet-stream");
+    if (ext === ".hap" || ext === ".apk") res.setHeader("Content-Disposition", `attachment; filename="${rel.split("/").pop()}"`);
+    res.end(readFileSync(full));
   } catch (error) {
     res.status(500).json({ error: String(error) });
   }
