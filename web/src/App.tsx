@@ -892,32 +892,32 @@ interface PhaseAgentInfo { name: string; short: string; duty: string; badge?: st
 /** 各阶段协作智能体（对齐 skill 六代理模型与 roles-and-authority 角色定义） */
 const PHASE_AGENTS: Record<number, PhaseAgentInfo[]> = {
   1: [
-    { name: "迁移控制器", short: "控", duty: "冻结输入、签发工单、重算机器门禁、路由返工", badge: "全程在岗" },
-    { name: "人工审核员", short: "审", duty: "机器 PASS 后审核放行：APPROVED / REWORK / DEVIATION", badge: "模型永不放行" },
+    { name: "迁移控制器", short: "控", duty: "冻结输入 · 重算门禁 · 路由返工" },
+    { name: "人工审核员", short: "审", duty: "机器判定之后，由人放行" },
   ],
   2: [
-    { name: "Android 语义分析师", short: "析", duty: "功能语义地图与行为契约，逐条锚定源码 file:line" },
-    { name: "Android 运行验证官", short: "验", duty: "高风险功能真机实跑行为链，密封运行证据", badge: "Runtime Oracle" },
-    { name: "迁移控制器", short: "控", duty: "源码↔运行对账四态判定与 Gate 2 重算" },
+    { name: "Android 语义分析师", short: "析", duty: "功能地图与行为契约（锚定源码行号）" },
+    { name: "Android 运行验证官", short: "验", duty: "高风险功能真机实跑取证" },
+    { name: "迁移控制器", short: "控", duty: "源码与运行结果对账" },
   ],
   3: [
-    { name: "Harmony 架构负责人", short: "架", duty: "承载面规划与 UI 蓝图冻结，唯一可冻结环境角色" },
-    { name: "导航与页面壳代理", short: "航", duty: "路由注册表与页面壳，不写业务逻辑" },
-    { name: "工具链与脚手架代理", short: "链", duty: "构建 / 安装 / 启动冒烟与密封截图" },
-    { name: "公共 UI 代理", short: "UI", duty: "主题、色板、加载 / 空 / 错误壳等通用资产" },
-    { name: "能力契约代理", short: "约", duty: "编译期 interface-only 契约，无实现无假数据" },
-    { name: "架构验收代理", short: "收", duty: "只验证不修改，视觉逐张核验密封截图", badge: "不得自证" },
+    { name: "Harmony 架构负责人", short: "架", duty: "承载面规划与 UI 蓝图" },
+    { name: "导航与页面壳代理", short: "航", duty: "路由与页面壳（不含业务）" },
+    { name: "工具链与脚手架代理", short: "链", duty: "构建安装与冒烟" },
+    { name: "公共 UI 代理", short: "UI", duty: "主题与通用界面资产" },
+    { name: "能力契约代理", short: "约", duty: "数据接口契约定义" },
+    { name: "架构验收代理", short: "收", duty: "独立终审，只验不改" },
   ],
   4: [
-    { name: "功能实现负责人", short: "实", duty: "按功能工单实现，接线语义数据探针" },
-    { name: "鸿蒙 UI 代理", short: "UI", duty: "原生组件落地，视觉还原达标" },
-    { name: "业务与数据代理", short: "数", duty: "数据契约对接与持久化实现" },
-    { name: "功能属主", short: "主", duty: "对 assigned 功能端到端负责，消费工单必读清单" },
-    { name: "原生能力代理", short: "能", duty: "平台系统能力（权限/通知等）的原生对接" },
-    { name: "视觉资产代理", short: "视", duty: "图标/图片等视觉资产迁移与适配" },
-    { name: "模拟器验证执行者", short: "执", duty: "双端按各自步骤执行，采集四类结果" },
-    { name: "一致性验收代理", short: "收", duty: "Gate 4 独立重算，生产者证据不能自证", badge: "不得自证" },
-    { name: "迁移控制器", short: "控", duty: "差分结果路由修复回环，两轮未收敛转人工", badge: "全程在岗" },
+    { name: "功能实现负责人", short: "实", duty: "按功能工单实现" },
+    { name: "鸿蒙 UI 代理", short: "UI", duty: "原生组件与视觉还原" },
+    { name: "业务与数据代理", short: "数", duty: "数据与持久化实现" },
+    { name: "功能属主", short: "主", duty: "功能端到端负责" },
+    { name: "原生能力代理", short: "能", duty: "平台系统能力对接" },
+    { name: "视觉资产代理", short: "视", duty: "视觉资产迁移" },
+    { name: "模拟器验证执行者", short: "执", duty: "双端重放与取证" },
+    { name: "一致性验收代理", short: "收", duty: "独立重算判定" },
+    { name: "迁移控制器", short: "控", duty: "差分修复回环调度" },
   ],
 };
 
@@ -925,17 +925,17 @@ function PhaseAgents({ phaseNumber }: { phaseNumber: number }) {
   const agents = PHASE_AGENTS[phaseNumber] ?? [];
   if (!agents.length) return null;
   return <div className="phase-agents">
-    <p className="lp-eyebrow">阶段协作智能体 · 每个角色独立留痕，一个任务不能充当两个角色</p>
+    <p className="lp-eyebrow">阶段协作智能体</p>
     <div className="phase-agent-grid">{agents.map((agent) => <div className="phase-agent-card" key={agent.name}>
       <span className="phase-agent-avatar">{agent.short}</span>
       <span className="phase-agent-info"><b>{agent.name}</b><small>{agent.duty}</small></span>
-      {agent.badge && <em className="agent-source-badge">{agent.badge}</em>}
+      
     </div>)}</div>
   </div>;
 }
 
 function PhaseGate({ gate, checks }: { gate: number; checks: string }) {
-  return <div className="phase-gate"><b>Gate {gate}</b><span>{checks}</span><em>机器判定 → 人工审核放行 · 证据不可变留痕</em></div>;
+  return <div className="phase-gate"><b>Gate {gate}</b><span>{checks}</span></div>;
 }
 
 function PhaseOne({ phase }: { phase: Phase }) {
@@ -947,7 +947,7 @@ function PhaseOne({ phase }: { phase: Phase }) {
       "确定等价判据与允许的平台原生适配边界，形成统一验收标准",
     ]} />
     <div className="phase-viz">
-      <p className="lp-eyebrow">迁移范围与冻结基线</p>
+      <p className="lp-eyebrow">迁移范围</p>
       <div className="lp-flow">
         <div className="lp-flow-col"><div className="lp-node solid">Android / Cresto<small>源码 + APK 冻结</small></div></div>
         <div className="lp-flow-arrow">→</div>
@@ -956,8 +956,7 @@ function PhaseOne({ phase }: { phase: Phase }) {
         <div className="lp-flow-col"><div className="lp-node solid">HarmonyOS<small>目标环境冻结</small></div></div>
       </div>
       <div className="phase-contract-quote">
-        <b>核心等价契约</b>
-        <p>UI 结构与交互可按目标平台原生规范改造，但用户意图、存储数据、业务计算、状态转换、可观察结果、持久化与副作用必须语义等价——全部四个阶段共用这一条判据。</p>
+        <b>核心等价契约</b><p>界面与交互可按鸿蒙原生方式重做；用户意图、数据、业务计算与持久化结果必须等价。</p>
       </div>
     </div>
     <PhaseAgents phaseNumber={1} />
@@ -983,10 +982,9 @@ function PhaseTwo({ phase }: { phase: Phase }) {
     ]} />
     <div className="phase-viz phase-two-cols">
       <div className="phase-contract">
-        <p className="lp-eyebrow">Behavior Contract · 切换语言</p>
+        <p className="lp-eyebrow">行为契约示例 · 切换语言</p>
         <div className="phase-contract-grid">{contract.map((item) => <div className="phase-contract-cell" key={item.k}><small>{item.k}</small><span>{item.v}</span></div>)}</div>
-        <div className="phase-verify-modes"><span className="lp-match">RUNTIME 真机实跑</span><span className="agent-source-badge neutral">SOURCE_CONFIRM 源码确认</span></div>
-        <p className="phase-note">增删改 / 持久化 / 语言 / 主题类功能必须真机验证；纯展示与容器宿主由源码确认，不为证明“被访问过”硬跑。</p>
+        <div className="phase-verify-modes"><span className="lp-match">高风险功能真机验证</span><span className="agent-source-badge neutral">展示类源码确认</span></div>
       </div>
       <div className="lp-shot">Android 真机截图<br /><small>替换为实际运行截图</small></div>
     </div>
@@ -1013,7 +1011,7 @@ function PhaseThree({ phase }: { phase: Phase }) {
     ]} />
     <div className="phase-viz phase-two-cols">
       <div className="phase-mapping">
-        <p className="lp-eyebrow">原生组件映射（受控原生化，非自由重设计）</p>
+        <p className="lp-eyebrow">组件映射</p>
         {mappings.map(([from, to]) => <div className="phase-mapping-row" key={from}><span>{from}</span><i>→</i><b>{to}</b></div>)}
       </div>
       <div className="lp-case-grid phase-mini-compare">
@@ -1021,7 +1019,6 @@ function PhaseThree({ phase }: { phase: Phase }) {
         <div className="lp-shot compact">迁移后 · HarmonyOS GUI<small>截图位</small></div>
       </div>
     </div>
-    <p className="phase-note">自定义交互仅在原生组件无法表达时允许，且必须登记理由——从规则上杜绝“用 ArkUI 写出 Android 味 UI”。</p>
     <PhaseAgents phaseNumber={3} />
     <PhaseGate gate={3} checks="承载面全覆盖 · 数据契约无孤儿 · 构建冒烟链通过" />
   </div>;

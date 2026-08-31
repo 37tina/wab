@@ -1341,3 +1341,23 @@ small { font-size: var(--font-caption); line-height: 1.45; }
 .flow-text { margin: 0; color: var(--text-2); font-size: 12px; line-height: 1.7; }
 .live-report .real-response { max-height: 420px; overflow-y: auto; }
 @media (max-width: 1080px) { .live-grid { grid-template-columns: 1fr; } }
+
+/* 四阶段降噪：正文提字号，弱化小字层级 */
+.phase-goal { font-size: 16px; padding: 15px 20px; }
+.phase-action { font-size: 13.5px; line-height: 1.6; padding: 13px 15px; }
+.phase-viz { font-size: 13px; }
+.lp-node { font-size: 13.5px; }
+.phase-contract-cell span { font-size: 12.5px; }
+.phase-contract-cell small { font-size: 11.5px; }
+.phase-mapping-row { font-size: 13px; }
+.phase-diff-card { font-size: 13.5px; }
+.phase-fixchain { font-size: 14px; }
+.phase-gate { font-size: 12.5px; }
+.phase-gate b { font-size: 12px; }
+/* 智能体卡：单行紧凑 */
+.phase-agent-card { padding: 8px 12px; gap: 9px; }
+.phase-agent-avatar { width: 26px; height: 26px; font-size: 12px; }
+.phase-agent-info b { font-size: 13px; }
+.phase-agent-info small { font-size: 11.5px; }
+/* 统一减少区块间小字说明 */
+.phase-viz .lp-eyebrow { font-size: 12px; margin-bottom: 10px; }
