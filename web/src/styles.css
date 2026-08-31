@@ -1366,3 +1366,19 @@ small { font-size: var(--font-caption); line-height: 1.45; }
 .run-slim { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font-size: 12px; }
 .run-slim b { color: var(--text-2); font-weight: 500; }
 .run-slim-msg { flex-basis: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-3); font-size: 11px; }
+
+/* ===== 动效层（framer-motion 配套）：渐层标题 ===== */
+.hero-gradient-text {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  background: linear-gradient(105deg, #1a1a1a 0%, #1f6ae0 55%, #2f9e44 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient-text { -webkit-text-fill-color: initial; background: none; }
+}
