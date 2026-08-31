@@ -1310,3 +1310,34 @@ small { font-size: var(--font-caption); line-height: 1.45; }
 /* 任务行删除按钮 */
 .task-delete { flex: 0 0 auto; width: 22px; height: 22px; display: grid; place-items: center; border: 0; border-radius: 5px; background: transparent; color: var(--text-3); font-size: 15px; }
 .task-delete:hover { background: var(--red-bg); color: var(--red-deep); }
+
+/* ===== 阶段页真实执行：任务分工 + 对话流 + 交付 ===== */
+.live-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 14px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font-size: 12px; color: var(--text-2); }
+.live-meta code { font-size: 11px; color: var(--text-3); }
+.live-meta-diff b { color: var(--green-deep); }
+.live-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 14px; margin-bottom: 14px; }
+.live-card { padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.live-team { display: flex; flex-direction: column; gap: 10px; }
+.live-tasks { display: flex; flex-direction: column; gap: 6px; }
+.live-task-row { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fafbfc; font-size: 12px; }
+.live-task-content { flex: 1; min-width: 0; color: var(--text-2); }
+.live-task-row em, .live-member em { color: var(--text-3); font-size: 11px; font-style: normal; }
+.live-members { display: flex; flex-direction: column; gap: 4px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.live-member { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.live-member b { font-weight: 600; }
+.live-member small { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-3); }
+.live-flow { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.live-flow-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.live-flow-list { display: flex; flex-direction: column; gap: 8px; max-height: 360px; overflow-y: auto; padding-right: 4px; }
+.flow-msg { padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; background: #fafbfc; }
+.flow-msg.user { border-color: var(--brand-line); background: var(--brand-bg); }
+.flow-msg-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+.flow-msg-role { padding: 1px 8px; border-radius: 999px; background: #fff; border: 1px solid var(--line-strong); color: var(--text-2); font-size: 11px; font-weight: 600; }
+.flow-msg.user .flow-msg-role { border-color: var(--brand-line); color: var(--brand-deep); }
+.flow-msg-head small { color: var(--text-3); font-size: 10px; }
+.flow-tools { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 4px; }
+.flow-tool { padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line-strong); background: #fff; color: var(--text-3); font-size: 10px; font-family: var(--mono); }
+.flow-tool.ok { border-color: #cdeebd; background: var(--green-bg); color: var(--green-deep); }
+.flow-text { margin: 0; color: var(--text-2); font-size: 12px; line-height: 1.7; }
+.live-report .real-response { max-height: 420px; overflow-y: auto; }
+@media (max-width: 1080px) { .live-grid { grid-template-columns: 1fr; } }

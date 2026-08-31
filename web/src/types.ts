@@ -110,6 +110,8 @@ export interface Project {
   sourcePlatform?: SourcePlatform;
   /** AgentTeam 主会话：四阶段工单连续发往同一对话 */
   activeSessionId?: string;
+  /** 本项目 AgentTeam 执行模型（providerID::modelID，空=跟随全局默认） */
+  runModel?: string;
   targetPlatform?: TargetPlatform;
   features: Feature[];
   phases: Phase[];
@@ -124,6 +126,7 @@ export interface ProjectInput {
   workspaceDir?: string;
   sourcePlatform?: SourcePlatform;
   targetPlatform?: TargetPlatform;
+  runModel?: string;
 }
 
 export interface MigrationService {

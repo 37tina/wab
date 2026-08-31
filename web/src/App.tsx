@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, Route, Routes, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import type { EmulatorFrame, EmulatorStream, Feature, Phase, PhaseNumber, Project, ProjectInput, Review, SourcePlatform, TargetPlatform } from "./types";
 import { mockService } from "./mockService";
-import { addAgentModel, BUILTIN_MODELS, checkCodeArts, checkWorkspaceDir, createCodeArtsSession, fetchAgentModels, getCodeArtsMessages, fetchTeamState, flattenModelOptions, isAbsoluteWindowsPath, loadCodeArtsCredentials, loadRunModel, loadTestWorkspaceDir, parseRunModel, promptCodeArtsSession, removeAgentModel, saveCodeArtsCredentials, saveRunModel, saveTestWorkspaceDir, updateAgentTarget, waitForCodeArtsResult, createSkillProposal, decideSkillProposal, fetchSkillFile, fetchSkillProposals, fetchSkillTree, type AgentModelInput, type AgentProviderInfo, type AgentTeamState, type SkillProposal, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
+import { addAgentModel, BUILTIN_MODELS, checkCodeArts, checkWorkspaceDir, createCodeArtsSession, fetchAgentModels, getCodeArtsMessages, fetchSessionSummary, fetchTeamState, flattenModelOptions, isAbsoluteWindowsPath, loadCodeArtsCredentials, loadRunModel, loadTestWorkspaceDir, parseRunModel, promptCodeArtsSession, removeAgentModel, saveCodeArtsCredentials, saveRunModel, saveTestWorkspaceDir, updateAgentTarget, waitForCodeArtsResult, createSkillProposal, decideSkillProposal, fetchSkillFile, fetchSkillProposals, fetchSkillTree, type AgentModelInput, type AgentProviderInfo, type AgentTeamState, type SkillProposal, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
 import { agentSourceLabel, agentTargetLabel, useAgentConnection } from "./useAgentConnection";
 import { phasePrompt } from "./phasePrompts";
 
@@ -649,6 +649,8 @@ function LiveNewProjectPage() {
   const [name, setName] = useState("");
   const [executionMode, setExecutionMode] = useState<"codearts-agentteam" | "demo">("codearts-agentteam");
   const [workspaceDir, setWorkspaceDir] = useState("");
+  const [projectModel, setProjectModel] = useState(() => loadRunModel());
+  const [modelOptions, setModelOptions] = useState(() => flattenModelOptions([]));
   const [dirStatus, setDirStatus] = useState<"unknown" | "checking" | "exists" | "missing" | "invalid">("unknown");
   const [error, setError] = useState("");
 
@@ -664,6 +666,8 @@ function LiveNewProjectPage() {
     }, 400);
     return () => window.clearTimeout(timer);
   }, [workspaceDir]);
+
+  useEffect(() => { void fetchAgentModels().then((list) => { if (list) setModelOptions(flattenModelOptions(list)); }); }, []);
 
   const dirNotes: Record<typeof dirStatus, string> = {
     unknown: "Agent 将在该目录中检出源码并执行构建，不同任务建议使用不同目录。",
@@ -697,7 +701,7 @@ function LiveNewProjectPage() {
       if (!workspace) return setError("真实执行需要指定 CodeArts 工作区目录");
       if (!isAbsoluteWindowsPath(workspace)) return setError("工作区目录需为本机绝对路径，例如 D:\\code\\workspace");
     }
-    const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value, executionMode, workspaceDir: executionMode === "codearts-agentteam" ? workspace : undefined, sourcePlatform, targetPlatform });
+    const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value, executionMode, workspaceDir: executionMode === "codearts-agentteam" ? workspace : undefined, sourcePlatform, targetPlatform, runModel: executionMode === "codearts-agentteam" ? projectModel : undefined });
     navigate(`/projects/${project.id}`);
   };
   return <div className="new-project-page"><div className="page-heading"><div><h1>新建迁移任务</h1><p className="heading-subtitle">选择源平台与目标平台，启动跨平台迁移与一致性验证。</p></div><Link to="/" className="ghost-button">← 返回项目总览</Link></div><div className="new-project-layout"><form className="intake-card" onSubmit={submit}>
@@ -717,6 +721,7 @@ function LiveNewProjectPage() {
     <div className="card-title-row compact"><div><span className="section-index">03</span><h2>任务信息</h2></div></div>
     <label className="field-label">迁移项目名称<input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：待办应用跨平台迁移" /></label>
     <div className="execution-mode-picker"><div className="mode-picker-heading"><b>选择执行引擎</b></div><button type="button" className={executionMode === "codearts-agentteam" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("codearts-agentteam")}><strong>CodeArts Space / AgentTeam</strong><small>真实大模型推理、团队调度和工具执行</small></button><button type="button" className={executionMode === "demo" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("demo")}><strong>本地演示</strong><small>仅播放固定数据，不产生真实构建</small></button></div>
+    {executionMode === "codearts-agentteam" && <label className="field-label">执行模型<select value={projectModel} onChange={(event) => { setProjectModel(event.target.value); saveRunModel(event.target.value); }}>{modelOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><small className="field-note">AgentTeam 真实执行使用的模型；含 Space 内置模型与客户端已配置模型。</small></label>}
     {executionMode === "codearts-agentteam" && <label className="field-label">CodeArts 工作区目录<input value={workspaceDir} onChange={(event) => setWorkspaceDir(event.target.value)} placeholder="D:\\code\\migration-workspace" /><small className={`field-note ${dirStatus === "exists" ? "mint-text" : dirStatus === "invalid" ? "error-text" : ""}`}>{dirNotes[dirStatus]}</small></label>}
     {error && <div className="form-error">! {error}</div>}
     <button className="primary-button wide" type="submit" disabled={!pathReady}>启动迁移 <span className="button-arrow">→</span></button>
@@ -778,11 +783,95 @@ function PhaseContent({ project, phase }: { project: Project; phase: Phase }) {
   return <PhaseFour phase={phase} />;
 }
 
+/** 真实执行阶段内容：团队任务与分工 + 对话流 + 交付变更 直观展示 */
+function LiveFlowMessage({ message }: { message: CodeArtsMessage }) {
+  const role = message.info?.role;
+  const isUser = role === "user";
+  const who = typeof message.info?.agent === "string" && message.info.agent
+    ? message.info.agent
+    : isUser ? "用户工单" : "Agent";
+  const tools = (message.parts ?? []).filter((part) => part.tool) as Array<{ tool: string; state?: { status?: string } }>;
+  const text = (message.parts ?? []).filter((part) => part.type === "text" && part.text?.trim()).map((part) => part.text).join(" ").trim();
+  const time = message.info?.time?.created ? formatTime(new Date(message.info.time.created).toISOString()) : "";
+  const done = Boolean(message.info?.time?.completed);
+  return <div className={`flow-msg ${isUser ? "user" : "assistant"}`}>
+    <div className="flow-msg-head">
+      <span className="flow-msg-role">{isUser ? "工单" : who}</span>
+      <small>{time}{!isUser && (done ? " · 完成" : " · 进行中")}</small>
+    </div>
+    {tools.length > 0 && <div className="flow-tools">{tools.map((tool, index) => <span key={`${tool.tool}-${index}`} className={`flow-tool ${tool.state?.status === "completed" ? "ok" : ""}`}>‹› {tool.tool}{tool.state?.status === "completed" ? " ✓" : " ◌"}</span>)}</div>}
+    {text && <p className="flow-text">{text.length > 180 ? `${text.slice(0, 180)}…` : text}</p>}
+  </div>;
+}
+
 function RealPhaseContent({ project, phase }: { project: Project; phase: Phase }) {
   const eyebrow = phase.number === 1 ? "阶段 01 · 迁移基线建立" : phase.number === 2 ? "阶段 02 · 源软件深度理解" : phase.number === 3 ? "阶段 03 · 目标平台原生迁移" : "阶段 04 · 一致性验证与自动修复";
   const execution = phase.execution;
+  const sessionId = execution?.sessionId ?? project.activeSessionId;
+  const [team, setTeam] = useState<AgentTeamState | null>(null);
+  const [messages, setMessages] = useState<CodeArtsMessage[]>([]);
+  const [summary, setSummary] = useState<{ additions: number; deletions: number; files: number } | null>(null);
+  const [flowExpanded, setFlowExpanded] = useState(false);
+  useEffect(() => {
+    if (!sessionId) return;
+    let alive = true;
+    const load = async () => {
+      const [teamState, msgs, sum] = await Promise.all([
+        fetchTeamState(sessionId),
+        getCodeArtsMessages(sessionId, loadCodeArtsCredentials()).catch(() => [] as CodeArtsMessage[]),
+        fetchSessionSummary(sessionId),
+      ]);
+      if (!alive) return;
+      if (teamState && (Object.keys(teamState.members).length || teamState.tasks.length)) setTeam(teamState);
+      if (msgs.length) setMessages(msgs);
+      if (sum) setSummary(sum);
+    };
+    void load();
+    const timer = window.setInterval(() => { void load(); }, 5000);
+    return () => { alive = false; window.clearInterval(timer); };
+  }, [sessionId]);
+  const flowMessages = flowExpanded ? messages.slice(-40) : messages.slice(-6);
   const response = execution?.response?.trim();
-  return <div className="phase-content"><PhaseHeader phase={phase} eyebrow={eyebrow} /><div className="real-evidence-card"><div className="real-evidence-heading"><div><h3>{execution?.status === "succeeded" ? "AgentTeam 已返回真实结果" : execution?.status === "failed" ? "AgentTeam 执行失败" : "等待 AgentTeam 真实执行"}</h3></div><span className={`execution-status ${execution?.status ?? "idle"}`}>{execution?.status ?? "idle"}</span></div><div className="real-evidence-meta"><span>模式 <b>CodeArts Space / AgentTeam</b></span><span>Agent <b>{execution?.agent ?? "team-leader"}</b></span><span>Session <code>{execution?.sessionId ?? "尚未创建"}</code></span></div>{execution?.error && <div className="real-error">{execution.error}</div>}{response && <pre className="real-response">{response}</pre>}{!response && !execution?.error && <div className="real-waiting">页面不会生成固定分析、构建日志或一致性分数。CodeArts 返回真实消息后，这里才会显示可审核证据。</div>}</div>{phase.number === 2 && phase.emulator && <div className="runner-placeholder"><div><h3>等待真实 Android 模拟器</h3><p>当前只保留 Runner 接口位置；不会用本地帧流冒充真实执行。</p></div><EmulatorPanel stream={phase.emulator} /></div>}{phase.number === 4 && <div className="runner-placeholder"><div><h3>等待真实 HarmonyOS 模拟器</h3><p>一致性判别将在真实鸿蒙运行轨迹和 Android 基线都返回后生成。</p></div></div>}</div>;
+  const modelLabel = project.runModel ? project.runModel.split("::").pop() : undefined;
+  return <div className="phase-content">
+    <PhaseHeader phase={phase} eyebrow={eyebrow} />
+    <div className="live-meta">
+      <span className={`execution-status ${execution?.status ?? "idle"}`}>{execution?.status ?? "idle"}</span>
+      <span>会话 <code>{sessionId ? `${sessionId.slice(0, 18)}…` : "未创建"}</code></span>
+      {modelLabel && <span>模型 <b>{modelLabel}</b></span>}
+      {summary && <span className="live-meta-diff">变更 <b>+{summary.additions}</b> / <b>-{summary.deletions}</b> · {summary.files} 文件</span>}
+    </div>
+    <div className="live-grid">
+      <div className="live-card live-team">
+        <p className="lp-eyebrow">团队任务与分工</p>
+        {team && team.tasks.length > 0 ? <div className="live-tasks">{team.tasks.map((task) => <div className="live-task-row" key={task.id}>
+          <span className={`team-task-dot ${task.status}`}>{task.status === "completed" ? "✓" : task.status === "in_progress" || task.status === "running" ? "◌" : "·"}</span>
+          <span className="live-task-content">{task.content}{task.owner_name ? ` — ${task.owner_name}` : ""}{task.blocked_by?.length ? `（依赖 ${task.blocked_by.join(",")}）` : ""}</span>
+          <em>{task.status}</em>
+        </div>)}</div> : <p className="field-note">尚未组队或无任务——leader 仍在分析阶段。</p>}
+        {team && Object.keys(team.members).length > 0 && <div className="live-members">{Object.entries(team.members).map(([name, member]) => <div className="live-member" key={name}>
+          <span className={`team-member-dot ${member.status}`} />
+          <b>{name}</b>
+          <small>{member.agent_type === "team-leader" ? "队长 · 编排" : member.description || "队员 · 执行"}</small>
+          <em>{member.status}</em>
+        </div>)}</div>}
+      </div>
+      <div className="live-card live-flow">
+        <div className="live-flow-head">
+          <p className="lp-eyebrow" style={{ margin: 0 }}>对话流{messages.length ? `（${messages.length} 条 · 5 秒刷新）` : ""}</p>
+          {messages.length > 6 && <button className="text-sync-button" onClick={() => setFlowExpanded((value) => !value)}>{flowExpanded ? "收起" : `展开全部 ${Math.min(messages.length, 40)} 条`}</button>}
+        </div>
+        {flowMessages.length > 0 ? <div className="live-flow-list">{flowMessages.map((message, index) => <LiveFlowMessage key={`${message.info?.id ?? index}`} message={message} />)}</div> : <p className="field-note">{sessionId ? "等待会话消息…" : "启动真实 AgentTeam 后此处展示工单、派发与回复的实时对话流。"}</p>}
+      </div>
+    </div>
+    <div className="live-card live-report">
+      <p className="lp-eyebrow">阶段汇总与交付</p>
+      {execution?.error && <div className="real-error">{execution.error}</div>}
+      {response ? <pre className="real-response">{response}</pre> : <div className="real-waiting">页面不会生成固定分析或演示数据；AgentTeam 返回真实结果后，这里才会显示可审核的汇总报告。</div>}
+    </div>
+    {phase.number === 2 && phase.emulator && <div className="runner-placeholder"><div><h3>等待真实 Android 模拟器</h3><p>当前只保留 Runner 接口位置；不会用本地帧流冒充真实执行。</p></div><EmulatorPanel stream={phase.emulator} /></div>}
+    {phase.number === 4 && <div className="runner-placeholder"><div><h3>等待真实 HarmonyOS 模拟器</h3><p>一致性判别将在真实鸿蒙运行轨迹和 Android 基线都返回后生成。</p></div></div>}
+  </div>;
 }
 
 function PhaseHeader({ phase, eyebrow }: { phase: Phase; eyebrow: string }) {
@@ -1016,7 +1105,7 @@ function AgentTimeline({ phase }: { phase: Phase }) {
 function RunControls({ project, phase }: { project: Project; phase: Phase }) {
   const [runningCodeArts, setRunningCodeArts] = useState(false);
   const [codeArtsMessage, setCodeArtsMessage] = useState("");
-  const [runModel, setRunModel] = useState(() => loadRunModel());
+  const [runModel, setRunModel] = useState(project.runModel ?? loadRunModel());
   const [modelOptions, setModelOptions] = useState(() => flattenModelOptions([]));
   const [syncOpen, setSyncOpen] = useState(false);
   const [syncSessionId, setSyncSessionId] = useState("");

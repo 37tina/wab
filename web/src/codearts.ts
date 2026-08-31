@@ -625,3 +625,16 @@ export async function decideSkillProposal(id: string, decision: "approved" | "re
     return { ok: false, error: "无法连接本地网关（backend 未运行？）" };
   }
 }
+
+/** 会话变更统计（additions/deletions/files），用于阶段页「交付与变更」 */
+export async function fetchSessionSummary(sessionId: string): Promise<{ additions: number; deletions: number; files: number } | null> {
+  try {
+    const response = await fetch(`${API_BASE}/api/codearts/session`);
+    if (!response.ok) return null;
+    const list = (await readJson(response)) as Array<{ id: string; summary?: { additions?: number; deletions?: number; files?: number } }>;
+    const found = Array.isArray(list) ? list.find((item) => item.id === sessionId) : undefined;
+    return found?.summary ? { additions: found.summary.additions ?? 0, deletions: found.summary.deletions ?? 0, files: found.summary.files ?? 0 } : null;
+  } catch {
+    return null;
+  }
+}

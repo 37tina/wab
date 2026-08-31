@@ -139,6 +139,7 @@ function baseProject(input: ProjectInput, demo = false): Project {
     demo,
     executionMode: input.executionMode ?? "demo",
     workspaceDir: input.workspaceDir,
+    runModel: input.runModel,
     sourcePlatform: input.sourcePlatform,
     targetPlatform: input.targetPlatform,
     features: features.map((item) => ({ ...item })),
