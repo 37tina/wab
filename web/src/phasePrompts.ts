@@ -30,10 +30,10 @@ function suitePrompt(phase: 1 | 2 | 3 | 4, ctx: PhasePromptContext, route: { dir
   const reading = PHASE_READINGS[phase];
   const cores = reading.cores.map((c) => c.replace("{form}", route.form));
   const files = [
-    `${SKILL_ROOT}/_shared/00-CONVENTIONS.md`,
-    `${SKILL_ROOT}/${route.dir}/${reading.shell}`,
-    ...cores.map((c) => `${SKILL_ROOT}/_shared/${c}`),
-    ...(phase === 2 && route.sourceInventory ? [`${SKILL_ROOT}/_shared/${route.sourceInventory}`] : []),
+    `${getSkillRoot()}/_shared/00-CONVENTIONS.md`,
+    `${getSkillRoot()}/${route.dir}/${reading.shell}`,
+    ...cores.map((c) => `${getSkillRoot()}/_shared/${c}`),
+    ...(phase === 2 && route.sourceInventory ? [`${getSkillRoot()}/_shared/${route.sourceInventory}`] : []),
   ];
   const duty: Record<number, string> = {
     1: "冻结迁移基线：按 controller 内核产出 scope 冻结件（功能范围/迁移政策/test_seed/双端环境/输入指纹/验收标准），Gate 1 自检后输出冻结完成报告。",
@@ -101,26 +101,28 @@ function header(phase: 1 | 2 | 3 | 4, ctx: PhasePromptContext): string {
 
 const READ_FIRST = "## 第一步：读取完整 Skill（禁止凭记忆执行）\n先用 read 工具完整阅读以下文档，严格按其流程执行，不要自行发挥或跳步：";
 
-const READING: Record<number, string[]> = {
-  1: [
-    `${SKILL_ROOT}/android-harmony-migration-controller/SKILL.md`,
-    `SKILL.md 的 Reference map 中列出的全部 references 文档（读完再动手）`,
-  ],
-  2: [
-    `${SKILL_ROOT}/android-migration-inventory/SKILL.md`,
-    `SKILL.md Reference map 列出的全部 references`,
-  ],
-  3: [
-    `${SKILL_ROOT}/harmonyos-migration-scaffold/SKILL.md`,
-    `${SKILL_ROOT}/harmonyos-migration-scaffold/references/roles-and-authority.md`,
-    `${SKILL_ROOT}/arkui-next-reference/14-android-to-harmony-map.md（安卓→鸿蒙原生对照表，组件选型必查）`,
-  ],
-  4: [
-    `${SKILL_ROOT}/harmonyos-feature-implementation/SKILL.md`,
-    `${SKILL_ROOT}/harmonyos-feature-implementation/references/implementation-guidelines-v4.md（原生优先规约）`,
-    `${SKILL_ROOT}/arkui-next-reference/14-android-to-harmony-map.md`,
-  ],
-};
+function readingAt(root: string): Record<number, string[]> {
+  return {
+    1: [
+      `${root}/android-harmony-migration-controller/SKILL.md`,
+      `SKILL.md 的 Reference map 中列出的全部 references 文档（读完再动手）`,
+    ],
+    2: [
+      `${root}/android-migration-inventory/SKILL.md`,
+      `SKILL.md Reference map 列出的全部 references`,
+    ],
+    3: [
+      `${root}/harmonyos-migration-scaffold/SKILL.md`,
+      `${root}/harmonyos-migration-scaffold/references/roles-and-authority.md`,
+      `${root}/arkui-next-reference/14-android-to-harmony-map.md（安卓→鸿蒙原生对照表，组件选型必查）`,
+    ],
+    4: [
+      `${root}/harmonyos-feature-implementation/SKILL.md`,
+      `${root}/harmonyos-feature-implementation/references/implementation-guidelines-v4.md（原生优先规约）`,
+      `${root}/arkui-next-reference/14-android-to-harmony-map.md`,
+    ],
+  };
+}
 
 const DUTY_1 = [
   "## 本阶段职责（Controller Agent，单 Agent，全程只做冻结与裁决）",
@@ -238,7 +240,7 @@ export function phasePrompt(number: 1 | 2 | 3 | 4, ctx: PhasePromptContext): str
     header(number, ctx),
     "",
     READ_FIRST,
-    ...READING[number].map((line) => `- ${line}`),
+    ...readingAt(getSkillRoot())[number].map((line) => `- ${line}`),
     "",
     DUTY[number],
     "",
