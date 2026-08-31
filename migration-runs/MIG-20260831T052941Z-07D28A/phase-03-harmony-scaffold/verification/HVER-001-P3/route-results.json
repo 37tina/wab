@@ -1,0 +1,30 @@
+{
+  "verification_id": "HVER-001-P3",
+  "henv_id": "HENV-001-P3",
+  "results": [
+    {
+      "route_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_shell_id": "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "bundle_name": "com.minitodo.app",
+      "status": "PASS",
+      "verified_render_ids": [
+        "AppNavigationShell",
+        "ShellPageMainactivity3fde9431",
+        "PAGE-MAINACTIVITY-3FDE9431"
+      ],
+      "marker": "ROUTE-SMOKE-PASS",
+      "verification_id": "HVER-001-P3",
+      "henv_id": "HENV-001-P3",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "command_id": "CMD-P3-SMOKE",
+      "result_output_path": "build/results/route-p3.json",
+      "result_output_sha256": "8ad8b9b190ea82ad1ef3e1e9715acd380dd30bcc73fed58bd2dcbceac7128bac",
+      "stdout_sha256": "279ea7137e6d2e09e428fd9ba7dba870f5c93af7992262ddb824b0c1ad737cd9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -270,6 +270,77 @@ function unreachableHint(detail) {
   return "请确认本机 CodeArts Agent 已启动，然后在连接设置里重新检测。";
 }
 
+// ---- 自定义模型运行时注册 ----
+// 实测：Agent 内核的 HTTP 层（/session/:id/prompt_async 解析 model 参数）只认
+// 运行时注册表（GET /provider 的 all 列表）；内核启动时该表只有 inferhub-provider。
+// VSCode 客户端连上内核后会 POST /cag/model/init，把 codearts.json 里的自定义
+// 服务商（解密 apiKey 后）注册进运行时——这是客户端会话能用自定义模型、而网页
+// 链路报 ProviderModelNotFoundError 的根本差异。网关在此补齐同一次初始化。
+
+let modelsRegisteredForTarget = "";
+
+/** 调用内核 POST /cag/model/init 注册自定义模型（幂等），按内核地址缓存成功状态 */
+async function ensureModelsRegistered(req) {
+  const before = resolveTarget().target;
+  if (modelsRegisteredForTarget === before) return true;
+  try {
+    const { response } = await fetchWithDiscovery("/cag/model/init", {
+      method: "POST",
+      headers: { ...upstreamHeaders(req), "content-type": "application/json" },
+      body: JSON.stringify({}),
+      timeoutMs: HEALTH_TIMEOUT_MS * 2,
+    });
+    if (response.ok) {
+      modelsRegisteredForTarget = resolveTarget().target;
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+/** 内核重启/换端口后需重新注册：清空缓存，让下一次调用重新触发 init */
+function invalidateModelsRegistered() {
+  modelsRegisteredForTarget = "";
+}
+
+/**
+ * prompt 前实时校验：目标服务商是否在内核运行时注册表（GET /provider）。
+ * 背景：内核可能原地重启（端口不变），按地址缓存的 init 状态会失真——
+ * 这里每次 prompt 做一次毫秒级注册表查询，发现缺失立即重新 init。
+ */
+async function ensureModelAvailable(req, providerID) {
+  if (!providerID || providerID === "inferhub-provider") return;
+  try {
+    const runtime = await listRuntimeProviders(req);
+    if (runtime && !runtime.has(providerID)) {
+      invalidateModelsRegistered();
+      await ensureModelsRegistered(req);
+    } else if (!runtime) {
+      await ensureModelsRegistered(req);
+    }
+  } catch {
+    // 校验失败不阻塞 prompt 转发
+  }
+}
+
+/** 读取内核运行时已注册的服务商 ID 集合（用于给模型列表标注可用性） */
+async function listRuntimeProviders(req) {
+  try {
+    const { response } = await fetchWithDiscovery("/provider", {
+      headers: upstreamHeaders(req),
+      timeoutMs: HEALTH_TIMEOUT_MS,
+    });
+    if (!response.ok) return null;
+    const data = await response.json();
+    const all = Array.isArray(data?.all) ? data.all : [];
+    return new Set(all.map((item) => item?.id).filter(Boolean));
+  } catch {
+    return null;
+  }
+}
+
 // ---- 模型管理：读取 Agent /config，新增/删除写回 codearts.json（与客户端共用同一文件） ----
 
 function configFilePath() {
@@ -333,13 +404,22 @@ function collectModels(providers = {}) {
   }));
 }
 
-/** 读取模型配置：直接读客户端共用的 codearts.json（比内核内存态更及时），失败时回落内核 /config */
+/** 读取模型配置：直接读客户端共用的 codearts.json（比内核内存态更及时），失败时回落内核 /config。
+ * 同时确保自定义模型已注册进内核运行时，并给每个服务商标注 runtimeRegistered，
+ * 供前端过滤掉"配置存在但内核不认"的模型（网页链路显式指定这类模型会 500）。 */
 async function listModels(req) {
+  await ensureModelsRegistered(req);
+  const runtimeProviders = await listRuntimeProviders(req);
+  const annotate = (providers) =>
+    providers.map((p) => ({
+      ...p,
+      runtimeRegistered: runtimeProviders ? runtimeProviders.has(p.providerID) : undefined,
+    }));
   const file = configFilePath();
   if (existsSync(file)) {
     try {
       const config = JSON.parse(readFileSync(file, "utf8"));
-      return { providers: collectModels(config.provider || {}), source: "file" };
+      return { providers: annotate(collectModels(config.provider || {})), source: "file" };
     } catch {
       // 文件损坏或正在被客户端写入时回落到内核
     }
@@ -350,7 +430,7 @@ async function listModels(req) {
   });
   if (!response.ok) throw new Error(`读取 Agent 配置失败（HTTP ${response.status}）`);
   const config = await response.json();
-  return { providers: collectModels(config.provider || {}), source: "kernel" };
+  return { providers: annotate(collectModels(config.provider || {})), source: "kernel" };
 }
 
 function normalizeProviderID(value) {
@@ -426,6 +506,9 @@ async function addModel(payload = {}) {
   const backup = `${file}.bak-${Date.now()}`;
   copyFileSync(file, backup);
   writeFileSync(file, JSON.stringify(config, null, 2), "utf8");
+  // 配置变更后让内核重新执行 model/init，新模型立即可用于网页链路（无需重启内核）
+  invalidateModelsRegistered();
+  void ensureModelsRegistered().catch(() => {});
   return { providerID, modelID: modelId, backup, providers: collectModels(config.provider) };
 }
 
@@ -449,6 +532,9 @@ async function removeModel(providerID, modelId) {
     removedProvider = true;
   }
   writeFileSync(file, JSON.stringify(config, null, 2), "utf8");
+  // 同步刷新内核运行时注册表，避免已删除模型继续出现在可用列表
+  invalidateModelsRegistered();
+  void ensureModelsRegistered().catch(() => {});
   return { providerID, modelID: modelId, removedProvider, backup, providers: collectModels(config.provider) };
 }
 
@@ -496,4 +582,6 @@ module.exports = {
   addModel,
   removeModel,
   getTeamState,
+  ensureModelsRegistered,
+  ensureModelAvailable,
 };

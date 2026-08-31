@@ -1,0 +1,6 @@
+candidate_id,page_id,page_symbol,motion_type,signal,file,line
+CAND-MOTION-0001,PAGE-MAINACTIVITY-9E8FBE45,MainActivity,size,16.dp),app/src/main/java/com/minitodo/app/MainActivity.kt,81
+CAND-MOTION-0002,PAGE-MAINACTIVITY-9E8FBE45,MainActivity,size,8.dp),app/src/main/java/com/minitodo/app/MainActivity.kt,91
+CAND-MOTION-0003,PAGE-MAINACTIVITY-9E8FBE45,MainActivity,size,12.dp),app/src/main/java/com/minitodo/app/MainActivity.kt,105
+CAND-MOTION-0004,PAGE-MAINACTIVITY-9E8FBE45,MainActivity,size, 32.dp),app/src/main/java/com/minitodo/app/MainActivity.kt,107
+CAND-MOTION-0005,PAGE-MAINACTIVITY-9E8FBE45,MainActivity,size, 4.dp),app/src/main/java/com/minitodo/app/MainActivity.kt,141

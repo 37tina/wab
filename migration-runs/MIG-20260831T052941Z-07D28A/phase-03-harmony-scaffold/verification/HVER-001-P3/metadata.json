@@ -1,0 +1,480 @@
+{
+  "verification_id": "HVER-001-P3",
+  "henv_id": "HENV-001-P3",
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "executed_by": "toolchain-agent-minitodo-r1",
+  "created_at": "2026-08-31T11:46:33Z",
+  "status": "PASS",
+  "input_lock_sha256": "ad7f8d44710e5c057016b0956a7273d58cb6eeb9665ccf7e8a43bde8b7115d17",
+  "environment_sha256": "4c6bac3581b58afa0dc3e58cca17003d1f077dc45eb6555ddd6e198c23921e2f",
+  "source_snapshot_sha256": "7e5a709f3696cae8b931f98a176141faa2f47e8786e21240e35116b53067c841",
+  "category_order": [
+    "TOOLCHAIN",
+    "DEVICE",
+    "BUNDLE_CHECK",
+    "SIGNING_CHECK",
+    "CLEAN_BUILD",
+    "INSTALL",
+    "LAUNCH",
+    "ROUTE_SMOKE",
+    "SCREENSHOT_CAPTURE"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "--version"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:21Z",
+      "finished_at": "2026-08-31T11:46:21Z",
+      "duration_seconds": 0.129,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-TOOLCHAIN",
+      "category": "TOOLCHAIN",
+      "device_id": "",
+      "device_serial": "",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "required_argv_tokens": [
+        "--version"
+      ],
+      "success_output_contains": [
+        "6.24.3"
+      ],
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "success_output_matches": [
+        "6.24.3"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-TOOLCHAIN.stdout.log",
+      "stdout_sha256": "684aa4f4bdd851f66c5ef2be00ec925f4f27288ff156edab79a6239478b40e24",
+      "stderr_path": "logs/CMD-P3-TOOLCHAIN.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "list",
+        "targets"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:21Z",
+      "finished_at": "2026-08-31T11:46:21Z",
+      "duration_seconds": 0.024,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-DEVICE",
+      "category": "DEVICE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "list",
+        "targets"
+      ],
+      "success_output_contains": [
+        "127.0.0.1:5557"
+      ],
+      "error_output_contains": [
+        "[Fail]"
+      ],
+      "success_output_matches": [
+        "127.0.0.1:5557"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-DEVICE.stdout.log",
+      "stdout_sha256": "d861ba83146515f001b5ca1ff526d7b6c1689de5c4e7b6ceee4e169e1e31ca82",
+      "stderr_path": "logs/CMD-P3-DEVICE.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.minitodo.app"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:21Z",
+      "finished_at": "2026-08-31T11:46:22Z",
+      "duration_seconds": 0.152,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-BUNDLE",
+      "category": "BUNDLE_CHECK",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.minitodo.app"
+      ],
+      "success_output_contains": [
+        "failed to get information"
+      ],
+      "error_output_contains": [
+        "unable to connect"
+      ],
+      "success_output_matches": [
+        "failed to get information"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-BUNDLE.stdout.log",
+      "stdout_sha256": "11870ca139e6ec870a3c0919cec22696ae10630cbe889de2e075996c08fb871f",
+      "stderr_path": "logs/CMD-P3-BUNDLE.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+        "--hap",
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/signing/entry-default-signed.hap",
+        "--bundle",
+        "com.minitodo.app",
+        "--fingerprint",
+        "ECA26A42CC7A0EB02E7DA12CC18303EC318D680A201C71384EFD1F98D630CD77",
+        "--java",
+        "/Applications/DevEco-Studio.app/Contents/jbr/Contents/Home/bin/java",
+        "--jar",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/hap-sign-tool.jar"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:22Z",
+      "finished_at": "2026-08-31T11:46:22Z",
+      "duration_seconds": 0.824,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-SIGNING",
+      "category": "SIGNING_CHECK",
+      "device_id": "",
+      "device_serial": "",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+      "executable_sha256": "42c4424595892928b4972b3745ee025c257b37408d121d95a99af66592a86420",
+      "required_argv_tokens": [
+        "--bundle",
+        "com.minitodo.app",
+        "--fingerprint",
+        "ECA26A42CC7A0EB02E7DA12CC18303EC318D680A201C71384EFD1F98D630CD77"
+      ],
+      "success_output_contains": [
+        "SIGNING-VERIFY-PASS"
+      ],
+      "error_output_contains": [
+        "SIGNING-VERIFY-FAIL"
+      ],
+      "success_output_matches": [
+        "SIGNING-VERIFY-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-SIGNING.stdout.log",
+      "stdout_sha256": "d4874b8c5e78ecfd124ad75e97783ac109e34dc5f08706e9ba640d04f115f577",
+      "stderr_path": "logs/CMD-P3-SIGNING.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default",
+        "-p",
+        "buildMode=debug",
+        "--no-daemon"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:22Z",
+      "finished_at": "2026-08-31T11:46:28Z",
+      "duration_seconds": 5.735,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-BUILD",
+      "category": "CLEAN_BUILD",
+      "device_id": "",
+      "device_serial": "",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "required_argv_tokens": [
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default"
+      ],
+      "success_output_contains": [
+        "BUILD SUCCESSFUL"
+      ],
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "success_output_matches": [
+        "BUILD SUCCESSFUL"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-BUILD.stdout.log",
+      "stdout_sha256": "c6ccf001a585f063a8421c979cad73d46121e11276b78ce22b4ff97a69089073",
+      "stderr_path": "logs/CMD-P3-BUILD.stderr.log",
+      "stderr_sha256": "7a21226ad77bf5033713e3e3bc666b6945fc44e97ace898159c9f3a1d7b4a35d",
+      "command_verdict": "PASS",
+      "artifact_states_after_clean_build": {
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project/entry/build/default/outputs/default/entry-default-unsigned.hap": {
+          "sha256": "20bda6ef52e682812176e5fab6f9556f0f54b29d9b67b4a1733ac7ee302cb37c",
+          "size": 152919,
+          "mtime_ns": 1788176788553888343
+        }
+      }
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "install",
+        "entry/build/default/outputs/default/entry-default-unsigned.hap"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:28Z",
+      "finished_at": "2026-08-31T11:46:28Z",
+      "duration_seconds": 0.242,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-INSTALL",
+      "category": "INSTALL",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "install",
+        "entry/build/default/outputs/default/entry-default-unsigned.hap"
+      ],
+      "success_output_contains": [
+        "install bundle successfully"
+      ],
+      "error_output_contains": [
+        "install bundle failed"
+      ],
+      "success_output_matches": [
+        "install bundle successfully"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-INSTALL.stdout.log",
+      "stdout_sha256": "fb005a34fb9c26a503ca1c4a669e04c3bae23790e0cc15ca7a90566f4a62f9a3",
+      "stderr_path": "logs/CMD-P3-INSTALL.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "aa",
+        "start",
+        "-b",
+        "com.minitodo.app",
+        "-a",
+        "EntryAbility"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:28Z",
+      "finished_at": "2026-08-31T11:46:29Z",
+      "duration_seconds": 0.181,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-LAUNCH",
+      "category": "LAUNCH",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "aa",
+        "start",
+        "-b",
+        "com.minitodo.app",
+        "-a",
+        "EntryAbility"
+      ],
+      "success_output_contains": [
+        "start ability successfully"
+      ],
+      "error_output_contains": [
+        "failed to start ability"
+      ],
+      "success_output_matches": [
+        "start ability successfully"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-LAUNCH.stdout.log",
+      "stdout_sha256": "4765cf6e38f61be3ce9fa13fdcf53077b79f3da39c947a2123d1facd6c0e3962",
+      "stderr_path": "logs/CMD-P3-LAUNCH.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.minitodo.app",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-MAINACTIVITY-3FDE9431",
+        "--page",
+        "PAGE-MAINACTIVITY-3FDE9431",
+        "--shell",
+        "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+        "--shell-symbol",
+        "ShellPageMainactivity3fde9431",
+        "--result",
+        "build/results/route-p3.json"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:29Z",
+      "finished_at": "2026-08-31T11:46:32Z",
+      "duration_seconds": 3.707,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-SMOKE",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_route_smoke.py",
+      "executable_sha256": "bbd1fdb3ca5901695e71535ce5caaba304ee7e802bb007a3026d732088ab7354",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.minitodo.app",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-SMOKE.stdout.log",
+      "stdout_sha256": "279ea7137e6d2e09e428fd9ba7dba870f5c93af7992262ddb824b0c1ad737cd9",
+      "stderr_path": "logs/CMD-P3-SMOKE.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_shell_id": "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+      "result_output_relative": "build/results/route-p3.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-MAINACTIVITY.png",
+        "--width",
+        "1080",
+        "--height",
+        "2400"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-08-31T11:46:32Z",
+      "finished_at": "2026-08-31T11:46:33Z",
+      "duration_seconds": 0.407,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-SCREEN",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_screenshot.py",
+      "executable_sha256": "3df9057e226cb566b2b07599d08bf51716eb9390823bcad95424b545ee562c36",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-SCREEN.stdout.log",
+      "stdout_sha256": "129d167a75114be3c6c071ff5fd08858dbe64690be9a40cc26b297b64130913d",
+      "stderr_path": "logs/CMD-P3-SCREEN.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_shell_id": "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+      "screenshot_id": "HSCREEN-P3-MAINACTIVITY",
+      "smoke_command_id": "CMD-P3-SMOKE",
+      "output_relative": "build/screenshots/HSCREEN-P3-MAINACTIVITY.png"
+    }
+  ],
+  "required_devices": [
+    "HDEVICE-001"
+  ],
+  "screenshot_required_devices": [
+    "HDEVICE-001"
+  ],
+  "screenshot_ids": [
+    "HSCREEN-P3-MAINACTIVITY"
+  ],
+  "route_result_count": 1,
+  "surface_result_count": 0,
+  "errors": []
+}

@@ -1,0 +1,49 @@
+{
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "project_id": "MINITODO",
+  "project_root": "/Users/rainyday/Desktop/finale/android/MiniTodo",
+  "created_at": "2026-08-31T05:29:41Z",
+  "controller_skill": "android-harmony-migration-controller",
+  "status": "IN_PROGRESS",
+  "skill_freeze_manifest_sha256": "2bb2e587bfc86dd793b5d50e54c453cfbdb76bae1c25560296a5c041aafb03b7",
+  "phase2_closure_gate": {
+    "unmapped": 0,
+    "feature_coverage": {
+      "required": true,
+      "ok": true,
+      "included": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-TOGGLE",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-INPUT-GUARD"
+      ],
+      "covered": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-TOGGLE",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-INPUT-GUARD"
+      ],
+      "missing": []
+    },
+    "completeness_rows": 10,
+    "completeness_missing_total": 5,
+    "completeness_na_total": 4,
+    "audit_discrepancy": 0,
+    "visited": 6,
+    "visited_rows": 0,
+    "not_entered": 0,
+    "not_entered_rows": 0,
+    "pages_total": 6,
+    "pages_visited_pct": 100.0,
+    "chain_mode": true,
+    "chains_total": 6,
+    "chains_pass": 6,
+    "chains_fail_blocked": 0
+  }
+}

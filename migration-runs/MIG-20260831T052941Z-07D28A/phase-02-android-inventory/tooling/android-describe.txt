@@ -1,0 +1,13 @@
+Target project directory: /Users/rainyday/Desktop/finale/android/MiniTodo
+Project directory exists: /Users/rainyday/Desktop/finale/android/MiniTodo
+Copying init.gradle.kts to /Users/rainyday/Desktop/finale/android/MiniTodo/.gradle/init.gradle.kts
+Parsed tasks:
+Task: :app
+  Variants:
+    Variant: debug
+      Output Listing File: /Users/rainyday/Desktop/finale/android/MiniTodo/app/build/intermediates/apk_ide_redirect_file/debug/createDebugApkListingFileRedirect/redirect.txt
+        APK: /Users/rainyday/Desktop/finale/android/MiniTodo/app/build/outputs/apk/debug/app-debug.apk (Exists)
+    Variant: release
+      Output Listing File: /Users/rainyday/Desktop/finale/android/MiniTodo/app/build/intermediates/apk_ide_redirect_file/release/createReleaseApkListingFileRedirect/redirect.txt
+        Output listing file does not exist on disk.
+gradlew completed successfully.

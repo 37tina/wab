@@ -1,0 +1,313 @@
+{
+  "created_at": "2026-08-31T11:46:21Z",
+  "workspace": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold",
+  "henv_id": "HENV-001-P3",
+  "entry_count": 58,
+  "entries": [
+    {
+      "path": "harmony-project/.gitignore",
+      "sha256": "06525ad3d70bbef50da766f10905548f147490e8b51f8e1da00019191cb2f70c",
+      "size": 133
+    },
+    {
+      "path": "harmony-project/AppScope/app.json5",
+      "sha256": "6dafd1872b0653f5124d40ab25b8b7e2a1b49b271ad65baa9dd2978e94166090",
+      "size": 233
+    },
+    {
+      "path": "harmony-project/AppScope/resources/base/element/string.json",
+      "sha256": "3bac84967b543147b0394d9838dd97de44a47e03d3909549560e84523b9bc60b",
+      "size": 86
+    },
+    {
+      "path": "harmony-project/AppScope/resources/base/media/background.png",
+      "sha256": "497edeafc51af043c73e72ee8c4fbac4663357ef1ba275c0289f31a366b26239",
+      "size": 91942
+    },
+    {
+      "path": "harmony-project/AppScope/resources/base/media/foreground.png",
+      "sha256": "61a796d5a9fc5853e9cd0f1e3e730896a6bcb94a34a37765c4d1959bf64dfa43",
+      "size": 15325
+    },
+    {
+      "path": "harmony-project/AppScope/resources/base/media/layered_image.json",
+      "sha256": "3d18dcd7ed9e7d3d2c54c20cb80a44eb4877c661131c68a46e20b6e19d0bb476",
+      "size": 109
+    },
+    {
+      "path": "harmony-project/build-profile.json5",
+      "sha256": "75248aaf87247c72df88865ef79f8e53534552a481267f60fa3aa11633f0b686",
+      "size": 757
+    },
+    {
+      "path": "harmony-project/code-linter.json5",
+      "sha256": "f557c3bcdb40c64c986bffed9628310cc7a79fb7d2642c1c8b8d265fd92e25ad",
+      "size": 854
+    },
+    {
+      "path": "harmony-project/entry/.gitignore",
+      "sha256": "c4868dbab8112ec2283b23448ad795702a967bb55229333ab317cbeb8c3ad690",
+      "size": 55
+    },
+    {
+      "path": "harmony-project/entry/build-profile.json5",
+      "sha256": "7727b3a9bf7e522930cb1ec259c0bd26c948d09d37d0d724aab23f5f499a4004",
+      "size": 508
+    },
+    {
+      "path": "harmony-project/entry/hvigorfile.ts",
+      "sha256": "67cc02aa9ccf2f3a2c58e7fee4b6e3a00ffb6128c11f76b7fec5f00ad2d63581",
+      "size": 227
+    },
+    {
+      "path": "harmony-project/entry/obfuscation-rules.txt",
+      "sha256": "1c127360e10209c7fe0a43e3edf9504c34ad33a75882904254d4acc2b33b6cc5",
+      "size": 1002
+    },
+    {
+      "path": "harmony-project/entry/oh-package.json5",
+      "sha256": "94def54d7d1f00c6171ca8a180228498f4c362ad9a68994d5ef25ab36fa7f0df",
+      "size": 160
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/entryability/EntryAbility.ets",
+      "sha256": "70364b4932a243f10d7640dc81bf93ccca940245f6d23f705b29e0e22cd39bab",
+      "size": 1899
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/entrybackupability/EntryBackupAbility.ets",
+      "sha256": "5e520ba5427669f9550384a4da5317ce94c0e0b89d3eeb8b04fd4bd79ccb5eb9",
+      "size": 510
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/foundation/AppDialogs.ets",
+      "sha256": "b312faaf3ea3046d9ff79107f3db2ba82b61269087b9e3ae3fba2ff9fe0527ff",
+      "size": 2354
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/foundation/AppListShell.ets",
+      "sha256": "6e4a67a9e5c3361e76c3eebfdf5e1a94ca7f94b6ca5caf506b59d281e2ebc25c",
+      "size": 2353
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/foundation/AppNavigationShell.ets",
+      "sha256": "f003e7a0390443e60cfe8f4cdde26ef2085dc156048590361a94d95ffbaea5b9",
+      "size": 2132
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/foundation/AppTabsShell.ets",
+      "sha256": "2961759446974f799e42a603ae2e0b8218b701e3e2ec3a1647d8de58bacccd14",
+      "size": 1254
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/foundation/AppTheme.ets",
+      "sha256": "d341e59cd4badeecd760a3dfcb0f7c3feafa289658f189c5014b7ce9cff2c867",
+      "size": 2694
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/foundation/AppTopBar.ets",
+      "sha256": "765d4aa6720d3db6954a688828d1d1b8be023b4b946d0fd43d65b4fa43391ce2",
+      "size": 980
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/pages/Index.ets",
+      "sha256": "a8a74b490e2831f93c8e368a43f925b360707f00b4c705a4b269eedd85f5e877",
+      "size": 474
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/pages/shells/ShellPageMainactivity3fde9431.ets",
+      "sha256": "2393d8191f834d82ea7369753ffcfdfc3942a139698d24938da9f6d77a30d92c",
+      "size": 548
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/probe/DebugSemanticProbe.ets",
+      "sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+      "size": 1435
+    },
+    {
+      "path": "harmony-project/entry/src/main/ets/probe/SemanticProbeRegistry.ets",
+      "sha256": "396afcfa622827edaa9c0245f0277c9feab8f2644dfebc370652c9c2b1e1e7fb",
+      "size": 1227
+    },
+    {
+      "path": "harmony-project/entry/src/main/module.json5",
+      "sha256": "95045053098ced28f3f807767014815b5a26b0203f16de619b0c66eca93c42dc",
+      "size": 1264
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/element/color.json",
+      "sha256": "418eeaff41f23ffc04e9dc64600cdb35ecec1a404d652ec677251afc114fbe23",
+      "size": 717
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/element/float.json",
+      "sha256": "8db02f7a08f7b7b73d6eb95b09a6643463d10258b757901e70f255de0a2c83ef",
+      "size": 92
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/element/string.json",
+      "sha256": "6cdcc919f25d5791193b1f600cf01874597607ee70a7b22e7829ad91e9a93cb6",
+      "size": 264
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/media/background.png",
+      "sha256": "497edeafc51af043c73e72ee8c4fbac4663357ef1ba275c0289f31a366b26239",
+      "size": 91942
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/media/foreground.png",
+      "sha256": "57e549283f255505a649042f36a1d6793c307a69a94c9fa7e27a38af38ddbe8c",
+      "size": 8805
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/media/layered_image.json",
+      "sha256": "3d18dcd7ed9e7d3d2c54c20cb80a44eb4877c661131c68a46e20b6e19d0bb476",
+      "size": 109
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/media/startIcon.png",
+      "sha256": "567c7c0c7a321ca180e010ad880f0f7519f6d351ac2b9665e2ee710e7cfe7778",
+      "size": 20093
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/profile/backup_config.json",
+      "sha256": "467a97321341fba6872a6c79a25d89b16eded554c94dae3d4a2faa0d99e59358",
+      "size": 34
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/base/profile/main_pages.json",
+      "sha256": "f21984fb1d5096f0db41314da0bb94c573e7ad018e5afae3044f8d5ff71b0bfc",
+      "size": 37
+    },
+    {
+      "path": "harmony-project/entry/src/main/resources/dark/element/color.json",
+      "sha256": "93c48827f93283c94ae627888e959a31cdb7c7a5d7f33e373232c26a0ca61c4a",
+      "size": 717
+    },
+    {
+      "path": "harmony-project/entry/src/mock/mock-config.json5",
+      "sha256": "8eb95bcbc154530931e15fc418c8b1fe991095671409552099ea1aa596999ede",
+      "size": 3
+    },
+    {
+      "path": "harmony-project/entry/src/ohosTest/ets/test/Ability.test.ets",
+      "sha256": "6490c70b3495d619dc539101663af6d9f74dd9fbacc6a2fbdccf18c1ef930f9e",
+      "size": 1736
+    },
+    {
+      "path": "harmony-project/entry/src/ohosTest/ets/test/List.test.ets",
+      "sha256": "c2300b6cb78c4e2469e72ce7d0d79f5207bc5004f14cdac0bbf859da248dad15",
+      "size": 99
+    },
+    {
+      "path": "harmony-project/entry/src/ohosTest/module.json5",
+      "sha256": "2f7f9b8212b0f72cde73aba1c272889d796ec3a79531838a21d136d842bebafc",
+      "size": 176
+    },
+    {
+      "path": "harmony-project/entry/src/test/List.test.ets",
+      "sha256": "268e4980ef2fdfe0c7ff6a19402bc214ab90f25807998098d2513cc50e9dd86b",
+      "size": 105
+    },
+    {
+      "path": "harmony-project/entry/src/test/LocalUnit.test.ets",
+      "sha256": "ab72e1fa03e7c61ec51a52fe56fd366f66aa1a4415e18c7953daf5be14f488b7",
+      "size": 1624
+    },
+    {
+      "path": "harmony-project/hvigor/hvigor-config.json5",
+      "sha256": "77352e9af31d88b3516e418167c8141c75cb744ec6ef1653be4017decd7025fb",
+      "size": 1458
+    },
+    {
+      "path": "harmony-project/hvigorfile.ts",
+      "sha256": "383227660c07fa9335caf3e65b8975c65fcbcc8b910ba84d0bc67b22afcd56cd",
+      "size": 227
+    },
+    {
+      "path": "harmony-project/oh-package.json5",
+      "sha256": "422253ff4e261d371bf05c023fcfb23bbde85a517c78b0c4fddc3262d14c4e6e",
+      "size": 202
+    },
+    {
+      "path": "stage-03-input-lock.json",
+      "sha256": "ad7f8d44710e5c057016b0956a7273d58cb6eeb9665ccf7e8a43bde8b7115d17",
+      "size": 15523
+    },
+    {
+      "path": "module-registry.csv",
+      "sha256": "3c147db55a1a9fb0b59b3677c1987f4695a4cf5da7bff87dc353de704d379ca6",
+      "size": 124
+    },
+    {
+      "path": "dependency-policy.json",
+      "sha256": "940d5165b853187131065aec5ff2031ab4dfd0725471894e3d573b157dbda87d",
+      "size": 642
+    },
+    {
+      "path": "architecture-map.csv",
+      "sha256": "e1c84355d8f7c6d3be01c6340c0b63a56d7398d7bef3bc337e86b603d78797e9",
+      "size": 673
+    },
+    {
+      "path": "route-registry.csv",
+      "sha256": "bbe2a4ae4148ee5fc951d8c4a66ca7a7c75901829301a987da0bfb0681c3e439",
+      "size": 719
+    },
+    {
+      "path": "surface-registry.csv",
+      "sha256": "79636ed9d4382c541f0611373eb8b54fc11cff82148c228955ef1e711643b441",
+      "size": 134
+    },
+    {
+      "path": "public-ui-registry.csv",
+      "sha256": "e7eafad7ac1cc230e9e4acf994b91b01d22d17b3116c09fa7b37f129d6e1c0d7",
+      "size": 1758
+    },
+    {
+      "path": "capability-contracts.csv",
+      "sha256": "0de8fa37f25219dd34ca136f4ef93fc58857d54cd06119409e7f284a85af63d5",
+      "size": 1453
+    },
+    {
+      "path": "migration-status.csv",
+      "sha256": "0c038e7b3bf44a5fada0b196f4b92b73dd4ccde20fe84d13ae8f01bc3893e44e",
+      "size": 918
+    },
+    {
+      "path": "architecture-decisions.csv",
+      "sha256": "18400a5acfa03b5183c6fdef356c07371cf02565c72dc8259ab40b40deea613b",
+      "size": 114
+    },
+    {
+      "path": "asset-registry.csv",
+      "sha256": "5100d983061e7244173385a63bfd64d50ed2810a6a3cfe500614607c29851cb4",
+      "size": 174
+    },
+    {
+      "path": "phase-manifest.json",
+      "sha256": "5a73b64c140a5cd3711ca19f8b649e1b9129d3afecff234853d4093361e4b08e",
+      "size": 1184
+    },
+    {
+      "path": "environments/HENV-001-P3/harmony-environment.json",
+      "sha256": "4c6bac3581b58afa0dc3e58cca17003d1f077dc45eb6555ddd6e198c23921e2f",
+      "size": 8694
+    }
+  ],
+  "snapshot_sha256": "7e5a709f3696cae8b931f98a176141faa2f47e8786e21240e35116b53067c841",
+  "excluded_generated_parts": [
+    ".git",
+    ".hg",
+    ".hvigor",
+    ".idea",
+    ".svn",
+    "__pycache__",
+    "build",
+    "coverage",
+    "dist",
+    "node_modules",
+    "oh_modules",
+    "out"
+  ]
+}

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Android-Harmony Migration Controller"
-  short_description: "Govern four migration phases with machine and human gates"
-  default_prompt: "Use $android-harmony-migration-controller for one governed Phase 1-4 task. Stop at WAITING_HUMAN_REVIEW after the current machine Gate; continue only after a current human approval."
-policy:
-  allow_implicit_invocation: true

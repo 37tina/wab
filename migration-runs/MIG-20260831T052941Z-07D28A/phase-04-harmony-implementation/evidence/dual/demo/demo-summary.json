@@ -1,0 +1,22 @@
+{
+  "demo": "4B 风格双机验证演示（BC-0001 添加待办单链）",
+  "chain": "两侧同起点(pm clear/bm clean) → 同操作(输入 demo-diff + 添加) → 三时点取证(before/after/restart)",
+  "capture_points": [
+    "before",
+    "after",
+    "restart"
+  ],
+  "artifacts": {
+    "android": [
+      "before.png",
+      "after.png",
+      "restart.png"
+    ],
+    "harmony": [
+      "before.jpeg",
+      "after.jpeg",
+      "restart.jpeg"
+    ]
+  },
+  "note": "由总控演示 4B 的 dual_verify 单链流程；正式差分判定以 dual-diff-results.csv 为准"
+}

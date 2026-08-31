@@ -1,0 +1,32 @@
+{
+  "assertions": [
+    {
+      "category": "observable",
+      "kind": "text_visible",
+      "value": "排序：完成置底",
+      "verdict": "PASS"
+    },
+    {
+      "category": "persistence",
+      "kind": "persist_after_restart",
+      "value": "排序：完成置底",
+      "verdict": "PASS"
+    },
+    {
+      "category": "persistence",
+      "kind": "recheck_text_visible",
+      "value": "排序：完成置底",
+      "verdict": "PASS"
+    }
+  ],
+  "bc_id": "BC-0004",
+  "categories": {
+    "data": "MANUAL_VERIFY_REQUIRED",
+    "observable": "PASS",
+    "persistence": "PASS",
+    "side_effect": "MANUAL_VERIFY_REQUIRED"
+  },
+  "feature_id": "FEAT-TODO-SORT",
+  "precondition_status": "ESTABLISHED",
+  "replay_verdict": "MANUAL_VERIFY_REQUIRED"
+}

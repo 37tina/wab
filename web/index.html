@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0d16" />
     <title>脱胎换骨 · 软件国产化迁移工作台</title>
+    <script>
+      // 最底层错误显示器：模块加载/运行时/未捕获 Promise 错误直接渲染到页面，杜绝白屏无信息
+      (function () {
+        var panel = null;
+        function show(tag, message) {
+          if (!panel) {
+            panel = document.createElement("pre");
+            panel.style.cssText = "position:fixed;z-index:99999;top:0;left:0;right:0;margin:0;padding:10px 14px;background:#7f1d1d;color:#fecaca;font:12px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;max-height:40vh;overflow:auto";
+            (document.body || document.documentElement).appendChild(panel);
+          }
+          panel.textContent += "[" + tag + "] " + message + "\n";
+        }
+        window.addEventListener("error", function (event) {
+          var msg = (event.error && (event.error.stack || event.error.message)) || event.message || "unknown error";
+          show("error@" + (event.filename || "").split("/").pop() + ":" + event.lineno, msg);
+        });
+        window.addEventListener("unhandledrejection", function (event) {
+          var reason = event.reason;
+          show("promise", (reason && (reason.stack || reason.message)) || String(reason));
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

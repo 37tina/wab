@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-07161273856D02B88947",
+  "phase": 2,
+  "work_order_id": "WO-PHASE-02-0DB7D4760B4F",
+  "work_order_sha256": "1e5ba4ac07791a85cd0b3917c3040989aca422a597f56ccd2051c482ee556416",
+  "role_key": "code_map_agent_id",
+  "actor_id": "code-map-agent-minitodo-r1",
+  "platform_task_id": "ses_fa99c0b7bffeXNpEbbEf9oIVfs-CMAP",
+  "started_at": "2026-08-31T05:56:00Z",
+  "ended_at": "2026-08-31T06:22:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T11:08:54Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-02-android-inventory/static-analysis/surface-index.csv",
+      "sha256": "02c978cdc5e8b72291746b79dc9fbc3e6bbe9c08293a0f361980086bebefd521"
+    }
+  ]
+}

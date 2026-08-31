@@ -1,0 +1,68 @@
+{
+  "phase": 3,
+  "status": "WAITING_HUMAN_REVIEW",
+  "coverage": {
+    "included_features": 7,
+    "counts": {
+      "blueprint_complete_surfaces": 1,
+      "data_contracts": 13,
+      "features_total": 7,
+      "lock_surfaces": 2,
+      "lock_surfaces_with_carrier": 1,
+      "required_devices": 1,
+      "route_smoke_commands": 1,
+      "runtime_features": 6,
+      "runtime_features_carried": 6,
+      "screenshot_commands": 1,
+      "semantic_data_objects": 13,
+      "smoke_commands": 6,
+      "user_visible_surfaces": 1
+    }
+  },
+  "critical_count": 0,
+  "warning_count": 1,
+  "top_risks": [
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "key_samples": [
+    {
+      "kind": "feature",
+      "id": "FEAT-INPUT-GUARD"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-ADD"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-DELETE"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-EMPTY-STATE"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-PERSIST"
+    }
+  ],
+  "evidence_links": [
+    "controller/gate-report.json",
+    "phase-03-harmony-scaffold/build-report.json",
+    "phase-03-harmony-scaffold/stage-03-gate-report.json"
+  ],
+  "recommended_action": "REVIEW"
+}

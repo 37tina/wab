@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "template_id": "ARKUI-STAGE-TEMPLATE-V1",
+  "template_manifest_sha256": "8d721d373d2e830a436017da6b933b465be6690600489fcba54c3a938fd7371b",
+  "generated_file_count": 41,
+  "generated_project_manifest_sha256": "4fcbcd3cbc7a3668508baa76d618984c78a64d697634e81c6fd6bf14f14b2013",
+  "required_files": [
+    "AppScope/app.json5",
+    "build-profile.json5",
+    "entry/build-profile.json5",
+    "entry/src/main/ets/entryability/EntryAbility.ets",
+    "entry/src/main/ets/pages/Index.ets",
+    "entry/src/main/module.json5",
+    "oh-package.json5"
+  ],
+  "bundle_name": "com.minitodo.app",
+  "app_name": "MINITODO",
+  "vendor": "migration",
+  "log_tag": "MINITODO"
+}

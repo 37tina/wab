@@ -1,0 +1,529 @@
+{
+  "work_order_id": "WO-PHASE-04-E8F3205C2B9E",
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "phase": 4,
+  "status": "ISSUED",
+  "issued_at": "2026-08-31T12:03:24Z",
+  "issued_by": "controller-agent-minitodo-r1",
+  "scope_relative_path": "controller/scope.json",
+  "scope_sha256": "0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1",
+  "controller_gate3_snapshot_relative_path": "controller/work-orders/WO-PHASE-04-E8F3205C2B9E.phase-03-gate-report.json",
+  "controller_gate3_sha256": "5ff8e85f01ca0f5a651c0e86cfb90c1c830d365c991db44262e6ec0fe532ad63",
+  "human_review_id": "REV-P3-TASKMANDATE-20260831",
+  "human_review_decision": "APPROVED",
+  "human_review_gate_sha256": "5ff8e85f01ca0f5a651c0e86cfb90c1c830d365c991db44262e6ec0fe532ad63",
+  "upstream_phase3_work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "upstream_phase3_work_order_relative_path": "controller/work-orders/WO-PHASE-03-FF0F66597AA2.json",
+  "upstream_phase3_work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "included_features": [
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-TOGGLE",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-SORT",
+    "FEAT-TODO-PERSIST",
+    "FEAT-TODO-EMPTY-STATE",
+    "FEAT-INPUT-GUARD"
+  ],
+  "excluded_features": [
+    "FEAT-SYSTEM-BACKUP"
+  ],
+  "feature_manifest": [
+    {
+      "feature_id": "FEAT-TODO-ADD",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_reads": [
+        "input_state"
+      ],
+      "data_writes": [
+        "todos",
+        "input_state"
+      ],
+      "data_relation_ids": [
+        "REL-0001",
+        "REL-0002",
+        "REL-0003",
+        "REL-0004"
+      ],
+      "bc_ids": [
+        "BC-0001"
+      ],
+      "runtime_bc_ids": [
+        "BC-0001"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0001"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:92",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:94",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:97",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:98",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:99",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:51"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0001"
+        ],
+        "data_relations": [
+          "REL-0001",
+          "REL-0002",
+          "REL-0003",
+          "REL-0004"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-TODO-TOGGLE",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_reads": [
+        "todo.title"
+      ],
+      "data_writes": [
+        "todos"
+      ],
+      "data_relation_ids": [
+        "REL-0005",
+        "REL-0006"
+      ],
+      "bc_ids": [
+        "BC-0002"
+      ],
+      "runtime_bc_ids": [
+        "BC-0002"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0002"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:113",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:116",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:117",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:146",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:151"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0002"
+        ],
+        "data_relations": [
+          "REL-0005",
+          "REL-0006"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-TODO-DELETE",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_reads": [
+        "todo.title"
+      ],
+      "data_writes": [
+        "todos"
+      ],
+      "data_relation_ids": [
+        "REL-0007",
+        "REL-0008"
+      ],
+      "bc_ids": [
+        "BC-0003"
+      ],
+      "runtime_bc_ids": [
+        "BC-0003"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0003"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:120",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:121",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:122",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:155",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:157"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0003"
+        ],
+        "data_relations": [
+          "REL-0007",
+          "REL-0008"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-TODO-SORT",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_reads": [
+        "todos",
+        "sort_mode"
+      ],
+      "data_writes": [
+        "sort_mode"
+      ],
+      "data_relation_ids": [
+        "REL-0009",
+        "REL-0010",
+        "REL-0011"
+      ],
+      "bc_ids": [
+        "BC-0004"
+      ],
+      "runtime_bc_ids": [
+        "BC-0004"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0004"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:63",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:65",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:68",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:71",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:110",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:133",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:57"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0004"
+        ],
+        "data_relations": [
+          "REL-0009",
+          "REL-0010",
+          "REL-0011"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-TODO-PERSIST",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        },
+        {
+          "id": "REPOSITORY-TODOREPOSITORY-E71D7690",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_reads": [
+        "todos",
+        "sort_mode"
+      ],
+      "data_writes": [
+        "todos",
+        "sort_mode"
+      ],
+      "data_relation_ids": [
+        "REL-0012",
+        "REL-0013",
+        "REL-0014",
+        "REL-0015"
+      ],
+      "bc_ids": [
+        "BC-0005"
+      ],
+      "runtime_bc_ids": [
+        "BC-0005"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0005"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:42",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:52",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:53",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:99",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:19",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:51",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:54"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0005"
+        ],
+        "data_relations": [
+          "REL-0012",
+          "REL-0013",
+          "REL-0014",
+          "REL-0015"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431",
+          "REPOSITORY-TODOREPOSITORY-E71D7690"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-TODO-EMPTY-STATE",
+      "verify_mode": "RUNTIME",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_reads": [
+        "todos"
+      ],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0016"
+      ],
+      "bc_ids": [
+        "BC-0006"
+      ],
+      "runtime_bc_ids": [
+        "BC-0006"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0006"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:106",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:107",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:109"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0006"
+        ],
+        "data_relations": [
+          "REL-0016"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-INPUT-GUARD",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_reads": [
+        "input_state"
+      ],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0017"
+      ],
+      "bc_ids": [
+        "BC-0007"
+      ],
+      "runtime_bc_ids": [],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0007"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:94",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:95"
+        ],
+        "runtime_evidence_refs": [],
+        "data_relations": [
+          "REL-0017"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 1,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    }
+  ],
+  "shared_data_relation_ids": [],
+  "semantic_probe": null,
+  "ownership": {
+    "implementation_lead_id": "impl-lead-minitodo-r1",
+    "visual_asset_agent_id": "visual-asset-minitodo-r1",
+    "verification_executor_id": "verify-exec-minitodo-r1",
+    "parity_acceptance_agent_id": "parity-accept-minitodo-r1"
+  },
+  "phase3_henvs": [
+    {
+      "henv_id": "HENV-001-P3",
+      "relative_path": "phase-03-harmony-scaffold/environments/HENV-001-P3/harmony-environment.json",
+      "sha256": "4c6bac3581b58afa0dc3e58cca17003d1f077dc45eb6555ddd6e198c23921e2f"
+    }
+  ],
+  "required_skill": "harmonyos-feature-implementation",
+  "business_implementation_allowed": true,
+  "mp4_allowed": false,
+  "required_return": [
+    "stage-04-input-lock.json",
+    "phase-manifest.json",
+    "feature-dispatch.json",
+    "feature-work-orders/",
+    "implementation-ledger.csv",
+    "surface-contracts.csv",
+    "environments/",
+    "harmony-project/",
+    "builds/",
+    "evidence/",
+    "evidence-index.csv",
+    "attempt-ledger.csv",
+    "reviews/",
+    "acceptance-ledger.csv",
+    "rework-tickets.csv",
+    "stage-04-gate-report.json",
+    "stage-04-closure-manifest.sha256",
+    "CLOSED"
+  ],
+  "phase2_feature_map_sha256": "3a9f2387b0694bf899bcb40dd26c6d828508d1598c2e08650eafae8cc91e24bf",
+  "phase2_feature_map_relative_path": "phase-02-android-inventory/feature-map.json",
+  "phase2_behavior_contracts_sha256": "51e38d0b0b83be394f3583c9204a17ca3bec485471563ba354fc894bb6f92340",
+  "phase2_behavior_contracts_relative_path": "phase-02-android-inventory/behavior-contracts.csv",
+  "phase2_data_relations_sha256": "711eac5c019e8d5f9b83ff802e0418b79eb91c13c52348061ec6850871fdfb54",
+  "phase2_data_relations_relative_path": "phase-02-android-inventory/data-relations.csv",
+  "phase2_reconciliation_sha256": "dc57bad4b91f0f56ce86c491f9cfb8f3f57f70a283097dd89f2af0e4a86a2e1c",
+  "phase2_reconciliation_relative_path": "phase-02-android-inventory/reconciliation.csv",
+  "phase2_runtime_chains_sha256": "3107fc255387131bc27373d9f0dc02b81051f179d0bea1f928daa9182454927f",
+  "phase2_runtime_chains_relative_path": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+  "phase2_closure_sha256": "e02a190be53f8f768f54a4084332607c75119a7944a3b8ad97fe7e75e72f6a64",
+  "phase2_closure_relative_path": "phase-02-android-inventory/phase-2-closure.json",
+  "phase3_input_lock_sha256": "ad7f8d44710e5c057016b0956a7273d58cb6eeb9665ccf7e8a43bde8b7115d17",
+  "phase3_input_lock_relative_path": "phase-03-harmony-scaffold/stage-03-input-lock.json",
+  "phase3_gate_report_sha256": "0c72ba84cab880b4d8e461d3ab113d26bf570093d9705d550e62ae4c6c2c9496",
+  "phase3_gate_report_relative_path": "phase-03-harmony-scaffold/stage-03-gate-report.json",
+  "phase3_closure_manifest_sha256": "5a95bd223322be17e9aa6747752c66b72e3ab3ab67d220f3bc42bad5dbe986cd",
+  "phase3_closure_manifest_relative_path": "phase-03-harmony-scaffold/stage-03-closure-manifest.sha256",
+  "phase3_closed_sha256": "db26c496593842dad0727a65ac1425a1777cb4064ad6a2ed8b8bd775b4e69445",
+  "phase3_closed_relative_path": "phase-03-harmony-scaffold/CLOSED",
+  "phase3_scaffold_snapshot_sha256": "da525ed6e6090132d2b5bb2f89ad54598663cfdd354e2b1c009f2e5753a449f8",
+  "phase3_scaffold_snapshot_relative_path": "phase-03-harmony-scaffold/scaffold-snapshot-manifest.json",
+  "phase3_module_registry_sha256": "3c147db55a1a9fb0b59b3677c1987f4695a4cf5da7bff87dc353de704d379ca6",
+  "phase3_module_registry_relative_path": "phase-03-harmony-scaffold/module-registry.csv",
+  "phase3_route_registry_sha256": "bbe2a4ae4148ee5fc951d8c4a66ca7a7c75901829301a987da0bfb0681c3e439",
+  "phase3_route_registry_relative_path": "phase-03-harmony-scaffold/route-registry.csv",
+  "phase3_surface_registry_sha256": "79636ed9d4382c541f0611373eb8b54fc11cff82148c228955ef1e711643b441",
+  "phase3_surface_registry_relative_path": "phase-03-harmony-scaffold/surface-registry.csv",
+  "phase3_capability_contracts_sha256": "0de8fa37f25219dd34ca136f4ef93fc58857d54cd06119409e7f284a85af63d5",
+  "phase3_capability_contracts_relative_path": "phase-03-harmony-scaffold/capability-contracts.csv",
+  "phase3_henv_registry_sha256": "ba6128cde342a6d8219a161966fa742e92913d2aba4cf0207c74f489baf69e4b",
+  "phase3_henv_registry_relative_path": "phase-03-harmony-scaffold/environments/henv-registry.csv"
+}

@@ -1,0 +1,8 @@
+feature_id,feature_name,applicable_env_ids,code_mapped,runtime_states_captured,business_rules_mapped,data_dependencies_mapped,status,owner,notes
+FEAT-TODO-ADD,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead-minitodo-r1,
+FEAT-TODO-TOGGLE,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead-minitodo-r1,
+FEAT-TODO-DELETE,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead-minitodo-r1,
+FEAT-TODO-SORT,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead-minitodo-r1,
+FEAT-TODO-PERSIST,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead-minitodo-r1,
+FEAT-TODO-EMPTY-STATE,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead-minitodo-r1,
+FEAT-INPUT-GUARD,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead-minitodo-r1,

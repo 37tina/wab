@@ -1,0 +1,9 @@
+foundation_id,foundation_type,harmony_module_id,file_path,symbol,may_bind_to_placeholder,created_by,status,notes
+PUBUI-THEME,color;typography;spacing;theme,entry,entry/src/main/ets/foundation/AppTheme.ets,AppTheme,no,public-ui-agent-minitodo-r1,REGISTERED,主题 token 常量（palette 哨兵→平台默认阶梯;source_map 逐槽 platform-default）
+PUBUI-COLOR-BASE,color,entry,entry/src/main/resources/base/element/color.json,app_color_resources,no,public-ui-agent-minitodo-r1,REGISTERED,明色资源（9 token）
+PUBUI-COLOR-DARK,color,entry,entry/src/main/resources/dark/element/color.json,app_color_resources,no,public-ui-agent-minitodo-r1,REGISTERED,dark 限定词暗色资源（inverted-from-light 表达明暗双资源）
+PUBUI-NAV-SHELL,page-container,entry,entry/src/main/ets/foundation/AppNavigationShell.ets,AppNavigationShell,no,public-ui-agent-minitodo-r1,REGISTERED,页面容器（Navigation+NavPathStack）
+PUBUI-LIST-SHELL,loading-shell;empty-shell,entry,entry/src/main/ets/foundation/AppListShell.ets,AppListShell,no,public-ui-agent-minitodo-r1,REGISTERED,List+LazyForEach 空/加载槽壳（空态文案属 P4 preserve.texts 表达）
+PUBUI-DIALOGS,error-shell;sheet;dialog,entry,entry/src/main/ets/foundation/AppDialogs.ets,AppDialogs,no,public-ui-agent-minitodo-r1,REGISTERED,CustomDialog/bindSheet 壳（本 run 无 modal surface）
+PUBUI-TOPBAR,page-container,entry,entry/src/main/ets/foundation/AppTopBar.ets,AppTopBar,no,public-ui-agent-minitodo-r1,REGISTERED,原生顶栏（P4 承载标题与排序入口）
+PUBUI-TABS-SHELL,page-container,entry,entry/src/main/ets/foundation/AppTabsShell.ets,AppTabsShell,no,public-ui-agent-minitodo-r1,REGISTERED,底栏 Tabs 壳（本 run 无 tabs_owner；保留 foundation 完整性）

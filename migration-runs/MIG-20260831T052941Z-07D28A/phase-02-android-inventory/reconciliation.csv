@@ -1,0 +1,8 @@
+bc_id,feature_id,page_ref,verify_side,verdict,evidence_ref,runtime_status,note
+BC-0001,FEAT-TODO-ADD,PAGE-MAINACTIVITY-9E8FBE45,FEATURE_MAP,CONFIRMED,runtime-evidence/evidence/chains/BC-0001,CHAIN_PASS,declared & asserted
+BC-0002,FEAT-TODO-TOGGLE,PAGE-MAINACTIVITY-9E8FBE45,FEATURE_MAP,CONFIRMED,runtime-evidence/evidence/chains/BC-0002,CHAIN_PASS,declared & asserted
+BC-0003,FEAT-TODO-DELETE,PAGE-MAINACTIVITY-9E8FBE45,FEATURE_MAP,CONFIRMED,runtime-evidence/evidence/chains/BC-0003,CHAIN_PASS,declared & asserted
+BC-0004,FEAT-TODO-SORT,PAGE-MAINACTIVITY-9E8FBE45,FEATURE_MAP,CONFIRMED,runtime-evidence/evidence/chains/BC-0004,CHAIN_PASS,declared & asserted
+BC-0005,FEAT-TODO-PERSIST,PAGE-MAINACTIVITY-9E8FBE45,FEATURE_MAP,CONFIRMED,runtime-evidence/evidence/chains/BC-0005,CHAIN_PASS,declared & asserted
+BC-0006,FEAT-TODO-EMPTY-STATE,PAGE-MAINACTIVITY-9E8FBE45,FEATURE_MAP,CONFIRMED,runtime-evidence/evidence/chains/BC-0006,CHAIN_PASS,declared & asserted
+BC-0007,FEAT-INPUT-GUARD,PAGE-MAINACTIVITY-9E8FBE45,FEATURE_MAP,SOURCE_CONFIRMED,app/src/main/java/com/minitodo/app/MainActivity.kt:94;app/src/main/java/com/minitodo/app/MainActivity.kt:95,,verify_mode=SOURCE_CONFIRM (container/pure-display); not run by design

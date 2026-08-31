@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "generated_at": "FEATURE_MAP",
+  "features": [
+    {
+      "feature_id": "FEAT-TODO-ADD",
+      "name": "添加待办",
+      "summary": "在输入框输入标题后点击「添加」，新待办追加到列表末尾并清空输入框，随后整体写回 SharedPreferences（MiniTodoApp.kt:92-103）。",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:92",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:94",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:97",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:98",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:99",
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:51"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [
+          "todos",
+          "input_state"
+        ],
+        "reads": [
+          "input_state"
+        ]
+      },
+      "risk_level": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "scope frozen: RUNTIME (verify_modes/FUNCTIONAL_EQUIVALENCE=HARD)",
+      "risk": "high"
+    },
+    {
+      "feature_id": "FEAT-TODO-TOGGLE",
+      "name": "切换完成状态",
+      "summary": "点击条目 Checkbox 将 completed 取反，完成后标题呈删除线且勾选态与数据严格一致，变更整体写回 SharedPreferences（MainActivity.kt:112-119,143-152）。",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:113",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:116",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:117",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:143",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:151"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_objects": {
+        "writes": [
+          "todos"
+        ],
+        "reads": [
+          "todo.title"
+        ]
+      },
+      "risk_level": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "scope frozen: RUNTIME (verify_modes/FUNCTIONAL_EQUIVALENCE=HARD)",
+      "risk": "high"
+    },
+    {
+      "feature_id": "FEAT-TODO-DELETE",
+      "name": "删除待办",
+      "summary": "点击条目行尾「✕」按钮移除该条目，列表即时消失并整体写回 SharedPreferences（MainActivity.kt:120-123,153-158）。",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:120",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:121",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:122",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:153",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:157"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_objects": {
+        "writes": [
+          "todos"
+        ],
+        "reads": [
+          "todo.title"
+        ]
+      },
+      "risk_level": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "scope frozen: RUNTIME (verify_modes/FUNCTIONAL_EQUIVALENCE=HARD)",
+      "risk": "high"
+    },
+    {
+      "feature_id": "FEAT-TODO-SORT",
+      "name": "排序切换",
+      "summary": "顶栏「排序：默认」↔「排序：完成置底」按钮切换排序模式；完成置底=sortedBy{completed} 稳定排序（未完成组内与完成组内相对序保持），sort_mode 持久化（MainActivity.kt:63-72,132-133; TodoRepository.kt:54-58）。",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:63",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:65",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:68",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:71",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:110",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:133",
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:57"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_objects": {
+        "writes": [
+          "sort_mode"
+        ],
+        "reads": [
+          "todos",
+          "sort_mode"
+        ]
+      },
+      "risk_level": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "scope frozen: RUNTIME (verify_modes/FUNCTIONAL_EQUIVALENCE=HARD)",
+      "risk": "high"
+    },
+    {
+      "feature_id": "FEAT-TODO-PERSIST",
+      "name": "持久化与重启恢复",
+      "summary": "内存态为唯一事实源，任何变更整体写回 SharedPreferences(minitodo_prefs)：todos=JSON 数组（元素 {id,title,completed,createdAt}）、sort_mode∈{0,1}；重启后 onCreate 经 loadTodos/loadSortMode 完整恢复列表与排序（TodoRepository.kt 全文）。",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:42",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:52",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:53",
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:16",
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:51",
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:57",
+        "app/src/main/java/com/minitodo/app/Todo.kt:4"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        },
+        {
+          "id": "REPOSITORY-TODOREPOSITORY-E71D7690",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [
+          "todos",
+          "sort_mode"
+        ],
+        "reads": [
+          "todos",
+          "sort_mode"
+        ]
+      },
+      "risk_level": "high",
+      "risk": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "scope frozen: RUNTIME (verify_modes/FUNCTIONAL_EQUIVALENCE=HARD)"
+    },
+    {
+      "feature_id": "FEAT-TODO-EMPTY-STATE",
+      "name": "空列表占位",
+      "summary": "todos 为空时列表区域显示「暂无待办」占位文案，非空时渲染 LazyColumn 列表（MainActivity.kt:106-127）；纯展示无数据写入，impact=normal。",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:106",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:107",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:109"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": [
+          "todos"
+        ]
+      },
+      "risk_level": "normal",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "scope frozen: RUNTIME (verify_modes/display-only)",
+      "risk": "normal"
+    },
+    {
+      "feature_id": "FEAT-INPUT-GUARD",
+      "name": "空标题输入防护",
+      "summary": "点击「添加」时 input.trim() 后为空则 return@Button 直接返回：不创建条目、不产生任何持久化写入（MainActivity.kt:94-95）；源码可完全确认，STATIC_ONLY。",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:94",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:95"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false,
+          "relation": "behavior-host"
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": [
+          "input_state"
+        ]
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "SOURCE_CONFIRM",
+      "status": "OPEN",
+      "_verify_mode_reason": "scope frozen: SOURCE_CONFIRM (verify_modes/display-only)"
+    }
+  ],
+  "coverage_gate": {
+    "included_features_covered": true,
+    "included": [
+      "FEAT-TODO-ADD",
+      "FEAT-TODO-TOGGLE",
+      "FEAT-TODO-DELETE",
+      "FEAT-TODO-SORT",
+      "FEAT-TODO-PERSIST",
+      "FEAT-TODO-EMPTY-STATE",
+      "FEAT-INPUT-GUARD"
+    ],
+    "covered": [
+      "FEAT-TODO-ADD",
+      "FEAT-TODO-TOGGLE",
+      "FEAT-TODO-DELETE",
+      "FEAT-TODO-SORT",
+      "FEAT-TODO-PERSIST",
+      "FEAT-TODO-EMPTY-STATE",
+      "FEAT-INPUT-GUARD"
+    ],
+    "missing": []
+  }
+}

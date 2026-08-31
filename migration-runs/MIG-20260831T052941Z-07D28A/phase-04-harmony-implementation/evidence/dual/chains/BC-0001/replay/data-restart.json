@@ -1,0 +1,19 @@
+{
+  "input_state": {
+    "value": ""
+  },
+  "sort_mode": {
+    "value": 0
+  },
+  "todo_title": {
+    "value": "T2A-ADD"
+  },
+  "todos": [
+    {
+      "completed": false,
+      "createdAt": 1788184119780,
+      "id": 1788184119780,
+      "title": "T2A-ADD"
+    }
+  ]
+}

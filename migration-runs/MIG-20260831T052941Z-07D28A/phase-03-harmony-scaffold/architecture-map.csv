@@ -1,0 +1,3 @@
+source_row_key,inventory_id,feature_id,page_id,state_id,env_id,evidence_id,mapping_type,harmony_module_id,route_id,surface_shell_id,page_shell_id,shell_file,screenshot_ids,verification_id,mapped_by,mapping_status,notes
+SURFACE:PAGE-MAINACTIVITY-3FDE9431,,FEAT-TODO-ADD,PAGE-MAINACTIVITY-3FDE9431,,,,ROUTE,,PAGE-MAINACTIVITY-3FDE9431,,PSHELL-PAGE-MAINACTIVITY-3FDE9431,entry/src/main/ets/pages/shells/ShellPageMainactivity3fde9431.ets,,,,NOT_STARTED,kind=page;mount=route;host_source=n/a
+SURFACE:REPOSITORY-TODOREPOSITORY-E71D7690,,FEAT-TODO-PERSIST,REPOSITORY-TODOREPOSITORY-E71D7690,,,,PASSTHROUGH,,,,,,,,,NOT_STARTED,kind=reusable-component;mount=none;host_source=n/a

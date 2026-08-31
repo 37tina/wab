@@ -129,7 +129,7 @@ function baseProject(input: ProjectInput, demo = false): Project {
   const createdAt = now();
   const phases = [phase(1), phase(2), phase(3), phase(4)];
   return {
-    id: demo ? "demo-qc-001" : `migration-${Date.now()}`,
+    id: input.id ?? (demo ? "demo-qc-001" : `migration-${Date.now()}`),
     name: input.name,
     source: { type: input.sourceType, value: input.sourceValue },
     status: "running",
@@ -140,6 +140,7 @@ function baseProject(input: ProjectInput, demo = false): Project {
     executionMode: input.executionMode ?? "demo",
     workspaceDir: input.workspaceDir,
     runModel: input.runModel,
+    externalDrive: input.externalDrive,
     sourcePlatform: input.sourcePlatform,
     targetPlatform: input.targetPlatform,
     features: features.map((item) => ({ ...item })),
@@ -177,6 +178,9 @@ export class MockMigrationServiceImpl implements MigrationService {
     this.projects = raw ? (JSON.parse(raw) as Project[]) : [makeDemoProject()];
     if (!this.projects.length) this.projects = [makeDemoProject()];
     this.projects.forEach((project) => {
+      // 仅演示项目需要「刷新恢复」：演示推进依赖 setTimeout，刷新后定时器丢失。
+      // 真实项目保持 running，由 RunControls 的 autoRun 在 Agent 在线时重新派发工单。
+      if (!project.demo) return;
       const active = project.phases.find((item) => item.status === "running");
       if (active) {
         active.status = "review_required";
@@ -189,6 +193,55 @@ export class MockMigrationServiceImpl implements MigrationService {
 
   listProjects() { return clone(this.projects).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)); }
   getProject(id: string) { const item = this.projects.find((project) => project.id === id); return item ? clone(item) : undefined; }
+
+  /** 按 id 覆盖写入项目（镜像重建用；不存在则插入，存在则替换并去重） */
+  replaceProject(project: Project): void {
+    this.projects = [project, ...this.projects.filter((item) => item.id !== project.id)];
+    this.persist();
+    this.notifyAll();
+    this.notify(project.id);
+  }
+
+  /**
+   * 外部驱动项目镜像导入：一次性构造终态项目（四阶段已审完成 + 各阶段汇总全文）。
+   * 不经过 createProject/record/review 状态机——零定时器零副作用，杜绝阶段被打回执行中。
+   */
+  importExternalProject(input: { id: string; name: string; sourceType: "github" | "zip"; sourceValue: string; workspaceDir?: string; runModel?: string; session?: string; phases: Array<{ n: number; response: string }> }): Project {
+    const base = baseProject({
+      name: input.name,
+      sourceType: input.sourceType,
+      sourceValue: input.sourceValue,
+      executionMode: "codearts-agentteam",
+      workspaceDir: input.workspaceDir,
+      runModel: input.runModel,
+      sourcePlatform: "android",
+      targetPlatform: "harmony-phone",
+      externalDrive: true,
+    });
+    base.id = input.id;
+    base.activeSessionId = input.session;
+    base.status = "completed";
+    base.currentPhase = 4;
+    base.phases = base.phases.map((item) => {
+      const response = input.phases.find((x) => x.n === item.number)?.response ?? "";
+      return {
+        ...item,
+        status: (item.number === 4 ? "completed" : "approved") as Phase["status"],
+        progress: 100,
+        execution: {
+          mode: "codearts-agentteam",
+          status: "succeeded",
+          sessionId: input.session,
+          agent: "team-leader",
+          completedAt: now(),
+          response,
+        },
+        review: { decision: "approved", comment: "外部总控核验通过（镜像导入）", reviewer: "迁移总控", reviewedAt: now() },
+        events: [{ id: `${item.number}-imported`, agent: "迁移总控", type: "system", message: `阶段 ${item.number} 已由外部总控终验通过（镜像导入，汇总见审核页）`, timestamp: now() }],
+      };
+    });
+    return base;
+  }
 
   createProject(input: ProjectInput) {
     const project = baseProject(input);
@@ -368,7 +421,8 @@ export class MockMigrationServiceImpl implements MigrationService {
     }
     this.persist();
     this.emit(project);
-    if (number < 4) setTimeout(() => this.startPhase(id, (number + 1) as PhaseNumber), 600);
+    // 外部驱动项目的下一阶段由总控直接发单推进，网页不做自动启动（防止把已审阶段打回执行中）
+    if (number < 4 && !project.externalDrive) setTimeout(() => this.startPhase(id, (number + 1) as PhaseNumber), 600);
   }
 
   resetDemo(id: string) {

@@ -1,0 +1,19 @@
+{
+  "input_state": {
+    "value": ""
+  },
+  "sort_mode": {
+    "value": 0
+  },
+  "todo_title": {
+    "value": "T2A-TOGGLE"
+  },
+  "todos": [
+    {
+      "completed": true,
+      "createdAt": 1788184332495,
+      "id": 1788184332495,
+      "title": "T2A-TOGGLE"
+    }
+  ]
+}

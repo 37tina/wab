@@ -1,0 +1,100 @@
+{
+  "phase": 4,
+  "status": "MACHINE_GATE_FAILED",
+  "coverage": {
+    "included_features": 7
+  },
+  "critical_count": 4,
+  "warning_count": 1,
+  "top_risks": [
+    {
+      "id": "GATE-ERROR-001",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-002",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/stage-04-closure-manifest.sha256",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-003",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/CLOSED",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-004",
+      "severity": "CRITICAL",
+      "title": "Missing file: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "GATE-ERROR-001",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-002",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/stage-04-closure-manifest.sha256",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-003",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/CLOSED",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-004",
+      "severity": "CRITICAL",
+      "title": "Missing file: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "key_samples": [
+    {
+      "kind": "feature",
+      "id": "FEAT-INPUT-GUARD"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-ADD"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-DELETE"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-EMPTY-STATE"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-PERSIST"
+    }
+  ],
+  "evidence_links": [
+    "controller/gate-report.json",
+    "phase-04-harmony-implementation/evidence-index.csv"
+  ],
+  "recommended_action": "REWORK"
+}

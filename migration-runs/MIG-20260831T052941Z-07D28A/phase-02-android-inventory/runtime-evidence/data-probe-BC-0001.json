@@ -1,0 +1,112 @@
+{
+ "bc_id": "BC-0001",
+ "serial": "emulator-5554",
+ "package": "com.minitodo.app",
+ "agent": "runtime-oracle-minitodo-r1",
+ "started_at": "2026-08-31T07:48:53Z",
+ "steps": [
+  {
+   "i": 1,
+   "step": [
+    "input",
+    "输入待办标题",
+    "T2A-ADD"
+   ],
+   "ok": true,
+   "note": "input T2A-ADD ok"
+  },
+  {
+   "i": 2,
+   "step": [
+    "tap",
+    "添加"
+   ],
+   "ok": true,
+   "note": "tap 添加 @(931,440)"
+  }
+ ],
+ "reset_fg": {
+  "foreground": "com.minitodo.app/.MainActivity",
+  "in_pkg": true
+ },
+ "reset_ui_texts": [
+  "排序：默认",
+  "暂无待办",
+  "添加",
+  "输入待办标题",
+  "迷你待办"
+ ],
+ "before": {
+  "raw": null,
+  "parsed": {
+   "exists": false,
+   "todos": null,
+   "sort_mode": null
+  }
+ },
+ "status": "STEPS_OK",
+ "after": {
+  "raw": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"todos\">[{&quot;id&quot;:1788162575039,&quot;title&quot;:&quot;T2A-ADD&quot;,&quot;completed&quot;:false,&quot;createdAt&quot;:1788162575039}]</string>\n</map>",
+  "parsed": {
+   "exists": true,
+   "todos": [
+    {
+     "title": "T2A-ADD",
+     "completed": false,
+     "id": 1788162575039,
+     "createdAt": 1788162575039
+    }
+   ],
+   "sort_mode": 0
+  },
+  "note": "read 5s after last step"
+ },
+ "after_stress": {
+  "raw": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"todos\">[{&quot;id&quot;:1788162575039,&quot;title&quot;:&quot;T2A-ADD&quot;,&quot;completed&quot;:false,&quot;createdAt&quot;:1788162575039}]</string>\n</map>",
+  "parsed": {
+   "exists": true,
+   "todos": [
+    {
+     "title": "T2A-ADD",
+     "completed": false,
+     "id": 1788162575039,
+     "createdAt": 1788162575039
+    }
+   ],
+   "sort_mode": 0
+  },
+  "note": "read after dump+screencap stress"
+ },
+ "restart_fg": {
+  "foreground": "com.minitodo.app/.MainActivity",
+  "in_pkg": true
+ },
+ "restart_ui_texts": [
+  "T2A-ADD",
+  "✕",
+  "删除 T2A-ADD",
+  "完成 T2A-ADD",
+  "排序：默认",
+  "添加",
+  "输入待办标题",
+  "迷你待办"
+ ],
+ "restart": {
+  "raw": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"todos\">[{&quot;id&quot;:1788162575039,&quot;title&quot;:&quot;T2A-ADD&quot;,&quot;completed&quot;:false,&quot;createdAt&quot;:1788162575039}]</string>\n</map>",
+  "parsed": {
+   "exists": true,
+   "todos": [
+    {
+     "title": "T2A-ADD",
+     "completed": false,
+     "id": 1788162575039,
+     "createdAt": 1788162575039
+    }
+   ],
+   "sort_mode": 0
+  },
+  "note": "read after force-stop cold restart"
+ },
+ "finished_at": "2026-08-31T07:50:09Z",
+ "exception": null
+}

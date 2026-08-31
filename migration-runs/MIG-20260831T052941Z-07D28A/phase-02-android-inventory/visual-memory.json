@@ -1,0 +1,447 @@
+{
+  "schema_version": "1.0",
+  "generator": "visual_memory",
+  "generated_at": "2026-08-31T10:47:53Z",
+  "workspace": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory",
+  "basis": {
+    "paradigm": "aggregate-from-existing-artifacts (no new capture)",
+    "legacy_reference": "legacy phase-02 per-page screenshot.png + ui.xml + candidates/color-palette.candidates.csv",
+    "snapshot_root": "runtime-evidence/evidence/chains",
+    "runtime_entry_symbols": [
+      "PAGE-MAINACTIVITY-9E8FBE45"
+    ],
+    "surface_to_snapshot_mapping": "feature page/container surface -> its chain before snapshot (entry state); sheet/dialog/reusable-component surface -> after snapshot (post-operation representative state); component surfaces of one feature share the same after snapshot — fine-grained anchors are ui_tree_summary.visible_texts / key_bounds",
+    "chain_pick_rule": "CHAIN_PASS first, then bc_id lexicographic"
+  },
+  "surfaces": [
+    {
+      "surface_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "kind": "page",
+      "features": [
+        "FEAT-INPUT-GUARD",
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0001",
+        "snapshot": "before",
+        "dir": "runtime-evidence/evidence/chains/BC-0001/before",
+        "phase": "before",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0001/before/screenshot.png",
+          "sha256": "0070f43a87ed41ad18133ff141e1e0c3ce558e39b87e606d024f704e1862be06",
+          "bytes": 55707,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0001/before/ui.xml",
+          "sha256": "52bebd5d083eb165d1ea0e52df5199512b64d637ac1e9c0a2fe47d42692e4ea2",
+          "bytes": 6094
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 17,
+        "depth_max": 9,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "EditText",
+          "TextView",
+          "View",
+          "TextView",
+          "Button",
+          "TextView",
+          "View",
+          "TextView",
+          "View",
+          "TextView",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 5,
+          "TextView": 5,
+          "FrameLayout": 2,
+          "Button": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1,
+          "EditText": 1
+        },
+        "visible_texts": [
+          "输入待办标题",
+          "添加",
+          "暂无待办",
+          "迷你待办",
+          "排序：默认"
+        ],
+        "content_descs": [],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "输入待办标题",
+            "bounds": "[88,407][360,473]",
+            "size": {
+              "w": 272,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "添加",
+            "bounds": "[892,413][970,468]",
+            "size": {
+              "w": 78,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "暂无待办",
+            "bounds": "[44,638][196,693]",
+            "size": {
+              "w": 152,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "迷你待办",
+            "bounds": "[44,187][284,274]",
+            "size": {
+              "w": 240,
+              "h": 87
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "排序：默认",
+            "bounds": "[843,204][1036,259]",
+            "size": {
+              "w": 193,
+              "h": 55
+            }
+          }
+        ],
+        "attribute_names": [
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0001/before/ui.xml"
+      }
+    },
+    {
+      "surface_id": "REPOSITORY-TODOREPOSITORY-E71D7690",
+      "kind": "repository",
+      "features": [
+        "FEAT-TODO-PERSIST"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0005",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0005/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0005/after/screenshot.png",
+          "sha256": "577f4d9153e896c670f2dd02a433b18d42e56204f84ea0453e951ffbf0aae38b",
+          "bytes": 124857,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0005/after/ui.xml",
+          "sha256": "8e00d3de16c8bf424650bccc247cb86e4fa6bb209e89f773cf987202206b9263",
+          "bytes": 8548
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 24,
+        "depth_max": 9,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "EditText",
+          "View",
+          "TextView",
+          "View",
+          "TextView",
+          "Button",
+          "View",
+          "CheckBox",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "Button",
+          "View",
+          "TextView",
+          "View",
+          "TextView",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 9,
+          "TextView": 6,
+          "Button": 3,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1,
+          "EditText": 1,
+          "CheckBox": 1
+        },
+        "visible_texts": [
+          "输入待办标题",
+          "添加",
+          "T2A-PERSIST",
+          "✕",
+          "迷你待办",
+          "排序：完成置底"
+        ],
+        "content_descs": [
+          "完成 T2A-PERSIST",
+          "删除 T2A-PERSIST"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "输入待办标题",
+            "bounds": "[88,407][360,473]",
+            "size": {
+              "w": 272,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "添加",
+            "bounds": "[892,413][970,468]",
+            "size": {
+              "w": 78,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "T2A-PERSIST",
+            "bounds": "[176,605][904,650]",
+            "size": {
+              "w": 728,
+              "h": 45
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "✕",
+            "bounds": "[954,601][987,653]",
+            "size": {
+              "w": 33,
+              "h": 52
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "迷你待办",
+            "bounds": "[44,187][284,274]",
+            "size": {
+              "w": 240,
+              "h": 87
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "排序：完成置底",
+            "bounds": "[767,204][1036,259]",
+            "size": {
+              "w": 269,
+              "h": 55
+            }
+          }
+        ],
+        "attribute_names": [
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0005/after/ui.xml"
+      }
+    }
+  ],
+  "global_palette": {
+    "source": "candidates/color-palette.candidates.csv",
+    "basis": "global",
+    "note": "候选表无 per-surface 色值列（源码静态扫描产物）：色值来自 theme/palette 源码定义，Phase 3 主题层结合 surface 的 ui_tree_summary.visible_texts / key_bounds 语义就近映射",
+    "swatch_count": 1,
+    "background_colors": [],
+    "theme_colors": [],
+    "gradients": [],
+    "swatches": [
+      {
+        "candidate_id": "CAND-CP-0001",
+        "name": "no_app_defined_palette_framework_material3_default",
+        "kind": "NONE_FOUND",
+        "origin": {
+          "file": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+          "line": "21"
+        }
+      }
+    ]
+  },
+  "text_sizes": {
+    "available": false,
+    "note": "uiautomator dump carries no font-size attribute (Compose nodes expose no textSize); Phase 3 theme layer should derive sizes from design tokens / Phase 4 visual walkthrough",
+    "ui_attribute_names_probe": [
+      "bounds",
+      "checkable",
+      "checked",
+      "class",
+      "clickable",
+      "content-desc",
+      "drawing-order",
+      "enabled",
+      "focusable",
+      "focused",
+      "hint",
+      "index",
+      "long-clickable",
+      "package",
+      "password",
+      "resource-id",
+      "scrollable",
+      "selected",
+      "text"
+    ]
+  },
+  "coverage": {
+    "features_total": 7,
+    "features_with_runtime_snapshot": [
+      "FEAT-TODO-ADD",
+      "FEAT-TODO-DELETE",
+      "FEAT-TODO-EMPTY-STATE",
+      "FEAT-TODO-PERSIST",
+      "FEAT-TODO-SORT",
+      "FEAT-TODO-TOGGLE"
+    ],
+    "features_without_runtime_snapshot": [
+      "FEAT-INPUT-GUARD"
+    ],
+    "surfaces_total": 2,
+    "surfaces_with_snapshot": 2,
+    "surface_coverage_pct": 100.0,
+    "per_feature": [
+      {
+        "feature_id": "FEAT-TODO-ADD",
+        "surfaces": 1,
+        "with_snapshot": 1,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-TODO-TOGGLE",
+        "surfaces": 1,
+        "with_snapshot": 1,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-TODO-DELETE",
+        "surfaces": 1,
+        "with_snapshot": 1,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-TODO-SORT",
+        "surfaces": 1,
+        "with_snapshot": 1,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-TODO-PERSIST",
+        "surfaces": 2,
+        "with_snapshot": 2,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-TODO-EMPTY-STATE",
+        "surfaces": 1,
+        "with_snapshot": 1,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-INPUT-GUARD",
+        "surfaces": 1,
+        "with_snapshot": 1,
+        "direct_chain": null
+      }
+    ]
+  }
+}

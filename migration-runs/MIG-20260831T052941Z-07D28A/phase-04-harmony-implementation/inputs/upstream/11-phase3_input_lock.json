@@ -1,0 +1,520 @@
+{
+  "schema_version": "scaffold-v3",
+  "paradigm": "feature-semantic",
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "project_id": "MINITODO",
+  "locked_at": "2026-08-31T11:25:57Z",
+  "locked_by": "architect-lead-minitodo-r1",
+  "work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "ownership": {
+    "architecture_lead_id": "architect-lead-minitodo-r1",
+    "toolchain_agent_id": "toolchain-agent-minitodo-r1",
+    "navigation_agent_id": "nav-agent-minitodo-r1",
+    "public_ui_agent_id": "public-ui-agent-minitodo-r1",
+    "capability_contract_agent_id": "capability-agent-minitodo-r1",
+    "architecture_acceptance_agent_id": "acceptance-agent-minitodo-r1"
+  },
+  "gate_mode": "feature-semantic",
+  "inputs": {
+    "feature_map": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/feature-map.json",
+      "sha256": "3a9f2387b0694bf899bcb40dd26c6d828508d1598c2e08650eafae8cc91e24bf",
+      "feature_count": 7,
+      "surface_count": 2
+    },
+    "navigation_relations": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/candidates/navigation-relations.candidates.csv",
+      "sha256": "b71aa4ad3712afefefb97cf799ad615ae6941f50640624cea21fa323bd09fc92",
+      "row_count": 0
+    },
+    "data_relations": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/data-relations.csv",
+      "sha256": "711eac5c019e8d5f9b83ff802e0418b79eb91c13c52348061ec6850871fdfb54",
+      "row_count": 17,
+      "rows_skipped_empty_object": 0,
+      "semantic_object_count": 4
+    },
+    "scope": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/controller/scope.json",
+      "sha256": "0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1",
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/inputs/controller-scope.json"
+    },
+    "phase2_gate": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/inputs/phase-02-gate-report.json",
+      "sha256": "3cb15309811092a150334fa1098b4f3a39d7fecee8ca793e243014715f685f7e"
+    },
+    "phase2_closure": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-2-closure.json",
+      "sha256": "eb708c87801b561f5ecfd1ce1072b315e35db4e2ed6f6b404ae9fbfd0428485f",
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/inputs/phase-02-gmi-closure.json"
+    },
+    "phase3_work_order": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/inputs/phase-03-work-order.json",
+      "sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f"
+    }
+  },
+  "included_feature_ids": [
+    "FEAT-INPUT-GUARD",
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-EMPTY-STATE",
+    "FEAT-TODO-PERSIST",
+    "FEAT-TODO-SORT",
+    "FEAT-TODO-TOGGLE"
+  ],
+  "excluded_feature_ids": [
+    "FEAT-SYSTEM-BACKUP"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-MAINACTIVITY-3FDE9431",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-TODO-ADD",
+      "shell_symbol": "ShellPageMainactivity3fde9431",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageMainactivity3fde9431.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "REPOSITORY-TODOREPOSITORY-E71D7690",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-TODO-PERSIST",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    }
+  ],
+  "surface_plan_stats": {
+    "surface_count": 2,
+    "route_count": 1,
+    "modal_count": 0,
+    "passthrough_count": 1,
+    "nav_row_count": 0,
+    "nav_edge_kept": 0,
+    "nav_pages_skipped": 0,
+    "ui_blueprint_surface_count": 2,
+    "ui_blueprint_visual_memory_covered": 2
+  },
+  "data_contracts": [
+    {
+      "feature_id": "FEAT-INPUT-GUARD",
+      "data_object": "input_state",
+      "interface": "InputStateRepository",
+      "object_id": "input_state",
+      "raw_name": "input_state",
+      "repository_symbol": "InputStateRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "",
+          "in-memory Compose state（非持久化，重启即空）"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-INPUT-GUARD",
+        "FEAT-TODO-ADD"
+      ],
+      "contract_file": "data-contracts/input_state.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-ADD",
+      "data_object": "input_state",
+      "interface": "InputStateRepository",
+      "object_id": "input_state",
+      "raw_name": "input_state",
+      "repository_symbol": "InputStateRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "",
+          "in-memory Compose state（非持久化，重启即空）"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-INPUT-GUARD",
+        "FEAT-TODO-ADD"
+      ],
+      "contract_file": "data-contracts/input_state.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-PERSIST",
+      "data_object": "sort_mode",
+      "interface": "SortModeRepository",
+      "object_id": "sort_mode",
+      "raw_name": "sort_mode",
+      "repository_symbol": "SortModeRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/sort_mode"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT"
+      ],
+      "contract_file": "data-contracts/sort_mode.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-SORT",
+      "data_object": "sort_mode",
+      "interface": "SortModeRepository",
+      "object_id": "sort_mode",
+      "raw_name": "sort_mode",
+      "repository_symbol": "SortModeRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/sort_mode"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT"
+      ],
+      "contract_file": "data-contracts/sort_mode.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-ADD",
+      "data_object": "todo.title",
+      "interface": "TodoTitleRepository",
+      "object_id": "todo_title",
+      "raw_name": "todo.title",
+      "repository_symbol": "TodoTitleRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos[].title（随 todos JSON 数组落盘）"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todo_title.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-DELETE",
+      "data_object": "todo.title",
+      "interface": "TodoTitleRepository",
+      "object_id": "todo_title",
+      "raw_name": "todo.title",
+      "repository_symbol": "TodoTitleRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos[].title（随 todos JSON 数组落盘）"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todo_title.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-TOGGLE",
+      "data_object": "todo.title",
+      "interface": "TodoTitleRepository",
+      "object_id": "todo_title",
+      "raw_name": "todo.title",
+      "repository_symbol": "TodoTitleRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos[].title（随 todos JSON 数组落盘）"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todo_title.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-ADD",
+      "data_object": "todos",
+      "interface": "TodosRepository",
+      "object_id": "todos",
+      "raw_name": "todos",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todos.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-DELETE",
+      "data_object": "todos",
+      "interface": "TodosRepository",
+      "object_id": "todos",
+      "raw_name": "todos",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todos.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-EMPTY-STATE",
+      "data_object": "todos",
+      "interface": "TodosRepository",
+      "object_id": "todos",
+      "raw_name": "todos",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todos.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-PERSIST",
+      "data_object": "todos",
+      "interface": "TodosRepository",
+      "object_id": "todos",
+      "raw_name": "todos",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todos.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-SORT",
+      "data_object": "todos",
+      "interface": "TodosRepository",
+      "object_id": "todos",
+      "raw_name": "todos",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todos.json"
+    },
+    {
+      "feature_id": "FEAT-TODO-TOGGLE",
+      "data_object": "todos",
+      "interface": "TodosRepository",
+      "object_id": "todos",
+      "raw_name": "todos",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "SharedPreferences(minitodo_prefs)/todos"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "contract_file": "data-contracts/todos.json"
+    }
+  ],
+  "capability_seeds": [
+    {
+      "capability_id": "CAP-DATA-INPUTSTATEREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/input_state.json",
+      "repository_symbol": "InputStateRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-INPUT-GUARD",
+        "FEAT-TODO-ADD"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-SORTMODEREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/sort_mode.json",
+      "repository_symbol": "SortModeRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-TODOTITLEREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/todo_title.json",
+      "repository_symbol": "TodoTitleRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-TOGGLE"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-TODOSREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/todos.json",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ]
+    }
+  ],
+  "obligations": [],
+  "obligations_note": "v3 does not consume probe/audit obligations chains",
+  "retired_inputs_note": "paradigm v3 retired inputs: closure-report.json/CLOSED/acceptance-registry.csv/evidence-anchors.snapshot.csv four-way chain, inventory.csv 26-column page rows, audit-replay/evidence-index consumption",
+  "arkui_template": {
+    "template_id": "ARKUI-STAGE-TEMPLATE-V1",
+    "manifest_path": "inputs/arkui-stage-template.manifest.sha256",
+    "file_count": 41,
+    "manifest_sha256": "8d721d373d2e830a436017da6b933b465be6690600489fcba54c3a938fd7371b"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "probe_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "registry_relative_path": "entry/src/main/ets/probe/SemanticProbeRegistry.ets",
+    "registry_sha256": "396afcfa622827edaa9c0245f0277c9feab8f2644dfebc370652c9c2b1e1e7fb",
+    "probe_keys": [
+      "input_state",
+      "sort_mode",
+      "todo_title",
+      "todos"
+    ],
+    "snapshot_filename": "semantic-probe.json",
+    "hilog_tag": "SemanticProbe"
+  }
+}

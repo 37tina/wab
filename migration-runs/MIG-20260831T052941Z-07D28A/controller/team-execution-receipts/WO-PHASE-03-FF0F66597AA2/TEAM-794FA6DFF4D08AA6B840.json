@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-794FA6DFF4D08AA6B840",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "role_key": "architecture_lead_id",
+  "actor_id": "architect-lead-minitodo-r1",
+  "platform_task_id": "ses_fa87bfc60ffecc8Sw8F946Dvuw-ARCH",
+  "started_at": "2026-08-31T11:11:00Z",
+  "ended_at": "2026-08-31T11:52:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T12:03:20Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/stage-03-input-lock.json",
+      "sha256": "ad7f8d44710e5c057016b0956a7273d58cb6eeb9665ccf7e8a43bde8b7115d17"
+    }
+  ]
+}

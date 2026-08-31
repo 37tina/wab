@@ -112,6 +112,10 @@ export interface Project {
   activeSessionId?: string;
   /** 本项目 AgentTeam 执行模型（providerID::modelID，空=跟随全局默认） */
   runModel?: string;
+  /** 外部驱动模式：工单由外部（迁移总控）直接经 API 发往内核，网页仅镜像状态、不自动发单 */
+  externalDrive?: boolean;
+  /** 后端镜像配方版本（版本更新时强制重建本地项目，修复历史污染状态） */
+  mirrorVersion?: number;
   targetPlatform?: TargetPlatform;
   features: Feature[];
   phases: Phase[];
@@ -119,6 +123,8 @@ export interface Project {
 
 
 export interface ProjectInput {
+  /** 指定项目 ID（跨浏览器镜像恢复时保持 URL 不变）；缺省按时间戳生成 */
+  id?: string;
   name: string;
   sourceType: "github" | "zip";
   sourceValue: string;
@@ -127,6 +133,7 @@ export interface ProjectInput {
   sourcePlatform?: SourcePlatform;
   targetPlatform?: TargetPlatform;
   runModel?: string;
+  externalDrive?: boolean;
 }
 
 export interface MigrationService {

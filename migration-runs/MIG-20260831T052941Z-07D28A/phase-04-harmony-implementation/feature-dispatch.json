@@ -1,0 +1,245 @@
+{
+  "created_at": "2026-08-31T12:44:57Z",
+  "created_by": "impl-lead-minitodo-r1",
+  "dispatch": [
+    {
+      "bc_ids": [
+        "BC-0001"
+      ],
+      "data_reads": [
+        "input_state"
+      ],
+      "data_relation_ids": [
+        "REL-0001",
+        "REL-0002",
+        "REL-0003",
+        "REL-0004"
+      ],
+      "data_writes": [
+        "todos",
+        "input_state"
+      ],
+      "feature_id": "FEAT-TODO-ADD",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0001"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0002"
+      ],
+      "data_reads": [
+        "todo.title"
+      ],
+      "data_relation_ids": [
+        "REL-0005",
+        "REL-0006"
+      ],
+      "data_writes": [
+        "todos"
+      ],
+      "feature_id": "FEAT-TODO-TOGGLE",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0002"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0003"
+      ],
+      "data_reads": [
+        "todo.title"
+      ],
+      "data_relation_ids": [
+        "REL-0007",
+        "REL-0008"
+      ],
+      "data_writes": [
+        "todos"
+      ],
+      "feature_id": "FEAT-TODO-DELETE",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0003"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0004"
+      ],
+      "data_reads": [
+        "todos",
+        "sort_mode"
+      ],
+      "data_relation_ids": [
+        "REL-0009",
+        "REL-0010",
+        "REL-0011"
+      ],
+      "data_writes": [
+        "sort_mode"
+      ],
+      "feature_id": "FEAT-TODO-SORT",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0004"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0005"
+      ],
+      "data_reads": [
+        "todos",
+        "sort_mode"
+      ],
+      "data_relation_ids": [
+        "REL-0012",
+        "REL-0013",
+        "REL-0014",
+        "REL-0015"
+      ],
+      "data_writes": [
+        "todos",
+        "sort_mode"
+      ],
+      "feature_id": "FEAT-TODO-PERSIST",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0005"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        },
+        {
+          "id": "REPOSITORY-TODOREPOSITORY-E71D7690",
+          "is_container": false,
+          "kind": "reusable-component"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0006"
+      ],
+      "data_reads": [
+        "todos"
+      ],
+      "data_relation_ids": [
+        "REL-0016"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-TODO-EMPTY-STATE",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0006"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0007"
+      ],
+      "data_reads": [
+        "input_state"
+      ],
+      "data_relation_ids": [
+        "REL-0017"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-INPUT-GUARD",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    }
+  ],
+  "schema_version": 1,
+  "shared_data_relation_ids": [],
+  "work_order_id": "WO-PHASE-04-E8F3205C2B9E"
+}

@@ -21,3 +21,16 @@ Thumbs.db
 
 # 本地治理测试数据
 backend/skill-proposals.json
+
+# 第三方工具仓库（ws-scrcpy 为外部 clone，体积大不入库）
+tools/
+# Android 构建产物
+android/*/app/build/
+android/*/.gradle/
+android/*/build/
+android/*/local.properties
+# 运行时镜像文件
+backend/.mirror-*.json
+# 模拟器/系统临时文件
+*.log
+.DS_Store

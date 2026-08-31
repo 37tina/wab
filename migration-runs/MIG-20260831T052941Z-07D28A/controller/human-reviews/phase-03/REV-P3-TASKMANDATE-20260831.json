@@ -1,0 +1,11 @@
+{
+  "review_id": "REV-P3-TASKMANDATE-20260831",
+  "phase": 3,
+  "decision": "APPROVED",
+  "reviewer": "migration-total-controller",
+  "gate_report_relative_path": "controller/gate-report.json",
+  "gate_report_sha256": "5ff8e85f01ca0f5a651c0e86cfb90c1c830d365c991db44262e6ec0fe532ad63",
+  "reason": "总控 Phase 4 任务书（task-mandate）明示：『Phase 3 已终验通过（Gate 3 PASS 0 error；蓝图三字段/13 条数据契约/签名 hap verify PASS/HVER 封印/CLOSED）』并授权执行 Phase 4。本记录为已发生授权事实的如实转录。",
+  "deviations": [],
+  "recorded_at": "2026-08-31T12:02:57Z"
+}

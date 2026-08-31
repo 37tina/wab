@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "dynamic_risks": [],
+  "side_effects": [
+    {
+      "candidate_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-ACD93EF2",
+      "effect_type": "PREFERENCES",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_symbol": "TodoRepository",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:8",
+      "operation": "SharedPreferences。",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "required_probe": "PREFERENCES",
+      "status": "OPEN"
+    },
+    {
+      "candidate_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-AD66444A",
+      "effect_type": "PREFERENCES",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_symbol": "TodoRepository",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:57",
+      "operation": ".edit().putInt(KEY_SORT, mode).apply()",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "required_probe": "PREFERENCES",
+      "status": "OPEN"
+    },
+    {
+      "candidate_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-B8199819",
+      "effect_type": "PREFERENCES",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_symbol": "TodoRepository",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:51",
+      "operation": ".edit().putString(KEY_TODOS, array.toString()).apply()",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "required_probe": "PREFERENCES",
+      "status": "OPEN"
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-1840B72A",
+      "scenario_type": "RETURNING_USER",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:57",
+      "prerequisite_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-AD66444A",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "reset_required": true,
+      "status": "OPEN"
+    },
+    {
+      "scenario_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-35AE3DDD",
+      "scenario_type": "RETURNING_USER",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:8",
+      "prerequisite_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-ACD93EF2",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "reset_required": true,
+      "status": "OPEN"
+    },
+    {
+      "scenario_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-36C78D67",
+      "scenario_type": "FIRST_RUN",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:57",
+      "prerequisite_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-AD66444A",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "reset_required": true,
+      "status": "OPEN"
+    },
+    {
+      "scenario_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-92921D4B",
+      "scenario_type": "RETURNING_USER",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:51",
+      "prerequisite_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-B8199819",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "reset_required": true,
+      "status": "OPEN"
+    },
+    {
+      "scenario_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-C153213C",
+      "scenario_type": "FIRST_RUN",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:51",
+      "prerequisite_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-B8199819",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "reset_required": true,
+      "status": "OPEN"
+    },
+    {
+      "scenario_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-DB432027",
+      "scenario_type": "FIRST_RUN",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:8",
+      "prerequisite_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-ACD93EF2",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "reset_required": true,
+      "status": "OPEN"
+    }
+  ]
+}

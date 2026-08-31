@@ -1,0 +1,631 @@
+{
+  "controller_gate3_snapshot_sha256": "5ff8e85f01ca0f5a651c0e86cfb90c1c830d365c991db44262e6ec0fe532ad63",
+  "created_at": "2026-08-31T12:44:57Z",
+  "feature_dispatch": {
+    "relative_path": "feature-dispatch.json",
+    "sha256": "f155913bc0f2587d73ce0747bd2fba2b8ddf166780f06926d9cfdde1eafb96f2"
+  },
+  "feature_manifest": [
+    {
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "bc_ids": [
+        "BC-0001"
+      ],
+      "data_reads": [
+        "input_state"
+      ],
+      "data_relation_ids": [
+        "REL-0001",
+        "REL-0002",
+        "REL-0003",
+        "REL-0004"
+      ],
+      "data_writes": [
+        "todos",
+        "input_state"
+      ],
+      "feature_id": "FEAT-TODO-ADD",
+      "harmony_steps": [],
+      "must_read": {
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:92",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:94",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:97",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:98",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:99",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:51"
+        ],
+        "behavior_contract_ids": [
+          "BC-0001"
+        ],
+        "data_relations": [
+          "REL-0001",
+          "REL-0002",
+          "REL-0003",
+          "REL-0004"
+        ],
+        "p3_surface_plan": [],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0001"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "GAP": 0,
+        "SOURCE_CONFIRMED": 0
+      },
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0001"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page"
+        }
+      ],
+      "verify_mode": "RUNTIME"
+    },
+    {
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "bc_ids": [
+        "BC-0002"
+      ],
+      "data_reads": [
+        "todo.title"
+      ],
+      "data_relation_ids": [
+        "REL-0005",
+        "REL-0006"
+      ],
+      "data_writes": [
+        "todos"
+      ],
+      "feature_id": "FEAT-TODO-TOGGLE",
+      "harmony_steps": [],
+      "must_read": {
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:113",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:116",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:117",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:146",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:151"
+        ],
+        "behavior_contract_ids": [
+          "BC-0002"
+        ],
+        "data_relations": [
+          "REL-0005",
+          "REL-0006"
+        ],
+        "p3_surface_plan": [],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0002"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "GAP": 0,
+        "SOURCE_CONFIRMED": 0
+      },
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0002"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME"
+    },
+    {
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "bc_ids": [
+        "BC-0003"
+      ],
+      "data_reads": [
+        "todo.title"
+      ],
+      "data_relation_ids": [
+        "REL-0007",
+        "REL-0008"
+      ],
+      "data_writes": [
+        "todos"
+      ],
+      "feature_id": "FEAT-TODO-DELETE",
+      "harmony_steps": [],
+      "must_read": {
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:120",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:121",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:122",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:155",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:157"
+        ],
+        "behavior_contract_ids": [
+          "BC-0003"
+        ],
+        "data_relations": [
+          "REL-0007",
+          "REL-0008"
+        ],
+        "p3_surface_plan": [],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0003"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "GAP": 0,
+        "SOURCE_CONFIRMED": 0
+      },
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0003"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME"
+    },
+    {
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "bc_ids": [
+        "BC-0004"
+      ],
+      "data_reads": [
+        "todos",
+        "sort_mode"
+      ],
+      "data_relation_ids": [
+        "REL-0009",
+        "REL-0010",
+        "REL-0011"
+      ],
+      "data_writes": [
+        "sort_mode"
+      ],
+      "feature_id": "FEAT-TODO-SORT",
+      "harmony_steps": [],
+      "must_read": {
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:63",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:65",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:68",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:71",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:110",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:133",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:57"
+        ],
+        "behavior_contract_ids": [
+          "BC-0004"
+        ],
+        "data_relations": [
+          "REL-0009",
+          "REL-0010",
+          "REL-0011"
+        ],
+        "p3_surface_plan": [],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0004"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "GAP": 0,
+        "SOURCE_CONFIRMED": 0
+      },
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0004"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME"
+    },
+    {
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "bc_ids": [
+        "BC-0005"
+      ],
+      "data_reads": [
+        "todos",
+        "sort_mode"
+      ],
+      "data_relation_ids": [
+        "REL-0012",
+        "REL-0013",
+        "REL-0014",
+        "REL-0015"
+      ],
+      "data_writes": [
+        "todos",
+        "sort_mode"
+      ],
+      "feature_id": "FEAT-TODO-PERSIST",
+      "harmony_steps": [],
+      "must_read": {
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:42",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:52",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:53",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:99",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:19",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:51",
+          "app/src/main/java/com/minitodo/app/TodoRepository.kt:54"
+        ],
+        "behavior_contract_ids": [
+          "BC-0005"
+        ],
+        "data_relations": [
+          "REL-0012",
+          "REL-0013",
+          "REL-0014",
+          "REL-0015"
+        ],
+        "p3_surface_plan": [],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0005"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431",
+          "REPOSITORY-TODOREPOSITORY-E71D7690"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "GAP": 0,
+        "SOURCE_CONFIRMED": 0
+      },
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0005"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        },
+        {
+          "id": "REPOSITORY-TODOREPOSITORY-E71D7690",
+          "is_container": false,
+          "kind": "reusable-component"
+        }
+      ],
+      "verify_mode": "RUNTIME"
+    },
+    {
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "bc_ids": [
+        "BC-0006"
+      ],
+      "data_reads": [
+        "todos"
+      ],
+      "data_relation_ids": [
+        "REL-0016"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-TODO-EMPTY-STATE",
+      "harmony_steps": [],
+      "must_read": {
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:106",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:107",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:109"
+        ],
+        "behavior_contract_ids": [
+          "BC-0006"
+        ],
+        "data_relations": [
+          "REL-0016"
+        ],
+        "p3_surface_plan": [],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0006"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "GAP": 0,
+        "SOURCE_CONFIRMED": 0
+      },
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0006"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "RUNTIME"
+    },
+    {
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "bc_ids": [
+        "BC-0007"
+      ],
+      "data_reads": [
+        "input_state"
+      ],
+      "data_relation_ids": [
+        "REL-0017"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-INPUT-GUARD",
+      "harmony_steps": [],
+      "must_read": {
+        "android_source_refs": [
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:94",
+          "app/src/main/java/com/minitodo/app/MainActivity.kt:95"
+        ],
+        "behavior_contract_ids": [
+          "BC-0007"
+        ],
+        "data_relations": [
+          "REL-0017"
+        ],
+        "p3_surface_plan": [],
+        "runtime_evidence_refs": [],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "GAP": 0,
+        "SOURCE_CONFIRMED": 1
+      },
+      "risk_level": "normal",
+      "runtime_bc_ids": [],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page",
+          "relation": "behavior-host"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM"
+    }
+  ],
+  "h4envs": [
+    {
+      "base_henv_id": "HENV-001-P3",
+      "device_id": "HDEVICE-001",
+      "h4env_id": "H4ENV-001-P4",
+      "relative_path": "environments/H4ENV-001-P4/phase4-environment.json",
+      "sha256": "90ea2f776487a4e4c815a27fe57c4d274713c25b2437a4fc51bbfb9e70d5ae3e",
+      "source_android_env_id": "ENV-001"
+    }
+  ],
+  "implementation_ledger": {
+    "relative_path": "implementation-ledger.csv",
+    "sha256": "d790abf7f553ab6f41ca15c6c56d33a6ac3084165c44382fa789a241b776bed2"
+  },
+  "inputs": [
+    {
+      "label": "controller-scope",
+      "sha256": "0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1",
+      "size": 12125,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/01-controller-scope.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/controller/scope.json"
+    },
+    {
+      "label": "phase4-work-order",
+      "sha256": "632ff1b9b7fe937c0ccaeaed3d97edefab48c9e72c3c15561908668b37b5d7dc",
+      "size": 17230,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/02-phase4-work-order.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/controller/work-orders/WO-PHASE-04-E8F3205C2B9E.json"
+    },
+    {
+      "label": "controller-gate3-snapshot",
+      "sha256": "5ff8e85f01ca0f5a651c0e86cfb90c1c830d365c991db44262e6ec0fe532ad63",
+      "size": 1369,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/03-controller-gate3-snapshot.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/controller/work-orders/WO-PHASE-04-E8F3205C2B9E.phase-03-gate-report.json"
+    },
+    {
+      "label": "phase3-work-order",
+      "sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+      "size": 2625,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/04-phase3-work-order.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/controller/work-orders/WO-PHASE-03-FF0F66597AA2.json"
+    },
+    {
+      "label": "phase2_feature_map",
+      "sha256": "3a9f2387b0694bf899bcb40dd26c6d828508d1598c2e08650eafae8cc91e24bf",
+      "size": 9072,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/05-phase2_feature_map.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/feature-map.json"
+    },
+    {
+      "label": "phase2_behavior_contracts",
+      "sha256": "51e38d0b0b83be394f3583c9204a17ca3bec485471563ba354fc894bb6f92340",
+      "size": 9380,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/06-phase2_behavior_contracts.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/behavior-contracts.csv"
+    },
+    {
+      "label": "phase2_data_relations",
+      "sha256": "711eac5c019e8d5f9b83ff802e0418b79eb91c13c52348061ec6850871fdfb54",
+      "size": 2785,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/07-phase2_data_relations.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/data-relations.csv"
+    },
+    {
+      "label": "phase2_reconciliation",
+      "sha256": "dc57bad4b91f0f56ce86c491f9cfb8f3f57f70a283097dd89f2af0e4a86a2e1c",
+      "size": 1225,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/08-phase2_reconciliation.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/reconciliation.csv"
+    },
+    {
+      "label": "phase2_runtime_chains",
+      "sha256": "3107fc255387131bc27373d9f0dc02b81051f179d0bea1f928daa9182454927f",
+      "size": 2940,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/09-phase2_runtime_chains.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/runtime-evidence/runtime-chains.csv"
+    },
+    {
+      "label": "phase2_closure",
+      "sha256": "e02a190be53f8f768f54a4084332607c75119a7944a3b8ad97fe7e75e72f6a64",
+      "size": 1930,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/10-phase2_closure.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/phase-2-closure.json"
+    },
+    {
+      "label": "phase3_input_lock",
+      "sha256": "ad7f8d44710e5c057016b0956a7273d58cb6eeb9665ccf7e8a43bde8b7115d17",
+      "size": 15523,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/11-phase3_input_lock.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/stage-03-input-lock.json"
+    },
+    {
+      "label": "phase3_gate_report",
+      "sha256": "0c72ba84cab880b4d8e461d3ab113d26bf570093d9705d550e62ae4c6c2c9496",
+      "size": 2333,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/12-phase3_gate_report.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/stage-03-gate-report.json"
+    },
+    {
+      "label": "phase3_closure_manifest",
+      "sha256": "5a95bd223322be17e9aa6747752c66b72e3ab3ab67d220f3bc42bad5dbe986cd",
+      "size": 12455,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/13-phase3_closure_manifest.sha256",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/stage-03-closure-manifest.sha256"
+    },
+    {
+      "label": "phase3_closed",
+      "sha256": "db26c496593842dad0727a65ac1425a1777cb4064ad6a2ed8b8bd775b4e69445",
+      "size": 65,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/14-phase3_closed.bin",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/CLOSED"
+    },
+    {
+      "label": "phase3_scaffold_snapshot",
+      "sha256": "da525ed6e6090132d2b5bb2f89ad54598663cfdd354e2b1c009f2e5753a449f8",
+      "size": 11006,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/15-phase3_scaffold_snapshot.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/scaffold-snapshot-manifest.json"
+    },
+    {
+      "label": "phase3_module_registry",
+      "sha256": "3c147db55a1a9fb0b59b3677c1987f4695a4cf5da7bff87dc353de704d379ca6",
+      "size": 124,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/16-phase3_module_registry.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/module-registry.csv"
+    },
+    {
+      "label": "phase3_route_registry",
+      "sha256": "bbe2a4ae4148ee5fc951d8c4a66ca7a7c75901829301a987da0bfb0681c3e439",
+      "size": 719,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/17-phase3_route_registry.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/route-registry.csv"
+    },
+    {
+      "label": "phase3_surface_registry",
+      "sha256": "79636ed9d4382c541f0611373eb8b54fc11cff82148c228955ef1e711643b441",
+      "size": 134,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/18-phase3_surface_registry.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/surface-registry.csv"
+    },
+    {
+      "label": "phase3_capability_contracts",
+      "sha256": "0de8fa37f25219dd34ca136f4ef93fc58857d54cd06119409e7f284a85af63d5",
+      "size": 1453,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/19-phase3_capability_contracts.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/capability-contracts.csv"
+    },
+    {
+      "label": "phase3_henv_registry",
+      "sha256": "ba6128cde342a6d8219a161966fa742e92913d2aba4cf0207c74f489baf69e4b",
+      "size": 188,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/20-phase3_henv_registry.csv",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/environments/henv-registry.csv"
+    },
+    {
+      "label": "phase3-henv-HENV-001-P3",
+      "sha256": "4c6bac3581b58afa0dc3e58cca17003d1f077dc45eb6555ddd6e198c23921e2f",
+      "size": 8694,
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/inputs/upstream/21-phase3-henv-HENV-001-P3.json",
+      "source_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-03-harmony-scaffold/environments/HENV-001-P3/harmony-environment.json"
+    }
+  ],
+  "locked_by": "impl-lead-minitodo-r1",
+  "ownership": {
+    "implementation_lead_id": "impl-lead-minitodo-r1",
+    "parity_acceptance_agent_id": "parity-accept-minitodo-r1",
+    "verification_executor_id": "verify-exec-minitodo-r1",
+    "visual_asset_agent_id": "visual-asset-minitodo-r1"
+  },
+  "phase3_source_snapshot_sha256": "7e5a709f3696cae8b931f98a176141faa2f47e8786e21240e35116b53067c841",
+  "phase3_work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "phase3_work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "required_h4env_ids": [
+    "H4ENV-001-P4"
+  ],
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "schema_version": "2.0",
+  "shared_data_relation_ids": [],
+  "stage": 4,
+  "surface_contracts": {
+    "fields": [
+      "feature_id",
+      "surfaces",
+      "entry_reachable",
+      "nav_pattern",
+      "native_impl_check",
+      "notes"
+    ],
+    "relative_path": "surface-contracts.csv",
+    "sha256": "3187f539070b92dee025739df4b6205f208ab0f28bc0f2a6c1e02ad747ddb364"
+  },
+  "work_order_id": "WO-PHASE-04-E8F3205C2B9E",
+  "work_order_sha256": "632ff1b9b7fe937c0ccaeaed3d97edefab48c9e72c3c15561908668b37b5d7dc"
+}

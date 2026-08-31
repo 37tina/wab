@@ -1,0 +1,57 @@
+{
+  "generator": "gmi_closure",
+  "workspace": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory",
+  "closure_at": "2026-08-31T10:50:47Z",
+  "gaps": [],
+  "conflicts_explained": [],
+  "gate": {
+    "unmapped": 0,
+    "feature_coverage": {
+      "required": true,
+      "ok": true,
+      "included": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-TOGGLE",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-INPUT-GUARD"
+      ],
+      "covered": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-TOGGLE",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-INPUT-GUARD"
+      ],
+      "missing": []
+    },
+    "completeness_rows": 10,
+    "completeness_missing_total": 5,
+    "completeness_na_total": 4,
+    "audit_discrepancy": 0,
+    "visited": 6,
+    "visited_rows": 0,
+    "not_entered": 0,
+    "not_entered_rows": 0,
+    "pages_total": 6,
+    "pages_visited_pct": 100.0,
+    "chain_mode": true,
+    "chains_total": 6,
+    "chains_pass": 6,
+    "chains_fail_blocked": 0
+  },
+  "artifact_hashes": {
+    "candidates_dir_sha256": "223796e6eee82935ef765f21f7cd27754bcf7f354732400568ad907cead00cf6",
+    "coverage_ledger_sha256": "9cecd716608b23a49bef2c95c7b24e2af4a8e4e392af78debf5df8eb9a7be5ce",
+    "runtime_evidence_dir_sha256": "",
+    "behavior_contracts_sha256": "51e38d0b0b83be394f3583c9204a17ca3bec485471563ba354fc894bb6f92340",
+    "phase2_report_sha256": "851ec3407af00bc55d4d8f561bb639d96e1bb09be2d626985b08a5d4b806223e",
+    "reconciliation_sha256": "dc57bad4b91f0f56ce86c491f9cfb8f3f57f70a283097dd89f2af0e4a86a2e1c",
+    "runtime_chains_sha256": "3107fc255387131bc27373d9f0dc02b81051f179d0bea1f928daa9182454927f",
+    "visual_memory_sha256": "86fb0fa30e2458b4a7e7fe2de98aa049ce91aa6d51d011f1ceb757da58adc920"
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh">
+<head><meta charset="utf-8"><title>decode test</title></head>
+<body style="font: 12px monospace; background: #111; color: #9f9">
+<pre id="out">loading…</pre>
+<canvas id="cv"></canvas>
+<script>
+(async () => {
+  const out = document.getElementById("out");
+  const log = (m) => { out.textContent += "\n" + m; };
+  const res = await fetch("/test.h264");
+  const buf = new Uint8Array(await res.arrayBuffer());
+  log(`fetched ${buf.length} bytes`);
+  // 解析全部 NAL
+  const pos = [];
+  let start = -1;
+  let i = 0;
+  while (i < buf.length - 3) {
+    if (buf[i] === 0 && buf[i + 1] === 0 && buf[i + 2] === 1) { if (start >= 0) pos.push([start, i - start]); start = i; i += 3; }
+    else if (buf[i] === 0 && buf[i + 1] === 0 && buf[i + 2] === 0 && buf[i + 3] === 1) { if (start >= 0) pos.push([start, i - start]); start = i; i += 4; }
+    else i++;
+  }
+  const types = {};
+  for (const [p, len] of pos) {
+    let off = 0;
+    if (buf[p] === 0 && buf[p + 1] === 0 && buf[p + 2] === 1) off = 3;
+    else off = 4;
+    const t = buf[p + off] & 0x1f;
+    types[t] = (types[t] || 0) + 1;
+  }
+  log("NAL 类型统计: " + JSON.stringify(types));
+  if (!("VideoDecoder" in window)) { log("无 VideoDecoder!"); return; }
+  let dec = null;
+  let decoded = 0, outputs = 0, errs = 0;
+  const cv = document.getElementById("cv");
+  let cfgErr = "";
+  for (const [p, len] of pos) {
+    let off = 4;
+    if (buf[p + 2] === 1) off = 3;
+    const t = buf[p + off] & 0x1f;
+    if (t === 7 && !dec) {
+      const codec = `avc1.${buf[p + off + 1].toString(16).padStart(2, "0")}${buf[p + off + 2].toString(16).padStart(2, "0")}${buf[p + off + 3].toString(16).padStart(2, "0")}`;
+      try {
+        dec = new VideoDecoder({
+          output: (f) => {
+            outputs++;
+            if (cv.width !== f.displayWidth) { cv.width = f.displayWidth; cv.height = f.displayHeight; }
+            cv.getContext("2d").drawImage(f, 0, 0);
+            f.close();
+          },
+          error: (e) => { errs++; log("decoder error: " + e); },
+        });
+        dec.configure({ codec, optimizeForLatency: true, avc: { format: "annexb" }, ...(location.search.includes("sw=1") ? { hardwareAcceleration: "prefer-software" } : {}) });
+        log(`configured ${codec} ok`);
+      } catch (e) { cfgErr = String(e); log("configure 失败: " + e); return; }
+      continue;
+    }
+    if (!dec || t === 7 || t === 8 || t === 9 || t === 6) continue;
+    const data = new Uint8Array(len - off + 4);
+    data.set([0, 0, 0, 1], 0);
+    data.set(buf.subarray(p + off, p + len), 4);
+    try {
+      dec.decode(new EncodedVideoChunk({ type: t === 5 ? "key" : "delta", timestamp: decoded * 33333, data }));
+      decoded++;
+    } catch (e) { errs++; if (errs < 3) log("decode err: " + e); }
+    if (decoded === 60) break; // 60 帧足够验证
+  }
+  log(`提交 ${decoded} 帧, 输出 ${outputs} 帧, 错误 ${errs}, cfgErr=${cfgErr || "-"}`);
+  await new Promise((r) => setTimeout(r, 3000));
+  log(`3s 后: 输出 ${outputs} 帧, decoder.state=${dec ? dec.state : "?"}, decodeQueueSize=${dec ? dec.decodeQueueSize : "?"}`);
+  document.title = "done";
+})();
+</script>
+</body>
+</html>

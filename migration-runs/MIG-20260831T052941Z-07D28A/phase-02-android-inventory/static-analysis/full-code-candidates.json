@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:38",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "38",
+      "symbol": "MainActivity",
+      "snippet": "",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:38"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:42",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "42",
+      "symbol": "repository",
+      "snippet": "        val repository = TodoRepository(this)",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:42"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:51",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "51",
+      "symbol": "MiniTodoApp",
+      "snippet": "fun MiniTodoApp(repository: TodoRepository) {",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:51"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:52",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "52",
+      "symbol": "todos",
+      "snippet": "    val todos = remember { mutableStateListOf<Todo>().apply { addAll(repository.loadTodos()) } }",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:52"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:53",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "53",
+      "symbol": "sortMode",
+      "snippet": "    var sortMode by remember { mutableIntStateOf(repository.loadSortMode()) }",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:53"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:54",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "54",
+      "symbol": "input",
+      "snippet": "    var input by remember { mutableStateOf(\"\") }",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:54"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:55",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "55",
+      "symbol": "persist",
+      "snippet": "",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:55"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:94",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "94",
+      "symbol": "title",
+      "snippet": "                        val title = input.trim()",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:94"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:96",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "96",
+      "symbol": "now",
+      "snippet": "                        val now = System.currentTimeMillis()",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:96"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:114",
+      "file_path": "app/src/main/java/com/minitodo/app/MainActivity.kt",
+      "line": "114",
+      "symbol": "index",
+      "snippet": "                                val index = todos.indexOfFirst { it.id == todo.id }",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:114"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/Todo.kt:5",
+      "file_path": "app/src/main/java/com/minitodo/app/Todo.kt",
+      "line": "5",
+      "symbol": "id",
+      "snippet": "    val id: Long,",
+      "source_ref": "app/src/main/java/com/minitodo/app/Todo.kt:5"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/Todo.kt:6",
+      "file_path": "app/src/main/java/com/minitodo/app/Todo.kt",
+      "line": "6",
+      "symbol": "title",
+      "snippet": "    val title: String,",
+      "source_ref": "app/src/main/java/com/minitodo/app/Todo.kt:6"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/Todo.kt:7",
+      "file_path": "app/src/main/java/com/minitodo/app/Todo.kt",
+      "line": "7",
+      "symbol": "completed",
+      "snippet": "    val completed: Boolean,",
+      "source_ref": "app/src/main/java/com/minitodo/app/Todo.kt:7"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/Todo.kt:8",
+      "file_path": "app/src/main/java/com/minitodo/app/Todo.kt",
+      "line": "8",
+      "symbol": "createdAt",
+      "snippet": "    val createdAt: Long,",
+      "source_ref": "app/src/main/java/com/minitodo/app/Todo.kt:8"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:14",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "14",
+      "symbol": "TodoRepository",
+      "snippet": "class TodoRepository(context: Context) {",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:14"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:17",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "17",
+      "symbol": "loadTodos",
+      "snippet": "",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:17"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:19",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "19",
+      "symbol": "raw",
+      "snippet": "        val raw = prefs.getString(KEY_TODOS, null) ?: return emptyList()",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:19"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:21",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "21",
+      "symbol": "array",
+      "snippet": "            val array = JSONArray(raw)",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:21"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:24",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "24",
+      "symbol": "obj",
+      "snippet": "                    val obj = array.getJSONObject(i)",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:24"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:39",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "39",
+      "symbol": "saveTodos",
+      "snippet": "",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:39"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:41",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "41",
+      "symbol": "array",
+      "snippet": "        val array = JSONArray()",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:41"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:53",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "53",
+      "symbol": "loadSortMode",
+      "snippet": "",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:53"
+    },
+    {
+      "code_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:55",
+      "file_path": "app/src/main/java/com/minitodo/app/TodoRepository.kt",
+      "line": "55",
+      "symbol": "saveSortMode",
+      "snippet": "",
+      "source_ref": "app/src/main/java/com/minitodo/app/TodoRepository.kt:55"
+    }
+  ],
+  "count": 23
+}

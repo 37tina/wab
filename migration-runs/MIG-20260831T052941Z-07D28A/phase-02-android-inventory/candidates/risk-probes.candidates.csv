@@ -1,0 +1,3 @@
+candidate_id,probe_id,category,severity,file,line,signal,count,page_id,harmony_hint
+CAND-RISK-0001,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/minitodo/app/MainActivity.kt,18,ExperimentalMaterial3Api,2,PAGE-MAINACTIVITY-9E8FBE45,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0002,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/minitodo/app/MainActivity.kt,49,@OptIn(Experimental,2,PAGE-MAINACTIVITY-9E8FBE45,实验 API 在鸿蒙侧可能无直接对应

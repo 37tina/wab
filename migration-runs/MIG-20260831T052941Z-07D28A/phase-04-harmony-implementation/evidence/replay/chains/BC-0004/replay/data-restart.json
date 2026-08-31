@@ -1,0 +1,25 @@
+{
+  "input_state": {
+    "value": ""
+  },
+  "sort_mode": {
+    "value": 1
+  },
+  "todo_title": {
+    "value": "T2A-S2"
+  },
+  "todos": [
+    {
+      "completed": false,
+      "createdAt": 1788185617261,
+      "id": 1788185617261,
+      "title": "T2A-S1"
+    },
+    {
+      "completed": true,
+      "createdAt": 1788185630547,
+      "id": 1788185630547,
+      "title": "T2A-S2"
+    }
+  ]
+}

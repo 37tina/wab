@@ -1,0 +1,11 @@
+{
+  "review_id": "REV-P2-TASKMANDATE-20260831",
+  "phase": 2,
+  "decision": "APPROVED",
+  "reviewer": "migration-total-controller",
+  "gate_report_relative_path": "controller/gate-report.json",
+  "gate_report_sha256": "3cb15309811092a150334fa1098b4f3a39d7fecee8ca793e243014715f685f7e",
+  "reason": "总控 Phase 3 任务书（task-mandate）明示：『Phase 2 已终验通过（Gate 2 PASS，6 CONFIRMED + 1 SOURCE_CONFIRMED，0 CONFLICT/0 GAP）』并授权执行 Phase 3。本记录为已发生授权事实的如实转录（issue_phase3 无 task-mandate 直通参数，phase2 先例为 --approval-source task-mandate，见 decision-log DEC 记录）。",
+  "deviations": [],
+  "recorded_at": "2026-08-31T11:04:28Z"
+}

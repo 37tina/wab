@@ -1,0 +1,105 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "1d7317ad1a989747df3634f40c08224eae6cbefacbf4d953e50bdd06bbb08853",
+    "bc_id": "BC-0001",
+    "bc_row_sha": "29cfbb4ccde5eb54d81908d2429c5a21256c105e69964759c0b69862103e702c",
+    "seed": "SEED-FRESH-INSTALL-0"
+  },
+  "observation": {
+    "anchor_assertions": [
+      {
+        "kind": "text_visible",
+        "optional": "false",
+        "value": "T2A-ADD",
+        "verdict": "PASS"
+      },
+      {
+        "kind": "persist_after_restart",
+        "optional": "false",
+        "value": "T2A-ADD",
+        "verdict": "FAIL"
+      }
+    ],
+    "bc_id": "BC-0001",
+    "blocked_reason": "",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-08-31T13:48:09Z",
+      "device": "emulator-5554",
+      "package": "com.minitodo.app",
+      "preferences": {
+        "todos": "[]"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 1,
+          "path": "shared_prefs/minitodo_prefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:minitodo_prefs.xml"
+        },
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-08-31T13:48:09Z",
+      "device": "emulator-5554",
+      "package": "com.minitodo.app",
+      "preferences": {
+        "todos": "[]"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 1,
+          "path": "shared_prefs/minitodo_prefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:minitodo_prefs.xml"
+        },
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-xaf_tt7h/runtime-evidence/evidence/chains/BC-0001",
+    "executed": true,
+    "feature_id": "FEAT-TODO-ADD",
+    "note": "assertions failed: persist_after_restart=T2A-ADD",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [
+      "T2A-ADD",
+      "✕",
+      "删除 T2A-ADD",
+      "完成 T2A-ADD",
+      "排序：默认",
+      "添加",
+      "输入待办标题",
+      "迷你待办"
+    ],
+    "texts_restart": [
+      "排序：默认",
+      "暂无待办",
+      "添加",
+      "输入待办标题",
+      "迷你待办"
+    ]
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

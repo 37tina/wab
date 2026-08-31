@@ -1,0 +1,2 @@
+candidate_id,color_name,hex,alpha,kind,file,line
+CAND-CP-0001,no_app_defined_palette_framework_material3_default,,,NONE_FOUND,app/src/main/java/com/minitodo/app/MainActivity.kt,21

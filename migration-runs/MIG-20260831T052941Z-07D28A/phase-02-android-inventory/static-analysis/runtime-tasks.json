@@ -1,0 +1,546 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "task_id": "RTASK-DEFAULT-1D391EEB",
+      "task_type": "VERIFY_PAGE_DEFAULT_STATE",
+      "subject_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_LAUNCH_OR_ROUTE",
+      "expected": "Confirm page identity, full UI tree and final geometry",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/AndroidManifest.xml:1",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:39"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-2F88D996",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-E5C56575",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onClick",
+      "expected": "Execute TextButton and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:63"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-AF4E5CD8",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-06C29622",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onValueChange",
+      "expected": "Execute OutlinedTextField and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:84"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-0D188525",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-3C53A22D",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onClick",
+      "expected": "Execute Button and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:92"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-110B8F96",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-C2B79352",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onCheckedChange",
+      "expected": "Execute Checkbox and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:143"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-F6D7EB84",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-AD46D153",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onClick",
+      "expected": "Execute IconButton and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:153"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-AF2EBEEF",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-469F7D67",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onClick",
+      "expected": "Execute TextButton and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:64"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-C3A88B89",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-92FDCBE7",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onValueChange",
+      "expected": "Execute OutlinedTextField and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:86"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-B0F08234",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-C82C1C96",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onClick",
+      "expected": "Execute Button and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:93"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-EFCB3C6A",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-9F8BD751",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onCheckedChange",
+      "expected": "Execute Checkbox and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:145"
+      ]
+    },
+    {
+      "task_id": "RTASK-EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-2F4C2403",
+      "task_type": "VERIFY_EVENT",
+      "subject_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-90299882",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "onClick",
+      "expected": "Execute IconButton and capture the observable result",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:154"
+      ]
+    },
+    {
+      "task_id": "RTASK-STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-EE92E449",
+      "task_type": "VERIFY_STATE_BRANCH",
+      "subject_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-BF708D28",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_SATISFY_CONDITION",
+      "expected": "sortMode == TodoRepository.SORT_DEFAULT",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:66"
+      ]
+    },
+    {
+      "task_id": "RTASK-STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-162DF876",
+      "task_type": "VERIFY_STATE_BRANCH",
+      "subject_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-444276B7",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_SATISFY_CONDITION",
+      "expected": "sortMode == TodoRepository.SORT_DEFAULT",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:71"
+      ]
+    },
+    {
+      "task_id": "RTASK-STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-7A5FE70A",
+      "task_type": "VERIFY_STATE_BRANCH",
+      "subject_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-C04217D7",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_SATISFY_CONDITION",
+      "expected": "title.isEmpty(",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:95"
+      ]
+    },
+    {
+      "task_id": "RTASK-STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-55436C1C",
+      "task_type": "VERIFY_STATE_BRANCH",
+      "subject_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-1C0370B0",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_SATISFY_CONDITION",
+      "expected": "todos.isEmpty(",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:106"
+      ]
+    },
+    {
+      "task_id": "RTASK-STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-06F53E6D",
+      "task_type": "VERIFY_STATE_BRANCH",
+      "subject_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-CC621AFB",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_SATISFY_CONDITION",
+      "expected": "index >= 0",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:115"
+      ]
+    },
+    {
+      "task_id": "RTASK-STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-08033A10",
+      "task_type": "VERIFY_STATE_BRANCH",
+      "subject_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-15B91F15",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_SATISFY_CONDITION",
+      "expected": "mode == TodoRepository.SORT_COMPLETED_LAST",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:133"
+      ]
+    },
+    {
+      "task_id": "RTASK-STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAI-18912735",
+      "task_type": "VERIFY_STATE_BRANCH",
+      "subject_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-E3FB82D9",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "AUTO_SATISFY_CONDITION",
+      "expected": "todo.completed",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:151"
+      ]
+    },
+    {
+      "task_id": "RTASK-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-C11B2B60",
+      "task_type": "VERIFY_SIDE_EFFECT",
+      "subject_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-ACD93EF2",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "PREFERENCES",
+      "expected": "Capture a sealed PREFERENCES before/after probe",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:8"
+      ]
+    },
+    {
+      "task_id": "RTASK-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-FF703A66",
+      "task_type": "VERIFY_SIDE_EFFECT",
+      "subject_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-AD66444A",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "PREFERENCES",
+      "expected": "Capture a sealed PREFERENCES before/after probe",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:57"
+      ]
+    },
+    {
+      "task_id": "RTASK-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-9945427C",
+      "task_type": "VERIFY_SIDE_EFFECT",
+      "subject_id": "EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TODOREPOS-B8199819",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "PREFERENCES",
+      "expected": "Capture a sealed PREFERENCES before/after probe",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:51"
+      ]
+    },
+    {
+      "task_id": "RTASK-SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITO-B0BD5796",
+      "task_type": "VERIFY_SCENARIO",
+      "subject_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-1840B72A",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "RETURNING_USER",
+      "expected": "Reset the environment, satisfy the scenario, and bind runtime evidence",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:57"
+      ]
+    },
+    {
+      "task_id": "RTASK-SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITO-A2C1E4CE",
+      "task_type": "VERIFY_SCENARIO",
+      "subject_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-35AE3DDD",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "RETURNING_USER",
+      "expected": "Reset the environment, satisfy the scenario, and bind runtime evidence",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:8"
+      ]
+    },
+    {
+      "task_id": "RTASK-SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITO-6CA1B472",
+      "task_type": "VERIFY_SCENARIO",
+      "subject_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-36C78D67",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "FIRST_RUN",
+      "expected": "Reset the environment, satisfy the scenario, and bind runtime evidence",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:57"
+      ]
+    },
+    {
+      "task_id": "RTASK-SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITO-55C197FC",
+      "task_type": "VERIFY_SCENARIO",
+      "subject_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-92921D4B",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "RETURNING_USER",
+      "expected": "Reset the environment, satisfy the scenario, and bind runtime evidence",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:51"
+      ]
+    },
+    {
+      "task_id": "RTASK-SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITO-B43B75A2",
+      "task_type": "VERIFY_SCENARIO",
+      "subject_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-C153213C",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "FIRST_RUN",
+      "expected": "Reset the environment, satisfy the scenario, and bind runtime evidence",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:51"
+      ]
+    },
+    {
+      "task_id": "RTASK-SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITO-F5147C8C",
+      "task_type": "VERIFY_SCENARIO",
+      "subject_id": "SCENARIO-EFFECT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-TO-DB432027",
+      "page_id": "PENDING_SOURCE_BINDING",
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "trigger": "FIRST_RUN",
+      "expected": "Reset the environment, satisfy the scenario, and bind runtime evidence",
+      "status": "OPEN",
+      "source_refs": [
+        "app/src/main/java/com/minitodo/app/TodoRepository.kt:8"
+      ]
+    }
+  ]
+}

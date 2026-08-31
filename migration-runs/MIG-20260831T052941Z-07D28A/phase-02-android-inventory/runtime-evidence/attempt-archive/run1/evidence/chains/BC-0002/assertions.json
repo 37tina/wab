@@ -1,0 +1,19 @@
+{
+ "bc_id": "BC-0002",
+ "status": "STEPS_FAIL",
+ "note": "steps interrupted at 0/3",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "T2A-TOGGLE",
+   "verdict": "FAIL",
+   "optional": "false"
+  },
+  {
+   "kind": "persist_after_restart",
+   "value": "T2A-TOGGLE",
+   "verdict": "FAIL",
+   "optional": "false"
+  }
+ ]
+}

@@ -1,6 +1,0 @@
-interface:
-  display_name: "HarmonyOS Migration Scaffold"
-  short_description: "Build the verified non-business ArkUI scaffold"
-  default_prompt: "Use $harmonyos-migration-scaffold after approved Gate 2 to build the non-business scaffold, preserve every Android carrier, and stop at WAITING_HUMAN_REVIEW."
-policy:
-  allow_implicit_invocation: true

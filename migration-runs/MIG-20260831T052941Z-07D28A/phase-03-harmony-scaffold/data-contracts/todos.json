@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "contract_kind": "data-repository-interface",
+  "interface_only": true,
+  "paradigm": "feature-semantic",
+  "object_id": "todos",
+  "raw_name": "todos",
+  "repository_symbol": "TodosRepository",
+  "semantics": {
+    "directions": [
+      "read",
+      "write"
+    ],
+    "note": "语义层读写集契约：仅声明业务数据对象的读写方向，不规定物理载体；鸿蒙侧实现自由选择 Preferences/RelationalStore 等。"
+  },
+  "required_operations": [
+    "create",
+    "setCompleted",
+    "delete",
+    "restore",
+    "list",
+    "get",
+    "set"
+  ],
+  "required_operations_evidence": {
+    "base_rule": "directions-fallback",
+    "bc_ids": [
+      "BC-0001",
+      "BC-0002",
+      "BC-0003",
+      "BC-0005",
+      "BC-0006",
+      "BC-0007"
+    ],
+    "bc_derived_ops": [
+      "create",
+      "delete",
+      "restore",
+      "setCompleted"
+    ]
+  },
+  "android_reference_persistence": [
+    {
+      "kind": "preference_key",
+      "location": "SharedPreferences(minitodo_prefs)/todos"
+    }
+  ],
+  "feature_ids": [
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-EMPTY-STATE",
+    "FEAT-TODO-PERSIST",
+    "FEAT-TODO-SORT",
+    "FEAT-TODO-TOGGLE"
+  ],
+  "relation_ids": [
+    "REL-0001",
+    "REL-0005",
+    "REL-0007",
+    "REL-0011",
+    "REL-0012",
+    "REL-0013",
+    "REL-0016"
+  ],
+  "source_refs": [
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:106",
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:117",
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:122",
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:133",
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:99",
+    "app/src/main/java/com/minitodo/app/TodoRepository.kt:19",
+    "app/src/main/java/com/minitodo/app/TodoRepository.kt:51"
+  ],
+  "source": {
+    "data_relations_sha256": "711eac5c019e8d5f9b83ff802e0418b79eb91c13c52348061ec6850871fdfb54"
+  },
+  "generated_at": "2026-08-31T11:25:57Z"
+}

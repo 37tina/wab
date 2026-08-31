@@ -1,0 +1,31 @@
+{
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "run_status": "WAITING_HUMAN_REVIEW",
+  "updated_at": "2026-08-31T14:19:51Z",
+  "history": [
+    {
+      "from": "INIT",
+      "to": "IN_MIGRATION",
+      "at": "2026-08-31T05:42:27Z",
+      "why": "first specialist work order issued: WO-PHASE-02-0DB7D4760B4F"
+    },
+    {
+      "from": "IN_MIGRATION",
+      "to": "WAITING_HUMAN_REVIEW",
+      "at": "2026-08-31T10:53:58Z",
+      "why": "Phase 2 Gate 2 machine PASS (0 error; 1 informational v2-paradigm notice); review summary ready at controller/review-summaries/phase-02/review-summary.json (total-control closeout mandate, task-mandate)"
+    },
+    {
+      "from": "IN_MIGRATION",
+      "to": "WAITING_HUMAN_REVIEW",
+      "at": "2026-08-31T11:51:53Z",
+      "why": "Phase 3 Gate 3 machine PASS (0 error; scaffold CLOSED, HENV-001-P3 + HVER-001-P3, 9-category smoke chain all PASS); review summary ready (total-control Phase 3 mandate, task-mandate)"
+    },
+    {
+      "from": "IN_MIGRATION",
+      "to": "WAITING_HUMAN_REVIEW",
+      "at": "2026-08-31T14:19:51Z",
+      "why": "Phase 4 Gate 4 machine FAIL recorded verbatim (round-0 dual-diff 10 DIFF all attributed to forensics-side gaps, none to Harmony behavior; repair loop non-convergent -> MANUAL_TAKEOVER per total-control mandate); awaiting human adjudication of TOOL_GAP cluster"
+    }
+  ]
+}

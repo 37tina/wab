@@ -1,0 +1,7 @@
+task_id,phase,task,owner,status,depends_on,updated_at,notes
+TASK-PHASE-01,1,Freeze migration scope and baselines,controller-agent-minitodo-r1,PASS,,2026-08-31T05:42:17Z,
+TASK-PHASE-02,2,Produce Android state inventory and evidence chain,inventory-lead-minitodo-r1,PASS,TASK-PHASE-01,2026-08-31T10:53:34Z,
+TASK-PHASE-03,3,Create and independently accept HarmonyOS scaffold,architect-lead-minitodo-r1,PASS,TASK-PHASE-02,2026-08-31T11:51:38Z,
+TASK-PHASE-04,4,Implement and accept HarmonyOS feature parity,impl-lead-minitodo-r1,BLOCKED,TASK-PHASE-03,2026-08-31T14:19:24Z,"round0=10DIFF(取证缺口群:伪键missing_on_both+oracle-restart伪影P2定谳延续)+13MANUAL; Harmony行为断言实测全达标(observable 5/5 MATCH); HBUILD结构性矛盾(H4ENV BUNDLE_CHECK marker vs ERROR_OUTPUT_RE); 转人工裁决(MANUAL_TAKEOVER), 证据链完整在案"
+TASK-PHASE-05,5,Build one release candidate and accept whole-app regression,harmony-regression-lead,NOT_STARTED,TASK-PHASE-04,,
+TASK-PHASE-06,6,Preserve the tested candidate and accept the delivery package,harmony-delivery-lead,NOT_STARTED,TASK-PHASE-05,,

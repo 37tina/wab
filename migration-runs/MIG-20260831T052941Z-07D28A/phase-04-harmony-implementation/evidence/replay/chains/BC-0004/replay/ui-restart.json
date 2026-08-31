@@ -1,0 +1,507 @@
+{
+  "components": [
+    {
+      "checked": "",
+      "enabled": "",
+      "id": "",
+      "text": "",
+      "type": "",
+      "visible": ""
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "root",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "MigrationScaffold",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "AppNavigationShell",
+      "text": "",
+      "type": "Navigation",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "NavigationContent",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-MAINACTIVITY-3FDE9431",
+      "text": "",
+      "type": "NavDestination",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "迷你待办",
+      "type": "TitleBar",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "__NavdestinationField__BackButton__Back__PAGE-MAINACTIVITY-3FDE9431",
+      "text": "",
+      "type": "BackButton",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "迷你待办",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "排序：完成置底",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "NavDestinationContent",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "输入待办标题",
+      "text": "",
+      "type": "TextInput",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "添加",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "List",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "完成 T2A-S1",
+      "text": "",
+      "type": "Checkbox",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "T2A-S1",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "删除 T2A-S1",
+      "text": "✕",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "true",
+      "enabled": "true",
+      "id": "完成 T2A-S2",
+      "text": "",
+      "type": "Checkbox",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "T2A-S2",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "删除 T2A-S2",
+      "text": "✕",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "session21",
+      "text": "",
+      "type": "WindowScene",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBox",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBridgeView",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "status_bar_color_picker",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarView",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBackground_Row_0",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "sbg_left",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_clock",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ClockStatusView",
+      "text": "10, :, 14",
+      "type": "Flex",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": "",
+      "type": "TextClock",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "10",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": ":",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": "",
+      "type": "TextClock",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "14",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "sbg_right",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_ethernet",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconItemEthernetComponent_Image_icon",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_signal",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SignalComponent-SignalIcon_Image_cellular",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SignalComponent-SignalIcon_Image_cellularImage",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_battery",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Image_batteryIcon",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Image_batteryBorder",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Text_batterySoc",
+      "text": "100",
+      "type": "Text",
+      "visible": "true"
+    }
+  ],
+  "texts": [
+    "迷你待办",
+    "迷你待办",
+    "排序：完成置底",
+    "添加",
+    "T2A-S1",
+    "✕",
+    "T2A-S2",
+    "✕",
+    "10, :, 14",
+    "10",
+    ":",
+    "14",
+    "100"
+  ]
+}

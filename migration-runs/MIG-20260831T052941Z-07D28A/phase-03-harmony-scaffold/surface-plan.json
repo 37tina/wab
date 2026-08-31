@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "paradigm": "feature-semantic",
+  "routes": [
+    {
+      "surface_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "feature_id": "FEAT-TODO-ADD",
+      "kind": "page",
+      "route_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "shell_symbol": "ShellPageMainactivity3fde9431",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageMainactivity3fde9431.ets",
+      "android_structure": "PAGE-MAINACTIVITY-3FDE9431：主要类：TextView×5、View×5、Button×2、FrameLayout×2；ComposeView 宿主；17 节点/最大深度 9；Phase 2 冻结 UI 结构（Compose 宿主内部，来源=scope+BC）：TopAppBar(标题「迷你待办」+排序 TextButton「排序：默认/完成置底」)+输入行(OutlinedTextField 占位「输入待办标题」+Button「添加」)+列表区(LazyColumn/空态「暂无待办」/条目行=Checkbox+标题(完成删除线)+✕IconButton)",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "输入待办标题",
+          "添加",
+          "暂无待办",
+          "迷你待办",
+          "排序：默认"
+        ],
+        "content_descs": [],
+        "palette": [
+          {
+            "name": "app_palette",
+            "hex": "NONE_FOUND",
+            "kind": "palette-sentinel",
+            "note": "Material3 默认配色（无应用自定义色板，dark 限定词双资源以系统 token/平台默认表达；禁止编造 Android 色值）"
+          }
+        ],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板；色板=NONE_FOUND 哨兵：源 App Material3 默认配色，无应用自定义色，明暗双资源由主题层以系统 token/平台默认表达"
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation(.title 顶栏「迷你待办」+menus 排序切换入口)+Column(输入行=TextInput(placeholder「输入待办标题」)+Button「添加」)+List+LazyForEach(IDataSource 骨架可空壳，不接真数据；空态分支 Text「暂无待办」)+条目行组合=Checkbox(.select 单向初值)+标题 Text(完成态删除线)+✕IconButton（对照表 A2/A3/A13/A15/A30 + visual-memory visible_texts；Scaffold→Navigation+Column 组合）",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": "",
+      "blueprint_patch": {
+        "patched_by": "tools/3a_patch_surface_plan_blueprint.py",
+        "basis": "14-android-to-harmony-map.md 对照表 + visual-memory + 工单冻结事实",
+        "fields": [
+          "native_component",
+          "android_structure",
+          "preserve.palette",
+          "preserve.note"
+        ]
+      }
+    }
+  ],
+  "modals": [],
+  "passthrough": [
+    {
+      "surface_id": "REPOSITORY-TODOREPOSITORY-E71D7690",
+      "feature_id": "FEAT-TODO-PERSIST",
+      "kind": "reusable-component",
+      "reason": "no-shell-kind:reusable-component（原 Phase 2 kind=repository，词汇表翻译见 decision-log TOOL_GAP-3C；非 UI surface，Phase 4 透明实现）",
+      "android_structure": "REPOSITORY-TODOREPOSITORY-E71D7690：主要类：View×9、TextView×6、Button×3、FrameLayout×2；ComposeView 宿主；24 节点/最大深度 9",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "输入待办标题",
+          "添加",
+          "T2A-PERSIST",
+          "✕",
+          "迷你待办",
+          "排序：完成置底"
+        ],
+        "content_descs": [
+          "完成 T2A-PERSIST",
+          "删除 T2A-PERSIST"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    }
+  ],
+  "edges": [],
+  "skipped_nav_pages": [],
+  "stats": {
+    "surface_count": 2,
+    "route_count": 1,
+    "modal_count": 0,
+    "passthrough_count": 1,
+    "nav_row_count": 0,
+    "nav_edge_kept": 0,
+    "nav_pages_skipped": 0,
+    "ui_blueprint_surface_count": 2,
+    "ui_blueprint_visual_memory_covered": 2
+  },
+  "ui_blueprint": {
+    "policy": "UI_FIDELITY=HIGH",
+    "purpose": "Android UI 在 HarmonyOS 上的原生表达决策（P3 冻结，Phase 4 按图施工，不临时发挥）",
+    "mapping_rules": [
+      "page+bottom-tabs -> Navigation+NavPathStack+Tabs(barPosition=End)+List+LazyForEach",
+      "page+plain-content -> Navigation+NavPathStack+List/Scroll",
+      "sheet -> bindSheet(detents MEDIUM/LARGE)",
+      "dialog -> CustomDialog/bindMenu",
+      "menu -> bindMenu",
+      "container/component -> none (透传)"
+    ],
+    "tabs_owner_arbitration": {
+      "rule": "一个 Navigation 体系只有一个底栏 Tabs；多 page 共享同一快照证据时按 特征强度 > 主入口命名标记(HOME/MAIN/LAUNCHER) > nav 出度 > 字典序 仲裁唯一持有者",
+      "tabs_owner_surface_id": null,
+      "tab_feature_page_ids": []
+    },
+    "custom_allowed_policy": "默认 no；仅 class_histogram 出现自绘类（SurfaceView/TextureView/GLSurfaceView）判系统组件无法表达时 yes 并登记 reason",
+    "visual_memory": {
+      "available": true,
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/visual-memory.json",
+      "sha256": "86fb0fa30e2458b4a7e7fe2de98aa049ce91aa6d51d011f1ceb757da58adc920",
+      "surface_count": 2
+    },
+    "stats": {
+      "blueprinted_surface_count": 2,
+      "visual_memory_covered_surface_count": 2
+    }
+  },
+  "generated_at": "2026-08-31T11:25:57Z",
+  "theme_tokens": {
+    "generated_by": "emit_theme_layer",
+    "mode": "palette-derived",
+    "visual_memory": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/visual-memory.json",
+      "sha256": "86fb0fa30e2458b4a7e7fe2de98aa049ce91aa6d51d011f1ceb757da58adc920",
+      "available": true
+    },
+    "color_token_count": 18,
+    "resource_color_count": 9,
+    "dark_mode": "inverted-from-light",
+    "gradient": null,
+    "typography": {
+      "source": "platform-standard-ladder",
+      "ladder": {
+        "display": 32,
+        "title": 24,
+        "subtitle": 20,
+        "body": 16,
+        "caption": 12
+      },
+      "text_sizes_available": false
+    },
+    "spacing": {
+      "source": "platform-standard-ladder",
+      "ladder": {
+        "xs": 4,
+        "s": 8,
+        "m": 12,
+        "l": 16,
+        "xl": 24
+      }
+    },
+    "radius": {
+      "source": "platform-guidance (key_bounds carries no corner-radius attribute)",
+      "ladder": {
+        "card": 12,
+        "sheet": 16,
+        "button": 20
+      }
+    },
+    "files": {
+      "app_theme": "entry/src/main/ets/foundation/AppTheme.ets",
+      "color_base": "entry/src/main/resources/base/element/color.json",
+      "color_dark": "entry/src/main/resources/dark/element/color.json"
+    },
+    "source_map": {
+      "background": "platform-default",
+      "pageBackground": "platform-default",
+      "surface": "platform-default",
+      "elevatedSurface": "platform-default",
+      "onBackground": "platform-default",
+      "onBackgroundVariant": "platform-default",
+      "onPrimary": "platform-default",
+      "primary": "platform-default",
+      "scrim": "platform-default"
+    }
+  }
+}

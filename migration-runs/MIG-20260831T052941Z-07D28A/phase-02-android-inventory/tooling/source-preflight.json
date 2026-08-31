@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "label": "git-revision",
+      "argv": [
+        "git",
+        "-C",
+        "/Users/rainyday/Desktop/finale/android/MiniTodo",
+        "rev-parse",
+        "HEAD"
+      ],
+      "started_at": "2026-08-31T05:54:23Z",
+      "finished_at": "2026-08-31T05:54:23Z",
+      "duration_seconds": 0.021,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "051e50d89749b7fcaf87a4475442fe7d6d79f419\n",
+      "stderr": ""
+    },
+    {
+      "label": "git-worktree",
+      "argv": [
+        "git",
+        "-C",
+        "/Users/rainyday/Desktop/finale/android/MiniTodo",
+        "status",
+        "--porcelain",
+        "--untracked-files=all"
+      ],
+      "started_at": "2026-08-31T05:54:23Z",
+      "finished_at": "2026-08-31T05:54:23Z",
+      "duration_seconds": 0.048,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+bc_id,feature_id,steps,notes
+BC-0001,FEAT-TODO-ADD,"[{""action"": ""input"", ""target"": ""输入待办标题"", ""value"": ""T2A-ADD""}, {""action"": ""tap"", ""target"": ""添加""}]",anchors verified on device 127.0.0.1:5557 (dump texts+ids)
+BC-0002,FEAT-TODO-TOGGLE,"[{""action"": ""input"", ""target"": ""输入待办标题"", ""value"": ""T2A-TOGGLE""}, {""action"": ""tap"", ""target"": ""添加""}, {""action"": ""tap"", ""target"": ""完成 T2A-TOGGLE""}]",checkbox located via semantic id '完成 <title>'
+BC-0003,FEAT-TODO-DELETE,"[{""action"": ""input"", ""target"": ""输入待办标题"", ""value"": ""T2A-DEL""}, {""action"": ""tap"", ""target"": ""添加""}, {""action"": ""tap"", ""target"": ""删除 T2A-DEL""}]",close button located via semantic id '删除 <title>'
+BC-0004,FEAT-TODO-SORT,"[{""action"": ""input"", ""target"": ""输入待办标题"", ""value"": ""T2A-S1""}, {""action"": ""tap"", ""target"": ""添加""}, {""action"": ""input"", ""target"": ""输入待办标题"", ""value"": ""T2A-S2""}, {""action"": ""tap"", ""target"": ""添加""}, {""action"": ""tap"", ""target"": ""完成 T2A-S2""}, {""action"": ""tap"", ""target"": ""排序：默认""}]",sort toggle button text switches 排序：默认/完成置底
+BC-0005,FEAT-TODO-PERSIST,"[{""action"": ""input"", ""target"": ""输入待办标题"", ""value"": ""T2A-PERSIST""}, {""action"": ""tap"", ""target"": ""添加""}]",replayer restart leg force-stops and cold-starts the app
+BC-0006,FEAT-TODO-EMPTY-STATE,[],no steps: empty state observed at cold start after data clear

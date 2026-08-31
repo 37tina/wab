@@ -1,0 +1,72 @@
+{
+  "work_order_id": "WO-PHASE-02-0DB7D4760B4F",
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "phase": 2,
+  "status": "ISSUED",
+  "issued_at": "2026-08-31T05:42:27Z",
+  "issued_by": "controller-agent-minitodo-r1",
+  "scope_relative_path": "controller/scope.json",
+  "scope_sha256": "0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1",
+  "controller_gate1_snapshot_relative_path": "controller/work-orders/WO-PHASE-02-0DB7D4760B4F.phase-01-gate-report.json",
+  "controller_gate1_sha256": "2486dfdb3bf0140bed3d5033e46f1ccc1e84face35ea502a74f601f951dfef28",
+  "approval_source": "task-mandate",
+  "human_review_id": null,
+  "human_review_decision": null,
+  "human_review_gate_sha256": null,
+  "mandate_ref": "MiniTodo 迁移 Phase 1 任务书（脱胎换骨迁移系统·单任务分阶段执行规约）：Gate 1 PASS 后签发 Phase 2 工单，run INIT→IN_MIGRATION",
+  "source_revision": "051e50d89749b7fcaf87a4475442fe7d6d79f419",
+  "apk_sha256": "1d7317ad1a989747df3634f40c08224eae6cbefacbf4d953e50bdd06bbb08853",
+  "baseline_env_id": "ENV-001",
+  "included_features": [
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-TOGGLE",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-SORT",
+    "FEAT-TODO-PERSIST",
+    "FEAT-TODO-EMPTY-STATE",
+    "FEAT-INPUT-GUARD"
+  ],
+  "excluded_features": [
+    "FEAT-SYSTEM-BACKUP"
+  ],
+  "ownership": {
+    "migration_controller_id": "controller-agent-minitodo-r1",
+    "inventory_lead_id": "inventory-lead-minitodo-r1",
+    "code_map_agent_id": "code-map-agent-minitodo-r1",
+    "runtime_state_agent_ids": [
+      "runtime-oracle-minitodo-r1"
+    ],
+    "business_rule_agent_id": "business-rule-agent-minitodo-r1",
+    "data_dependency_agent_id": "data-dep-agent-minitodo-r1",
+    "evidence_administrator_id": "evidence-admin-minitodo-r1",
+    "coverage_checker_id": "coverage-checker-minitodo-r1"
+  },
+  "required_skill": "android-migration-inventory",
+  "runtime_ui_tool": "android-cli",
+  "layout_inspector_allowed": false,
+  "mp4_allowed": false,
+  "inventory_row_formula": "Feature-ID x Page-ID x State-ID x ENV-ID x Evidence-ID",
+  "required_return": [
+    "environments.json",
+    "coverage-ledger.csv",
+    "catalogs/",
+    "inventory.csv",
+    "environment-attestations/",
+    "evidence-index.csv",
+    "acceptance-registry.csv",
+    "evidence/",
+    "rechecks.csv",
+    "closure-report.json",
+    "asset-inventory.csv",
+    "asset-package/",
+    "static-analysis/",
+    "runtime-observations.json",
+    "page-gate-report.json",
+    "advanced-observations.json",
+    "probe-evidence-index.csv",
+    "advanced-gate-report.json",
+    "evidence-anchors.snapshot.csv",
+    "closure-manifest.sha256",
+    "CLOSED"
+  ]
+}

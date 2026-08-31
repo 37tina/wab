@@ -1,0 +1,44 @@
+{
+  "color": [
+    {
+      "name": "app_background",
+      "value": "#000000"
+    },
+    {
+      "name": "page_background",
+      "value": "#0A0C0E"
+    },
+    {
+      "name": "surface",
+      "value": "#000000"
+    },
+    {
+      "name": "elevated_surface",
+      "value": "#000000"
+    },
+    {
+      "name": "on_background",
+      "value": "#CEDAE7"
+    },
+    {
+      "name": "on_background_variant",
+      "value": "#7F8694"
+    },
+    {
+      "name": "on_primary",
+      "value": "#000000"
+    },
+    {
+      "name": "app_primary",
+      "value": "#007DFF"
+    },
+    {
+      "name": "scrim",
+      "value": "#66FFFFFF"
+    },
+    {
+      "name": "start_window_background",
+      "value": "#000000"
+    }
+  ]
+}

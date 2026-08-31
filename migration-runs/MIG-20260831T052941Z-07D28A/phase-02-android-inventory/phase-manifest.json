@@ -1,0 +1,42 @@
+{
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "phase": 2,
+  "baseline_env_id": "ENV-001",
+  "initialized_at": "2026-08-31T05:54:43Z",
+  "initialized_by": "inventory-lead-minitodo-r1",
+  "capture_tool": "android-cli",
+  "layout_inspector_allowed": false,
+  "mp4_allowed": false,
+  "scope_sha256": "0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1",
+  "run_manifest_sha256": "54ff5aacf0501cdb208adf998fa22f671485f58d11ee0654329faddd259be731",
+  "environment_registry_sha256": "a91f6b5e59ae977116748f421f519a0132ad7c1da16ba186840bfafde7272886",
+  "included_features": [
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-TOGGLE",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-SORT",
+    "FEAT-TODO-PERSIST",
+    "FEAT-TODO-EMPTY-STATE",
+    "FEAT-INPUT-GUARD"
+  ],
+  "work_order_id": "WO-PHASE-02-0DB7D4760B4F",
+  "work_order_sha256": "1e5ba4ac07791a85cd0b3917c3040989aca422a597f56ccd2051c482ee556416",
+  "apk_path": "/Users/rainyday/Desktop/finale/android/MiniTodo/app/build/outputs/apk/debug/app-debug.apk",
+  "apk_sha256": "1d7317ad1a989747df3634f40c08224eae6cbefacbf4d953e50bdd06bbb08853",
+  "source_revision": "051e50d89749b7fcaf87a4475442fe7d6d79f419",
+  "ownership": {
+    "migration_controller_id": "controller-agent-minitodo-r1",
+    "inventory_lead_id": "inventory-lead-minitodo-r1",
+    "code_map_agent_id": "code-map-agent-minitodo-r1",
+    "runtime_state_agent_ids": [
+      "runtime-oracle-minitodo-r1"
+    ],
+    "business_rule_agent_id": "business-rule-agent-minitodo-r1",
+    "data_dependency_agent_id": "data-dep-agent-minitodo-r1",
+    "evidence_administrator_id": "evidence-admin-minitodo-r1",
+    "coverage_checker_id": "coverage-checker-minitodo-r1"
+  },
+  "android_project_root": "/Users/rainyday/Desktop/finale/android/MiniTodo",
+  "status": "GENERATED",
+  "generator": "gmi"
+}

@@ -1,0 +1,19 @@
+{
+  "input_state": {
+    "value": ""
+  },
+  "sort_mode": {
+    "value": 0
+  },
+  "todo_title": {
+    "value": "T2A-PERSIST"
+  },
+  "todos": [
+    {
+      "completed": false,
+      "createdAt": 1788185695000,
+      "id": 1788185695000,
+      "title": "T2A-PERSIST"
+    }
+  ]
+}

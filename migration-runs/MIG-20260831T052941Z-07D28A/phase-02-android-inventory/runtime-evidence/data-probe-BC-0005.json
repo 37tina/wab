@@ -1,0 +1,252 @@
+{
+ "bc_id": "BC-0005",
+ "serial": "emulator-5554",
+ "package": "com.minitodo.app",
+ "agent": "runtime-oracle-minitodo-r1",
+ "started_at": "2026-08-31T10:42:29Z",
+ "steps": [
+  {
+   "i": 1,
+   "step": [
+    "input",
+    "输入待办标题",
+    "T2A-PERSIST"
+   ],
+   "ok": true,
+   "note": "input T2A-PERSIST ok"
+  },
+  {
+   "i": 2,
+   "step": [
+    "tap",
+    "添加"
+   ],
+   "ok": true,
+   "note": "tap 添加 @(931,440)"
+  }
+ ],
+ "expectations": {
+  "anchor": "T2A-PERSIST",
+  "after_prefs_has_anchor": true,
+  "after_completed": false,
+  "restart_prefs_has_anchor": true,
+  "restart_completed": false,
+  "restart_dump_anchor_visible": true,
+  "expect_completed": false,
+  "persist_verdict": "PASS"
+ },
+ "reset_fg": {
+  "foreground": "com.minitodo.app/.MainActivity",
+  "in_pkg": true
+ },
+ "reset_ui_texts": [
+  "排序：默认",
+  "暂无待办",
+  "添加",
+  "输入待办标题",
+  "迷你待办"
+ ],
+ "before": {
+  "raw": null,
+  "parsed": {
+   "exists": false,
+   "todos": null,
+   "sort_mode": null
+  },
+  "note": "read after pm clear + cold start"
+ },
+ "status": "STEPS_OK",
+ "after": {
+  "raw": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"todos\">[{&quot;id&quot;:1788172986734,&quot;title&quot;:&quot;T2A-PERSIST&quot;,&quot;completed&quot;:false,&quot;createdAt&quot;:1788172986734}]</string>\n</map>",
+  "parsed": {
+   "exists": true,
+   "todos": [
+    {
+     "title": "T2A-PERSIST",
+     "completed": false,
+     "id": 1788172986734,
+     "createdAt": 1788172986734
+    }
+   ],
+   "sort_mode": 0
+  },
+  "note": "read 3s after last step"
+ },
+ "restart": {
+  "raw": "<?xml version='1.0' encoding='utf-8' standalone='yes' ?>\n<map>\n    <string name=\"todos\">[{&quot;id&quot;:1788172986734,&quot;title&quot;:&quot;T2A-PERSIST&quot;,&quot;completed&quot;:false,&quot;createdAt&quot;:1788172986734}]</string>\n</map>",
+  "parsed": {
+   "exists": true,
+   "todos": [
+    {
+     "title": "T2A-PERSIST",
+     "completed": false,
+     "id": 1788172986734,
+     "createdAt": 1788172986734
+    }
+   ],
+   "sort_mode": 0
+  },
+  "note": "read after force-stop, BEFORE am start (app stopped)"
+ },
+ "restart_fg": {
+  "foreground": "com.minitodo.app/.MainActivity",
+  "in_pkg": true
+ },
+ "restart_ui_texts": [
+  "T2A-PERSIST",
+  "✕",
+  "删除 T2A-PERSIST",
+  "完成 T2A-PERSIST",
+  "排序：默认",
+  "添加",
+  "输入待办标题",
+  "迷你待办"
+ ],
+ "after_restart_dump_visible": true,
+ "finished_at": "2026-08-31T10:43:32Z",
+ "commands": [
+  {
+   "cmd": "adb -s emulator-5554 shell am force-stop com.minitodo.app",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell pm clear com.minitodo.app",
+   "rc": 0,
+   "out": "Success\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell am start -n com.minitodo.app/.MainActivity",
+   "rc": 0,
+   "out": "Starting: Intent { cmp=com.minitodo.app/.MainActivity }\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell dumpsys activity activities",
+   "rc": 0,
+   "out": "ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)\nDisplay #0 (activities from top to bottom):\n  * Task{db8a94 #801 type=standard A=10236:com.minitodo.app U=0 visible=true visibleRequested=true mode=fullscreen translucent=false sz=1}\n    fullscreenRequestAllowMode=NONE\n    isSleeping=false\n  "
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell rm -f /sdcard/probe.xml",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell uiautomator dump /sdcard/probe.xml",
+   "rc": 0,
+   "out": "UI hierchary dumped to: /sdcard/probe.xml\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out cat /sdcard/probe.xml",
+   "rc": 0,
+   "out": "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><hierarchy rotation=\"0\"><node index=\"0\" text=\"\" resource-id=\"\" class=\"android.widget.FrameLayout\" package=\"com.minitodo.app\" content-desc=\"\" checkable=\"false\" checked=\"false\" clickable=\"false\" enabled=\"true\" focusable=\"false\" focused=\"false\" sc"
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out run-as com.minitodo.app cat shared_prefs/minitodo_prefs.xml",
+   "rc": 0,
+   "out": "cat: shared_prefs/minitodo_prefs.xml: No such file or directory"
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell rm -f /sdcard/probe.xml",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell uiautomator dump /sdcard/probe.xml",
+   "rc": 0,
+   "out": "UI hierchary dumped to: /sdcard/probe.xml\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out cat /sdcard/probe.xml",
+   "rc": 0,
+   "out": "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><hierarchy rotation=\"0\"><node index=\"0\" text=\"\" resource-id=\"\" class=\"android.widget.FrameLayout\" package=\"com.minitodo.app\" content-desc=\"\" checkable=\"false\" checked=\"false\" clickable=\"false\" enabled=\"true\" focusable=\"false\" focused=\"false\" sc"
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell input tap 424 440",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell input text T2A-PERSIST",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell rm -f /sdcard/probe.xml",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell uiautomator dump /sdcard/probe.xml",
+   "rc": 0,
+   "out": "UI hierchary dumped to: /sdcard/probe.xml\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out cat /sdcard/probe.xml",
+   "rc": 0,
+   "out": "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><hierarchy rotation=\"0\"><node index=\"0\" text=\"\" resource-id=\"\" class=\"android.widget.FrameLayout\" package=\"com.minitodo.app\" content-desc=\"\" checkable=\"false\" checked=\"false\" clickable=\"false\" enabled=\"true\" focusable=\"false\" focused=\"false\" sc"
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell rm -f /sdcard/probe.xml",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell uiautomator dump /sdcard/probe.xml",
+   "rc": 0,
+   "out": "UI hierchary dumped to: /sdcard/probe.xml\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out cat /sdcard/probe.xml",
+   "rc": 0,
+   "out": "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><hierarchy rotation=\"0\"><node index=\"0\" text=\"\" resource-id=\"\" class=\"android.widget.FrameLayout\" package=\"com.minitodo.app\" content-desc=\"\" checkable=\"false\" checked=\"false\" clickable=\"false\" enabled=\"true\" focusable=\"false\" focused=\"false\" sc"
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell input tap 931 440",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out run-as com.minitodo.app cat shared_prefs/minitodo_prefs.xml",
+   "rc": 0,
+   "out": "<?xml..."
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell am force-stop com.minitodo.app",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out run-as com.minitodo.app cat shared_prefs/minitodo_prefs.xml",
+   "rc": 0,
+   "out": "<?xml..."
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell am start -n com.minitodo.app/.MainActivity",
+   "rc": 0,
+   "out": "Starting: Intent { cmp=com.minitodo.app/.MainActivity }\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell dumpsys activity activities",
+   "rc": 0,
+   "out": "ACTIVITY MANAGER ACTIVITIES (dumpsys activity activities)\nDisplay #0 (activities from top to bottom):\n  * Task{ac2cfbd #802 type=standard A=10236:com.minitodo.app U=0 visible=true visibleRequested=true mode=fullscreen translucent=false sz=1}\n    fullscreenRequestAllowMode=NONE\n    isSleeping=false\n "
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell rm -f /sdcard/probe.xml",
+   "rc": 0,
+   "out": ""
+  },
+  {
+   "cmd": "adb -s emulator-5554 shell uiautomator dump /sdcard/probe.xml",
+   "rc": 0,
+   "out": "UI hierchary dumped to: /sdcard/probe.xml\n"
+  },
+  {
+   "cmd": "adb -s emulator-5554 exec-out cat /sdcard/probe.xml",
+   "rc": 0,
+   "out": "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?><hierarchy rotation=\"0\"><node index=\"0\" text=\"\" resource-id=\"\" class=\"android.widget.FrameLayout\" package=\"com.minitodo.app\" content-desc=\"\" checkable=\"false\" checked=\"false\" clickable=\"false\" enabled=\"true\" focusable=\"false\" focused=\"false\" sc"
+  }
+ ],
+ "retries": null,
+ "attempt_count": 1,
+ "exception": null
+}

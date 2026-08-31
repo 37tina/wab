@@ -1,0 +1,5 @@
+surface_id,symbol,kind,is_container,page_id,source_ref,notes
+PAGE-MAINACTIVITY-3FDE9431,MainActivity,page,false,PAGE-MAINACTIVITY-3FDE9431,app/src/main/java/com/minitodo/app/MainActivity.kt:39,activity with own UI
+REPOSITORY-TODOREPOSITORY-E71D7690,TodoRepository,repository,false,,app/src/main/java/com/minitodo/app/TodoRepository.kt:14,Repository class
+PAGE-MINITODOAPP-1936C2EC,MiniTodoApp,reusable-component,false,,app/src/main/java/com/minitodo/app/MainActivity.kt:50,compose function without page suffix
+PAGE-TODOROW-8EEAABDC,TodoRow,reusable-component,false,,app/src/main/java/com/minitodo/app/MainActivity.kt:135,compose function without page suffix

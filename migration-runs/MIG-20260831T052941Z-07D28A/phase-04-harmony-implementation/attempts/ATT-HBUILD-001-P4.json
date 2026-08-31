@@ -1,0 +1,228 @@
+{
+  "attempt_id": "ATT-HBUILD-001-P4",
+  "attempted_at": "2026-08-31T14:08:20Z",
+  "commands": [
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "--version"
+      ],
+      "category": "TOOLCHAIN",
+      "command_id": "CMD-P4-TOOLCHAIN",
+      "command_verdict": "PASS",
+      "duration_seconds": 0.126,
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "error_output_matches": [],
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "exit_code": 0,
+      "finished_at": "2026-08-31T14:08:14Z",
+      "plan_argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "--version"
+      ],
+      "required_argv_tokens": [
+        "--version"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "semantic_error": false,
+      "started_at": "2026-08-31T14:08:14Z",
+      "stderr_path": "logs/CMD-P4-TOOLCHAIN.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "logs/CMD-P4-TOOLCHAIN.stdout.log",
+      "stdout_sha256": "684aa4f4bdd851f66c5ef2be00ec925f4f27288ff156edab79a6239478b40e24",
+      "success_output_contains": [
+        "6.24.3"
+      ],
+      "success_output_matches": [
+        "6.24.3"
+      ],
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default",
+        "--no-daemon",
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-04-harmony-implementation/harmony-project/entry/build/default/outputs/default/entry-default-unsigned.hap"
+      ],
+      "artifact_state_after_clean_build": {
+        "mtime_ns": 1788185299754237116,
+        "sha256": "512d9451492651f8c812a0f6cbf4004903367b29b3451645cdb2bbdeddb12ffe",
+        "size": 193310
+      },
+      "category": "CLEAN_BUILD",
+      "command_id": "CMD-P4-CLEANBUILD",
+      "command_verdict": "PASS",
+      "duration_seconds": 5.666,
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "error_output_matches": [],
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "exit_code": 0,
+      "finished_at": "2026-08-31T14:08:19Z",
+      "plan_argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default",
+        "--no-daemon",
+        "{ARTIFACT}"
+      ],
+      "required_argv_tokens": [
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "semantic_error": false,
+      "started_at": "2026-08-31T14:08:14Z",
+      "stderr_path": "logs/CMD-P4-CLEANBUILD.stderr.log",
+      "stderr_sha256": "03518eeaf7a1c4e0ca5283287a31b8f16576edf3e0487e9bcba3241df9229b1b",
+      "stdout_path": "logs/CMD-P4-CLEANBUILD.stdout.log",
+      "stdout_sha256": "61a0417bac75f07e62bd31eaba9834a6cee80306fd0b49d59da225c38eead289",
+      "success_output_contains": [
+        "BUILD SUCCESSFUL"
+      ],
+      "success_output_matches": [
+        "BUILD SUCCESSFUL"
+      ],
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.minitodo.app"
+      ],
+      "category": "BUNDLE_CHECK",
+      "command_id": "CMD-P4-BUNDLECHECK",
+      "command_verdict": "FAIL",
+      "duration_seconds": 0.068,
+      "error_output_contains": [
+        "unable to connect"
+      ],
+      "error_output_matches": [],
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "exit_code": 0,
+      "finished_at": "2026-08-31T14:08:19Z",
+      "plan_argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.minitodo.app"
+      ],
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.minitodo.app"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "semantic_error": true,
+      "started_at": "2026-08-31T14:08:19Z",
+      "stderr_path": "logs/CMD-P4-BUNDLECHECK.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "logs/CMD-P4-BUNDLECHECK.stdout.log",
+      "stdout_sha256": "11870ca139e6ec870a3c0919cec22696ae10630cbe889de2e075996c08fb871f",
+      "success_output_contains": [
+        "failed to get information"
+      ],
+      "success_output_matches": [
+        "failed to get information"
+      ],
+      "timed_out": false
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+        "--hap",
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/signing/entry-default-signed.hap",
+        "--bundle",
+        "com.minitodo.app",
+        "--fingerprint",
+        "ECA26A42CC7A0EB02E7DA12CC18303EC318D680A201C71384EFD1F98D630CD77",
+        "--java",
+        "/Applications/DevEco-Studio.app/Contents/jbr/Contents/Home/bin/java",
+        "--jar",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/hap-sign-tool.jar"
+      ],
+      "category": "SIGNING_CHECK",
+      "command_id": "CMD-P4-SIGNINGCHECK",
+      "command_verdict": "PASS",
+      "duration_seconds": 0.829,
+      "error_output_contains": [
+        "SIGNING-VERIFY-FAIL"
+      ],
+      "error_output_matches": [],
+      "executable_sha256": "42c4424595892928b4972b3745ee025c257b37408d121d95a99af66592a86420",
+      "exit_code": 0,
+      "finished_at": "2026-08-31T14:08:20Z",
+      "plan_argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+        "--hap",
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/signing/entry-default-signed.hap",
+        "--bundle",
+        "com.minitodo.app",
+        "--fingerprint",
+        "ECA26A42CC7A0EB02E7DA12CC18303EC318D680A201C71384EFD1F98D630CD77",
+        "--java",
+        "/Applications/DevEco-Studio.app/Contents/jbr/Contents/Home/bin/java",
+        "--jar",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/hap-sign-tool.jar"
+      ],
+      "required_argv_tokens": [
+        "--bundle",
+        "com.minitodo.app",
+        "--fingerprint",
+        "ECA26A42CC7A0EB02E7DA12CC18303EC318D680A201C71384EFD1F98D630CD77"
+      ],
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+      "semantic_error": false,
+      "started_at": "2026-08-31T14:08:19Z",
+      "stderr_path": "logs/CMD-P4-SIGNINGCHECK.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "logs/CMD-P4-SIGNINGCHECK.stdout.log",
+      "stdout_sha256": "d4874b8c5e78ecfd124ad75e97783ac109e34dc5f08706e9ba640d04f115f577",
+      "success_output_contains": [
+        "SIGNING-VERIFY-PASS"
+      ],
+      "success_output_matches": [
+        "SIGNING-VERIFY-PASS"
+      ],
+      "timed_out": false
+    }
+  ],
+  "errors": [
+    "CMD-P4-BUNDLECHECK (BUNDLE_CHECK) failed: exit=0, success_markers=['failed to get information'], error_markers=[]"
+  ],
+  "executed_by": "verify-exec-minitodo-r1",
+  "h4env_id": "H4ENV-001-P4",
+  "hbuild_id": "HBUILD-001-P4",
+  "valid_build_id": null
+}

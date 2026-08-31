@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "contract_kind": "data-repository-interface",
+  "interface_only": true,
+  "paradigm": "feature-semantic",
+  "object_id": "todo_title",
+  "raw_name": "todo.title",
+  "repository_symbol": "TodoTitleRepository",
+  "semantics": {
+    "directions": [
+      "read",
+      "write"
+    ],
+    "note": "语义层读写集契约：仅声明业务数据对象的读写方向，不规定物理载体；鸿蒙侧实现自由选择 Preferences/RelationalStore 等。"
+  },
+  "required_operations": [
+    "list",
+    "get",
+    "set"
+  ],
+  "required_operations_evidence": {
+    "base_rule": "directions-fallback",
+    "bc_ids": [],
+    "bc_derived_ops": []
+  },
+  "android_reference_persistence": [
+    {
+      "kind": "preference_key",
+      "location": "SharedPreferences(minitodo_prefs)/todos[].title（随 todos JSON 数组落盘）"
+    }
+  ],
+  "feature_ids": [
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-TOGGLE"
+  ],
+  "relation_ids": [
+    "REL-0004",
+    "REL-0006",
+    "REL-0008"
+  ],
+  "source_refs": [
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:151",
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:157",
+    "app/src/main/java/com/minitodo/app/MainActivity.kt:97"
+  ],
+  "source": {
+    "data_relations_sha256": "711eac5c019e8d5f9b83ff802e0418b79eb91c13c52348061ec6850871fdfb54"
+  },
+  "generated_at": "2026-08-31T11:25:57Z"
+}

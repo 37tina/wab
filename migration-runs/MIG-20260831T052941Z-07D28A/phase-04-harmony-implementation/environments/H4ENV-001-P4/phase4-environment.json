@@ -1,0 +1,452 @@
+{
+  "base_application": {
+    "build_mode": "debug",
+    "bundle_name": "com.minitodo.app",
+    "dependency_lock_file": "oh-package.json5",
+    "dependency_lock_sha256": "422253ff4e261d371bf05c023fcfb23bbde85a517c78b0c4fddc3262d14c4e6e",
+    "product_name": "default"
+  },
+  "base_henv_id": "HENV-001-P3",
+  "base_henv_sha256": "4c6bac3581b58afa0dc3e58cca17003d1f077dc45eb6555ddd6e198c23921e2f",
+  "base_toolchain": {
+    "allowed_executables": [
+      "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_route_smoke.py",
+      "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_screenshot.py",
+      "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py"
+    ],
+    "build_tool_version": "hvigor 6.24.3",
+    "category_contracts": {
+      "BUNDLE_CHECK": {
+        "error_output_contains": [
+          "unable to connect"
+        ],
+        "executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+        "required_argv_tokens": [
+          "-t",
+          "127.0.0.1:5557",
+          "shell",
+          "bm",
+          "dump",
+          "-n",
+          "com.minitodo.app"
+        ],
+        "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "success_output_contains": [
+          "failed to get information"
+        ]
+      },
+      "CLEAN_BUILD": {
+        "error_output_contains": [
+          "BUILD FAILED"
+        ],
+        "executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+        "required_argv_tokens": [
+          "clean",
+          "assembleHap",
+          "--mode",
+          "module",
+          "-p",
+          "product=default"
+        ],
+        "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "success_output_contains": [
+          "BUILD SUCCESSFUL"
+        ]
+      },
+      "DEVICE": {
+        "error_output_contains": [
+          "[Fail]"
+        ],
+        "executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+        "required_argv_tokens": [
+          "-t",
+          "127.0.0.1:5557",
+          "list",
+          "targets"
+        ],
+        "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "success_output_contains": [
+          "127.0.0.1:5557"
+        ]
+      },
+      "INSTALL": {
+        "error_output_contains": [
+          "install bundle failed"
+        ],
+        "executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+        "required_argv_tokens": [
+          "-t",
+          "127.0.0.1:5557",
+          "install",
+          "entry/build/default/outputs/default/entry-default-unsigned.hap"
+        ],
+        "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "success_output_contains": [
+          "install bundle successfully"
+        ]
+      },
+      "LAUNCH": {
+        "error_output_contains": [
+          "failed to start ability"
+        ],
+        "executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+        "required_argv_tokens": [
+          "-t",
+          "127.0.0.1:5557",
+          "shell",
+          "aa",
+          "start",
+          "-b",
+          "com.minitodo.app",
+          "-a",
+          "EntryAbility"
+        ],
+        "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "success_output_contains": [
+          "start ability successfully"
+        ]
+      },
+      "ROUTE_SMOKE": {
+        "error_output_contains": [
+          "ROUTE-SMOKE-FAIL"
+        ],
+        "executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_route_smoke.py",
+        "executable_sha256": "bbd1fdb3ca5901695e71535ce5caaba304ee7e802bb007a3026d732088ab7354",
+        "required_argv_tokens": [
+          "--serial",
+          "127.0.0.1:5557",
+          "--bundle",
+          "com.minitodo.app",
+          "--result"
+        ],
+        "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_route_smoke.py",
+        "success_output_contains": [
+          "ROUTE-SMOKE-PASS"
+        ]
+      },
+      "SCREENSHOT_CAPTURE": {
+        "error_output_contains": [
+          "SCREENSHOT-FAIL"
+        ],
+        "executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_screenshot.py",
+        "executable_sha256": "3df9057e226cb566b2b07599d08bf51716eb9390823bcad95424b545ee562c36",
+        "required_argv_tokens": [
+          "--serial",
+          "127.0.0.1:5557",
+          "--output"
+        ],
+        "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_screenshot.py",
+        "success_output_contains": [
+          "SCREENSHOT-OK"
+        ]
+      },
+      "SIGNING_CHECK": {
+        "error_output_contains": [
+          "SIGNING-VERIFY-FAIL"
+        ],
+        "executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+        "executable_sha256": "42c4424595892928b4972b3745ee025c257b37408d121d95a99af66592a86420",
+        "required_argv_tokens": [
+          "--bundle",
+          "com.minitodo.app",
+          "--fingerprint",
+          "ECA26A42CC7A0EB02E7DA12CC18303EC318D680A201C71384EFD1F98D630CD77"
+        ],
+        "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+        "success_output_contains": [
+          "SIGNING-VERIFY-PASS"
+        ]
+      },
+      "TOOLCHAIN": {
+        "error_output_contains": [
+          "BUILD FAILED"
+        ],
+        "executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+        "required_argv_tokens": [
+          "--version"
+        ],
+        "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "success_output_contains": [
+          "6.24.3"
+        ]
+      }
+    },
+    "compatible_api": "24",
+    "deveco_studio_version": "6.1.1",
+    "harmonyos_sdk_api_target": "24",
+    "package_manager_version": "ohpm 6.1.2.285",
+    "runtime_version": "HarmonyOS 6.1.0.125 (API 24, ArkTS stage)"
+  },
+  "bundle_name": "com.minitodo.app",
+  "business_profile": {
+    "account_id": "ACCOUNT-LOCAL-NONE",
+    "account_role": "local-user-no-account（应用无账号体系）",
+    "font_scale": 1.0,
+    "locale": "zh-CN",
+    "network_conditions_ref": "App 零网络权限、零网络行为（AndroidManifest 无 uses-permission）；网络条件不影响功能",
+    "network_profile": "offline-capable",
+    "network_toggle_available": false,
+    "orientation": "portrait",
+    "permissions_profile": "fresh-install（App 声明零权限）",
+    "seed_data_id": "SEED-FRESH-INSTALL-0",
+    "seed_reset_ref": "adb -s emulator-5554 shell pm clear com.minitodo.app（用例执行前重置至同一空起点，详见 test_seed 段）",
+    "theme": "light",
+    "timezone": "Asia/Shanghai"
+  },
+  "category_contracts": {
+    "BUNDLE_CHECK": {
+      "error_output_contains": [
+        "unable to connect"
+      ],
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.minitodo.app"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "success_output_contains": [
+        "failed to get information"
+      ]
+    },
+    "BUSINESS_ASSERT": {
+      "error_output_contains": [
+        "BUSINESS_ASSERT-FAIL"
+      ],
+      "executable_sha256": "6e3f286c138058c64a66db68b58f5fd825b4c072d182aaefbb975f1cd963ebbc",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.minitodo.app",
+        "--object",
+        "--op"
+      ],
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/4a_business_assert.py",
+      "success_output_contains": [
+        "BUSINESS_ASSERT-PASS"
+      ]
+    },
+    "CLEAN_BUILD": {
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "required_argv_tokens": [
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "success_output_contains": [
+        "BUILD SUCCESSFUL"
+      ]
+    },
+    "CLEAN_INSTALL": {
+      "error_output_contains": [
+        "install bundle failed"
+      ],
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "install",
+        "entry/build/default/outputs/default/entry-default-unsigned.hap",
+        "com.minitodo.app"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "success_output_contains": [
+        "install bundle successfully"
+      ]
+    },
+    "DEVICE_CHECK": {
+      "error_output_contains": [
+        "[Fail]"
+      ],
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "list",
+        "targets"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "success_output_contains": [
+        "127.0.0.1:5557"
+      ]
+    },
+    "LAUNCH": {
+      "error_output_contains": [
+        "failed to start ability"
+      ],
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "aa",
+        "start",
+        "-b",
+        "com.minitodo.app",
+        "-a",
+        "EntryAbility"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "success_output_contains": [
+        "start ability successfully"
+      ]
+    },
+    "NAVIGATE": {
+      "error_output_contains": [
+        "NAVIGATE-FAIL"
+      ],
+      "executable_sha256": "1f680987528ca627306f14f337d76570bd60014b92e194e2589fd30069ff83e5",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.minitodo.app",
+        "--step"
+      ],
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/4a_navigate_step.py",
+      "success_output_contains": [
+        "NAVIGATE-PASS"
+      ]
+    },
+    "NETWORK_PROFILE": {
+      "error_output_contains": [
+        "Unknown command",
+        "not found"
+      ],
+      "executable_sha256": "9fdf861259dc807937b13afdd5f053c7fda9f3b7726933fe0e0f45130ecb8dc7",
+      "required_argv_tokens": [
+        "-s",
+        "127.0.0.1:5557",
+        "shell",
+        "dumpsys",
+        "connectivity"
+      ],
+      "resolved_executable": "/Users/rainyday/Library/Android/sdk/platform-tools/adb",
+      "success_output_contains": [
+        "Connectivity"
+      ]
+    },
+    "PERMISSION_PROFILE": {
+      "error_output_contains": [
+        "Unable to find",
+        "not found"
+      ],
+      "executable_sha256": "9fdf861259dc807937b13afdd5f053c7fda9f3b7726933fe0e0f45130ecb8dc7",
+      "required_argv_tokens": [
+        "-s",
+        "127.0.0.1:5557",
+        "shell",
+        "dumpsys",
+        "package",
+        "com.minitodo.app"
+      ],
+      "resolved_executable": "/Users/rainyday/Library/Android/sdk/platform-tools/adb",
+      "success_output_contains": [
+        "com.minitodo.app"
+      ]
+    },
+    "SEED_RESET": {
+      "error_output_contains": [
+        "Failed",
+        "not found"
+      ],
+      "executable_sha256": "9fdf861259dc807937b13afdd5f053c7fda9f3b7726933fe0e0f45130ecb8dc7",
+      "required_argv_tokens": [
+        "-s",
+        "127.0.0.1:5557",
+        "shell",
+        "pm",
+        "clear",
+        "com.minitodo.app"
+      ],
+      "resolved_executable": "/Users/rainyday/Library/Android/sdk/platform-tools/adb",
+      "success_output_contains": [
+        "Success"
+      ]
+    },
+    "SIGNING_CHECK": {
+      "error_output_contains": [
+        "SIGNING-VERIFY-FAIL"
+      ],
+      "executable_sha256": "42c4424595892928b4972b3745ee025c257b37408d121d95a99af66592a86420",
+      "required_argv_tokens": [
+        "--bundle",
+        "com.minitodo.app",
+        "--fingerprint",
+        "ECA26A42CC7A0EB02E7DA12CC18303EC318D680A201C71384EFD1F98D630CD77"
+      ],
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_signing_check.py",
+      "success_output_contains": [
+        "SIGNING-VERIFY-PASS"
+      ]
+    },
+    "TOOLCHAIN": {
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "required_argv_tokens": [
+        "--version"
+      ],
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "success_output_contains": [
+        "6.24.3"
+      ]
+    }
+  },
+  "comparison": {
+    "content_bounds": [
+      0,
+      0,
+      1080,
+      2400
+    ],
+    "geometry_tolerance_px": 0,
+    "screenshot_height": 2400,
+    "screenshot_width": 1080
+  },
+  "created_by": "impl-lead-minitodo-r1",
+  "device_id": "HDEVICE-001",
+  "device_selector_tokens": [
+    "127.0.0.1:5557"
+  ],
+  "device_serial": "127.0.0.1:5557",
+  "emulator": {
+    "api_level": "24",
+    "device_id": "HDEVICE-001",
+    "device_type": "emulator",
+    "is_baseline": true,
+    "model": "DevEco local emulator (phone)",
+    "os_version": "HarmonyOS 6.1.0.125",
+    "refresh_rate_hz": 60,
+    "required": true,
+    "resolution": "1080x2400",
+    "screen_parity_note": "分辨率 1080x2400 与 Phase 2 Android 取证设备一致（屏幕奇偶性成立）；density 非 HENV 机器字段，Phase 2 440dpi 仅复现性元数据",
+    "screenshot_required": true,
+    "serial": "127.0.0.1:5557"
+  },
+  "frozen_at": "2026-08-31T12:44:57Z",
+  "h4env_id": "H4ENV-001-P4",
+  "required": true,
+  "source_android_env_id": "ENV-001"
+}

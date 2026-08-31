@@ -235,6 +235,11 @@ export function isAbsoluteWindowsPath(dir: string): boolean {
   return /^[a-zA-Z]:[\\/].+/.test(dir.trim());
 }
 
+/** 本机绝对路径：Windows 盘符路径或 POSIX 绝对路径（macOS/Linux，如 /Users/xxx） */
+export function isAbsoluteLocalPath(dir: string): boolean {
+  return isAbsoluteWindowsPath(dir) || /^\/.+/.test(dir.trim());
+}
+
 // ---- 模型管理 ----
 
 /** CodeArts Space 登录态内置的模型（inferhub-provider 网关提供，不写入本地配置文件）。
@@ -267,6 +272,8 @@ export interface AgentProviderInfo {
   apiKeyMasked: string;
   hasApiKey: boolean;
   models: AgentModelDef[];
+  /** 内核运行时是否已注册该服务商（false = 配置存在但内核不认，显式指定会失败） */
+  runtimeRegistered?: boolean;
 }
 
 export interface AgentModelInput {
@@ -392,6 +399,8 @@ export async function fetchTeamState(sessionId: string): Promise<AgentTeamState 
     });
   }
   for (const provider of providers) {
+    // 未注册进内核运行时的自定义服务商不可用（prompt 显式指定会 500），直接过滤
+    if (provider.runtimeRegistered === false) continue;
     for (const model of provider.models) {
       if (!model.displayEnabled) continue;
       options.push({
@@ -532,10 +541,13 @@ export async function waitForCodeArtsResult(
     while (Date.now() - started < timeoutMs) {
       const messages = await getCodeArtsMessages(sessionId, credentials);
       messages.filter((item) => item.info?.role === "assistant").forEach((item) => options.onUpdate?.(item));
+      // leader 多步执行时每步都会产生 assistant 短回复，只有按契约输出 WAITING_HUMAN_REVIEW
+      // 的最终汇总（或显式错误）才算阶段完成，否则继续等待后台执行。
       const assistant = [...messages].reverse().find((item) => {
         if (item.info?.role !== "assistant") return false;
         if (messageId && item.info?.parentID && item.info.parentID !== messageId) return false;
-        return Boolean(assistantText(item) || assistantError(item) || item.info?.time?.completed);
+        if (assistantError(item)) return true;
+        return assistantText(item).toUpperCase().includes("WAITING_HUMAN_REVIEW");
       });
       if (assistant) {
         const failure = assistantError(assistant);

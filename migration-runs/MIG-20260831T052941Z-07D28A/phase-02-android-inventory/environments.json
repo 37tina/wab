@@ -1,0 +1,41 @@
+{
+  "baseline_env_id": "ENV-001",
+  "frozen_at": "2026-08-31T05:54:43Z",
+  "environments": [
+    {
+      "env_id": "ENV-001",
+      "is_baseline": true,
+      "account_id": "ACCOUNT-LOCAL-NONE",
+      "account_role": "local-user-no-account（应用无账号体系）",
+      "seed_data_id": "SEED-FRESH-INSTALL-0",
+      "seed_reset_ref": "adb -s emulator-5554 shell pm clear com.minitodo.app（用例执行前重置至同一空起点，详见 test_seed 段）",
+      "network_profile": "offline-capable",
+      "network_conditions_ref": "App 零网络权限、零网络行为（AndroidManifest 无 uses-permission）；网络条件不影响功能",
+      "network_toggle_available": false,
+      "emulator_model": "sdk_gphone16k_arm64",
+      "device_serial": "emulator-5554",
+      "resolution": "1080x2400",
+      "density_dpi": 440,
+      "screen_purpose": "reproducibility_only",
+      "_screen_purpose_note": "resolution and density_dpi are experiment reproducibility metadata only, never a quality or equivalence condition",
+      "android_api_level": 37,
+      "orientation": "portrait",
+      "locale": "zh-CN",
+      "theme": "light",
+      "font_scale": 1.0,
+      "timezone": "Asia/Shanghai",
+      "permissions_profile": "fresh-install（App 声明零权限）",
+      "_measured_note": "实测(2026-08-31)：wm size Override 1080x2400；wm density Override 440；API 37/Android 17；Night mode no；font_scale 1.0；timezone Asia/Shanghai；system_locales zh-CN",
+      "status": "FROZEN",
+      "frozen_by": "inventory-lead-minitodo-r1",
+      "frozen_at": "2026-08-31T05:54:43Z",
+      "android_cli_version": "1.0.15985488",
+      "application_id": "com.minitodo.app",
+      "app_version": "1.0",
+      "app_build": "1",
+      "build_variant": "debug",
+      "source_revision": "051e50d89749b7fcaf87a4475442fe7d6d79f419",
+      "apk_sha256": "1d7317ad1a989747df3634f40c08224eae6cbefacbf4d953e50bdd06bbb08853"
+    }
+  ]
+}

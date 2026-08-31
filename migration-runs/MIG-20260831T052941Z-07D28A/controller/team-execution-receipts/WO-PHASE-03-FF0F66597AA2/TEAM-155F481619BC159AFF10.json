@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-155F481619BC159AFF10",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "role_key": "public_ui_agent_id",
+  "actor_id": "public-ui-agent-minitodo-r1",
+  "platform_task_id": "ses_fa87bfc60ffecc8Sw8F946Dvuw-PUI",
+  "started_at": "2026-08-31T11:11:00Z",
+  "ended_at": "2026-08-31T11:52:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T12:03:21Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/public-ui-registry.csv",
+      "sha256": "e7eafad7ac1cc230e9e4acf994b91b01d22d17b3116c09fa7b37f129d6e1c0d7"
+    }
+  ]
+}

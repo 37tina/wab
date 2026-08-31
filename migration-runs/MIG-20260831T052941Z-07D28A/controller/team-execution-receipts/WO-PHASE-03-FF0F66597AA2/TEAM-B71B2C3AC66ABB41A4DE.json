@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-B71B2C3AC66ABB41A4DE",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "role_key": "navigation_agent_id",
+  "actor_id": "nav-agent-minitodo-r1",
+  "platform_task_id": "ses_fa87bfc60ffecc8Sw8F946Dvuw-NAV",
+  "started_at": "2026-08-31T11:11:00Z",
+  "ended_at": "2026-08-31T11:52:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T12:03:21Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/route-registry.csv",
+      "sha256": "bbe2a4ae4148ee5fc951d8c4a66ca7a7c75901829301a987da0bfb0681c3e439"
+    }
+  ]
+}

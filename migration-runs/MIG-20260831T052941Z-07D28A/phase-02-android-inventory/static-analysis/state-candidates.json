@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "states": [
+    {
+      "expression": "sortMode == TodoRepository.SORT_DEFAULT",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:66",
+      "state_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-BF708D28",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "expression": "sortMode == TodoRepository.SORT_DEFAULT",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:71",
+      "state_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-444276B7",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "expression": "title.isEmpty(",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:95",
+      "state_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-C04217D7",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "expression": "todos.isEmpty(",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:106",
+      "state_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-1C0370B0",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "expression": "index >= 0",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:115",
+      "state_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-CC621AFB",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "expression": "mode == TodoRepository.SORT_COMPLETED_LAST",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:133",
+      "state_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-15B91F15",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "expression": "todo.completed",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:151",
+      "state_id": "STATE-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-E3FB82D9",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    }
+  ]
+}

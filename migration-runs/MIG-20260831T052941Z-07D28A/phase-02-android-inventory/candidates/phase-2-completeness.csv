@@ -1,0 +1,11 @@
+page_id,page_symbol,check_category,check_key,status,hint
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,图标,icon,N/A,MainActivity 为纯容器页，不适用 图标 检查
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,位置,position,N/A,MainActivity 为纯容器页，不适用 位置 检查
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,主次,primary_secondary,MISSING,MainActivity 缺 主次 语义，需补录
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,字段,fields,MISSING,MainActivity 缺 字段 语义，需补录
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,图标联动,icon_binding,N/A,MainActivity 为纯容器页，不适用 图标联动 检查
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,版式,layout,N/A,MainActivity 为纯容器页，不适用 版式 检查
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,依赖,dependencies,MISSING,MainActivity 缺 依赖 语义，需补录
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,导航,navigation,MISSING,MainActivity 缺 导航 语义，需补录
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,动效,motion,RECORDED,
+PAGE-MAINACTIVITY-9E8FBE45,MainActivity,颜色/真值,color,MISSING,MainActivity 缺 颜色/真值 语义，需补录

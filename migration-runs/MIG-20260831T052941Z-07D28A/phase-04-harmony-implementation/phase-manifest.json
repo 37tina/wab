@@ -1,0 +1,29 @@
+{
+  "feature_dispatch_sha256": "f155913bc0f2587d73ce0747bd2fba2b8ddf166780f06926d9cfdde1eafb96f2",
+  "formal_evidence_device_type": "emulator",
+  "initial_project_snapshot_sha256": "29557cf087b8a68c69eb3f88011e3ac5a447bf59e9374b98e2a01e68ebb9e0aa",
+  "initialized_at": "2026-08-31T12:44:57Z",
+  "input_lock_sha256": "bbbc9299d7655ca3518feb7a4d2ea3530b58bc037e604cf9543b98ccf9e6b1bc",
+  "mp4_allowed": false,
+  "ownership": {
+    "implementation_lead_id": "impl-lead-minitodo-r1",
+    "parity_acceptance_agent_id": "parity-accept-minitodo-r1",
+    "verification_executor_id": "verify-exec-minitodo-r1",
+    "visual_asset_agent_id": "visual-asset-minitodo-r1"
+  },
+  "phase": 4,
+  "project_id": "MINITODO",
+  "roles": {
+    "asset_agent": "visual-asset-minitodo-r1",
+    "implementation_lead": "impl-lead-minitodo-r1",
+    "parity_checker": "parity-accept-minitodo-r1",
+    "verification_executor": "verify-exec-minitodo-r1"
+  },
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "schema_version": "2.0",
+  "status": "IN_PROGRESS",
+  "surface_contracts_sha256": "3187f539070b92dee025739df4b6205f208ab0f28bc0f2a6c1e02ad747ddb364",
+  "work_order_id": "WO-PHASE-04-E8F3205C2B9E",
+  "work_order_relative_path": "controller/work-orders/WO-PHASE-04-E8F3205C2B9E.json",
+  "work_order_sha256": "632ff1b9b7fe937c0ccaeaed3d97edefab48c9e72c3c15561908668b37b5d7dc"
+}

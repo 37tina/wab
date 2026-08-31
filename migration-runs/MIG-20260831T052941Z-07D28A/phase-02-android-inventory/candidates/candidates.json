@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "generated_at": "GENERIC",
+  "project": "/Users/rainyday/Desktop/finale/android/MiniTodo",
+  "features": [
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-TOGGLE",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-SORT",
+    "FEAT-TODO-PERSIST",
+    "FEAT-TODO-EMPTY-STATE",
+    "FEAT-INPUT-GUARD",
+    "APP-NAVIGATION"
+  ],
+  "pages": [
+    "MainActivity"
+  ],
+  "counts": {
+    "code_candidates": 33,
+    "business_rule_candidates": 25,
+    "asset_mapping_candidates": 1,
+    "inventory_candidates": 26,
+    "page_field_candidates": 0,
+    "dependency_candidates": 14,
+    "field_option_candidates": 0,
+    "nav_relation_candidates": 0,
+    "risk_probe_candidates": 2,
+    "color_palette_candidates": 0,
+    "motion_candidates": 5,
+    "completeness_rows": 10
+  }
+}

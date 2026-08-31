@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "pages": [
+    {
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "symbol": "MainActivity",
+      "kinds": [
+        "ACTIVITY"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.MAIN"
+          ],
+          "categories": [
+            "android.intent.category.LAUNCHER"
+          ],
+          "data": []
+        }
+      ],
+      "source_refs": [
+        "app/src/main/AndroidManifest.xml:1",
+        "app/src/main/java/com/minitodo/app/MainActivity.kt:39"
+      ],
+      "surface_disposition": "RUNTIME_BINDING_REQUIRED",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+ "bc_id": "BC-0002",
+ "status": "CHAIN_FAIL",
+ "note": "assertions failed: persist_after_restart=T2A-TOGGLE",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "T2A-TOGGLE",
+   "verdict": "PASS",
+   "optional": "false"
+  },
+  {
+   "kind": "persist_after_restart",
+   "value": "T2A-TOGGLE",
+   "verdict": "FAIL",
+   "optional": "false"
+  }
+ ]
+}

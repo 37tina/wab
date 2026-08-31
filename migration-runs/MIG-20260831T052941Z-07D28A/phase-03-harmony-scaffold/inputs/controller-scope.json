@@ -1,0 +1,217 @@
+{
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "project_id": "MINITODO",
+  "created_at": "2026-08-31T05:29:41Z",
+  "android": {
+    "project_root": "/Users/rainyday/Desktop/finale/android/MiniTodo",
+    "source_revision": "051e50d89749b7fcaf87a4475442fe7d6d79f419",
+    "source_revision_kind": "git-commit",
+    "apk_path": "/Users/rainyday/Desktop/finale/android/MiniTodo/app/build/outputs/apk/debug/app-debug.apk",
+    "apk_sha256": "1d7317ad1a989747df3634f40c08224eae6cbefacbf4d953e50bdd06bbb08853",
+    "application_id": "com.minitodo.app",
+    "app_version": "1.0",
+    "app_build": "1",
+    "build_variant": "debug",
+    "identity_provenance": "四方一致实测(2026-08-31): build.gradle.kts 声明 == aapt2 dump badging == adb dumpsys package(emulator-5554 已安装实例) == apkanalyzer manifest"
+  },
+  "target": {
+    "platform": "HarmonyOS NEXT",
+    "sdk_or_api_target": "HarmonyOS NEXT 6.1.0.125(SP9DEVC00E120R4P11) API 24（鸿蒙模拟器 127.0.0.1:5557 实测）",
+    "device_classes": [
+      "phone"
+    ]
+  },
+  "migration_scope": {
+    "included_features": [
+      "FEAT-TODO-ADD",
+      "FEAT-TODO-TOGGLE",
+      "FEAT-TODO-DELETE",
+      "FEAT-TODO-SORT",
+      "FEAT-TODO-PERSIST",
+      "FEAT-TODO-EMPTY-STATE",
+      "FEAT-INPUT-GUARD"
+    ],
+    "feature_verify_modes": {
+      "FEAT-TODO-ADD": "RUNTIME",
+      "FEAT-TODO-TOGGLE": "RUNTIME",
+      "FEAT-TODO-DELETE": "RUNTIME",
+      "FEAT-TODO-SORT": "RUNTIME",
+      "FEAT-TODO-PERSIST": "RUNTIME",
+      "FEAT-TODO-EMPTY-STATE": "RUNTIME",
+      "FEAT-INPUT-GUARD": "SOURCE_CONFIRM"
+    },
+    "feature_titles": {
+      "FEAT-TODO-ADD": "添加待办：输入标题点击「添加」，新条目追加至列表并清空输入框（MainActivity.kt:92-103）",
+      "FEAT-TODO-TOGGLE": "切换完成状态：Checkbox 切换 completed，完成后标题加删除线并持久化（MainActivity.kt:112-119,143-152）",
+      "FEAT-TODO-DELETE": "删除待办：点击「✕」移除条目并持久化（MainActivity.kt:120-122,153-158）",
+      "FEAT-TODO-SORT": "排序切换：「排序：默认」↔「排序：完成置底」顶栏按钮切换，完成置底=按 completed 稳定升序，sort_mode 持久化（MainActivity.kt:63-72,132-133; TodoRepository.kt:54-58）",
+      "FEAT-TODO-PERSIST": "持久化与重启恢复：SharedPreferences minitodo_prefs 整体写回（todos=JSON 数组、sort_mode=int），重启后列表与排序恢复（TodoRepository.kt 全文）",
+      "FEAT-TODO-EMPTY-STATE": "空列表占位：todos 为空时显示「暂无待办」，非空时显示列表（MainActivity.kt:106-127）",
+      "FEAT-INPUT-GUARD": "空标题输入防护：trim 后空标题点击「添加」不创建条目（MainActivity.kt:94-95）"
+    },
+    "excluded_features": [
+      "FEAT-SYSTEM-BACKUP"
+    ],
+    "exclusion_reasons": {
+      "FEAT-SYSTEM-BACKUP": "AndroidManifest.xml 声明 allowBackup=true 的系统云备份通道属平台级系统行为，非应用内用户可见功能；HarmonyOS NEXT 无 Android Auto Backup 对应语义，不做平台化替换；其用户价值已由 FEAT-TODO-PERSIST 的持久化等价覆盖。除此之外无其他排除项：本 App 为单界面应用，无通知/多语言切换/主题切换/账号体系/网络功能（Manifest 零权限、源码零网络调用）。"
+    },
+    "key_business_capabilities": [
+      "CAP-DATA-MODEL：待办数据模型 Todo{id:Long, title:String, completed:Boolean, createdAt:Long}，字段名与语义不许漂移（Todo.kt:4-8）",
+      "CAP-PERSIST-CONTRACT：内存态为唯一事实源，任何变更整体写回 SharedPreferences(minitodo_prefs)：todos=JSON 数组字符串（元素含 id/title/completed/createdAt 四键）、sort_mode∈{0,1}（TodoRepository.kt:7-12,40-58）",
+      "CAP-ID-GENERATION：新待办 id 与 createdAt 均取添加时刻 System.currentTimeMillis() 毫秒值（MainActivity.kt:96-97）",
+      "CAP-SORT-RULE：默认序=存储序（添加序）；完成置底=sortedBy{completed} 稳定排序，未完成组内与完成组内相对序均保持（MainActivity.kt:132-133）",
+      "CAP-EMPTY-INPUT-GUARD：input.trim() 后为空则不创建条目、不产生持久化写入（MainActivity.kt:94-95）",
+      "CAP-TOGGLE-VISUAL-RULE：completed=true 时标题呈删除线（LineThrough）且 Checkbox 勾选，二者与数据态严格一致（MainActivity.kt:143-152）"
+    ],
+    "data_scope": {
+      "storage": "Android SharedPreferences（minitodo_prefs，MODE_PRIVATE）",
+      "keys": {
+        "todos": "JSON 数组字符串，元素 {id:long, title:string, completed:bool, createdAt:long}",
+        "sort_mode": "int，0=SORT_DEFAULT（默认/添加序），1=SORT_COMPLETED_LAST（完成置底）"
+      },
+      "initial_state": "全新安装或 pm clear 后 prefs 文件不存在：loadTodos 返回空列表、loadSortMode 回落 0（2026-08-31 实测 shared_prefs/ 为空）",
+      "data_migration": "无历史数据迁移需求：应用无账号、无云端、无数据库，唯一数据即上述两键",
+      "side_effects": "无网络与系统 API 副作用（Manifest 零权限），唯一副作用为上述 SharedPreferences 写入"
+    },
+    "allowed_platform_substitutions": [
+      {
+        "capability": "top-app-bar",
+        "reason": "Material3 TopAppBar（标题「迷你待办」+排序 TextButton）→ ArkUI 原生顶部导航栏；属 NATIVE_ADAPTATION 白名单 Navigation 范畴",
+        "native_equivalence_allowed": true
+      },
+      {
+        "capability": "scrollable-list",
+        "reason": "Compose LazyColumn → ArkUI List+LazyForEach 列表容器；列表为原生适配允许项",
+        "native_equivalence_allowed": true
+      },
+      {
+        "capability": "completion-toggle",
+        "reason": "Material3 Checkbox → ArkUI Checkbox/Toggle；属白名单 Toggle 范畴",
+        "native_equivalence_allowed": true
+      },
+      {
+        "capability": "text-input",
+        "reason": "OutlinedTextField（占位「输入待办标题」）→ ArkUI TextInput；文本输入控件平台化",
+        "native_equivalence_allowed": true
+      },
+      {
+        "capability": "button-controls",
+        "reason": "Button/TextButton/IconButton（添加/排序/✕）→ ArkUI Button 系控件；按钮控件平台化",
+        "native_equivalence_allowed": true
+      },
+      {
+        "capability": "page-scaffold",
+        "reason": "Compose Scaffold 页面骨架 → ArkUI 页面结构；页面骨架平台化",
+        "native_equivalence_allowed": true
+      },
+      {
+        "capability": "system-back",
+        "reason": "Android 系统返回 → 鸿蒙系统返回手势/侧滑；属白名单返回交互范畴",
+        "native_equivalence_allowed": true
+      }
+    ],
+    "visual_parity_mode": "native-adaptive",
+    "_visual_parity_mode_note": "enum: strict | native-adaptive; new runs default to native-adaptive; runs missing this field are treated as legacy strict",
+    "parity_dimensions": [
+      "function",
+      "page",
+      "state",
+      "data",
+      "interaction",
+      "error"
+    ],
+    "migration_policies": {
+      "FUNCTIONAL_EQUIVALENCE": "HARD",
+      "_FUNCTIONAL_EQUIVALENCE_note": "数据/业务计算/状态变化/持久化/副作用不许漂移；Phase 3/4 Gate 均消费本政策",
+      "UI_FIDELITY": "HIGH",
+      "_UI_FIDELITY_note": "页面信息架构/内容/关键控件/图标/视觉层级/关键颜色必须保留",
+      "NATIVE_ADAPTATION": "CONSTRAINED",
+      "_NATIVE_ADAPTATION_note": "仅 Navigation/Tabs/返回/Sheet/Dialog/Toggle/Picker/系统菜单/权限交互允许平台化替换，以 allowed_platform_substitutions 白名单为准"
+    }
+  },
+  "ownership": {
+    "migration_controller_id": "controller-agent-minitodo-r1",
+    "inventory_lead_id": "inventory-lead-minitodo-r1",
+    "code_map_agent_id": "code-map-agent-minitodo-r1",
+    "runtime_state_agent_ids": [
+      "runtime-oracle-minitodo-r1"
+    ],
+    "business_rule_agent_id": "business-rule-agent-minitodo-r1",
+    "data_dependency_agent_id": "data-dep-agent-minitodo-r1",
+    "evidence_administrator_id": "evidence-admin-minitodo-r1",
+    "coverage_checker_id": "coverage-checker-minitodo-r1"
+  },
+  "pending_confirmations": [],
+  "environments": [
+    {
+      "env_id": "ENV-001",
+      "is_baseline": true,
+      "account_id": "ACCOUNT-LOCAL-NONE",
+      "account_role": "local-user-no-account（应用无账号体系）",
+      "seed_data_id": "SEED-FRESH-INSTALL-0",
+      "seed_reset_ref": "adb -s emulator-5554 shell pm clear com.minitodo.app（用例执行前重置至同一空起点，详见 test_seed 段）",
+      "network_profile": "offline-capable",
+      "network_conditions_ref": "App 零网络权限、零网络行为（AndroidManifest 无 uses-permission）；网络条件不影响功能",
+      "network_toggle_available": false,
+      "emulator_model": "sdk_gphone16k_arm64",
+      "device_serial": "emulator-5554",
+      "resolution": "1080x2400",
+      "density_dpi": 440,
+      "screen_purpose": "reproducibility_only",
+      "_screen_purpose_note": "resolution and density_dpi are experiment reproducibility metadata only, never a quality or equivalence condition",
+      "android_api_level": 37,
+      "orientation": "portrait",
+      "locale": "zh-CN",
+      "theme": "light",
+      "font_scale": 1.0,
+      "timezone": "Asia/Shanghai",
+      "permissions_profile": "fresh-install（App 声明零权限）",
+      "_measured_note": "实测(2026-08-31)：wm size Override 1080x2400；wm density Override 440；API 37/Android 17；Night mode no；font_scale 1.0；timezone Asia/Shanghai；system_locales zh-CN"
+    }
+  ],
+  "tool_policy": {
+    "runtime_ui_tool": "android-cli",
+    "apk_analyzer_bin": "/Users/rainyday/Library/Android/sdk/cmdline-tools/latest/bin/apkanalyzer",
+    "layout_inspector_allowed": false
+  },
+  "test_seed": {
+    "_note": "Phase 2 与 Phase 4 必须测同一起点；以下全部为 2026-08-31 实测值（pm clear → 冷启动 → run-as 读 prefs → uiautomator dump）",
+    "reset_command": "adb -s emulator-5554 shell pm clear com.minitodo.app && adb -s emulator-5554 shell am start -W -n com.minitodo.app/.MainActivity",
+    "initial_language": "zh-CN（UI 文案为源码硬编码中文，与系统 locale 无关；系统 locale 实测 zh-CN）",
+    "initial_theme": "light（AndroidManifest 固定 Theme.Material.Light.NoActionBar，无夜间适配；系统 Night mode 实测 no）",
+    "preset_data": "无预置数据：清数据后 shared_prefs/minitodo_prefs.xml 不存在（实测），todos=空列表，sort_mode 回落默认 0",
+    "preset_item_count": 0,
+    "initial_sort_mode": 0,
+    "initial_sort_label": "排序：默认",
+    "initial_input": "空，占位文案「输入待办标题」",
+    "expected_initial_texts": [
+      "迷你待办",
+      "排序：默认",
+      "输入待办标题",
+      "添加",
+      "暂无待办"
+    ],
+    "verify_procedure": "执行 reset_command 后：① run-as com.minitodo.app ls shared_prefs/ 应为空；② uiautomator dump 文本集应恰含 expected_initial_texts 五条且无条目行"
+  },
+  "harmonyos_environment": {
+    "_note": "目标端冻结（2026-08-31 实测）",
+    "env_id": "HENV-EMU-OHOS-5557",
+    "device_serial": "127.0.0.1:5557",
+    "hdc_path": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+    "device_model": "emulator",
+    "device_type": "phone",
+    "software_version": "6.1.0.125(SP9DEVC00E120R4P11)",
+    "api_version": 24,
+    "resolution": "1080x2400",
+    "refresh_rate": 60,
+    "deveco_studio_version": "6.1.1",
+    "build_tool": "hvigor"
+  },
+  "source_input_lock": {
+    "_note": "源码输入锁：git HEAD commit + git 树对象哈希 + 干净工作区，validate_gate.py 每次入口实查（2026-08-31 实测）",
+    "git_head": "051e50d89749b7fcaf87a4475442fe7d6d79f419",
+    "git_tree_sha1": "8a0082f4c26dda8d7fbddf22a29d91c9c4104b8e",
+    "worktree_state": "clean（git status --porcelain --untracked-files=all 为空）",
+    "apk_sha256": "1d7317ad1a989747df3634f40c08224eae6cbefacbf4d953e50bdd06bbb08853"
+  }
+}

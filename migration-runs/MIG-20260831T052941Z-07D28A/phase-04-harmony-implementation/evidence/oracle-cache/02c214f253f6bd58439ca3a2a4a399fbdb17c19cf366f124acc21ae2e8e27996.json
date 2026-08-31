@@ -1,0 +1,61 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "1d7317ad1a989747df3634f40c08224eae6cbefacbf4d953e50bdd06bbb08853",
+    "bc_id": "BC-0007",
+    "bc_row_sha": "f594118407c94553037e7a77d4403d14fb748030218cd46eb5292054a32a1c4c",
+    "seed": "SEED-FRESH-INSTALL-0"
+  },
+  "observation": {
+    "anchor_assertions": [],
+    "bc_id": "BC-0007",
+    "blocked_reason": "chain-not-executed",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-08-31T14:04:00Z",
+      "device": "emulator-5554",
+      "package": "com.minitodo.app",
+      "preferences": {},
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-08-31T14:04:00Z",
+      "device": "emulator-5554",
+      "package": "com.minitodo.app",
+      "preferences": {},
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-z8nzj762/runtime-evidence/evidence/chains/BC-0007",
+    "executed": false,
+    "feature_id": "FEAT-INPUT-GUARD",
+    "note": "",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

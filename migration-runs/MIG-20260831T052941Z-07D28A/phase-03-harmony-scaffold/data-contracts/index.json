@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "contract_kind": "data-repository-interface",
+  "interface_only": true,
+  "paradigm": "feature-semantic",
+  "source": {
+    "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/phase-02-android-inventory/data-relations.csv",
+    "sha256": "711eac5c019e8d5f9b83ff802e0418b79eb91c13c52348061ec6850871fdfb54",
+    "row_count": 17
+  },
+  "contracts": [
+    {
+      "object_id": "input_state",
+      "repository_symbol": "InputStateRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-INPUT-GUARD",
+        "FEAT-TODO-ADD"
+      ],
+      "required_operations": [
+        "list",
+        "get",
+        "set"
+      ],
+      "contract_file": "input_state.json"
+    },
+    {
+      "object_id": "sort_mode",
+      "repository_symbol": "SortModeRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT"
+      ],
+      "required_operations": [
+        "create",
+        "setCompleted",
+        "restore",
+        "list",
+        "get",
+        "set"
+      ],
+      "contract_file": "sort_mode.json"
+    },
+    {
+      "object_id": "todo_title",
+      "repository_symbol": "TodoTitleRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "required_operations": [
+        "list",
+        "get",
+        "set"
+      ],
+      "contract_file": "todo_title.json"
+    },
+    {
+      "object_id": "todos",
+      "repository_symbol": "TodosRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-TODO-ADD",
+        "FEAT-TODO-DELETE",
+        "FEAT-TODO-EMPTY-STATE",
+        "FEAT-TODO-PERSIST",
+        "FEAT-TODO-SORT",
+        "FEAT-TODO-TOGGLE"
+      ],
+      "required_operations": [
+        "create",
+        "setCompleted",
+        "delete",
+        "restore",
+        "list",
+        "get",
+        "set"
+      ],
+      "contract_file": "todos.json"
+    }
+  ],
+  "generated_at": "2026-08-31T11:25:57Z"
+}

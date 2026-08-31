@@ -1,0 +1,72 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-A7B40BD0BA97",
+  "phase": 4,
+  "feature_id": "FEAT-TODO-EMPTY-STATE",
+  "status": "ISSUED",
+  "issued_at": "2026-08-31T12:46:06Z",
+  "issued_by": "impl-lead-minitodo-r1",
+  "verify_mode": "RUNTIME",
+  "risk_level": "normal",
+  "bc_ids": [
+    "BC-0006"
+  ],
+  "runtime_bc_ids": [
+    "BC-0006"
+  ],
+  "data_reads": [
+    "todos"
+  ],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0016"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-MAINACTIVITY-3FDE9431",
+      "is_container": false,
+      "kind": "page",
+      "relation": "behavior-host"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead-minitodo-r1",
+    "ui_agent_id": "visual-asset-minitodo-r1",
+    "business_data_agent_id": "verify-exec-minitodo-r1",
+    "native_capability_agent_id": "parity-accept-minitodo-r1"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0006"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/minitodo/app/MainActivity.kt:106",
+      "app/src/main/java/com/minitodo/app/MainActivity.kt:107",
+      "app/src/main/java/com/minitodo/app/MainActivity.kt:109"
+    ],
+    "runtime_evidence_refs": [
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0006"
+    ],
+    "data_relations": [
+      "REL-0016"
+    ],
+    "visual_memory_surface": [
+      "PAGE-MAINACTIVITY-3FDE9431"
+    ],
+    "p3_surface_plan": []
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "bbbc9299d7655ca3518feb7a4d2ea3530b58bc037e604cf9543b98ccf9e6b1bc"
+}

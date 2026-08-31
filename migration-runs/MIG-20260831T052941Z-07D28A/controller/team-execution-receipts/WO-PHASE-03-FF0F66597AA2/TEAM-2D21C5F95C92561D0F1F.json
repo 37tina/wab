@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-2D21C5F95C92561D0F1F",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "role_key": "capability_contract_agent_id",
+  "actor_id": "capability-agent-minitodo-r1",
+  "platform_task_id": "ses_fa87bfc60ffecc8Sw8F946Dvuw-CAP",
+  "started_at": "2026-08-31T11:11:00Z",
+  "ended_at": "2026-08-31T11:52:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T12:03:21Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/capability-contracts.csv",
+      "sha256": "0de8fa37f25219dd34ca136f4ef93fc58857d54cd06119409e7f284a85af63d5"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "run_id": "MIG-20260831T052941Z-07D28A",
+  "project_id": "MINITODO",
+  "phase": 3,
+  "status": "IN_PROGRESS",
+  "initialized_at": "2026-08-31T11:25:57Z",
+  "paradigm": "feature-semantic",
+  "architecture_lead": "architect-lead-minitodo-r1",
+  "ownership": {
+    "architecture_lead_id": "architect-lead-minitodo-r1",
+    "toolchain_agent_id": "toolchain-agent-minitodo-r1",
+    "navigation_agent_id": "nav-agent-minitodo-r1",
+    "public_ui_agent_id": "public-ui-agent-minitodo-r1",
+    "capability_contract_agent_id": "capability-agent-minitodo-r1",
+    "architecture_acceptance_agent_id": "acceptance-agent-minitodo-r1"
+  },
+  "work_order_id": "WO-PHASE-03-FF0F66597AA2",
+  "work_order_sha256": "c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f",
+  "gate_mode": "feature-semantic",
+  "phase2_input_locked": true,
+  "business_implementation_allowed": false,
+  "gui_only_evidence_allowed": false,
+  "mp4_required": false,
+  "template_id": "ARKUI-STAGE-TEMPLATE-V1",
+  "template_manifest_sha256": "8d721d373d2e830a436017da6b933b465be6690600489fcba54c3a938fd7371b",
+  "template_generation_sha256": "c3b0821d1ac452c03389e73b43de93152a77aefffc61674d3fbeccd4156176b0"
+}

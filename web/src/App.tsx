@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Link, NavLink, Outlet, Route, Routes, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import type { EmulatorFrame, EmulatorStream, Feature, Phase, PhaseNumber, Project, ProjectInput, Review, SourcePlatform, TargetPlatform } from "./types";
 import { mockService } from "./mockService";
-import { addAgentModel, BUILTIN_MODELS, checkCodeArts, checkWorkspaceDir, createCodeArtsSession, fetchAgentModels, getCodeArtsMessages, fetchSessionSummary, fetchTeamState, flattenModelOptions, isAbsoluteWindowsPath, loadCodeArtsCredentials, loadRunModel, loadTestWorkspaceDir, parseRunModel, promptCodeArtsSession, removeAgentModel, saveCodeArtsCredentials, saveRunModel, saveTestWorkspaceDir, updateAgentTarget, waitForCodeArtsResult, createSkillProposal, decideSkillProposal, fetchSkillFile, fetchSkillProposals, fetchSkillTree, type AgentModelInput, type AgentProviderInfo, type AgentTeamState, type SkillProposal, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
+import { addAgentModel, BUILTIN_MODELS, checkCodeArts, checkWorkspaceDir, createCodeArtsSession, fetchAgentModels, getCodeArtsMessages, fetchSessionSummary, fetchTeamState, flattenModelOptions, isAbsoluteLocalPath, loadCodeArtsCredentials, loadRunModel, loadTestWorkspaceDir, parseRunModel, promptCodeArtsSession, removeAgentModel, saveCodeArtsCredentials, saveRunModel, saveTestWorkspaceDir, updateAgentTarget, waitForCodeArtsResult, createSkillProposal, decideSkillProposal, fetchSkillFile, fetchSkillProposals, fetchSkillTree, type AgentModelInput, type AgentProviderInfo, type AgentTeamState, type SkillProposal, type CodeArtsCredentials, type CodeArtsMessage, type CodeArtsRunResult } from "./codearts";
 import { agentSourceLabel, agentTargetLabel, useAgentConnection } from "./useAgentConnection";
 import { phasePrompt } from "./phasePrompts";
 
@@ -44,14 +46,75 @@ function makeReview(decision: Review["decision"], comment: string): Review {
   return { decision, comment, reviewer: "当前审核员", reviewedAt: new Date().toISOString() };
 }
 
+/** 从后端镜像恢复/重建外部驱动项目（跨浏览器共享 + 配方版本更新时强制重建修复历史状态） */
+async function restoreProjectFromMirror(id: string): Promise<Project | undefined> {
+  try {
+    const response = await fetch(`/api/mirror/project?id=${encodeURIComponent(id)}`);
+    if (!response.ok) return undefined;
+    const recipe = await response.json() as {
+      id?: string; name?: string; source?: string; workspace?: string; model?: string;
+      session?: string; version?: number; phases?: Array<{ n: number; response: string }>;
+    };
+    if (recipe.id !== id || !recipe.name) return undefined;
+    const version = Number(recipe.version ?? 1);
+    const local = mockService.getProject(id);
+    if (local && local.mirrorVersion === version) return local;
+    // 一次性镜像导入：直接构造终态项目（不走 createProject/record/review 状态机，零副作用零定时器）
+    const imported = mockService.importExternalProject({
+      id,
+      name: recipe.name,
+      sourceType: /\.zip$/i.test(recipe.source ?? "") ? "zip" : "github",
+      sourceValue: recipe.source ?? "",
+      workspaceDir: recipe.workspace,
+      runModel: recipe.model,
+      session: recipe.session,
+      phases: recipe.phases ?? [],
+    });
+    mockService.replaceProject({ ...imported, mirrorVersion: version });
+    return mockService.getProject(id);
+  } catch {
+    return undefined;
+  }
+}
+
 function useProject(id?: string) {
   const [project, setProject] = useState<Project | undefined>(() => (id ? mockService.getProject(id) : undefined));
+  const [restoreTried, setRestoreTried] = useState(false);
   useEffect(() => {
     if (!id) return;
     setProject(mockService.getProject(id));
-    return mockService.subscribe(id, setProject);
-  }, [id]);
+    const unsubscribe = mockService.subscribe(id, setProject);
+    if (!restoreTried) {
+      setRestoreTried(true);
+      void restoreProjectFromMirror(id).then((restored) => { if (restored) setProject(restored); });
+    }
+    return unsubscribe;
+  }, [id, restoreTried]);
   return project;
+}
+
+/** 全局错误边界：白屏变为可见错误（投射组件异常不再击穿整页） */
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { error: string | null }> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { error: null };
+  }
+  static getDerivedStateFromError(error: Error) {
+    return { error: `${error.name}: ${error.message}` };
+  }
+  componentDidCatch(error: Error) {
+    console.error("[ErrorBoundary]", error);
+  }
+  render() {
+    if (this.state.error) {
+      return <div style={{ padding: 24, fontFamily: "monospace", whiteSpace: "pre-wrap" }}>
+        <h2>页面组件异常（已拦截，不白屏）</h2>
+        <p style={{ color: "#b91c1c" }}>{this.state.error}</p>
+        <button onClick={() => { this.setState({ error: null }); location.reload(); }}>刷新重试</button>
+      </div>;
+    }
+    return this.props.children;
+  }
 }
 
 function App() {
@@ -62,6 +125,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/new" element={<LiveNewProjectPage />} />
         <Route path="/projects/:id" element={<LiveProjectPage />} />
+        <Route path="/projects/:id/review/:phaseNo" element={<PhaseReviewPage />} />
         <Route path="/projects/:id/report" element={<ReportPage />} />
         <Route path="/projects/:id/delivery" element={<DeliveryPage />} />
         <Route path="*" element={<NotFound />} />
@@ -76,7 +140,46 @@ function LiveAppShell() {
   const [codeArtsOpen, setCodeArtsOpen] = useState(false);
   const [skillGovOpen, setSkillGovOpen] = useState(false);
   const { status: agent } = useAgentConnection();
+  const navigate = useNavigate();
   useEffect(() => mockService.subscribeAll(setProjects), []);
+  // 外部驱动入口：?autocreate=1&name=&source=&workspace=&model=&session=
+  // 迁移总控直接经内核 API 驱动四阶段执行；网页创建对应项目作为状态镜像（externalDrive：不自动发单）
+  const autoCreatedRef = useRef(false);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("autocreate") !== "1" || autoCreatedRef.current) return;
+    autoCreatedRef.current = true;
+    const name = params.get("name") || "外部驱动迁移";
+    const source = params.get("source") || "";
+    const session = params.get("session");
+    // 幂等：同名同源的外部驱动项目已存在则复用（避免重复创建）
+    const existing = mockService.listProjects().find((p) => p.externalDrive && p.name === name && p.source.value === source);
+    let project = existing;
+    if (!project) {
+      project = mockService.createProject({
+        name,
+        sourceType: /\.zip$/i.test(source) ? "zip" : "github",
+        sourceValue: source,
+        executionMode: "codearts-agentteam",
+        workspaceDir: params.get("workspace") || undefined,
+        runModel: params.get("model") || undefined,
+        sourcePlatform: "android",
+        targetPlatform: "harmony-phone",
+        externalDrive: true,
+      });
+      if (session) {
+        mockService.bindActiveSession(project.id, session);
+        mockService.recordCodeArtsExecution(project.id, 1, { mode: "codearts-agentteam", status: "running", sessionId: session, agent: "team-leader" });
+      }
+    }
+    // 把项目 ID 上报给网关，供外部总控构造 sync URL
+    void fetch("/api/mirror/project", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: project.id, name: project.name, sessionId: session ?? project.activeSessionId ?? "" }),
+    }).catch(() => {});
+    navigate(`/projects/${project.id}`, { replace: true });
+  }, [navigate]);
   const connected = Boolean(agent?.reachable && agent?.healthy);
   const active = projects.find((project) => project.status === "running" || project.status === "review");
   const navClass = ({ isActive }: { isActive: boolean }) => isActive ? "active" : "";
@@ -212,6 +315,7 @@ function CodeArtsConnectionDialog({ initial, onClose }: { initial: CodeArtsCrede
   const statusLabel = status === "idle" ? "尚未测试" : status === "checking" ? "健康检查中" : status === "running" ? "推理中" : status === "succeeded" ? "测试通过" : "测试失败";
   return <><div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}><div className="review-dialog codearts-dialog">
     <div className="dialog-top"><div><h2>CodeArts 连接</h2><p>网关自动发现本机 AgentKernel 端口。默认指令会通过 Task 工具真实派发子智能体，直接验证 Space AgentTeam 团队协作可用。</p></div><div className="dialog-top-right"><span className={`test-status-pill ${status}`}>{statusLabel}</span><button className="close-button" onClick={onClose}>×</button></div></div>
+    <div className="codearts-dialog-body">
     <div className="agent-card">
       <div className="agent-card-top">
         <span className={`agent-state-pill ${connected ? "ok" : "bad"}`}><i />{agent ? (connected ? "已连接" : "未连接") : "检测中…"}</span>
@@ -244,7 +348,7 @@ function CodeArtsConnectionDialog({ initial, onClose }: { initial: CodeArtsCrede
     <div className="field-divider" />
     <label className="field-label">用户名<input value={credentials.username} onChange={(event) => setCredentials({ ...credentials, username: event.target.value })} placeholder="codearts" /></label>
     <label className="field-label">本地服务密码（可选）<input type="password" value={credentials.password} onChange={(event) => setCredentials({ ...credentials, password: event.target.value })} placeholder="留空则使用本机 Agent 凭据" /></label>
-    <label className="field-label">测试工作区目录（可选）<input value={testDir} onChange={(event) => setTestDir(event.target.value)} placeholder={isAbsoluteWindowsPath(testDir) || !testDir ? "留空则使用 Agent 默认目录" : "请输入本机绝对路径，如 D:\\code\\test-workspace"} /><small className={`field-note ${testDir.trim() && !isAbsoluteWindowsPath(testDir) ? "error-text" : ""}`}>{testDir.trim() && !isAbsoluteWindowsPath(testDir) ? "请输入本机绝对路径" : "测试会话将在此目录中运行，避免写入 Agent 安装目录。"}</small></label>
+    <label className="field-label">测试工作区目录（可选）<input value={testDir} onChange={(event) => setTestDir(event.target.value)} placeholder={isAbsoluteLocalPath(testDir) || !testDir ? "留空则使用 Agent 默认目录" : "请输入本机绝对路径，如 /Users/you/test-workspace"} /><small className={`field-note ${testDir.trim() && !isAbsoluteLocalPath(testDir) ? "error-text" : ""}`}>{testDir.trim() && !isAbsoluteLocalPath(testDir) ? "请输入本机绝对路径" : "测试会话将在此目录中运行，避免写入 Agent 安装目录。"}</small></label>
     <label className="field-label">执行模型<select value={runModel} onChange={(event) => { setRunModel(event.target.value); saveRunModel(event.target.value); }}>{modelOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><small className="field-note">连接测试与真实 AgentTeam 执行共用此选择；含 Space 内置模型与已配置的自定义模型。</small></label>
     <label className="field-label">测试指令<textarea value={instruction} onChange={(event) => setInstruction(event.target.value)} rows={3} placeholder="输入你希望 CodeArts 回答的内容" /></label>
     <button className="primary-button wide" onClick={runTest} disabled={status === "checking" || status === "running" || !instruction.trim()}>{status === "checking" ? "检查 CodeArts 服务…" : status === "running" ? "等待回复…" : "发送测试指令"}<span>→</span></button>
@@ -252,6 +356,7 @@ function CodeArtsConnectionDialog({ initial, onClose }: { initial: CodeArtsCrede
     {responseText && <pre className="real-response dialog-response">{responseText}</pre>}
     {!responseText && status === "running" && <div className="test-loader"><i /><i /><i /></div>}
     <div className="codearts-test-meta"><span>Agent <b>team-leader</b></span><span>消息 <b>{messages.length}</b></span><span>耗时 <b>{elapsed === null ? "—" : `${(elapsed / 1000).toFixed(1)}s`}</b></span></div>
+    </div>
   </div></div>
   {modelsOpen && <ModelManagerDialog onClose={() => setModelsOpen(false)} />}</>;
 }
@@ -657,7 +762,7 @@ function LiveNewProjectPage() {
   useEffect(() => {
     const value = workspaceDir.trim();
     if (!value) return setDirStatus("unknown");
-    if (!isAbsoluteWindowsPath(value)) return setDirStatus("invalid");
+    if (!isAbsoluteLocalPath(value)) return setDirStatus("invalid");
     setDirStatus("checking");
     const timer = window.setTimeout(async () => {
       const result = await checkWorkspaceDir(value);
@@ -674,7 +779,7 @@ function LiveNewProjectPage() {
     checking: "正在检查目录…",
     exists: "✓ 目录已存在，Agent 将直接使用。",
     missing: "目录当前不存在，Agent 运行时会自动创建。",
-    invalid: "请输入本机绝对路径，例如 D:\\code\\workspace",
+    invalid: "请输入本机绝对路径，例如 D:\\code\\workspace 或 /Users/you/workspace",
   };
 
   const sourceOptions: Array<{ id: SourcePlatform; label: string; note: string; ready: boolean }> = [
@@ -699,7 +804,7 @@ function LiveNewProjectPage() {
     if (sourceType === "zip" && !/\.zip$/i.test(value)) return setError("请选择 .zip 格式的源项目压缩包");
     if (executionMode === "codearts-agentteam") {
       if (!workspace) return setError("真实执行需要指定 CodeArts 工作区目录");
-      if (!isAbsoluteWindowsPath(workspace)) return setError("工作区目录需为本机绝对路径，例如 D:\\code\\workspace");
+      if (!isAbsoluteLocalPath(workspace)) return setError("工作区目录需为本机绝对路径，例如 D:\\code\\workspace 或 /Users/you/workspace");
     }
     const project = mockService.createProject({ name: name.trim(), sourceType, sourceValue: value, executionMode, workspaceDir: executionMode === "codearts-agentteam" ? workspace : undefined, sourcePlatform, targetPlatform, runModel: executionMode === "codearts-agentteam" ? projectModel : undefined });
     navigate(`/projects/${project.id}`);
@@ -722,12 +827,760 @@ function LiveNewProjectPage() {
     <label className="field-label">迁移项目名称<input value={name} onChange={(event) => setName(event.target.value)} placeholder="例如：待办应用跨平台迁移" /></label>
     <div className="execution-mode-picker"><div className="mode-picker-heading"><b>选择执行引擎</b></div><button type="button" className={executionMode === "codearts-agentteam" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("codearts-agentteam")}><strong>CodeArts Space / AgentTeam</strong><small>真实大模型推理、团队调度和工具执行</small></button><button type="button" className={executionMode === "demo" ? "mode-option active" : "mode-option"} onClick={() => setExecutionMode("demo")}><strong>本地演示</strong><small>仅播放固定数据，不产生真实构建</small></button></div>
     {executionMode === "codearts-agentteam" && <label className="field-label">执行模型<select value={projectModel} onChange={(event) => { setProjectModel(event.target.value); saveRunModel(event.target.value); }}>{modelOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}</select><small className="field-note">AgentTeam 真实执行使用的模型；含 Space 内置模型与客户端已配置模型。</small></label>}
-    {executionMode === "codearts-agentteam" && <label className="field-label">CodeArts 工作区目录<input value={workspaceDir} onChange={(event) => setWorkspaceDir(event.target.value)} placeholder="D:\\code\\migration-workspace" /><small className={`field-note ${dirStatus === "exists" ? "mint-text" : dirStatus === "invalid" ? "error-text" : ""}`}>{dirNotes[dirStatus]}</small></label>}
+    {executionMode === "codearts-agentteam" && <label className="field-label">CodeArts 工作区目录<input value={workspaceDir} onChange={(event) => setWorkspaceDir(event.target.value)} placeholder="D:\\code\\migration-workspace 或 /Users/you/migration-workspace" /><small className={`field-note ${dirStatus === "exists" ? "mint-text" : dirStatus === "invalid" ? "error-text" : ""}`}>{dirNotes[dirStatus]}</small></label>}
     {error && <div className="form-error">! {error}</div>}
     <button className="primary-button wide" type="submit" disabled={!pathReady}>启动迁移 <span className="button-arrow">→</span></button>
   </form><aside className="intake-aside"><div className="aside-card"><p className="eyebrow">执行流程</p><h3>四阶段迁移门禁</h3><div className="preview-steps">{[{ n: "01", t: "基线建立", d: "冻结迁什么与验收标准" }, { n: "02", t: "深度理解", d: "功能语义地图与行为契约" }, { n: "03", t: "原生迁移", d: "受控原生化组件映射" }, { n: "04", t: "差分修复", d: "双端重放至 MATCH" }].map((step, index) => <div className="preview-step" key={step.n}><span>{step.n}</span><div><b>{step.t}</b><small>{step.d}</small></div>{index < 3 && <i>↓</i>}</div>)}</div></div><div className="aside-tip"><span>ⓘ</span><p>迁移单位是“用户功能与行为”而非页面：语义契约作为中间层，使源端与目标端解耦，同一套验证方法可复用到其他平台组合。当前已验证 Android → HarmonyOS，其余路径为扩展方向。</p></div></aside></div></div>;
 }
 
+
+/** 阶段名（对话分组标题用） */
+const PHASE_CHAT_LABELS: Record<number, string> = { 1: "Phase 1 · 基线建立", 2: "Phase 2 · 深度理解", 3: "Phase 3 · 原生迁移", 4: "Phase 4 · 实现与验证" };
+
+/** 消息按阶段归属：阶段工单（msg_phaseN_*）开启分组；其余消息（恢复/返工/网页插话/回复）继承当前活动阶段；系统注入的 reminder 不展示 */
+function tagMessagesByPhase(messages: CodeArtsMessage[]): Array<{ message: CodeArtsMessage; phase: number }> {
+  let current = 0;
+  return messages
+    .filter((message) => {
+      const text = (message.parts ?? []).filter((part) => part.type === "text" && part.text).map((part) => part.text).join("");
+      return !(message.info?.role === "user" && text.trimStart().startsWith("<agent_team_reminder>"));
+    })
+    .map((message) => {
+      const id = message.info?.id ?? "";
+      const match = /^msg_phase([1-4])(?:_|$)/.exec(id);
+      if (message.info?.role === "user" && match) current = Number(match[1]);
+      return { message, phase: current };
+    });
+}
+
+/** 聊天气泡（Space 风格）：用户右对齐、Agent 左对齐（Markdown 渲染）带工具轨迹 */
+function ChatBubble({ message }: { message: CodeArtsMessage }) {
+  const role = message.info?.role;
+  const isUser = role === "user";
+  const who = typeof message.info?.agent === "string" && message.info.agent ? message.info.agent : isUser ? "工单" : "Agent";
+  const tools = (message.parts ?? []).filter((part) => part.tool) as Array<{ tool: string; state?: { status?: string } }>;
+  const text = (message.parts ?? []).filter((part) => part.type === "text" && part.text?.trim()).map((part) => part.text).join("\n").trim();
+  const time = message.info?.time?.created ? formatTime(new Date(message.info.time.created).toISOString()) : "";
+  const done = Boolean(message.info?.time?.completed);
+  if (isUser) {
+    return <div className="chat-row user"><div className="chat-bubble user">
+      <div className="chat-bubble-head"><span>工单 / 指令</span><small>{time}</small></div>
+      {text && (text.length > 600
+        ? <details className="chat-user-full"><summary>工单全文（{text.length} 字）· 点击展开</summary><p className="chat-bubble-text">{text}</p></details>
+        : <p className="chat-bubble-text">{text}</p>)}
+    </div></div>;
+  }
+  return <div className="chat-row agent">
+    <div className="chat-bubble agent">
+      <div className="chat-bubble-head"><b>{who}</b><small>{time}{done ? " · 完成" : " · 进行中"}</small></div>
+      {tools.length > 0 && <div className="chat-tools">{tools.map((tool, index) => <span key={`${tool.tool}-${index}`} className={`chat-tool ${tool.state?.status === "completed" ? "ok" : ""}`}>‹{tool.tool}›{tool.state?.status === "completed" ? "✓" : "◌"}</span>)}</div>}
+      {text && <div className="markdown-body"><ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown></div>}
+    </div>
+  </div>;
+}
+
+function modelLabelOf(project: Project) {
+  return project.runModel ? project.runModel.split("::").pop() ?? "默认模型" : "默认模型";
+}
+
+/** 团队成员名 → 阶段（迁移团队命名规约：2A/2B/收束=P2、架构师=P3、4A/4B=P4；leader 全程） */
+function memberPhaseOf(name: string): number {
+  if (/leader/i.test(name)) return 0;
+  if (/2A|2B|SemanticAnalyst|RuntimeOracle|Phase2|Finalizer/i.test(name)) return 2;
+  if (/Architect|Scaffold|P3/i.test(name)) return 3;
+  if (/4A|4B|Implementer|Verifier|P4/i.test(name)) return 4;
+  return 0;
+}
+
+/** 团队任务 → 阶段：优先任务文本（Phase N / NA·NB / Gate N），回落到执行成员归属；0=全局 */
+function taskPhaseOf(task: { content: string; owner_name?: string }): number {
+  const byText = /Phase\s*([1-4])/i.exec(task.content) ?? /(?:^|[\s（(])([1-4])[AB][\s ：:（）]/.exec(task.content) ?? /Gate\s*([1-4])/i.exec(task.content);
+  if (byText) return Number(byText[1]);
+  return task.owner_name ? memberPhaseOf(task.owner_name) : 0;
+}
+
+/** 模拟器 h264 投射：设备端/VideoToolbox 裸流 h264 → WebCodecs 硬解 → canvas + 反控（Android/鸿蒙通用）
+ *  2026-09-01 修正版：SPS/PPS 保留在流内（annexb in-band 必需）、起始码 3/4 字节兼容、
+ *  按 Access Unit 聚合（SPS+PPS+IDR 为一个 key chunk）、解码积压丢帧保护、hooks 顺序合规。 */
+function H264Cast({ platform, serial, deviceW = 1080, deviceH = 2400 }: { platform: "android" | "harmony"; serial: string; deviceW?: number; deviceH?: number }) {
+  const isAndroid = platform === "android";
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [status, setStatus] = useState<"connecting" | "live" | "error">("connecting");
+  const [hasFrame, setHasFrame] = useState(false);
+  const [jpegFallback, setJpegFallback] = useState(false);
+  const [deviceRes, setDeviceRes] = useState<{ w: number; h: number } | null>(null);
+  const dragStart = useRef<{ x: number; y: number } | null>(null);
+  // 连上但 8 秒解不出画（浏览器 WebCodecs 不可用/流异常）→ 降级 JPEG 轮询兜底
+  useEffect(() => {
+    if (jpegFallback || status !== "live" || hasFrame) return;
+    const timer = window.setTimeout(() => { setJpegFallback(true); }, 8000);
+    return () => { window.clearTimeout(timer); };
+  }, [status, hasFrame, jpegFallback]);
+  // 鸿蒙反控坐标为设备像素空间：按真实分辨率换算
+  useEffect(() => {
+    if (platform !== "harmony") return;
+    let alive = true;
+    void (async () => {
+      try {
+        const response = await fetch(`/api/emulator/harmony/info?serial=${encodeURIComponent(serial)}`);
+        if (!response.ok) return;
+        const data = await response.json();
+        if (alive && Number(data.width) > 0 && Number(data.height) > 0) setDeviceRes({ w: Number(data.width), h: Number(data.height) });
+      } catch { /* 解析失败则沿用默认分辨率 */ }
+    })();
+    return () => { alive = false; };
+  }, [platform, serial]);
+  const dw = deviceRes?.w ?? deviceW;
+  const dh = deviceRes?.h ?? deviceH;
+  useEffect(() => {
+    let alive = true;
+    let ws: WebSocket | null = null;
+    let retry: number | undefined;
+    let decoder: VideoDecoder | null = null;
+    let buffer = new Uint8Array(0);
+    let auBytes: Uint8Array | null = null;   // 当前 Access Unit 聚合（含起始码，原样透传）
+    let auHasKey = false;
+    let configured = false;
+    const startCodeLen = (nalu: Uint8Array): number => {
+      if (nalu.length >= 4 && nalu[0] === 0 && nalu[1] === 0 && nalu[2] === 0 && nalu[3] === 1) return 4;
+      if (nalu.length >= 3 && nalu[0] === 0 && nalu[1] === 0 && nalu[2] === 1) return 3;
+      return 0;
+    };
+    const naluType = (nalu: Uint8Array): number => {
+      const sc = startCodeLen(nalu);
+      return sc && nalu.length > sc ? nalu[sc] & 0x1f : 0;
+    };
+    const codecFromSps = (nalu: Uint8Array): string => {
+      const sc = startCodeLen(nalu);
+      const off = sc;
+      const profile = nalu.length > off + 1 ? nalu[off + 1].toString(16).padStart(2, "0") : "64";
+      const compat = nalu.length > off + 2 ? nalu[off + 2].toString(16).padStart(2, "0") : "00";
+      const level = nalu.length > off + 3 ? nalu[off + 3].toString(16).padStart(2, "0") : "28";
+      return `avc1.${profile}${compat}${level}`;
+    };
+    const resetDecoder = () => { try { decoder?.close(); } catch {} decoder = null; configured = false; };
+    const ensureDecoder = (sps: Uint8Array): boolean => {
+      if (decoder && decoder.state !== "closed") return true;
+      if (!("VideoDecoder" in window)) return false;
+      decoder = new VideoDecoder({
+        output: (frame) => {
+          const target = canvasRef.current;
+          if (target) {
+            if (target.width !== frame.displayWidth) target.width = frame.displayWidth;
+            if (target.height !== frame.displayHeight) target.height = frame.displayHeight;
+            target.getContext("2d")?.drawImage(frame, 0, 0);
+          }
+          setHasFrame(true);
+          frame.close();
+        },
+        error: () => { resetDecoder(); },
+      });
+      try {
+        decoder.configure({ codec: codecFromSps(sps), optimizeForLatency: true, avc: { format: "annexb" } });
+        configured = true;
+        return true;
+      } catch {
+        resetDecoder();
+        return false;
+      }
+    };
+    const flushAu = () => {
+      if (!auBytes || !auBytes.length) { auBytes = null; auHasKey = false; return; }
+      const chunk = auBytes;
+      const isKey = auHasKey;
+      auBytes = null;
+      auHasKey = false;
+      if (!decoder || decoder.state === "closed" || !configured) return;
+      // 积压保护：队列过深时丢 delta 帧（保持低延迟），key 帧必须送
+      if (!isKey && decoder.decodeQueueSize > 5) return;
+      try {
+        decoder.decode(new EncodedVideoChunk({ type: isKey ? "key" : "delta", timestamp: performance.now() * 1000, data: chunk }));
+      } catch { resetDecoder(); }
+    };
+    const isFirstMbZero = (nalu: Uint8Array): boolean => {
+      // slice header 的首个 exp-Golomb 值 first_mb_in_slice==0 ⇔ 编码为单 bit '1'
+      // ⇔ RBSP 首字节（nalu header 之后）最高位为 1（emulation-prevention 不会出现在该位置）
+      const sc = startCodeLen(nalu);
+      return nalu.length > sc + 1 && (nalu[sc + 1] & 0x80) !== 0;
+    };
+    const pushNalu = (nalu: Uint8Array) => {
+      const type = naluType(nalu);
+      // 新 Access Unit 边界：AUD/SPS，或「slice 且 first_mb_in_slice==0」（ffmpeg/screenrecord
+      // 的流无 AUD、SPS 仅随关键帧出现——P 帧边界必须靠 slice header 判定，否则多帧聚而不出）
+      if (type === 9 || type === 7) flushAu();
+      else if ((type === 1 || type === 5) && isFirstMbZero(nalu)) flushAu();
+      if (type === 7 || type === 15) { // SPS / Subset-SPS：借此（重）建解码器
+        if (!ensureDecoder(nalu)) return;
+      }
+      if (type === 5) auHasKey = true;
+      // SPS(7)/PPS(8)/SEI(6)/AUD(9)/slice(1/5) 全部保留进 AU——annexb in-band 参数集是解码必需
+      auBytes = auBytes
+        ? (() => { const merged = new Uint8Array(auBytes.length + nalu.length); merged.set(auBytes); merged.set(nalu, auBytes.length); return merged; })()
+        : nalu.slice();
+    };
+    const extractNalus = (chunk: ArrayBuffer) => {
+      const incoming = new Uint8Array(chunk);
+      const merged = new Uint8Array(buffer.length + incoming.length);
+      merged.set(buffer); merged.set(incoming, buffer.length);
+      const positions: Array<[number, number]> = [];
+      let start = -1;
+      let i = 0;
+      while (i < merged.length - 3) {
+        if (merged[i] === 0 && merged[i + 1] === 0 && merged[i + 2] === 1) {
+          if (start >= 0) positions.push([start, i - start]);
+          start = i; i += 3;
+        } else if (i < merged.length - 4 && merged[i] === 0 && merged[i + 1] === 0 && merged[i + 2] === 0 && merged[i + 3] === 1) {
+          if (start >= 0) positions.push([start, i - start]);
+          start = i; i += 4;
+        } else i += 1;
+      }
+      for (const [pos, len] of positions) pushNalu(merged.subarray(pos, pos + len));
+      const lastStart = positions.length ? positions[positions.length - 1][0] : 0;
+      buffer = merged.slice(lastStart);
+    };
+    const connect = () => {
+      if (!alive) return;
+      ws = new WebSocket(`${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/api/emulator/${platform}/ws`);
+      ws.binaryType = "arraybuffer";
+      ws.onopen = () => setStatus("live");
+      ws.onmessage = (event) => extractNalus(event.data as ArrayBuffer);
+      ws.onclose = () => { if (alive) { setStatus("error"); retry = window.setTimeout(connect, 2000); } };
+      ws.onerror = () => { try { ws?.close(); } catch {} };
+    };
+    connect();
+    return () => {
+      alive = false;
+      if (retry) window.clearTimeout(retry);
+      try { ws?.close(); } catch {}
+      try { decoder?.close(); } catch {}
+    };
+  }, [platform]);
+  if (jpegFallback) return <EmulatorCast serial={serial} platform={platform} />;
+  const toDevice = (event: React.PointerEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return null;
+    const rect = canvas.getBoundingClientRect();
+    const x = Math.round(((event.clientX - rect.left) / rect.width) * dw);
+    const y = Math.round(((event.clientY - rect.top) / rect.height) * dh);
+    return { x: Math.max(0, Math.min(dw - 1, x)), y: Math.max(0, Math.min(dh - 1, y)) };
+  };
+  const control = async (payload: Record<string, unknown>) => {
+    try { await fetch(`/api/emulator/${platform}/control`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) }); } catch { /* 静默 */ }
+  };
+  return <div className="emulator-cast interactive">
+    <div className="cast-head">
+      <span className={`cast-dot ${status} ${isAndroid ? "android" : "harmony"}`} />
+      <b>{isAndroid ? "Android 模拟器" : "鸿蒙模拟器"}</b>
+      <code>{serial}</code>
+      <small>{isAndroid ? "对照基准（oracle）· 设备端 h264 流" : "迁移实现侧 · VideoToolbox h264 流"} · {dw}×{dh} · 可反控</small>
+      {isAndroid && <a className="text-sync-button" href="http://localhost:8000" target="_blank" rel="noreferrer">ws-scrcpy ↗</a>}
+    </div>
+    <div className="cast-body">
+      <canvas
+        ref={canvasRef}
+        className="cast-canvas"
+        onPointerDown={(event) => { dragStart.current = toDevice(event); }}
+        onPointerUp={(event) => {
+          const start = dragStart.current;
+          const end = toDevice(event);
+          dragStart.current = null;
+          if (!start || !end) return;
+          const moved = Math.abs(start.x - end.x) + Math.abs(start.y - end.y);
+          if (moved > 60) void control({ action: "swipe", x: start.x, y: start.y, x2: end.x, y2: end.y });
+          else void control({ action: "tap", x: end.x, y: end.y });
+        }}
+      />
+      {status === "live" && !hasFrame && <img className="cast-canvas" src={`/api/emulator/${platform}/frame?serial=${encodeURIComponent(serial)}&n=${Date.now()}`} alt="快照打底" /> }
+      {status !== "live" && <div className="cast-placeholder">{status === "error" ? "视频流中断，重连中…" : "正在建立视频流…"}</div>}
+    </div>
+    <div className="cast-controls">
+      <button type="button" onClick={() => void control({ action: "back" })}>← 返回</button>
+      <button type="button" onClick={() => void control({ action: "home" })}>⌂ 桌面</button>
+    </div>
+  </div>;
+}
+
+/** Android 投射面板：默认嵌 ws-scrcpy（h264 硬解 60fps 键鼠反控，本机最流畅），
+ *  可切换页内直通流（设备端 screenrecord，不依赖 ws-scrcpy 服务） */
+function AndroidCastPanel({ serial }: { serial: string }) {
+  const [mode, setMode] = useState<"embed" | "inline">("embed");
+  return <div className="android-cast-panel">
+    <div className="cast-mode-bar">
+      <button type="button" className={`cast-mode-chip ${mode === "embed" ? "active" : ""}`} onClick={() => setMode("embed")}>ws-scrcpy 高清反控</button>
+      <button type="button" className={`cast-mode-chip ${mode === "inline" ? "active" : ""}`} onClick={() => setMode("inline")}>页内直通流</button>
+      <a className="cast-mode-chip" href="http://localhost:8000" target="_blank" rel="noreferrer">新窗口 ↗</a>
+    </div>
+    {mode === "embed"
+      ? <div className="emulator-cast">
+          <div className="cast-head">
+            <span className="cast-dot android live" />
+            <b>Android 模拟器</b>
+            <code>{serial}</code>
+            <small>对照基准（oracle）· ws-scrcpy 镜像</small>
+          </div>
+          <div className="cast-body cast-embed">
+            <iframe className="cast-iframe" src="/scrcpy/" title="ws-scrcpy" />
+          </div>
+          <div className="cast-controls"><small className="cast-hint">↑ 在面板中点击设备 <code>emulator-5554</code> 开始镜像（约 60fps，支持键鼠/剪贴板/旋转）</small></div>
+        </div>
+      : <H264Cast platform="android" serial={serial} />}
+  </div>;
+}
+
+/** 鸿蒙投射：按网关能力自动选择 h264 硬编流（VideoToolbox）或 JPEG WS 兜底 */
+function HarmonyCast({ serial }: { serial: string }) {
+  const [mode, setMode] = useState<"h264" | "jpeg" | null>(null);
+  const [error, setError] = useState("");
+  useEffect(() => {
+    let alive = true;
+    void (async () => {
+      try {
+        const response = await fetch(`/api/emulator/harmony/info?serial=${encodeURIComponent(serial)}`);
+        const data = await response.json();
+        if (!alive) return;
+        if (data.mode === "h264" || data.mode === "jpeg") setMode(data.mode);
+        else setError(String(data.error || "网关未返回采集模式"));
+      } catch (err) {
+        if (alive) setError(err instanceof Error ? err.message : "网关不可达");
+      }
+    })();
+    return () => { alive = false; };
+  }, [serial]);
+  if (mode === "h264") return <H264Cast platform="harmony" serial={serial} />;
+  if (mode === "jpeg") return <WsCast platform="harmony" serial={serial} />;
+  return <div className="emulator-cast">
+    <div className="cast-head"><span className="cast-dot harmony connecting" /><b>鸿蒙模拟器</b><code>{serial}</code><small>迁移实现侧</small></div>
+    <div className="cast-body"><div className="cast-placeholder">{error || "正在探测采集模式…"}</div></div>
+  </div>;
+}
+
+/** 模拟器 WS 高速投射 + 反向控制（Android/鸿蒙通用：点画面反控，tap/swipe/返回/桌面） */
+function WsCast({ platform, serial, deviceW = 1080, deviceH = 2400 }: { platform: "android" | "harmony"; serial: string; deviceW?: number; deviceH?: number }) {
+  const isAndroid = platform === "android";
+  const [frameUrl, setFrameUrl] = useState<string>("");
+  const [status, setStatus] = useState<"connecting" | "live" | "error">("connecting");
+  const [deviceRes, setDeviceRes] = useState<{ w: number; h: number } | null>(null);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+  const dragStart = useRef<{ x: number; y: number } | null>(null);
+  // 鸿蒙反控坐标为设备像素空间：按真实分辨率换算，避免与默认值不符导致点击错位
+  useEffect(() => {
+    if (platform !== "harmony") return;
+    let alive = true;
+    void (async () => {
+      try {
+        const response = await fetch(`/api/emulator/harmony/info?serial=${encodeURIComponent(serial)}`);
+        if (!response.ok) return;
+        const data = await response.json();
+        if (alive && Number(data.width) > 0 && Number(data.height) > 0) setDeviceRes({ w: Number(data.width), h: Number(data.height) });
+      } catch { /* 解析失败则沿用默认分辨率 */ }
+    })();
+    return () => { alive = false; };
+  }, [platform, serial]);
+  const dw = deviceRes?.w ?? deviceW;
+  const dh = deviceRes?.h ?? deviceH;
+  useEffect(() => {
+    let alive = true;
+    let objectUrl = "";
+    const wsUrl = `${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/api/emulator/${platform}/ws`;
+    let ws: WebSocket | null = null;
+    let retry: number | undefined;
+    const connect = () => {
+      if (!alive) return;
+      ws = new WebSocket(wsUrl);
+      ws.binaryType = "blob";
+      ws.onopen = () => setStatus("live");
+      ws.onmessage = (event) => {
+        const blob = event.data as Blob;
+        if (objectUrl) URL.revokeObjectURL(objectUrl);
+        objectUrl = URL.createObjectURL(blob);
+        setFrameUrl(objectUrl);
+      };
+      ws.onclose = () => { if (alive) { setStatus("error"); retry = window.setTimeout(connect, 2000); } };
+      ws.onerror = () => { try { ws?.close(); } catch {} };
+    };
+    connect();
+    return () => { alive = false; if (retry) window.clearTimeout(retry); try { ws?.close(); } catch {} if (objectUrl) URL.revokeObjectURL(objectUrl); };
+  }, [platform]);
+  const toDevice = (event: React.PointerEvent<HTMLImageElement>) => {
+    const img = imgRef.current;
+    if (!img) return null;
+    const rect = img.getBoundingClientRect();
+    const x = Math.round(((event.clientX - rect.left) / rect.width) * dw);
+    const y = Math.round(((event.clientY - rect.top) / rect.height) * dh);
+    return { x: Math.max(0, Math.min(dw - 1, x)), y: Math.max(0, Math.min(dh - 1, y)) };
+  };
+  const control = async (payload: Record<string, unknown>) => {
+    try { await fetch(`/api/emulator/${platform}/control`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) }); } catch { /* 静默 */ }
+  };
+  return <div className="emulator-cast interactive">
+    <div className="cast-head">
+      <span className={`cast-dot ${status} ${isAndroid ? "android" : "harmony"}`} />
+      <b>{isAndroid ? "Android 模拟器" : "鸿蒙模拟器"}</b>
+      <code>{serial}</code>
+      <small>{isAndroid ? "对照基准（oracle）" : "迁移实现侧"} · WS 高速流 · {dw}×{dh} · 可反控</small>
+      {isAndroid && <a className="text-sync-button" href="http://localhost:8000" target="_blank" rel="noreferrer">ws-scrcpy ↗</a>}
+    </div>
+    <div className="cast-body">
+      {frameUrl
+        ? <img
+            ref={imgRef}
+            src={frameUrl}
+            alt={`${isAndroid ? "Android" : "鸿蒙"}模拟器实时画面`}
+            draggable={false}
+            onPointerDown={(event) => { dragStart.current = toDevice(event); }}
+            onPointerUp={(event) => {
+              const start = dragStart.current;
+              const end = toDevice(event);
+              dragStart.current = null;
+              if (!start || !end) return;
+              const moved = Math.abs(start.x - end.x) + Math.abs(start.y - end.y);
+              if (moved > 60) void control({ action: "swipe", x: start.x, y: start.y, x2: end.x, y2: end.y });
+              else void control({ action: "tap", x: end.x, y: end.y });
+            }}
+          />
+        : <div className="cast-placeholder">{status === "error" ? "推流中断，重连中…" : "正在获取画面…"}</div>}
+    </div>
+    <div className="cast-controls">
+      <button type="button" onClick={() => void control({ action: "back" })}>← 返回</button>
+      <button type="button" onClick={() => void control({ action: "home" })}>⌂ 桌面</button>
+    </div>
+  </div>;
+}
+function EmulatorCast({ serial, platform = "android" }: { serial: string; platform?: "android" | "harmony" }) {
+  const [frameUrl, setFrameUrl] = useState<string>("");
+  const [status, setStatus] = useState<"connecting" | "live" | "error">("connecting");
+  useEffect(() => {
+    let alive = true;
+    let objectUrl = "";
+    const tick = async () => {
+      try {
+        const response = await fetch(`/api/emulator/${platform}/frame?serial=${encodeURIComponent(serial)}`);
+        if (!response.ok) throw new Error(String(response.status));
+        const blob = await response.blob();
+        if (!alive) return;
+        if (objectUrl) URL.revokeObjectURL(objectUrl);
+        objectUrl = URL.createObjectURL(blob);
+        setFrameUrl(objectUrl);
+        setStatus("live");
+      } catch {
+        if (alive) setStatus("error");
+      }
+    };
+    void tick();
+    const timer = window.setInterval(() => { void tick(); }, platform === "android" ? 600 : 1200);
+    return () => { alive = false; window.clearInterval(timer); if (objectUrl) URL.revokeObjectURL(objectUrl); };
+  }, [serial, platform]);
+  const isAndroid = platform === "android";
+  return <div className="emulator-cast">
+    <div className="cast-head">
+      <span className={`cast-dot ${status} ${isAndroid ? "android" : "harmony"}`} />
+      <b>{isAndroid ? "Android 模拟器" : "鸿蒙模拟器"}</b>
+      <code>{serial}</code>
+      <small>{status === "live" ? `${isAndroid ? "对照基准（oracle）" : "迁移实现侧"} · 只读投射` : status === "connecting" ? "连接中…" : "设备不可达，持续重试…"}</small>
+      {isAndroid && <a className="text-sync-button" href="http://localhost:8000" target="_blank" rel="noreferrer">低延迟反控 ↗</a>}
+    </div>
+    <div className="cast-body">
+      {frameUrl ? <img src={frameUrl} alt={`${isAndroid ? "Android" : "鸿蒙"}模拟器实时画面`} /> : <div className="cast-placeholder">{status === "error" ? "模拟器离线或工具不可达" : "正在获取画面…"}</div>}
+    </div>
+  </div>;
+}
+
+/** Phase 2 实况面板（大白话）：当前在验证什么功能，与 Phase 2 交付物（行为契约）一一对应 */
+function LiveActivityPanel({ workspaceDir }: { workspaceDir?: string }) {
+  const [activity, setActivity] = useState<{ headline: string; detail: string; linked?: string; runId?: string; timeline?: Array<{ at: string; text: string; bc?: string }> } | null>(null);
+  useEffect(() => {
+    if (!workspaceDir) return;
+    let alive = true;
+    const load = async () => {
+      try {
+        const response = await fetch(`/api/run/activity?workspace=${encodeURIComponent(workspaceDir)}`);
+        if (!response.ok) return;
+        const data = await response.json();
+        if (alive) setActivity(data);
+      } catch { /* 静默 */ }
+    };
+    void load();
+    const timer = window.setInterval(() => { void load(); }, 10000);
+    return () => { alive = false; window.clearInterval(timer); };
+  }, [workspaceDir]);
+  return <div className="live-activity">
+    <p className="lp-eyebrow">现在正在干嘛</p>
+    <div className="activity-now">
+      <div className="activity-headline">{activity?.headline ?? "读取中…"}</div>
+      {activity?.detail && <p className="activity-detail">{activity.detail}</p>}
+      {activity?.linked && <small className="activity-linked">对应交付物：{activity.linked}</small>}
+    </div>
+    <p className="lp-eyebrow">最近在做什么</p>
+    <div className="activity-timeline">
+      {(activity?.timeline ?? []).length > 0 ? activity!.timeline!.map((event, index) => <div className="activity-event" key={`${event.at}-${index}`}>
+        <small>{new Date(event.at).toTimeString().slice(0, 5)}</small>
+        <span>{event.text}</span>
+      </div>) : <p className="field-note">暂无活动记录</p>}
+    </div>
+    {activity?.runId && <small className="activity-runid">RUN：{activity.runId}</small>}
+  </div>;
+}
+
+/** CodeArts Space 风格项目工作区：常驻对话面板（主体）+ 任务概览（侧栏） */
+function ProjectChatWorkspace({ project }: { project: Project }) {
+  const sessionId = project.activeSessionId;
+  const [messages, setMessages] = useState<CodeArtsMessage[]>([]);
+  const [team, setTeam] = useState<AgentTeamState | null>(null);
+  const [summary, setSummary] = useState<{ additions: number; deletions: number; files: number } | null>(null);
+  const [draft, setDraft] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sendNote, setSendNote] = useState("");
+
+  const [selectedPhase, setSelectedPhase] = useState<PhaseNumber>(project.currentPhase);
+  const [anomalies, setAnomalies] = useState<Array<{ runId: string; id: string; at: string; type: string; decision: string; detail: string }>>([]);
+  useEffect(() => {
+    if (!project.workspaceDir) return;
+    let alive = true;
+    const load = async () => {
+      try {
+        const response = await fetch(`/api/run/anomalies?workspace=${encodeURIComponent(project.workspaceDir ?? "")}`);
+        if (!response.ok) return;
+        const data = await response.json() as { anomalies?: typeof anomalies };
+        if (alive && data.anomalies) setAnomalies(data.anomalies);
+      } catch { /* 静默 */ }
+    };
+    void load();
+    const timer = window.setInterval(() => { void load(); }, 30000);
+    return () => { alive = false; window.clearInterval(timer); };
+  }, [project.workspaceDir]);
+  const streamRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (!sessionId) return;
+    let alive = true;
+    const load = async () => {
+      const [teamState, msgs, sum] = await Promise.all([
+        fetchTeamState(sessionId),
+        getCodeArtsMessages(sessionId, loadCodeArtsCredentials()).catch(() => [] as CodeArtsMessage[]),
+        fetchSessionSummary(sessionId),
+      ]);
+      if (!alive) return;
+      if (teamState && (Object.keys(teamState.members).length || teamState.tasks.length)) setTeam(teamState);
+      if (msgs.length) setMessages(msgs);
+      if (sum) setSummary(sum);
+    };
+    void load();
+    const timer = window.setInterval(() => { void load(); }, 5000);
+    return () => { alive = false; window.clearInterval(timer); };
+  }, [sessionId]);
+  useEffect(() => {
+    const node = streamRef.current;
+    if (node) node.scrollTop = node.scrollHeight;
+  }, [messages.length]);
+  const sendMessage = async () => {
+    const text = draft.trim();
+    if (!text || !sessionId || sending) return;
+    setSending(true);
+    setSendNote("");
+    try {
+      const result = await promptCodeArtsSession(sessionId, text, loadCodeArtsCredentials(), {
+        agent: "team-leader",
+        mode: "agent-team",
+        model: parseRunModel(project.runModel ?? ""),
+      });
+      if (result.accepted || result.pending) {
+        setDraft("");
+        setSendNote(result.accepted ? "已发送 · 团队将在完成当前工作后回应" : `已排队 · ${result.message.slice(0, 60)}`);
+      } else {
+        setSendNote(`发送失败：${result.message.slice(0, 80)}`);
+      }
+    } catch (error) {
+      setSendNote(`发送失败：${error instanceof Error ? error.message : "未知错误"}`);
+    } finally {
+      setSending(false);
+    }
+  };
+  const selected = project.phases.find((phase) => phase.number === selectedPhase) ?? project.phases[0];
+  const phaseMembers = team ? Object.entries(team.members).filter(([name]) => { const p = memberPhaseOf(name); return p === 0 || p === selectedPhase; }) : [];
+  const allTasks = team?.tasks ?? [];
+  const scopedTasks = allTasks.filter((task) => { const p = taskPhaseOf(task); return p === 0 || p === selectedPhase; });
+  const openTasks = scopedTasks.filter((task) => task.status !== "completed");
+  const doneTasks = scopedTasks.filter((task) => task.status === "completed");
+  const modelLabel = project.runModel ? project.runModel.split("::").pop() : undefined;
+  return <div className="space-layout">
+    <section className="chat-panel">
+      <PhaseRail phases={project.phases} selected={selectedPhase} onSelect={setSelectedPhase} />
+      {selected.execution?.response && <details className="phase-summary-banner" open>
+        <summary><b>阶段 {String(selected.number).padStart(2, "0")} 汇总</b><span className={`execution-status ${selected.execution.status ?? "idle"}`}>{selected.execution.status ?? "idle"}</span>
+          <Link to={`/projects/${project.id}/review/${selected.number}`} className="ghost-button small" onClick={(event) => event.stopPropagation()}>审核 / 查看完整报告 →</Link>
+        </summary>
+        <pre className="real-response">{selected.execution.response}</pre>
+      </details>}
+      {!selected.execution?.response && selected.execution?.sessionId && <div className="phase-summary-banner plain">
+        <span>本阶段报告尚未生成</span>
+        <Link to={`/projects/${project.id}/review/${selected.number}`} className="ghost-button small">打开审核页 →</Link>
+      </div>}
+      {selectedPhase === 2 && <div className="p2-live-layout">
+        <div className="p2-cast-col"><AndroidCastPanel serial="emulator-5554" /></div>
+        <div className="p2-activity-col"><LiveActivityPanel workspaceDir={project.workspaceDir} /></div>
+      </div>}
+      {selectedPhase === 4 && <div className="p4-dual-layout">
+        <div className="p4-cast-col"><AndroidCastPanel serial="emulator-5554" /></div>
+        <div className="p4-cast-col"><HarmonyCast serial="127.0.0.1:5557" /></div>
+        <div className="p4-activity-bar"><LiveActivityPanel workspaceDir={project.workspaceDir} /></div>
+      </div>}
+      <div className="chat-stream" ref={streamRef}>
+        {(() => {
+          const tagged = tagMessagesByPhase(messages);
+          const visible = tagged.filter((item) => item.phase === selectedPhase);
+          if (!visible.length) return <p className="field-note">{sessionId ? `Phase ${selectedPhase} 暂无会话消息` : "启动真实 AgentTeam 后此处为常驻对话面板。"}</p>;
+          return visible.map((item) => <ChatBubble key={item.message.info?.id ?? `msg-${item.phase}-${visible.indexOf(item)}`} message={item.message} />);
+        })()}
+      </div>
+      <div className="chat-composer">
+        <div className="chat-composer-meta"><span>会话 <code>{sessionId ? `${sessionId.slice(0, 20)}…` : "未创建"}</code></span>{modelLabel && <span>模型 <b>{modelLabel}</b></span>}<span>{messages.length} 条消息 · 5 秒刷新</span></div>
+        <div className="chat-composer-row">
+          <textarea
+            className="chat-composer-input"
+            value={draft}
+            onChange={(event) => setDraft(event.target.value)}
+            onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); void sendMessage(); } }}
+            placeholder="向 AgentTeam 发送指令或提问（Enter 发送 / Shift+Enter 换行）…"
+            rows={3}
+            disabled={sending || !sessionId}
+          />
+          <button className="primary-button" type="button" onClick={() => void sendMessage()} disabled={sending || !draft.trim() || !sessionId}>{sending ? "发送中…" : "发送"}</button>
+        </div>
+        {sendNote && <small className="flow-composer-note">{sendNote}</small>}
+      </div>
+    </section>
+    <aside className="task-dock">
+      {anomalies.length > 0 && <div className="anomaly-card">
+        <p className="lp-eyebrow">⚠ 异常情况（{anomalies.length}）</p>
+        <div className="anomaly-list">{anomalies.slice(0, 10).map((anomaly) => <div className="anomaly-item" key={anomaly.id}>
+          <div className="anomaly-item-head">
+            <span className={`anomaly-type ${/INTERRUPTED|FAIL|ABORT/.test(anomaly.type) ? "severe" : /REWORK/.test(anomaly.type) ? "rework" : "gap"}`}>{anomaly.type}</span>
+            <small>{(anomaly.at || "").replace("T", " ").slice(5, 19)} UTC</small>
+          </div>
+          <p>{anomaly.decision}{anomaly.detail ? ` — ${anomaly.detail}` : ""}</p>
+        </div>)}</div>
+        <small className="anomaly-more">来源：RUN decision-log（含工具断点 / 中断 / 返工，30 秒刷新）</small>
+      </div>}
+      {phaseMembers.some(([, member]) => member.status === "aborted") && <div className="anomaly-card severe">
+        <p className="lp-eyebrow">⚠ 成员异常终止</p>
+        {phaseMembers.filter(([, member]) => member.status === "aborted").map(([name]) => <p key={name}>{name} · aborted（曾中断，见异常情况与对话记录）</p>)}
+      </div>}
+      <p className="lp-eyebrow">任务概览 · {PHASE_CHAT_LABELS[selectedPhase]}</p>
+      {phaseMembers.length > 0 && <div className="live-members">{phaseMembers.map(([name, member]) => <div className="live-member" key={name}>
+        <span className={`team-member-dot ${member.status}`} />
+        <b>{name}</b>
+        <small>{member.agent_type === "team-leader" ? "队长 · 全程编排" : member.description || "队员 · 执行"}</small>
+        <em>{member.status}</em>
+      </div>)}</div>}
+      {team && openTasks.length > 0 && <>
+        <p className="lp-eyebrow">进行中（{openTasks.length}）</p>
+        <div className="live-tasks">{openTasks.map((task) => <div className="live-task-row" key={task.id}>
+          <span className={`team-task-dot ${task.status}`}>{task.status === "in_progress" || task.status === "running" ? "◌" : "·"}</span>
+          <span className="live-task-content">{task.content}{task.owner_name ? ` — ${task.owner_name}` : ""}</span>
+        </div>)}</div>
+      </>}
+      {team && doneTasks.length > 0 && <details className="task-done-list" open={openTasks.length === 0}>
+        <summary>已完成任务（{doneTasks.length}）</summary>
+        <div className="live-tasks">{doneTasks.map((task) => <div className="live-task-row done" key={task.id}>
+          <span className="team-task-dot completed">✓</span>
+          <span className="live-task-content">{task.content}{task.owner_name ? ` — ${task.owner_name}` : ""}</span>
+        </div>)}</div>
+      </details>}
+      {summary && <div className="task-diff"><p className="lp-eyebrow">会话变更</p><span className="live-meta-diff">+{summary.additions} / -{summary.deletions} · {summary.files} 文件</span></div>}
+      {!team && <p className="field-note">尚未组队或无任务——leader 仍在分析阶段。</p>}
+    </aside>
+  </div>;
+}
+
+/** 标题锚点 slug（大纲与预览标题双向一致） */
+function headingSlug(text: string): string {
+  return text.replace(/[*`#]/g, "").trim().replace(/\s+/g, "-").slice(0, 48) || "h";
+}
+
+/** Markdown 大纲提取（跳过代码块） */
+function extractOutline(markdown: string): Array<{ level: number; text: string; slug: string }> {
+  const outline: Array<{ level: number; text: string; slug: string }> = [];
+  let inCode = false;
+  for (const line of markdown.split("\n")) {
+    if (/^\s*```/.test(line)) { inCode = !inCode; continue; }
+    if (inCode) continue;
+    const match = /^(#{1,4})\s+(.+)$/.exec(line);
+    if (match) outline.push({ level: match[1].length, text: match[2].replace(/[*`]/g, "").trim(), slug: headingSlug(match[2]) });
+  }
+  return outline;
+}
+
+/** 阶段审核页：VS Code 风格 Markdown 预览（左大纲 + 中正文 + 右审核操作） */
+function PhaseReviewPage() {
+  const { id, phaseNo } = useParams();
+  const project = useProject(id);
+  const navigate = useNavigate();
+  const number = (Number(phaseNo) || 1) as PhaseNumber;
+  const [comment, setComment] = useState("");
+  const phase = project?.phases.find((item) => item.number === number);
+  const markdown = phase?.execution?.response ?? "";
+  const outline = useMemo(() => extractOutline(markdown), [markdown]);
+  const previewRef = useRef<HTMLDivElement | null>(null);
+  const headingsRef = useRef<Array<HTMLHeadingElement>>([]);
+  useEffect(() => {
+    headingsRef.current = previewRef.current ? Array.from(previewRef.current.querySelectorAll("h1,h2,h3,h4")) : [];
+  }, [markdown]);
+  const scrollToHeading = (index: number) => {
+    headingsRef.current[index]?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  if (!project) return <NotFound />;
+  if (!phase) return <NotFound />;
+  const canReview = phase.status === "review_required";
+  const submit = (decision: "approved" | "changes_requested") => {
+    mockService.reviewPhase(project.id, number, {
+      decision,
+      comment: comment.trim() || (decision === "approved" ? "网页审核通过" : "网页审核：需修改"),
+      reviewer: "人工审核（网页）",
+      reviewedAt: new Date().toISOString(),
+    });
+    navigate(`/projects/${project.id}`);
+  };
+  const eyebrowOf = PHASE_CHAT_LABELS[number] ?? `Phase ${number}`;
+  return <div className="workspace-page">
+    <div className="workspace-header"><div className="breadcrumb"><Link to="/">项目总览</Link><span>/</span><Link to={`/projects/${project.id}`}>{project.name}</Link><span>/</span><b>{eyebrowOf} 审核</b></div><div className="workspace-actions"><span className={`execution-status ${phase.execution?.status ?? "idle"}`}>{phase.execution?.status ?? "idle"}</span><Link to={`/projects/${project.id}`} className="ghost-button small">← 返回对话工作区</Link></div></div>
+    <div className="workspace-title"><h1>{eyebrowOf} <span className="heading-subtitle">· 审核报告</span></h1><p className="heading-subtitle">{project.name} · {project.id.toUpperCase()} · revision {phase.revision}.0 · {phase.review ? `已审核（${phase.review.decision === "approved" ? "通过" : "要求修改"}）` : canReview ? "等待人工审核" : statusLabels[phase.status]}</p></div>
+    <div className="review-layout">
+      <aside className="review-outline">
+        <p className="lp-eyebrow">大纲</p>
+        {outline.length > 0 ? outline.map((item, index) => <a key={`${item.slug}-${index}`} href={`#rv-${index}`} className={`outline-item level-${item.level}`} onClick={(event) => { event.preventDefault(); scrollToHeading(index); }}>{item.text}</a>) : <p className="field-note">报告中无标题结构</p>}
+      </aside>
+      <div className="review-main">
+        <div className="md-preview" ref={previewRef}>
+          {markdown ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown> : <div className="real-waiting">该阶段暂无汇总报告——AgentTeam 完成执行并通过机器 Gate 后，此处呈现可审核的完整报告。</div>}
+        </div>
+      </div>
+      <aside className="review-side">
+        <div className={`review-action-card ${canReview ? "active" : ""}`}>
+          <p className="lp-eyebrow">{canReview ? "人工审核 · 待决策" : "审核状态"}</p>
+          {phase.review ? <div className="review-record">
+            <span className={`review-decision ${phase.review.decision}`}>{phase.review.decision === "approved" ? "✓ 审核通过" : "✗ 要求修改"}</span>
+            <p className="review-comment">“{phase.review.comment}”</p>
+            <small>{phase.review.reviewer} · {new Date(phase.review.reviewedAt).toLocaleString()}</small>
+          </div> : canReview
+            ? <>
+              <textarea className="review-comment-input" value={comment} onChange={(event) => setComment(event.target.value)} placeholder="审核意见（可选）：核验要点、放行理由或修改要求…" rows={4} />
+              <div className="review-actions-row">
+                <button className="primary-button" type="button" onClick={() => submit("approved")}>✓ 审核通过</button>
+                <button className="ghost-button" type="button" onClick={() => submit("changes_requested")}>✗ 要求修改</button>
+              </div>
+              <small className="review-hint">通过后阶段流转至下一环节（外部驱动项目由总控推进执行）</small>
+            </>
+            : <p className="field-note">{phase.status === "running" ? "AgentTeam 正在执行，完成后进入待审核。" : `当前状态：${statusLabels[phase.status]}`}</p>}
+        </div>
+        <div className="review-meta-card">
+          <p className="lp-eyebrow">报告信息</p>
+          <small>字数：{markdown.length} · 大纲 {outline.length} 节</small>
+          {phase.execution?.completedAt && <small>完成于 {new Date(phase.execution.completedAt).toLocaleString()}</small>}
+          {phase.execution?.sessionId && <small>会话 <code>{phase.execution.sessionId.slice(0, 22)}…</code></small>}
+        </div>
+      </aside>
+    </div>
+  </div>;
+}
 
 function LiveProjectPage() {
   const { id } = useParams();
@@ -739,13 +1592,16 @@ function LiveProjectPage() {
     const phaseNo = phaseFromNumber(Number(searchParams.get("phase") ?? project.currentPhase));
     const target = project.phases.find((item) => item.number === phaseNo);
     if (!target || target.execution?.status === "succeeded") { setSearchParams({}, { replace: true }); return; }
+    const approve = searchParams.get("approve") === "1";
     void getCodeArtsMessages(syncId, loadCodeArtsCredentials()).then((messages) => {
-      const text = messages
-        .filter((item) => item.info?.role === "assistant" && item.info?.time?.completed)
-        .map((item) => (item.parts ?? []).filter((part) => part.type === "text" && part.text?.trim()).map((part) => part.text).join("\n"))
-        .join("\n\n");
+      // 只取最后一条完成的 assistant 文本作为该阶段汇总（防止全量历史拼接污染）
+      const doneAssistants = messages.filter((item) => item.info?.role === "assistant" && item.info?.time?.completed);
+      const text = doneAssistants.length
+        ? (doneAssistants[doneAssistants.length - 1].parts ?? []).filter((part) => part.type === "text" && part.text?.trim()).map((part) => part.text).join("\n")
+        : "";
       if (text.trim()) {
         mockService.recordCodeArtsExecution?.(project.id, phaseNo, { mode: "codearts-agentteam", status: "succeeded", sessionId: syncId, agent: "team-leader", completedAt: new Date().toISOString(), response: text });
+        if (approve) mockService.reviewPhase(project.id, phaseNo, { decision: "approved", comment: "外部总控核验通过（自动同步）", reviewer: "迁移总控", reviewedAt: new Date().toISOString() });
       }
       setSearchParams({}, { replace: true });
     }).catch(() => setSearchParams({}, { replace: true }));
@@ -759,6 +1615,14 @@ function LiveProjectPage() {
   const real = project.executionMode === "codearts-agentteam" && !project.demo;
   const coveredFeatures = project.features.filter((feature) => feature.status === "covered").length;
   const performReview = (review: Review) => { mockService.reviewPhase(project.id, selected.number, review); setReviewOpen(false); };
+  // 真实执行模式：Space 风格布局（常驻对话面板 + 任务概览），不再展示阶段工作区
+  if (real) {
+    return <div className="workspace-page">
+      <div className="workspace-header"><div className="breadcrumb"><Link to="/">项目总览</Link><span>/</span><b>{project.name}</b></div><div className="workspace-actions"><span className="live-tag">真实执行 · CodeArts</span><Link to={`/projects/${project.id}/report`} className="ghost-button small">查看报告</Link><Link to={`/projects/${project.id}/delivery`} className="primary-button small">交付中心 <span>→</span></Link></div></div>
+      <div className="workspace-title"><h1>{project.name} <StatusBadge status={project.status === "completed" ? "completed" : project.status === "review" ? "review_required" : "running"} /></h1><p className="heading-subtitle">{project.id.toUpperCase()} · {project.source.value.slice(0, 60)} · CodeArts AgentTeam · {modelLabelOf(project)}</p></div>
+      <ProjectChatWorkspace project={project} />
+    </div>;
+  }
   return <div className="workspace-page"><div className="workspace-header"><div className="breadcrumb"><Link to="/">项目总览</Link><span>/</span><b>{project.name}</b></div><div className="workspace-actions"><span className={real ? "live-tag" : "demo-tag"}>{real ? "真实执行 · CodeArts" : "演示数据"}</span><Link to={`/projects/${project.id}/report`} className="ghost-button small">查看报告</Link><Link to={`/projects/${project.id}/delivery`} className="primary-button small">交付中心 <span>→</span></Link></div></div><div className="workspace-title"><h1>{project.name} <StatusBadge status={project.status === "completed" ? "completed" : project.status === "review" ? "review_required" : "running"} /></h1><p className="heading-subtitle">{project.id.toUpperCase()} · {project.source.type === "github" ? "GitHub 源码" : "Android ZIP"} · {real ? "CodeArts AgentTeam" : "本地演示"} · revision {selected.revision}.0</p></div><div className="overview-strip"><div className="overview-item"><small>功能覆盖度</small><b>{Math.round((coveredFeatures / project.features.length) * 100)}%<span>{coveredFeatures}/{project.features.length} 项已确认</span></b></div><div className="overview-item"><small>本阶段交付物</small><b>{selected.artifacts.length} 项</b></div><div className="overview-item"><small>当前阶段</small><b>{String(project.currentPhase).padStart(2, "0")} · {selected.shortTitle}</b></div><div className="overview-item"><small>运行模式</small><b>{real ? "CodeArts AgentTeam" : "本地演示"}</b></div></div><PhaseRail phases={project.phases} selected={selectedPhase} onSelect={setSelectedPhase} /><EvidenceRibbon phase={selected} real={real} /><div className="workspace-grid"><section className="workspace-center"><PhaseContent project={project} phase={selected} /><div className="review-bar"><div><span className={`review-dot ${canReview ? "active" : ""}`} /><div><b>{canReview ? "本阶段等待人工审核" : selected.status === "running" ? (real ? "CodeArts AgentTeam 正在执行" : "演示工作流正在执行") : statusLabels[selected.status]}</b>{canReview && <small>确认真实会话结果后才能进入下一阶段</small>}</div></div><div className="review-actions">{selected.status === "running" && !real && <><button className="icon-button" onClick={() => selected.paused ? mockService.resumePhase(project.id, selected.number) : mockService.pausePhase(project.id, selected.number)}>{selected.paused ? "▶ 继续" : "Ⅱ 暂停"}</button><button className="icon-button" onClick={() => mockService.skipPhase(project.id, selected.number)}>跳过等待</button></>}{canReview && <button className="primary-button" onClick={() => setReviewOpen(true)}>打开审核 <span>→</span></button>}{(selected.status === "approved" || selected.status === "completed") && !real && <button className="icon-button" onClick={() => mockService.restartPhase(project.id, selected.number)}>↻ 重新演示</button>}</div></div></section><aside className="workspace-right"><AgentTimeline phase={selected} /><RunControls project={project} phase={selected} /></aside></div><WorkspaceFooter project={project} phase={selected} real={real} />{reviewOpen && <ReviewDialog phase={selected} onClose={() => setReviewOpen(false)} onSubmit={performReview} />}</div>;
 }
 
@@ -812,6 +1676,9 @@ function RealPhaseContent({ project, phase }: { project: Project; phase: Phase }
   const [messages, setMessages] = useState<CodeArtsMessage[]>([]);
   const [summary, setSummary] = useState<{ additions: number; deletions: number; files: number } | null>(null);
   const [flowExpanded, setFlowExpanded] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sendNote, setSendNote] = useState("");
   useEffect(() => {
     if (!sessionId) return;
     let alive = true;
@@ -830,6 +1697,30 @@ function RealPhaseContent({ project, phase }: { project: Project; phase: Phase }
     const timer = window.setInterval(() => { void load(); }, 5000);
     return () => { alive = false; window.clearInterval(timer); };
   }, [sessionId]);
+  /** 实时对话：把网页端消息直接发往该项目的 AgentTeam 会话（与四阶段工单同一对话） */
+  const sendMessage = async () => {
+    const text = draft.trim();
+    if (!text || !sessionId || sending) return;
+    setSending(true);
+    setSendNote("");
+    try {
+      const result = await promptCodeArtsSession(sessionId, text, loadCodeArtsCredentials(), {
+        agent: "team-leader",
+        mode: "agent-team",
+        model: parseRunModel(project.runModel ?? ""),
+      });
+      if (result.accepted || result.pending) {
+        setDraft("");
+        setSendNote(result.accepted ? "已发送 · 团队将在完成当前工作后回应（约 5 秒内出现在上方对话流）" : `已排队 · ${result.message.slice(0, 60)}`);
+      } else {
+        setSendNote(`发送失败：${result.message.slice(0, 80)}`);
+      }
+    } catch (error) {
+      setSendNote(`发送失败：${error instanceof Error ? error.message : "未知错误"}`);
+    } finally {
+      setSending(false);
+    }
+  };
   const flowMessages = flowExpanded ? messages.slice(-40) : messages.slice(-6);
   const response = execution?.response?.trim();
   const modelLabel = project.runModel ? project.runModel.split("::").pop() : undefined;
@@ -862,6 +1753,19 @@ function RealPhaseContent({ project, phase }: { project: Project; phase: Phase }
           {messages.length > 6 && <button className="text-sync-button" onClick={() => setFlowExpanded((value) => !value)}>{flowExpanded ? "收起" : `展开全部 ${Math.min(messages.length, 40)} 条`}</button>}
         </div>
         {flowMessages.length > 0 ? <div className="live-flow-list">{flowMessages.map((message, index) => <LiveFlowMessage key={`${message.info?.id ?? index}`} message={message} />)}</div> : <p className="field-note">{sessionId ? "等待会话消息…" : "启动真实 AgentTeam 后此处展示工单、派发与回复的实时对话流。"}</p>}
+        {sessionId && <div className="flow-composer">
+          <textarea
+            className="flow-composer-input"
+            value={draft}
+            onChange={(event) => setDraft(event.target.value)}
+            onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); void sendMessage(); } }}
+            placeholder="向 AgentTeam 发送指令或提问（Enter 发送 / Shift+Enter 换行）…"
+            rows={2}
+            disabled={sending}
+          />
+          <button className="primary-button small" type="button" onClick={() => void sendMessage()} disabled={sending || !draft.trim()}>{sending ? "发送中…" : "发送"}</button>
+        </div>}
+        {sendNote && <small className="flow-composer-note">{sendNote}</small>}
       </div>
     </div>
     <div className="live-card live-report">
@@ -1164,7 +2068,7 @@ function RunControls({ project, phase }: { project: Project; phase: Phase }) {
     const result = await promptCodeArtsSession(sessionId, prompt, credentials, { agent: "team-leader", mode: "agent-team", model: parseRunModel(runModel) });
     const livePartIds = new Set<string>();
     const resolved = result.accepted && result.pending
-      ? await waitForCodeArtsResult(sessionId, result.messageId, credentials, { timeoutMs: 240000, onUpdate: (message: CodeArtsMessage) => {
+      ? await waitForCodeArtsResult(sessionId, result.messageId, credentials, { timeoutMs: 1500000, onUpdate: (message: CodeArtsMessage) => {
           (message.parts ?? []).forEach((part) => {
             if (!part.id || livePartIds.has(part.id) || !part.text?.trim()) return;
             livePartIds.add(part.id);
@@ -1193,7 +2097,7 @@ function RunControls({ project, phase }: { project: Project; phase: Phase }) {
   const autoRunRef = useRef("");
   useEffect(() => {
     const key = `${project.id}:${phase.number}:${phase.revision}`;
-    if (project.executionMode === "codearts-agentteam" && !project.demo && phase.status === "running" && autoRunRef.current !== key && autoRunKey !== key && !runningCodeArts && !runningRef.current) {
+    if (project.executionMode === "codearts-agentteam" && !project.demo && !project.externalDrive && phase.status === "running" && autoRunRef.current !== key && autoRunKey !== key && !runningCodeArts && !runningRef.current) {
       autoRunRef.current = key;
       setAutoRunKey(key);
       void runWithCodeArts();
@@ -1266,3 +2170,4 @@ function NotFound() {
 }
 
 export default App;
+export { ErrorBoundary };

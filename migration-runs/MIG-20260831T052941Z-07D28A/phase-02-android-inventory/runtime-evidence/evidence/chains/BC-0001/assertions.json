@@ -1,0 +1,19 @@
+{
+ "bc_id": "BC-0001",
+ "status": "CHAIN_FAIL",
+ "note": "assertions failed: persist_after_restart=T2A-ADD",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "T2A-ADD",
+   "verdict": "PASS",
+   "optional": "false"
+  },
+  {
+   "kind": "persist_after_restart",
+   "value": "T2A-ADD",
+   "verdict": "FAIL",
+   "optional": "false"
+  }
+ ]
+}

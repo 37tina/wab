@@ -1,0 +1,2 @@
+candidate_id,layout,component_id,type,resource_id,android_attr,resolved_value,fidelity_key,category12,harmony_target_hint,page_id,choices_hint
+CAND-ASSET-FILE-app-src-main-AndroidManifest.xml,app/src/main/AndroidManifest.xml,,FILE_ASSET,app/src/main/AndroidManifest.xml,app/src/main/AndroidManifest.xml,bac2cb7b,FILE,,mirror to harmony-project/entry/src/main/resources,,

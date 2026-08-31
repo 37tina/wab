@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-0ECFC09378453C3E21C6",
+  "phase": 2,
+  "work_order_id": "WO-PHASE-02-0DB7D4760B4F",
+  "work_order_sha256": "1e5ba4ac07791a85cd0b3917c3040989aca422a597f56ccd2051c482ee556416",
+  "role_key": "evidence_administrator_id",
+  "actor_id": "evidence-admin-minitodo-r1",
+  "platform_task_id": "ses_fa89fc114ffeHHcimrQYfFx24M-EADM",
+  "started_at": "2026-08-31T10:31:00Z",
+  "ended_at": "2026-08-31T10:51:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T11:08:54Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-02-android-inventory/phase-2-closure.json",
+      "sha256": "e02a190be53f8f768f54a4084332607c75119a7944a3b8ad97fe7e75e72f6a64"
+    }
+  ]
+}

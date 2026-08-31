@@ -1,0 +1,52 @@
+{
+  "phase": 2,
+  "status": "WAITING_HUMAN_REVIEW",
+  "coverage": {
+    "included_features": 7
+  },
+  "critical_count": 0,
+  "warning_count": 1,
+  "top_risks": [
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "key_samples": [
+    {
+      "kind": "feature",
+      "id": "FEAT-INPUT-GUARD"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-ADD"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-DELETE"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-EMPTY-STATE"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-TODO-PERSIST"
+    }
+  ],
+  "evidence_links": [
+    "controller/gate-report.json",
+    "phase-02-android-inventory/evidence-index.csv"
+  ],
+  "recommended_action": "REVIEW"
+}

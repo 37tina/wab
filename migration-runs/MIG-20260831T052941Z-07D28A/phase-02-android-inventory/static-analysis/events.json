@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:63",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-E5C56575",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{ input = it },",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:84",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-06C29622",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:92",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-3C53A22D",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onToggle() },",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:143",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-C2B79352",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onDelete,",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:153",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-AD46D153",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:64",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-469F7D67",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{ input = it },",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:86",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-92FDCBE7",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:93",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-C82C1C96",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onToggle() },",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:145",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-9F8BD751",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onDelete,",
+      "source_symbol": "MainActivity",
+      "source_ref": "app/src/main/java/com/minitodo/app/MainActivity.kt:154",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-MINITODO-APP-MAINACTIV-90299882",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+surface_id,feature_id,text_overlap,depth_delta,key_elements_hit,key_elements_total,missing_key_elements,hue_distance,verdict,notes
+PAGE-MAINACTIVITY-3FDE9431,FEAT-TODO-ADD,n/a,n/a,0,0,,n/a,NO_BASELINE,baseline ui-tree empty
+REPOSITORY-TODOREPOSITORY-E71D7690,FEAT-TODO-PERSIST,n/a,n/a,0,0,,n/a,NO_BASELINE,baseline ui-tree empty

@@ -1,0 +1,9 @@
+page_symbol,feature_id
+MainActivity,FEAT-TODO-ADD
+MainActivity,FEAT-TODO-TOGGLE
+MainActivity,FEAT-TODO-DELETE
+MainActivity,FEAT-TODO-SORT
+MainActivity,FEAT-TODO-PERSIST
+MainActivity,FEAT-TODO-EMPTY-STATE
+MainActivity,FEAT-INPUT-GUARD
+TodoRepository,FEAT-TODO-PERSIST

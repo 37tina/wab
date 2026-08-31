@@ -1,0 +1,8 @@
+feature_id,surfaces,entry_reachable,nav_pattern,native_impl_check,notes
+FEAT-INPUT-GUARD,PAGE-MAINACTIVITY-3FDE9431(page),PASS,page[tabs+navigation],PASS,
+FEAT-TODO-ADD,PAGE-MAINACTIVITY-3FDE9431(page),PASS,page[tabs+navigation],PASS,
+FEAT-TODO-DELETE,PAGE-MAINACTIVITY-3FDE9431(page),PASS,page[tabs+navigation],PASS,
+FEAT-TODO-EMPTY-STATE,PAGE-MAINACTIVITY-3FDE9431(page),PASS,page[tabs+navigation],PASS,
+FEAT-TODO-PERSIST,PAGE-MAINACTIVITY-3FDE9431(page);REPOSITORY-TODOREPOSITORY-E71D7690(reusable-component),PASS,page[tabs+navigation],PASS,
+FEAT-TODO-SORT,PAGE-MAINACTIVITY-3FDE9431(page),PASS,page[tabs+navigation],PASS,
+FEAT-TODO-TOGGLE,PAGE-MAINACTIVITY-3FDE9431(page),PASS,page[tabs+navigation],PASS,

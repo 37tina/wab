@@ -1,0 +1,801 @@
+{
+  "components": [
+    {
+      "checked": "",
+      "enabled": "",
+      "id": "",
+      "text": "",
+      "type": "",
+      "visible": ""
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "root",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "MigrationScaffold",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "AppNavigationShell",
+      "text": "",
+      "type": "Navigation",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "NavigationContent",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-MAINACTIVITY-3FDE9431",
+      "text": "",
+      "type": "NavDestination",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "迷你待办",
+      "type": "TitleBar",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "__NavdestinationField__BackButton__Back__PAGE-MAINACTIVITY-3FDE9431",
+      "text": "",
+      "type": "BackButton",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "迷你待办",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "排序：默认",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "NavDestinationContent",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "输入待办标题",
+      "text": "",
+      "type": "TextInput",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "添加",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "List",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "完成 T2A-PERSIST",
+      "text": "",
+      "type": "Checkbox",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "T2A-PERSIST",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "删除 T2A-PERSIST",
+      "text": "✕",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "session21",
+      "text": "",
+      "type": "WindowScene",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBox",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBridgeView",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "status_bar_color_picker",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarView",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBackground_Row_0",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "sbg_left",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_clock",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ClockStatusView",
+      "text": "10, :, 15",
+      "type": "Flex",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": "",
+      "type": "TextClock",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "10",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": ":",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": "",
+      "type": "TextClock",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "15",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "sbg_right",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_ethernet",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconItemEthernetComponent_Image_icon",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_signal",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SignalComponent-SignalIcon_Image_cellular",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SignalComponent-SignalIcon_Image_cellularImage",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_battery",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Image_batteryIcon",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Image_batteryBorder",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Text_batterySoc",
+      "text": "100",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "root",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "parentLayout",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SkinBgContent",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SkinBgContentStack",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "index_content",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "index_stack_container",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "index_outer",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "functionView",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "downMenu",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "downMenu_container",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "downMenu_flex",
+      "text": "",
+      "type": "Flex",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "KeyMenu",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "kbd_toolbar_list_menu",
+      "text": "",
+      "type": "Grid",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "GridItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "KeyCustom_0",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "GridItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "KeyCustom_1",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "KeyHideKbd",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "downMenu_line",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "index_keyMenu_container",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "KeyboardCanvas",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "KeyCanvasKeyboard",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Canvas",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "keyboardPanel44",
+      "text": "",
+      "type": "WindowScene",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "keyboard587",
+      "text": "",
+      "type": "WindowScene",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "inputMethodPanel",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "keyboardLeftButton",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "keyboardRightButton",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    }
+  ],
+  "texts": [
+    "迷你待办",
+    "迷你待办",
+    "排序：默认",
+    "添加",
+    "T2A-PERSIST",
+    "✕",
+    "10, :, 15",
+    "10",
+    ":",
+    "15",
+    "100"
+  ]
+}

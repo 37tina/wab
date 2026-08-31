@@ -1,0 +1,8 @@
+source_kind,source_key,feature_id,page_id,state_id,target_id,status,updated_by,updated_at,notes
+FEATURE,FEAT-INPUT-GUARD,FEAT-INPUT-GUARD,,,,NOT_STARTED,architect-lead-minitodo-r1,2026-08-31T11:25:57Z,surfaces=0
+FEATURE,FEAT-TODO-ADD,FEAT-TODO-ADD,,,,NOT_STARTED,architect-lead-minitodo-r1,2026-08-31T11:25:57Z,surfaces=1
+FEATURE,FEAT-TODO-DELETE,FEAT-TODO-DELETE,,,,NOT_STARTED,architect-lead-minitodo-r1,2026-08-31T11:25:57Z,surfaces=0
+FEATURE,FEAT-TODO-EMPTY-STATE,FEAT-TODO-EMPTY-STATE,,,,NOT_STARTED,architect-lead-minitodo-r1,2026-08-31T11:25:57Z,surfaces=0
+FEATURE,FEAT-TODO-PERSIST,FEAT-TODO-PERSIST,,,,NOT_STARTED,architect-lead-minitodo-r1,2026-08-31T11:25:57Z,surfaces=1
+FEATURE,FEAT-TODO-SORT,FEAT-TODO-SORT,,,,NOT_STARTED,architect-lead-minitodo-r1,2026-08-31T11:25:57Z,surfaces=0
+FEATURE,FEAT-TODO-TOGGLE,FEAT-TODO-TOGGLE,,,,NOT_STARTED,architect-lead-minitodo-r1,2026-08-31T11:25:57Z,surfaces=0

@@ -1,0 +1,18 @@
+relation_id,feature_id,data_object,relation,persistence_kind,persistence_location,source_ref
+REL-0001,FEAT-TODO-ADD,todos,write,preference_key,SharedPreferences(minitodo_prefs)/todos,app/src/main/java/com/minitodo/app/MainActivity.kt:99
+REL-0002,FEAT-TODO-ADD,input_state,read,,in-memory Compose state（非持久化，重启即空）,app/src/main/java/com/minitodo/app/MainActivity.kt:94
+REL-0003,FEAT-TODO-ADD,input_state,write,,in-memory Compose state（非持久化，重启即空）,app/src/main/java/com/minitodo/app/MainActivity.kt:98
+REL-0004,FEAT-TODO-ADD,todo.title,write,preference_key,SharedPreferences(minitodo_prefs)/todos[].title（随 todos JSON 数组落盘）,app/src/main/java/com/minitodo/app/MainActivity.kt:97
+REL-0005,FEAT-TODO-TOGGLE,todos,write,preference_key,SharedPreferences(minitodo_prefs)/todos,app/src/main/java/com/minitodo/app/MainActivity.kt:117
+REL-0006,FEAT-TODO-TOGGLE,todo.title,read,preference_key,SharedPreferences(minitodo_prefs)/todos[].title（随 todos JSON 数组落盘）,app/src/main/java/com/minitodo/app/MainActivity.kt:151
+REL-0007,FEAT-TODO-DELETE,todos,write,preference_key,SharedPreferences(minitodo_prefs)/todos,app/src/main/java/com/minitodo/app/MainActivity.kt:122
+REL-0008,FEAT-TODO-DELETE,todo.title,read,preference_key,SharedPreferences(minitodo_prefs)/todos[].title（随 todos JSON 数组落盘）,app/src/main/java/com/minitodo/app/MainActivity.kt:157
+REL-0009,FEAT-TODO-SORT,sort_mode,write,preference_key,SharedPreferences(minitodo_prefs)/sort_mode,app/src/main/java/com/minitodo/app/MainActivity.kt:68
+REL-0010,FEAT-TODO-SORT,sort_mode,read,preference_key,SharedPreferences(minitodo_prefs)/sort_mode,app/src/main/java/com/minitodo/app/TodoRepository.kt:54
+REL-0011,FEAT-TODO-SORT,todos,read,preference_key,SharedPreferences(minitodo_prefs)/todos,app/src/main/java/com/minitodo/app/MainActivity.kt:133
+REL-0012,FEAT-TODO-PERSIST,todos,write,preference_key,SharedPreferences(minitodo_prefs)/todos,app/src/main/java/com/minitodo/app/TodoRepository.kt:51
+REL-0013,FEAT-TODO-PERSIST,todos,read,preference_key,SharedPreferences(minitodo_prefs)/todos,app/src/main/java/com/minitodo/app/TodoRepository.kt:19
+REL-0014,FEAT-TODO-PERSIST,sort_mode,write,preference_key,SharedPreferences(minitodo_prefs)/sort_mode,app/src/main/java/com/minitodo/app/TodoRepository.kt:57
+REL-0015,FEAT-TODO-PERSIST,sort_mode,read,preference_key,SharedPreferences(minitodo_prefs)/sort_mode,app/src/main/java/com/minitodo/app/MainActivity.kt:53
+REL-0016,FEAT-TODO-EMPTY-STATE,todos,read,preference_key,SharedPreferences(minitodo_prefs)/todos,app/src/main/java/com/minitodo/app/MainActivity.kt:106
+REL-0017,FEAT-INPUT-GUARD,input_state,read,,in-memory Compose state（非持久化，重启即空）,app/src/main/java/com/minitodo/app/MainActivity.kt:94

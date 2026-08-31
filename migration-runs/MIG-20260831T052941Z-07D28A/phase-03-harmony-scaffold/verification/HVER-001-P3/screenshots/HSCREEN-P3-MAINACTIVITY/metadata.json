@@ -1,0 +1,32 @@
+{
+  "screenshot_id": "HSCREEN-P3-MAINACTIVITY",
+  "verification_id": "HVER-001-P3",
+  "henv_id": "HENV-001-P3",
+  "device_id": "HDEVICE-001",
+  "device_serial": "127.0.0.1:5557",
+  "bundle_name": "com.minitodo.app",
+  "target_kind": "ROUTE",
+  "target_id": "PAGE-MAINACTIVITY-3FDE9431",
+  "feature_ids": [
+    "FEAT-TODO-ADD",
+    "FEAT-TODO-TOGGLE",
+    "FEAT-TODO-DELETE",
+    "FEAT-TODO-SORT",
+    "FEAT-TODO-PERSIST",
+    "FEAT-TODO-EMPTY-STATE",
+    "FEAT-INPUT-GUARD"
+  ],
+  "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+  "page_shell_id": "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+  "smoke_command_id": "CMD-P3-SMOKE",
+  "capture_command_id": "CMD-P3-SCREEN",
+  "capture_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T052941Z-07D28A/tools/p3_screenshot.py",
+  "capture_executable_sha256": "3df9057e226cb566b2b07599d08bf51716eb9390823bcad95424b545ee562c36",
+  "capture_stdout_sha256": "129d167a75114be3c6c071ff5fd08858dbe64690be9a40cc26b297b64130913d",
+  "capture_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "captured_by": "toolchain-agent-minitodo-r1",
+  "captured_at": "2026-08-31T11:46:33Z",
+  "width": 1080,
+  "height": 2400,
+  "png_sha256": "ca786315663950ce53385ada4859afab531b59668e4844ffcbb5678c2e9fd3d9"
+}

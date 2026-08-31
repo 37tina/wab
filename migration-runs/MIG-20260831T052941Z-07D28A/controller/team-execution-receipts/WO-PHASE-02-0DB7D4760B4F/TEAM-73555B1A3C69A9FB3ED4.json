@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-73555B1A3C69A9FB3ED4",
+  "phase": 2,
+  "work_order_id": "WO-PHASE-02-0DB7D4760B4F",
+  "work_order_sha256": "1e5ba4ac07791a85cd0b3917c3040989aca422a597f56ccd2051c482ee556416",
+  "role_key": "inventory_lead_id",
+  "actor_id": "inventory-lead-minitodo-r1",
+  "platform_task_id": "ses_fa99c0b7bffeXNpEbbEf9oIVfs-INV",
+  "started_at": "2026-08-31T05:56:00Z",
+  "ended_at": "2026-08-31T06:22:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T11:08:54Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-02-android-inventory/feature-map.json",
+      "sha256": "a9e1cf03713c0a8025fa963b4968db4e8ee1aa067356d16b178a006bb753c4af"
+    }
+  ]
+}

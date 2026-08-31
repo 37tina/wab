@@ -1,0 +1,4 @@
+work_order_id,phase,relative_path,scope_sha256,work_order_sha256,issued_at,issued_by,status
+WO-PHASE-02-0DB7D4760B4F,2,controller/work-orders/WO-PHASE-02-0DB7D4760B4F.json,0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1,1e5ba4ac07791a85cd0b3917c3040989aca422a597f56ccd2051c482ee556416,2026-08-31T05:42:27Z,controller-agent-minitodo-r1,ISSUED
+WO-PHASE-03-FF0F66597AA2,3,controller/work-orders/WO-PHASE-03-FF0F66597AA2.json,0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1,c445dfbb3c0ccef354ac21a1721d167513891243ee0e512ad917a250ff2b181f,2026-08-31T11:09:12Z,controller-agent-minitodo-r1,ISSUED
+WO-PHASE-04-E8F3205C2B9E,4,controller/work-orders/WO-PHASE-04-E8F3205C2B9E.json,0db7d4760b4f459164bb058ce0da5d3b296c280f4b2cce87832d7b38c4e8f4c1,632ff1b9b7fe937c0ccaeaed3d97edefab48c9e72c3c15561908668b37b5d7dc,2026-08-31T12:03:24Z,controller-agent-minitodo-r1,ISSUED

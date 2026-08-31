@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-C74E005B4A2D34D1D02E",
+  "phase": 2,
+  "work_order_id": "WO-PHASE-02-0DB7D4760B4F",
+  "work_order_sha256": "1e5ba4ac07791a85cd0b3917c3040989aca422a597f56ccd2051c482ee556416",
+  "role_key": "data_dependency_agent_id",
+  "actor_id": "data-dep-agent-minitodo-r1",
+  "platform_task_id": "ses_fa99c0b7bffeXNpEbbEf9oIVfs-DDEP",
+  "started_at": "2026-08-31T05:56:00Z",
+  "ended_at": "2026-08-31T06:22:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-08-31T11:08:54Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-02-android-inventory/data-relations.csv",
+      "sha256": "711eac5c019e8d5f9b83ff802e0418b79eb91c13c52348061ec6850871fdfb54"
+    }
+  ]
+}

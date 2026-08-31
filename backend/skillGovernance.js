@@ -5,7 +5,7 @@ const { join, normalize, extname } = require("node:path");
 
 const SKILL_ROOT = process.env.SKILL_ROOT
   ? normalize(process.env.SKILL_ROOT)
-  : join(__dirname, "..", "skill-snapshot", "governance-tree");
+  : join(__dirname, "..", "skill");
 const PROPOSAL_STORE = join(__dirname, "skill-proposals.json");
 const ALLOWED_EXT = new Set([".md", ".yaml", ".yml", ".json", ".txt", ".csv"]);
 

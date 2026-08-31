@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "MINITODO entry module"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "MINITODO main ability"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "MINITODO"
+    }
+  ]
+}

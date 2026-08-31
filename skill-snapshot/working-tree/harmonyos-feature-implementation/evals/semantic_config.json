@@ -1,6 +1,0 @@
-{
-  "optimizer_hints": {"capability":"Implement HarmonyOS Phase 4 native features and verify behavior equivalence","inputs":["Android Behavior Contracts","accepted native skeleton"],"trigger_actions":["implement features","repair behavior gaps","verify every Behavior Contract"],"exclusions":["redesign","discovery","scaffold"],"artifacts":["HBUILD","behavior verification evidence"]},
-  "fallback_positive_concepts": ["implementation_job"],
-  "positive_concepts": {"implementation_job":{"weight":0.8,"phrases":["real HarmonyOS NEXT business features","ArkUI 原生实现与行为等价","行为等价问题","基于 Behavior Contract 的验证"]}},
-  "negative_concepts": {}
-}

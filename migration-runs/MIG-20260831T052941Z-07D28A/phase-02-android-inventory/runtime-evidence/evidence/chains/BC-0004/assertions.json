@@ -1,0 +1,19 @@
+{
+ "bc_id": "BC-0004",
+ "status": "CHAIN_PASS",
+ "note": "ok",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "排序：完成置底",
+   "verdict": "PASS",
+   "optional": "false"
+  },
+  {
+   "kind": "persist_after_restart",
+   "value": "排序：完成置底",
+   "verdict": "PASS",
+   "optional": "false"
+  }
+ ]
+}
