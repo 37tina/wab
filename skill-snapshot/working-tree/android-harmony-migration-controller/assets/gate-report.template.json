@@ -1,0 +1,11 @@
+{
+  "run_id": "__RUN_ID__",
+  "phase": 0,
+  "verdict": "NOT_STARTED",
+  "checked_at": null,
+  "errors": [],
+  "warnings": [],
+  "intent_pass_rate": null,
+  "persistence_consistency": "NOT_CHECKED",
+  "native_review_status": "PENDING"
+}

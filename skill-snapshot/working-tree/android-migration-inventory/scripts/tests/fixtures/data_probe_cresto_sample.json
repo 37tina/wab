@@ -1,0 +1,92 @@
+{
+ "schema": "android-data-probe/1",
+ "package": "com.nevoit.cresto",
+ "device": "emulator-5554",
+ "captured_at": "2026-08-30T13:14:22Z",
+ "access_mode": "run-as",
+ "preferences": {
+  "is_first_run": false,
+  "last_update_check_at": 1788006648365,
+  "sort_option": true,
+  "sort_order": true
+ },
+ "tables": {
+  "todo_items": [
+   {
+    "id": 1,
+    "title": "sdbWHbCUu4ECbE8wisUU7iomgyihRrrqyRp03p18c33KRLWW2N_SyDT9dEycJ1IYL9U-UnoWFhfBE-4Ip8aMFg",
+    "dueDate": "2026-09-05",
+    "creationDateTime": "2026-08-29T22:20:57.760935",
+    "isCompleted": 1,
+    "isPinned": 0,
+    "flag": 0,
+    "groupId": null,
+    "completedDateTime": "2026-08-29T22:21:07.162565",
+    "deletedAt": null,
+    "notes": "",
+    "startTime": null,
+    "endTime": null,
+    "reminderMode": null,
+    "reminderOffsetMinutes": null,
+    "reminderDayOffset": null,
+    "reminderTime": null,
+    "reminderPersistent": 0,
+    "reminderStrong": 0,
+    "calendarEventId": null,
+    "calendarSyncedAt": null,
+    "repeatRuleId": null,
+    "seriesId": null,
+    "occurrenceDate": null,
+    "generatedFromTodoId": null,
+    "occurrenceEditedAt": null
+   }
+  ],
+  "todo_groups": [],
+  "repeat_rules": [],
+  "sub_todo_items": []
+ },
+ "stores": [
+  {
+   "store": "mmkv:mmkv.default",
+   "path": "files/mmkv/mmkv.default",
+   "status": "READ",
+   "keys": 4,
+   "raw_pairs": 6
+  },
+  {
+   "store": "datastore:GlanceAppWidgetManager-com.nevoit.cresto.preferences_pb",
+   "path": "files/datastore/GlanceAppWidgetManager-com.nevoit.cresto.preferences_pb",
+   "status": "TOOL_GAP",
+   "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)"
+  },
+  {
+   "store": "datastore-file:appWidgetLayout-4",
+   "path": "files/datastore/appWidgetLayout-4",
+   "status": "TOOL_GAP",
+   "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)"
+  },
+  {
+   "store": "sqlite:todo_database",
+   "path": "databases/todo_database",
+   "status": "READ",
+   "tables": 4,
+   "missing_objects": [
+    "settings_prefs"
+   ]
+  }
+ ],
+ "tool_gaps": [
+  {
+   "store": "datastore:GlanceAppWidgetManager-com.nevoit.cresto.preferences_pb",
+   "reason": "DataStore parsing is TOOL_GAP in v1"
+  },
+  {
+   "store": "datastore-file:appWidgetLayout-4",
+   "reason": "DataStore parsing is TOOL_GAP in v1"
+  },
+  {
+   "store": "sqlite:todo_database#settings_prefs",
+   "reason": "MISSING_IN_DB: object declared in --objects but table absent"
+  }
+ ]
+}

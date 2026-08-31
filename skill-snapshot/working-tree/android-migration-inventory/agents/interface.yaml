@@ -1,0 +1,23 @@
+interface:
+  display_name: "Android Migration Inventory"
+  short_description: "Discover Android pages, states, behavior, and evidence"
+  default_prompt: "Use $android-migration-inventory after approved Gate 1 to inventory Android pages, states, behavior, transitions, side effects, and evidence, then stop at WAITING_HUMAN_REVIEW."
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets: ["openai", "claude", "agent-skills", "vscode", "generic"]
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "native-skill-metadata"
+    claude: "neutral-source-plus-adapter"
+    vscode: "agent-skills-source-with-workspace-trust"
+    agent-skills: "neutral-source"
+    generic: "neutral-source"

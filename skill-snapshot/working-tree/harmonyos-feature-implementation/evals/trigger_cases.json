@@ -1,0 +1,18 @@
+{
+  "recommended_threshold": 0.33,
+  "should_trigger": [
+    {"text": "阶段3已通过，按 Behavior Contract 实现所有 ArkUI 功能并完成行为等价验证。", "family": "phase4_implementation"},
+    {"text": "修复鸿蒙页面运算结果与 Android 不一致的行为等价问题。", "family": "parity_repair"},
+    {"text": "在模拟器按 Behavior Contract 做双端行为等价验证：数据、状态、持久化和副作用。", "family": "state_verification"}
+  ],
+  "should_not_trigger": [
+    {"text": "分析 Android 项目有哪些页面和控件。", "family": "phase2"},
+    {"text": "只创建鸿蒙工程基座。", "family": "phase3"},
+    {"text": "协调并执行完整的阶段1到4。", "family": "controller"}
+  ],
+  "near_neighbor": [
+    {"text": "重新设计这个鸿蒙应用，让交互更原生，不等价 Android 行为。", "family": "redesign"},
+    {"text": "修复一个与 Android 迁移无关的鸿蒙 bug。", "family": "generic_bugfix"},
+    {"text": "准备鸿蒙应用商店截图和发布说明。", "family": "delivery"}
+  ]
+}
