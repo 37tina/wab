@@ -156,3 +156,21 @@ PLATFORM_LIMITATION（Gate 4 PLATFORM_DEVIATION 队列）；操作序列中断/
    native_impl_check 全 PASS）；
 6. `replayer.py replay --dry-run` 无 unmapped/无 missing_steps；
    有设备环境跑 `replay` 后 `validate` 通过。
+## UI 保真红线（R7-R9，2026-09-01 增补：来自 CapyReader 实测教训）
+
+### R7 组件保真：蓝图声明的容器必须落地
+- P3 蓝图 `native_component` 中声明的容器/组件**必须在 P4 实现代码中出现**：
+  - `SideBarContainer(Overlay 抽屉)` → 实现必须有 `SideBarContainer(SideBarContainerType.Overlay)` + `showSideBar` 状态切换，**禁止退化为 Row 固定并排**
+  - `bindSheet` → 必须有 bindSheet，禁止退化为静态 Column
+- **Gate 4 加静态扫描**：对蓝图 native_component 中声明的每个容器名 grep 实现代码，未命中 → FAIL（或书面豁免）
+
+### R8 图标保真：禁止纯文字代替图标位
+- Android 端是 Icon/Image/Drawable 的位置（底栏菜单/星标/已读标记/添加按钮/汉堡菜单/返回箭头等），鸿蒙端**必须用 SymbolGlyph（系统图标）或 Resource 资源**，禁止 `Text("✕")` / `Text("☆")` / 纯文字代替
+- 菜单项格式：`SymbolGlyph(图标) + Text(标签)` 组合（对齐源端"图标+文字"模式）
+- 常用映射参考 14-android-to-harmony-map.md 图标映射节
+
+### R9 正文渲染：内容型应用禁止占位符正文
+- 涉及文章/帖子/消息等**内容正文展示**的页面：
+  - 渲染必须用 `RichText`（解析 HTML）或 Web 组件，**禁止纯 Text 显示 HTML 源码或 '(no content)' 占位符上线**
+  - 数据层字段必须核对源端实际消费的字段（RSS 场景：`summary` vs `content` vs `content:encoded`——读源端解析代码确认），鸿蒙端逐字段对齐
+- 验收：用一个真实 feed 实测，正文完整可见且非标签原文

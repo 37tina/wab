@@ -58,3 +58,10 @@ description: 源程序深度理解的通用方法论内核（功能语义地图/
 | 无/弱声明 | 未跑 | GAP + 原因码 |
 
 GAP 原因码约定：SOURCE_RUNTIME_UNAVAILABLE（平台工具缺失）/ ENV_NOT_FROZEN / SCOPE_EXCLUDED / PENDING_HUMAN。high-impact GAP 进 Gate warnings 供人工复审。
+
+## BC 内容展示断言规则（2026-09-01 增补）
+
+涉及内容展示（文章正文/帖子内容/消息详情等）的 BC，`observable_result` **必须具体到**：
+- "正文文字出现且非占位符"（而非笼统的"显示正文内容"）
+- 建议断言格式：`text_visible=<正文前N字符>` 或 `rich_content_rendered=true`（正文区有非元信息文字）
+- 禁止只断言标题/元信息就放行阅读页契约——CapyReader BC-0011 教训：契约写了"显示正文内容"但粒度不够，验证时只验了标题

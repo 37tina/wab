@@ -979,3 +979,26 @@ let n: number = 1                                             // 禁 any/unknown
 19. C-7 Span.onClick 可点击 span 支持性
 
 > 以上 19 处标"待验证"均不影响选型结论（有保底方案）；实施时以 DevEco 官方文档 + 本地 d.ts 二次核对为准。
+## 图标映射（Material Icons → HarmonyOS SymbolGlyph，2026-09-01 增补）
+
+R8 红线的执行依据。SymbolGlyph 用 `sys.symbol.*` 资源（DevEco SDK 内置，无需导入图片资源）。
+
+| Android Material Icon | 用途 | 鸿蒙 SymbolGlyph | 备注 |
+|---|---|---|---|
+| ic_add / Add | 添加 | `sys.symbol.plus` | 添加订阅/FAB |
+| ic_menu / Menu | 汉堡菜单 | `sys.symbol.line_3_horizontal` | 侧边栏开关 |
+| ic_arrow_back | 返回 | `sys.symbol.chevron_left` | 导航返回 |
+| ic_done / CheckCircle | 已读标记 | `sys.symbol.circle`（filled/solid 区分） | 已读=描边圆，未读=实心圆（或用 checkmark 切换） |
+| ic_star / StarBorder | 星标 | `sys.symbol.star` / `sys.symbol.star_slash` | 星标切换 |
+| ic_delete | 删除 | `sys.symbol.trash` | 列表项删除 |
+| ic_refresh | 刷新 | `sys.symbol.arrow_clockwise` | 下拉刷新/手动刷新 |
+| ic_settings | 设置 | `sys.symbol.gearshape` | 设置入口 |
+| ic_search | 搜索 | `sys.symbol.magnifyingglass` | 搜索 |
+| ic_share | 分享 | `sys.symbol.square_and_arrow_up` | 分享 |
+| ic_open_in_new / OpenInBrowser | 浏览器打开 | `sys.symbol.arrow_up_right_square` | 阅读页"Open in Browser" |
+| ic_close | 关闭 | `sys.symbol.xmark` | 对话框关闭 |
+| ic_list | 列表/目录 | `sys.symbol.list_bullet` | 目录 |
+| ic_person / Account | 账号 | `sys.symbol.person` | 账号 |
+| ic_filter_list | 过滤 | `sys.symbol.line_3_horizontal_decrease` | 过滤器 |
+
+> 完整可用图标集：DevEco Studio → HarmonyOS Symbol 库（或 SDK `systemres` 中 `sys.symbol.*`）。若某个图标无精确对应，用语义最接近的 + 书面记录（不算豁免 R8）。

@@ -63,3 +63,18 @@ oracle 缓存键 = 源端环境指纹（构建产物 SHA-256 + test_seed + 契�
 ## dual-diff-results schema
 
 每 RUNTIME 契约 × 四维（observable / data / persistence / side_effect）一格：verdict ∈ MATCH / DIFF / MANUAL / PLATFORM_LIMITATION；两侧实测值（oracle_expected / target_actual）；DIFF 格必须携带归因通道（修复回环或取证伪影定性登记），MANUAL 格必须携带人工队列原因。退出码：0=全 MATCH / 1=存在 DIFF / 2=执行受阻。
+
+## 布局模式核对（observable 维度增补，2026-09-01）
+
+截图对比不能只核对文字锚点——**布局模式漂移**（蓝图声明 Overlay 抽屉但实现用固定并排、bottom-nav 变成 tabs 等）在文字锚点全对的情况下仍会发生。
+
+双机对比时必须核对**布局模式清单**：
+| 模式 | 判定要点 |
+|---|---|
+| Overlay 抽屉/侧边栏 | 展开后**覆盖**内容区（非挤压），有开关状态（默认收起/展开） |
+| 固定侧边栏 | 与内容区并排，**源端是固定才是固定**（对齐源端行为，不自作主张） |
+| Bottom Navigation | 固定底部，图标+文字 tab |
+| Tabs（顶/底） | 对齐源端位置与形式 |
+| FAB | 悬浮按钮位置对齐源端 |
+
+每核心页面的截图对比记录中，必须写明「布局模式：Android=X / Harmony=X，一致/不一致」。不一致且无豁免 → 表现差异项。
