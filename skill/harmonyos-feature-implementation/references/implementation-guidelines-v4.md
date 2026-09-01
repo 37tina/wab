@@ -174,3 +174,12 @@ PLATFORM_LIMITATION（Gate 4 PLATFORM_DEVIATION 队列）；操作序列中断/
   - 渲染必须用 `RichText`（解析 HTML）或 Web 组件，**禁止纯 Text 显示 HTML 源码或 '(no content)' 占位符上线**
   - 数据层字段必须核对源端实际消费的字段（RSS 场景：`summary` vs `content` vs `content:encoded`——读源端解析代码确认），鸿蒙端逐字段对齐
 - 验收：用一个真实 feed 实测，正文完整可见且非标签原文
+
+### R10 实现完整性：页面级交付定义（2026-09-01 增补）
+- 每个页面的"完成" = 同时满足：
+  1. 布局结构：蓝图 native_component 全部落地（R7）
+  2. 组件保真：图标/控件对齐源端（R8）
+  3. 数据接线：真实 Repository/Preferences 调用（探针可读）
+  4. 真机可走查：构建安装后页面可达、核心操作可用
+- **禁止把"部分实现"标记为完成**：要么完整交付，要么显式标 `partial` 并列出缺失清单（进返工队列）
+- 页面间导航：每个页面的入口路由必须接通（禁止"页面写了但进不去"）

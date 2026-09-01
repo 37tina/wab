@@ -65,3 +65,11 @@ GAP 原因码约定：SOURCE_RUNTIME_UNAVAILABLE（平台工具缺失）/ ENV_NO
 - "正文文字出现且非占位符"（而非笼统的"显示正文内容"）
 - 建议断言格式：`text_visible=<正文前N字符>` 或 `rich_content_rendered=true`（正文区有非元信息文字）
 - 禁止只断言标题/元信息就放行阅读页契约——CapyReader BC-0011 教训：契约写了"显示正文内容"但粒度不够，验证时只验了标题
+
+## 并行盘点分片规则（2026-09-01 增补）
+
+大规模源码（>1 万行）盘点时按模块并行：
+- Controller 预先产出《模块分片表》：模块名 → 分配给哪个 2A → BC 号段区间
+- 每个 2A 只写自己号段内的产物文件（bc-<module>.csv 等），不碰别人的号段
+- 合并时 Controller 负责：全局 BC 唯一性校验、跨模块 feature 去重（同一功能跨模块时合并 source_refs）、data-relations 交叉对齐
+- 冲突仲裁：两个模块声称同一 feature → 归属"主要实现模块"，另一个标 cross-ref

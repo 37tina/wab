@@ -52,3 +52,28 @@ scope.json（included/excluded + 理由 / 三条迁移政策 / test_seed / 双�
 - 每 Gate 判定 = 脚本从密封证据重推（validate_gate 类脚本），结论附 errors[]/warnings[] 与被验产物哈希；Gate 报告绑定 scope_sha256，改 scope 即 Gate 失效。
 - 机器 PASS ≠ 放行：Gate 报告仅证明"机器可复核项全过"，人工审核独立裁决；机器 FAIL（fail-closed 口径）时人工可裁决通道：核实每条机器 error 属实（属实→返工）或属取证工具伪影（→登记定性 + 人工放行/APPROVED_DEVIATION，不许静默翻转机器记录）。
 - 工单模板四段（MUST READ / MUST DO / MUST PRODUCE / FORBIDDEN）+ 绑定 skill 快照哈希；子工单（如 phase-02）带上游 Gate 报告快照。
+
+## 超时治理与任务分发粒度（2026-09-01 增补：CapyReader 教训——120 分钟会话上限导致批次任务中途被杀）
+
+**原则：时间不是约束，质量是。宁可更多子代理/更多轮续任，不降验证标准。**
+
+### Phase 4 实现阶段：按页面/文件集分发（替代功能域批次）
+- 每个子任务 = **一个页面**（或一个独立文件集），预估 ≤45 分钟内可完成
+- 多个实现者并行（background-task 同时派发），Controller 统一验收合并
+- **文件冲突规避**：
+  - 页面专属文件互不重叠（pages/reader/*.ets vs pages/settings/*.ets）
+  - 共享文件（路由表 Index.ets / EntryAbility / 数据层 Repository）由 Controller 统一维护——子任务只声明"路由表需加一行 xxx"，不直接改共享文件
+  - 子任务完成 → Controller 汇总变更集 → 统一构建安装（子任务不各自构建，省时且防版本碎片）
+- 分发前 Controller 必须产出《任务分片清单》：每片的页面/文件范围、蓝图引用、预估时长、产出物
+- 每片仍须过 R7-R9 红线 + 真机走查（质量不因粒度变小而降低）
+
+### Phase 2 盘点阶段：按源码模块并行
+- 源码按模块/目录分片（如 8 个 Kotlin 模块 → 2-4 个 2A 并行，每人 2-4 个模块）
+- 产物按模块分片写入：feature-map-<module>.json / bc-<module>.csv，Controller 合并去重
+- **BC 编号冲突规避**：分片预留号段（模块A=0001-0099，模块B=0100-0199…），合并时全局校验唯一性
+- data-relations / visual-memory 同样按模块分片，合并时交叉引用对齐
+
+### 通用规则
+- 任何子任务预估 >60 分钟 → 必须再拆分
+- 会话被杀 → 产物在磁盘上不丢（如实在 implementation-ledger 记 partial 状态），续任从磁盘续作不从零开始
+- 并行度参考：同时运行的实现者 ≤4（避免模拟器/构建资源争抢）
