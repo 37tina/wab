@@ -1,0 +1,58 @@
+{
+ "precheck_note": "cold start went straight to Articles (BC-0017 persistence proof, dump b4-harmony-addaccount-coldstart.json); data cleaned to reach AddAccountScreen",
+ "addaccount_options_visible": {
+  "Local": true,
+  "Feedbin": true,
+  "FreshRSS": true,
+  "Miniflux": true,
+  "Reader": true
+ },
+ "fresh_texts": [
+  "Add Account",
+  "Local",
+  "On your device",
+  "Feedbin",
+  "feedbin.com",
+  "FreshRSS",
+  "freshrss.org",
+  "Miniflux",
+  "miniflux.app",
+  "Reader",
+  "Self-hosted Google Reader API",
+  "01, :, 53",
+  "01",
+  ":",
+  "53",
+  "100"
+ ],
+ "feedbin_tappable": true,
+ "feedbin_login_texts": [
+  "Settings",
+  "Refresh all",
+  "Add Feed",
+  "All Articles",
+  "Starred",
+  "Feeds",
+  "Unread",
+  "All",
+  "Starred",
+  "Articles",
+  "No feeds yet",
+  "Start by adding a feed",
+  "Add Feed",
+  "01, :, 53",
+  "01",
+  ":",
+  "53",
+  "100"
+ ],
+ "login_input_hints": [],
+ "login_fields": {
+  "Server": false,
+  "Username": false,
+  "Password": false,
+  "Address": false,
+  "API": false
+ },
+ "navigated_not_noop": true
+}

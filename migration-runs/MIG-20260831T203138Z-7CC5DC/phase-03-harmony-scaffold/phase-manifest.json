@@ -1,0 +1,27 @@
+{
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "project_id": "CAPYREADER",
+  "phase": 3,
+  "status": "IN_PROGRESS",
+  "initialized_at": "2026-09-01T00:11:30Z",
+  "paradigm": "feature-semantic",
+  "architecture_lead": "arch-lead.capy-01",
+  "ownership": {
+    "architecture_lead_id": "arch-lead.capy-01",
+    "toolchain_agent_id": "toolchain.capy-01",
+    "navigation_agent_id": "nav-shell.capy-01",
+    "public_ui_agent_id": "public-ui.capy-01",
+    "capability_contract_agent_id": "capcon.capy-01",
+    "architecture_acceptance_agent_id": "arch-accept.capy-01"
+  },
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "gate_mode": "feature-semantic",
+  "phase2_input_locked": true,
+  "business_implementation_allowed": false,
+  "gui_only_evidence_allowed": false,
+  "mp4_required": false,
+  "template_id": "ARKUI-STAGE-TEMPLATE-V1",
+  "template_manifest_sha256": "8d721d373d2e830a436017da6b933b465be6690600489fcba54c3a938fd7371b",
+  "template_generation_sha256": "b5a71bb9990f430f08bf952669d5994736e6d20d2e1fe64539b24f3a428356a3"
+}

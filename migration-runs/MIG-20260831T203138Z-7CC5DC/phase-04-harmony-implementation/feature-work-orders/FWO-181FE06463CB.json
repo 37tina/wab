@@ -1,0 +1,191 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-181FE06463CB",
+  "phase": 4,
+  "feature_id": "FEAT-SETTINGS",
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T05:01:14Z",
+  "issued_by": "impl-lead.capy-01",
+  "verify_mode": "RUNTIME",
+  "risk_level": "high",
+  "bc_ids": [
+    "BC-0018",
+    "BC-0019",
+    "BC-0020",
+    "BC-0021"
+  ],
+  "runtime_bc_ids": [
+    "BC-0019",
+    "BC-0020"
+  ],
+  "data_reads": [],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0002",
+    "REL-0003",
+    "REL-0004",
+    "REL-0005",
+    "REL-0006",
+    "REL-0007",
+    "REL-0008",
+    "REL-0009",
+    "REL-0010",
+    "REL-0011",
+    "REL-0012",
+    "REL-0013",
+    "REL-0014",
+    "REL-0015",
+    "REL-0016",
+    "REL-0017",
+    "REL-0018",
+    "REL-0019",
+    "REL-0020",
+    "REL-0021",
+    "REL-0022",
+    "REL-0028",
+    "REL-0050",
+    "REL-0051",
+    "REL-0052"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-ARTICLEFONTMENU-D9B99022",
+      "is_container": false,
+      "kind": "menu"
+    },
+    {
+      "id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+      "is_container": false,
+      "kind": "dialog"
+    },
+    {
+      "id": "PAGE-AUTODELETEMENU-3E3FD576",
+      "is_container": false,
+      "kind": "menu"
+    },
+    {
+      "id": "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+      "is_container": false,
+      "kind": "reusable-component"
+    },
+    {
+      "id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "is_container": false,
+      "kind": "menu"
+    },
+    {
+      "id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "is_container": false,
+      "kind": "settings"
+    },
+    {
+      "id": "PAGE-SETTINGSVIEW-9331B5E9",
+      "is_container": false,
+      "kind": "reusable-component"
+    },
+    {
+      "id": "PAGE-THEMEPICKER-6F79D5ED",
+      "is_container": false,
+      "kind": "dialog"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead.capy-01",
+    "ui_agent_id": "impl-lead.capy-01",
+    "business_data_agent_id": "impl-lead.capy-01",
+    "native_capability_agent_id": "impl-lead.capy-01"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0018",
+      "BC-0019",
+      "BC-0020",
+      "BC-0021"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:98",
+      "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:101",
+      "app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:6",
+      "app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt:47",
+      "app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt:145",
+      "app/src/main/res/values/strings.xml:33",
+      "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:115",
+      "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:98",
+      "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:101",
+      "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsViewModel.kt:70",
+      "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:58",
+      "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:61",
+      "app/src/main/res/values/strings.xml:159",
+      "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:149",
+      "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsViewModel.kt:71",
+      "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:145",
+      "capy/src/main/java/com/jocmp/capy/articles/SortOrder.kt:3",
+      "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:47",
+      "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:97",
+      "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:130"
+    ],
+    "runtime_evidence_refs": [
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0019",
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0020"
+    ],
+    "data_relations": [
+      "REL-0002",
+      "REL-0003",
+      "REL-0004",
+      "REL-0005",
+      "REL-0006",
+      "REL-0007",
+      "REL-0008",
+      "REL-0009",
+      "REL-0010",
+      "REL-0011",
+      "REL-0012",
+      "REL-0013",
+      "REL-0014",
+      "REL-0015",
+      "REL-0016",
+      "REL-0017",
+      "REL-0018",
+      "REL-0019",
+      "REL-0020",
+      "REL-0021",
+      "REL-0022",
+      "REL-0023",
+      "REL-0028",
+      "REL-0050",
+      "REL-0051",
+      "REL-0052"
+    ],
+    "visual_memory_surface": [
+      "PAGE-ARTICLEFONTMENU-D9B99022",
+      "PAGE-ARTICLESTYLEPICKER-397873E0",
+      "PAGE-AUTODELETEMENU-3E3FD576",
+      "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+      "PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "PAGE-SETTINGSVIEW-9331B5E9",
+      "PAGE-THEMEPICKER-6F79D5ED"
+    ],
+    "p3_surface_plan": [
+      "ShellModalArticlefontmenuD9b99022",
+      "ShellModalArticlestylepicker397873e0",
+      "ShellModalAutodeletemenu3e3fd576",
+      "ShellModalRefreshintervalmenuF4c57c66",
+      "ShellModalThemepicker6f79d5ed"
+    ]
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555"
+}

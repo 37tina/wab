@@ -1,0 +1,14 @@
+{
+ "bc_id": "BC-0009",
+ "status": "STEPS_FAIL",
+ "note": "steps interrupted at 1/4",
+ "results": [
+  {
+   "kind": "data_equals",
+   "value": "prefs:article_filter",
+   "verdict": "UNSUPPORTED",
+   "optional": "false",
+   "note": "no runtime oracle (GAP-2): type=data_equals target=prefs:article_filter"
+  }
+ ]
+}

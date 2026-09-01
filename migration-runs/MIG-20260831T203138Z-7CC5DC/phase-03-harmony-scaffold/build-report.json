@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "verification_id": "HVER-006-P3",
+  "henv_id": "HENV-005-P3",
+  "source_snapshot_sha256": "913cb41de19c783aeb3b5d6dbffcff35fdf62b8834050c569b05f8c985cfbee3",
+  "artifact_count": 1,
+  "artifacts": [
+    {
+      "path": "entry/build/default/outputs/default/entry-default-unsigned.hap",
+      "sha256": "1d4f46839d70d36626e46aad2f9656058b86bdd60e6bc6258e79bffbb8813bad",
+      "size": 265616,
+      "sealed_path": "artifacts/ART-001-entry-default-unsigned.hap",
+      "sealed_sha256": "1d4f46839d70d36626e46aad2f9656058b86bdd60e6bc6258e79bffbb8813bad",
+      "produced_by_command_id": "CMD-P3-BUILD"
+    }
+  ],
+  "clean_build_passed": true,
+  "install_passed_devices": [
+    "HDEVICE-001"
+  ],
+  "launch_passed_devices": [
+    "HDEVICE-001"
+  ],
+  "screenshot_required_devices": [
+    "HDEVICE-001"
+  ],
+  "screenshot_count": 23,
+  "updated_at": "2026-09-01T00:59:39Z",
+  "errors": []
+}

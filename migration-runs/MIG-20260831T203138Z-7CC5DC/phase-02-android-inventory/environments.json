@@ -1,0 +1,40 @@
+{
+  "baseline_env_id": "ENV-001",
+  "frozen_at": "2026-08-31T20:57:46Z",
+  "environments": [
+    {
+      "env_id": "ENV-001",
+      "is_baseline": true,
+      "account_id": "local-device-only",
+      "account_role": "local-device-account-no-credentials",
+      "seed_data_id": "SEED-COLD-START-001",
+      "seed_reset_ref": "pm clear + cold start returns to Add-Account first screen (see test_seed.reset_procedure)",
+      "network_profile": "normal",
+      "network_conditions_ref": "Wi-Fi online, public internet reachable, public stable RSS feeds fetchable",
+      "network_toggle_available": true,
+      "emulator_model": "sdk_gphone16k_arm64",
+      "device_serial": "emulator-5554",
+      "resolution": "1080x2400",
+      "density_dpi": 440,
+      "screen_purpose": "reproducibility_only",
+      "_screen_purpose_note": "resolution and density_dpi are experiment reproducibility metadata only, never a quality or equivalence condition",
+      "android_api_level": 37,
+      "orientation": "portrait",
+      "locale": "zh-CN",
+      "theme": "light",
+      "font_scale": 1.0,
+      "timezone": "Asia/Shanghai",
+      "permissions_profile": "fresh-install",
+      "status": "FROZEN",
+      "frozen_by": "inventory-lead.capy-01",
+      "frozen_at": "2026-08-31T20:57:46Z",
+      "android_cli_version": "1.0.15985488",
+      "application_id": "com.capyreader.app.debug",
+      "app_version": "2026.07.1212",
+      "app_build": "1212",
+      "build_variant": "free-debug",
+      "source_revision": "6aa1ddfd154189c3deb107210e35952dceddf2a3",
+      "apk_sha256": "db018a2122e16767de49d1105fc901736c1492d76315145006a6a9f84a34785f"
+    }
+  ]
+}

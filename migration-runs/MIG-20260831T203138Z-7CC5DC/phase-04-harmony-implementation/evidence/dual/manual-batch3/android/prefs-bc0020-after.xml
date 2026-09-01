@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="theme_mode">DARK</string>
+    <string name="article_filter">{&quot;type&quot;:&quot;com.jocmp.capy.ArticleFilter.Feeds&quot;,&quot;status&quot;:&quot;ALL&quot;,&quot;feedID&quot;:&quot;https://feeds.arstechnica.com/arstechnica/index&quot;,&quot;folderTitle&quot;:null,&quot;feedStatus&quot;:&quot;ALL&quot;}</string>
+    <string name="account_id">b6a8be47-9b76-411c-b681-76b221a9bab9</string>
+    <string name="article_list_sort_order">OLDEST_FIRST</string>
+    <int name="pane_expansion_index" value="4" />
+</map>

@@ -1,0 +1,12 @@
+{
+  "artifacts": [
+    {
+      "path": "entry/build/default/outputs/default/entry-default-unsigned.hap",
+      "sha256": "e5aeccdba1ce812d96627bb989612fdabca5640d23c03390e027cae1518d4a5f",
+      "size": 265616,
+      "sealed_path": "artifacts/ART-001-entry-default-unsigned.hap",
+      "sealed_sha256": "e5aeccdba1ce812d96627bb989612fdabca5640d23c03390e027cae1518d4a5f",
+      "produced_by_command_id": "CMD-P3-BUILD"
+    }
+  ]
+}

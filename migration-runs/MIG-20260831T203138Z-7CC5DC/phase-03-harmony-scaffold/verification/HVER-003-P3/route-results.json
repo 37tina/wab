@@ -1,0 +1,30 @@
+{
+  "verification_id": "HVER-003-P3",
+  "henv_id": "HENV-003-P3",
+  "results": [
+    {
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "bundle_name": "com.capyreader.app.debug",
+      "status": "PASS",
+      "verified_render_ids": [
+        "AppNavigationShell",
+        "ShellPageArticlescreen23af0624",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "marker": "ROUTE-SMOKE-PASS",
+      "route_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "verification_id": "HVER-003-P3",
+      "henv_id": "HENV-003-P3",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "command_id": "CMD-SMOKE-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_path": "build/results/route-PAGE-ARTICLESCREEN-23AF0624.json",
+      "result_output_sha256": "10b005bcccb73ddcec9c3f36087f9f6496765b8e0c5e7093907dc96c9c030b8b",
+      "stdout_sha256": "12b308ae5284f483a0731d720543e9bb18ea1df13967f9138ee4557bf85155c0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

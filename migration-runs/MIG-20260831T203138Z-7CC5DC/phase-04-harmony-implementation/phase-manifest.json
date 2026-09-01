@@ -1,0 +1,29 @@
+{
+  "feature_dispatch_sha256": "c37ad9535fedd4521df569dc6e2120c10f534d6dcacd63a7d345f6e94382d04e",
+  "formal_evidence_device_type": "emulator",
+  "initial_project_snapshot_sha256": "603c15a4de832f10d814ce8b309c02d0183663917517dac6af370ef725944565",
+  "initialized_at": "2026-09-01T01:37:37Z",
+  "input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555",
+  "mp4_allowed": false,
+  "ownership": {
+    "implementation_lead_id": "impl-lead.capy-01",
+    "parity_acceptance_agent_id": "parity-accept.capy-01",
+    "verification_executor_id": "verify-exec.capy-01",
+    "visual_asset_agent_id": "visual-asset.capy-01"
+  },
+  "phase": 4,
+  "project_id": "CAPYREADER",
+  "roles": {
+    "asset_agent": "visual-asset.capy-01",
+    "implementation_lead": "impl-lead.capy-01",
+    "parity_checker": "parity-accept.capy-01",
+    "verification_executor": "verify-exec.capy-01"
+  },
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "schema_version": "2.0",
+  "status": "IN_PROGRESS",
+  "surface_contracts_sha256": "d5734d28a0f765a2c4f79cf348d03c77066b851776fd9aa04f34a44d0a7ba3c8",
+  "work_order_id": "WO-PHASE-04-F4616CF056FF",
+  "work_order_relative_path": "controller/work-orders/WO-PHASE-04-F4616CF056FF.json",
+  "work_order_sha256": "148280b8e3d0bb83d32b6f860e9bd90cf117f0b18d2bdd3301a1bb81541063a6"
+}

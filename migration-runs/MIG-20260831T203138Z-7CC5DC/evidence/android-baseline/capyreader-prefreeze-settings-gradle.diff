@@ -1,0 +1,35 @@
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+index 211f744..7bc050d 100644
+--- a/settings.gradle.kts
++++ b/settings.gradle.kts
+@@ -1,5 +1,9 @@
+ pluginManagement {
+     repositories {
++        // 国内镜像优先（dl.google.com 直连不稳定），官方源兜底
++        maven("https://maven.aliyun.com/repository/gradle-plugin")
++        maven("https://maven.aliyun.com/repository/google")
++        maven("https://maven.aliyun.com/repository/central")
+         gradlePluginPortal()
+         mavenCentral()
+         google()
+@@ -9,10 +13,11 @@ pluginManagement {
+ plugins {
+     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+ }
+-
+ dependencyResolutionManagement {
+     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+     repositories {
++        maven("https://maven.aliyun.com/repository/google")
++        maven("https://maven.aliyun.com/repository/central")
+         google()
+         mavenCentral()
+         maven { setUrl("https://jitpack.io") }
+@@ -20,6 +25,7 @@ dependencyResolutionManagement {
+     }
+ }
+ 
++
+ rootProject.name = "Capy Reader"
+ include(":app")
+ include(":feedbinclient")

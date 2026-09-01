@@ -1,0 +1,86 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0001",
+    "bc_row_sha": "929f7ec1fff80d0c776d59c5bae44eff10745da2bc213378c1a0a58799b62dc1",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [
+      {
+        "kind": "text_visible",
+        "optional": "false",
+        "value": "Add Account",
+        "verdict": "PASS"
+      },
+      {
+        "kind": "text_visible",
+        "optional": "false",
+        "value": "No feeds yet",
+        "verdict": "FAIL"
+      }
+    ],
+    "bc_id": "BC-0001",
+    "blocked_reason": "STEPS_FAIL",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T02:24:49Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {},
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T02:24:49Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {},
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-yf4ktf35/runtime-evidence/evidence/chains/BC-0001",
+    "executed": false,
+    "feature_id": "FEAT-LOCAL-ACCOUNT",
+    "note": "steps interrupted at 0/1",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [
+      "Add Account",
+      "Feedbin",
+      "FreshRSS",
+      "Local",
+      "Miniflux",
+      "On your device",
+      "Reader",
+      "Self-hosted Google Reader API",
+      "feedbin.com",
+      "freshrss.org",
+      "miniflux.app"
+    ],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

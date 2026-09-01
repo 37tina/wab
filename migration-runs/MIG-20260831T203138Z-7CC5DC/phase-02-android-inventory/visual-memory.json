@@ -1,0 +1,4323 @@
+{
+  "schema_version": "1.0",
+  "generator": "visual_memory",
+  "generated_at": "2026-08-31T23:34:11Z",
+  "workspace": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory",
+  "basis": {
+    "paradigm": "aggregate-from-existing-artifacts (no new capture)",
+    "legacy_reference": "legacy phase-02 per-page screenshot.png + ui.xml + candidates/color-palette.candidates.csv",
+    "snapshot_root": "runtime-evidence/evidence/chains",
+    "runtime_entry_symbols": [
+      "PAGE-ADDACCOUNTSCREEN-6F7C29A2",
+      "PAGE-ADDFEEDDIALOG-AE3E11AE",
+      "PAGE-ADDLINKACTIVITY-F9EC19DF",
+      "PAGE-ARTICLESCREEN-5C3108E6",
+      "PAGE-ARTICLESTYLEPICKER-848F9DCA",
+      "PAGE-IMAGEPAGE-93BF815D",
+      "PAGE-LOGINSCREEN-0AE12C1F",
+      "PAGE-MAINACTIVITY-9E8FBE45",
+      "PAGE-MARKALLREADDIALOG-595EF225",
+      "PAGE-OPENARTICLEINBROWSERACTIVITY-97F8E1E0",
+      "PAGE-REMOVEFEEDDIALOG-27D785E1",
+      "PAGE-SETTINGSSCREEN-98D14FD2",
+      "PAGE-THEMEPICKER-926677D4"
+    ],
+    "surface_to_snapshot_mapping": "feature page/container surface -> its chain before snapshot (entry state); sheet/dialog/reusable-component surface -> after snapshot (post-operation representative state); component surfaces of one feature share the same after snapshot — fine-grained anchors are ui_tree_summary.visible_texts / key_bounds",
+    "chain_pick_rule": "CHAIN_PASS first, then bc_id lexicographic"
+  },
+  "surfaces": [
+    {
+      "surface_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "kind": "page",
+      "features": [
+        "FEAT-LOCAL-ACCOUNT"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0001",
+        "snapshot": "before",
+        "dir": "runtime-evidence/evidence/chains/BC-0001/before",
+        "phase": "before",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0001/before/screenshot.png",
+          "sha256": "6d3cc1694b9ee710a8cac425ff2a61554fb382ad856a2f38318171cd6772cea8",
+          "bytes": 50491,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0001/before/ui.xml",
+          "sha256": "e0fcce94b54d3e02ca959c2e68c7d386fed93a19879c88e048338c4e300a4109",
+          "bytes": 9776
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 27,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "TextView",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 15,
+          "TextView": 4,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "No feeds yet",
+            "bounds": "[410,1173][671,1239]",
+            "size": {
+              "w": 261,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Start by adding a feed",
+            "bounds": "[311,1261][769,1327]",
+            "size": {
+              "w": 458,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Add Feed",
+            "bounds": "[496,1388][657,1443]",
+            "size": {
+              "w": 161,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "All",
+            "bounds": "[154,192][223,269]",
+            "size": {
+              "w": 69,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0001/before/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-ADDACCOUNTVIEW-A37259FA",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-ADDFEEDBUTTON-067ECBF0",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "kind": "dialog",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-ADDFEEDVIEW-20077793",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+      "kind": "container",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "before",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/before",
+        "phase": "before",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/before/screenshot.png",
+          "sha256": "3a20248c3c040ea5fb43c0994f8e0a1c247c25be0ac6fcf093cc070548eefaaf",
+          "bytes": 50821,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/before/ui.xml",
+          "sha256": "e0fcce94b54d3e02ca959c2e68c7d386fed93a19879c88e048338c4e300a4109",
+          "bytes": 9776
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 27,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "TextView",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 15,
+          "TextView": 4,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "No feeds yet",
+            "bounds": "[410,1173][671,1239]",
+            "size": {
+              "w": 261,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Start by adding a feed",
+            "bounds": "[311,1261][769,1327]",
+            "size": {
+              "w": 458,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Add Feed",
+            "bounds": "[496,1388][657,1443]",
+            "size": {
+              "w": 161,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "All",
+            "bounds": "[154,192][223,269]",
+            "size": {
+              "w": 69,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/before/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-ADDLINKSCREEN-9E051065",
+      "kind": "container",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "before",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/before",
+        "phase": "before",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/before/screenshot.png",
+          "sha256": "3a20248c3c040ea5fb43c0994f8e0a1c247c25be0ac6fcf093cc070548eefaaf",
+          "bytes": 50821,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/before/ui.xml",
+          "sha256": "e0fcce94b54d3e02ca959c2e68c7d386fed93a19879c88e048338c4e300a4109",
+          "bytes": 9776
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 27,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "TextView",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 15,
+          "TextView": 4,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "No feeds yet",
+            "bounds": "[410,1173][671,1239]",
+            "size": {
+              "w": 261,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Start by adding a feed",
+            "bounds": "[311,1261][769,1327]",
+            "size": {
+              "w": 458,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Add Feed",
+            "bounds": "[496,1388][657,1443]",
+            "size": {
+              "w": 161,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "All",
+            "bounds": "[154,192][223,269]",
+            "size": {
+              "w": 69,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/before/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-ARTICLEACTIONMENU-128442E3",
+      "kind": "menu",
+      "features": [
+        "FEAT-READ-UNREAD"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-ARTICLEFONTMENU-D9B99022",
+      "kind": "menu",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-ARTICLELIST-AB5566F8",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-ARTICLE-LIST"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0009",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0009/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0009/after/screenshot.png",
+          "sha256": "e36de36855fad264db8cb0e8394fbf976dd368a2c702f0a1848cf67b24bd5ac2",
+          "bytes": 50738,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0009/after/ui.xml",
+          "sha256": "e0fcce94b54d3e02ca959c2e68c7d386fed93a19879c88e048338c4e300a4109",
+          "bytes": 9776
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 27,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "TextView",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 15,
+          "TextView": 4,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "No feeds yet",
+            "bounds": "[410,1173][671,1239]",
+            "size": {
+              "w": 261,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Start by adding a feed",
+            "bounds": "[311,1261][769,1327]",
+            "size": {
+              "w": 458,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Add Feed",
+            "bounds": "[496,1388][657,1443]",
+            "size": {
+              "w": 161,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "All",
+            "bounds": "[154,192][223,269]",
+            "size": {
+              "w": 69,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0009/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-ARTICLEREADER-B2B865F0",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-ARTICLE-READ"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "kind": "page",
+      "features": [
+        "FEAT-ARTICLE-LIST"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0009",
+        "snapshot": "before",
+        "dir": "runtime-evidence/evidence/chains/BC-0009/before",
+        "phase": "before",
+        "screenshot": null,
+        "ui_dump": null
+      },
+      "ui_tree_summary": null
+    },
+    {
+      "surface_id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+      "kind": "dialog",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-AUTODELETEMENU-3E3FD576",
+      "kind": "menu",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+      "kind": "dialog",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "kind": "dialog",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-FEEDACTIONMENU-075C1A17",
+      "kind": "menu",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-FEEDLIST-228CEB83",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-FEED-REFRESH"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-FILTERACTIONMENU-07E67060",
+      "kind": "menu",
+      "features": [
+        "FEAT-ARTICLE-LIST"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0009",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0009/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0009/after/screenshot.png",
+          "sha256": "e36de36855fad264db8cb0e8394fbf976dd368a2c702f0a1848cf67b24bd5ac2",
+          "bytes": 50738,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0009/after/ui.xml",
+          "sha256": "e0fcce94b54d3e02ca959c2e68c7d386fed93a19879c88e048338c4e300a4109",
+          "bytes": 9776
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 27,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "TextView",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 15,
+          "TextView": 4,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "No feeds yet",
+            "bounds": "[410,1173][671,1239]",
+            "size": {
+              "w": 261,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Start by adding a feed",
+            "bounds": "[311,1261][769,1327]",
+            "size": {
+              "w": 458,
+              "h": 66
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Add Feed",
+            "bounds": "[496,1388][657,1443]",
+            "size": {
+              "w": 161,
+              "h": 55
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "All",
+            "bounds": "[154,192][223,269]",
+            "size": {
+              "w": 69,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0009/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+      "kind": "menu",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "kind": "page",
+      "features": [
+        "FEAT-ARTICLE-READ"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "kind": "page",
+      "features": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-LOGINVIEW-49F18417",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "kind": "page",
+      "features": [
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-MARKALLREADDIALOG-46A35015",
+      "kind": "dialog",
+      "features": [
+        "FEAT-READ-UNREAD"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-MARKALLREADMENU-464F3414",
+      "kind": "menu",
+      "features": [
+        "FEAT-READ-UNREAD"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "kind": "page",
+      "features": [
+        "FEAT-ARTICLE-READ"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "kind": "menu",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "kind": "dialog",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "kind": "dialog",
+      "features": [
+        "FEAT-ADD-FEED"
+      ],
+      "runtime_evidence": {
+        "bc_id": "BC-0004",
+        "snapshot": "after",
+        "dir": "runtime-evidence/evidence/chains/BC-0004/after",
+        "phase": "after",
+        "screenshot": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/screenshot.png",
+          "sha256": "9647776e144b87b69d3765037ea625d678b38f24783670f7f4ebc72ab846264d",
+          "bytes": 249500,
+          "resolution": [
+            1080,
+            2400
+          ]
+        },
+        "ui_dump": {
+          "path": "runtime-evidence/evidence/chains/BC-0004/after/ui.xml",
+          "sha256": "ea73fa410276323be44a4768685b9221f3f68f692235ab60225ed1d2ebb87349",
+          "bytes": 27965
+        }
+      },
+      "ui_tree_summary": {
+        "node_count": 76,
+        "depth_max": 15,
+        "class_sequence(document_order)": [
+          "FrameLayout",
+          "LinearLayout",
+          "FrameLayout",
+          "ComposeView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "TextView",
+          "TextView",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "TextView",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button",
+          "View",
+          "View",
+          "Button"
+        ],
+        "class_histogram": {
+          "View": 48,
+          "TextView": 20,
+          "Button": 4,
+          "FrameLayout": 2,
+          "LinearLayout": 1,
+          "ComposeView": 1
+        },
+        "visible_texts": [
+          "Ars Technica - All content",
+          "4:02 AM",
+          "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+          "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+          "2:39 AM",
+          "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+          "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+          "2:10 AM",
+          "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+          "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+          "1:11 AM",
+          "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+          "Finding reveals an overlooked way that water can damage surfaces.",
+          "12:33 AM",
+          "Think twice before installing this device promising free movies"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "resource_ids": [
+          "android:id/content"
+        ],
+        "key_bounds": [
+          {
+            "class": "android.widget.FrameLayout",
+            "resource_id": "android:id/content",
+            "bounds": "[0,0][1080,2400]",
+            "size": {
+              "w": 1080,
+              "h": 2400
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,341][859,385]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "4:02 AM",
+            "bounds": "[903,341][1025,385]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+            "bounds": "[132,391][750,589]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+            "bounds": "[132,600][750,710]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,787][859,831]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:39 AM",
+            "bounds": "[903,787][1025,831]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+            "bounds": "[132,837][750,1035]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+            "bounds": "[132,1046][750,1156]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1233][859,1277]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "2:10 AM",
+            "bounds": "[903,1233][1025,1277]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+            "bounds": "[132,1283][750,1481]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+            "bounds": "[132,1492][750,1602]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,1679][859,1723]",
+            "size": {
+              "w": 727,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "1:11 AM",
+            "bounds": "[903,1679][1025,1723]",
+            "size": {
+              "w": 122,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+            "bounds": "[132,1729][750,1927]",
+            "size": {
+              "w": 618,
+              "h": 198
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Finding reveals an overlooked way that water can damage surfaces.",
+            "bounds": "[132,1938][750,2048]",
+            "size": {
+              "w": 618,
+              "h": 110
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[132,2125][841,2169]",
+            "size": {
+              "w": 709,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "12:33 AM",
+            "bounds": "[885,2125][1025,2169]",
+            "size": {
+              "w": 140,
+              "h": 44
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Think twice before installing this device promising free movies",
+            "bounds": "[132,2175][750,2334]",
+            "size": {
+              "w": 618,
+              "h": 159
+            }
+          },
+          {
+            "class": "android.widget.TextView",
+            "text": "Ars Technica - All content",
+            "bounds": "[154,192][530,269]",
+            "size": {
+              "w": 376,
+              "h": 77
+            }
+          }
+        ],
+        "attribute_names": [
+          "NAF",
+          "bounds",
+          "checkable",
+          "checked",
+          "class",
+          "clickable",
+          "content-desc",
+          "drawing-order",
+          "enabled",
+          "focusable",
+          "focused",
+          "hint",
+          "index",
+          "long-clickable",
+          "package",
+          "password",
+          "resource-id",
+          "scrollable",
+          "selected",
+          "text"
+        ],
+        "source": "BC-0004/after/ui.xml"
+      }
+    },
+    {
+      "surface_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "kind": "settings",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-SETTINGSVIEW-9331B5E9",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-THEMEPICKER-6F79D5ED",
+      "kind": "dialog",
+      "features": [
+        "FEAT-SETTINGS"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    },
+    {
+      "surface_id": "PAGE-TOGGLESTARMENUITEM-5F309692",
+      "kind": "reusable-component",
+      "features": [
+        "FEAT-STAR"
+      ],
+      "runtime_evidence": null,
+      "ui_tree_summary": null,
+      "note": "no runtime chain snapshot for owning features (SOURCE_CONFIRM / not captured); see basis"
+    }
+  ],
+  "global_palette": {
+    "source": "candidates/color-palette.candidates.csv",
+    "basis": "global",
+    "note": "候选表无 per-surface 色值列（源码静态扫描产物）：色值来自 theme/palette 源码定义，Phase 3 主题层结合 surface 的 ui_tree_summary.visible_texts / key_bounds 语义就近映射",
+    "swatch_count": 0,
+    "background_colors": [],
+    "theme_colors": [],
+    "gradients": [],
+    "swatches": []
+  },
+  "text_sizes": {
+    "available": false,
+    "note": "uiautomator dump carries no font-size attribute (Compose nodes expose no textSize); Phase 3 theme layer should derive sizes from design tokens / Phase 4 visual walkthrough",
+    "ui_attribute_names_probe": [
+      "NAF",
+      "bounds",
+      "checkable",
+      "checked",
+      "class",
+      "clickable",
+      "content-desc",
+      "drawing-order",
+      "enabled",
+      "focusable",
+      "focused",
+      "hint",
+      "index",
+      "long-clickable",
+      "package",
+      "password",
+      "resource-id",
+      "scrollable",
+      "selected",
+      "text"
+    ]
+  },
+  "coverage": {
+    "features_total": 10,
+    "features_with_runtime_snapshot": [
+      "FEAT-ADD-FEED",
+      "FEAT-ARTICLE-LIST",
+      "FEAT-ARTICLE-READ",
+      "FEAT-FEED-REFRESH",
+      "FEAT-LOCAL-ACCOUNT",
+      "FEAT-LOCAL-PERSISTENCE",
+      "FEAT-READ-UNREAD",
+      "FEAT-SETTINGS",
+      "FEAT-STAR"
+    ],
+    "features_without_runtime_snapshot": [
+      "FEAT-ONLINE-ACCOUNT-UI"
+    ],
+    "surfaces_total": 35,
+    "surfaces_with_snapshot": 15,
+    "surface_coverage_pct": 42.9,
+    "per_feature": [
+      {
+        "feature_id": "FEAT-LOCAL-ACCOUNT",
+        "surfaces": 1,
+        "with_snapshot": 1,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-ADD-FEED",
+        "surfaces": 11,
+        "with_snapshot": 11,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-FEED-REFRESH",
+        "surfaces": 1,
+        "with_snapshot": 0,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-ARTICLE-LIST",
+        "surfaces": 3,
+        "with_snapshot": 3,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-ARTICLE-READ",
+        "surfaces": 3,
+        "with_snapshot": 0,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-READ-UNREAD",
+        "surfaces": 3,
+        "with_snapshot": 0,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-STAR",
+        "surfaces": 1,
+        "with_snapshot": 0,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-LOCAL-PERSISTENCE",
+        "surfaces": 1,
+        "with_snapshot": 0,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-SETTINGS",
+        "surfaces": 8,
+        "with_snapshot": 0,
+        "direct_chain": true
+      },
+      {
+        "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+        "surfaces": 3,
+        "with_snapshot": 0,
+        "direct_chain": null
+      }
+    ]
+  }
+}

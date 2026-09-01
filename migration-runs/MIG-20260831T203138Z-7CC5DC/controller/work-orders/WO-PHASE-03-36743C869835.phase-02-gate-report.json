@@ -1,0 +1,43 @@
+{
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "phase": 2,
+  "verdict": "PASS",
+  "baseline_env_id": "ENV-001",
+  "harmony_environment_id": null,
+  "verification_id": null,
+  "phase3_work_order_id": null,
+  "phase4_work_order_id": null,
+  "phase5_work_order_id": null,
+  "phase6_work_order_id": null,
+  "release_candidate_id": null,
+  "delivery_manifest_id": null,
+  "harmony_build_ids": [],
+  "harmony_evidence_ids": [],
+  "scope_sha256": "be4445aa9dcf8321c81d5698b9402d3c0aeec61f1fcbf9664336aa7d659b924e",
+  "run_manifest_sha256": "34e92feabf1c025774c9c7cecb854be11de0f0de9c5a22d7349bfc39a5ea5e45",
+  "source_revision": "6aa1ddfd154189c3deb107210e35952dceddf2a3",
+  "apk_sha256": "db018a2122e16767de49d1105fc901736c1492d76315145006a6a9f84a34785f",
+  "runtime_bc_pass_rate": 1.0,
+  "runtime_bc_pass_rate_note": "no Phase 4 replay facts; safe default",
+  "persistence_consistency": "NOT_MEASURED",
+  "native_review_status": "PENDING",
+  "included_features": [
+    "FEAT-LOCAL-ACCOUNT",
+    "FEAT-ADD-FEED",
+    "FEAT-FEED-REFRESH",
+    "FEAT-ARTICLE-LIST",
+    "FEAT-ARTICLE-READ",
+    "FEAT-READ-UNREAD",
+    "FEAT-STAR",
+    "FEAT-LOCAL-PERSISTENCE",
+    "FEAT-SETTINGS",
+    "FEAT-ONLINE-ACCOUNT-UI"
+  ],
+  "checked_at": "2026-08-31T23:58:59Z",
+  "errors": [],
+  "warnings": [
+    "BC-0017: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (ANR_BLOCKED): FORENSICS_TOOL_LIMITATION: coll'); verify reason quality in human review — Phase 4 will lack this standard answer",
+    "BC-0019: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigat'); verify reason quality in human review — Phase 4 will lack this standard answer",
+    "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)"
+  ]
+}

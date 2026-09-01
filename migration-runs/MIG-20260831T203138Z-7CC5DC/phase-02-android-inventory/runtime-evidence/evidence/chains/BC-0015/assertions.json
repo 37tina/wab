@@ -1,0 +1,21 @@
+{
+ "bc_id": "BC-0015",
+ "status": "CHAIN_FAIL",
+ "note": "assertions failed: text_visible=Mark all items as read?",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "Mark all items as read?",
+   "verdict": "FAIL",
+   "optional": "false",
+   "note": "judged at before-snapshot (expected 'visible before ...')"
+  },
+  {
+   "kind": "count_ge",
+   "value": "unread_list_rows",
+   "verdict": "UNSUPPORTED",
+   "optional": "false",
+   "note": "no runtime oracle (GAP-2): type=count_ge target=unread_list_rows"
+  }
+ ]
+}

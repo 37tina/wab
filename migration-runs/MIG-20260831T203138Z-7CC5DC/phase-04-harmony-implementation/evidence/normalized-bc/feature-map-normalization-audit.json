@@ -1,0 +1,39 @@
+{
+  "adjudication": "DEC-017 (feature-map verify_mode aligned to Phase-1 scope authority)",
+  "authority": "controller/scope.json migration_scope.feature_verify_modes (9 RUNTIME + 1 SOURCE_CONFIRM)",
+  "changed_features": [
+    {
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "was": "SOURCE_CONFIRM",
+      "now": "RUNTIME"
+    },
+    {
+      "feature_id": "FEAT-FEED-REFRESH",
+      "was": "SOURCE_CONFIRM",
+      "now": "RUNTIME"
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "was": "SOURCE_CONFIRM",
+      "now": "RUNTIME"
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-READ",
+      "was": "SOURCE_CONFIRM",
+      "now": "RUNTIME"
+    },
+    {
+      "feature_id": "FEAT-READ-UNREAD",
+      "was": "SOURCE_CONFIRM",
+      "now": "RUNTIME"
+    },
+    {
+      "feature_id": "FEAT-STAR",
+      "was": "SOURCE_CONFIRM",
+      "now": "RUNTIME"
+    }
+  ],
+  "adapted_workspace": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/evidence/adapted-android-ws",
+  "feature_map_normalized_sha256": "be5b42037c2604e455337c39457c88f8d61ae4e6b53d3720639a3369815f143c",
+  "note": "gmi_runtime select_chain_bcs selects by feature-level verify_mode; Phase-2 feature-map derived 3-RUNTIME口径 (DEC-007 adjudicated: BC layer is the verification carrier covering all 9 runtime features via 14 RUNTIME_REQUIRED rows); this derived copy injects the Phase-1 frozen feature-level truth so BC-0001..0021 chains become selectable"
+}

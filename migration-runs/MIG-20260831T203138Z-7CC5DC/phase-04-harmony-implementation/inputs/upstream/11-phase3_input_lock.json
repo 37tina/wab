@@ -1,0 +1,1751 @@
+{
+  "schema_version": "scaffold-v3",
+  "paradigm": "feature-semantic",
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "project_id": "CAPYREADER",
+  "locked_at": "2026-09-01T00:11:30Z",
+  "locked_by": "arch-lead.capy-01",
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "ownership": {
+    "architecture_lead_id": "arch-lead.capy-01",
+    "toolchain_agent_id": "toolchain.capy-01",
+    "navigation_agent_id": "nav-shell.capy-01",
+    "public_ui_agent_id": "public-ui.capy-01",
+    "capability_contract_agent_id": "capcon.capy-01",
+    "architecture_acceptance_agent_id": "arch-accept.capy-01"
+  },
+  "gate_mode": "feature-semantic",
+  "inputs": {
+    "feature_map": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory/feature-map.json",
+      "sha256": "f5aaf130d012cd7cf636eb3fd42078678580ca0b3cceb4ce5ae30a2aa314b362",
+      "feature_count": 10,
+      "surface_count": 35
+    },
+    "navigation_relations": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory/candidates/navigation-relations.candidates.csv",
+      "sha256": "029540fd19648cbb0fc783f314a5559f1c16de9e262447b2cf7f90161c6d887a",
+      "row_count": 6
+    },
+    "data_relations": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory/data-relations.csv",
+      "sha256": "fac9d36c3d41540d0b713a9f8028546158a4326c89ad6da927b1b7bf5c06a4fe",
+      "row_count": 57,
+      "rows_skipped_empty_object": 0,
+      "semantic_object_count": 16
+    },
+    "scope": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/controller/scope.json",
+      "sha256": "be4445aa9dcf8321c81d5698b9402d3c0aeec61f1fcbf9664336aa7d659b924e",
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/inputs/controller-scope.json"
+    },
+    "phase2_gate": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/inputs/phase-02-gate-report.json",
+      "sha256": "efec77ebf235c0f2fef8e6a1bdc0eba573ce12c705490d943c0d9d7587bc6823"
+    },
+    "phase2_closure": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-2-closure.json",
+      "sha256": "3eceddac3e24715dd17418576547a33e934b72ce81b7c552659268b0cd4fdbf9",
+      "snapshot_path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/inputs/phase-02-gmi-closure.json"
+    },
+    "phase3_work_order": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/inputs/phase-03-work-order.json",
+      "sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9"
+    }
+  },
+  "included_feature_ids": [
+    "FEAT-ADD-FEED",
+    "FEAT-ARTICLE-LIST",
+    "FEAT-ARTICLE-READ",
+    "FEAT-FEED-REFRESH",
+    "FEAT-LOCAL-ACCOUNT",
+    "FEAT-LOCAL-PERSISTENCE",
+    "FEAT-ONLINE-ACCOUNT-UI",
+    "FEAT-READ-UNREAD",
+    "FEAT-SETTINGS",
+    "FEAT-STAR"
+  ],
+  "excluded_feature_ids": [
+    "FEAT-ONLINE-SYNC-RUNTIME"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "shell_symbol": "ShellPageAddaccountscreenA9c749bc",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ADDACCOUNTVIEW-A37259FA",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ADDFEEDBUTTON-067ECBF0",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": "ShellModalAddfeeddialogDbec7e69",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalAddfeeddialogDbec7e69.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-ADDFEEDVIEW-20077793",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+      "kind": "container",
+      "is_container": true,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ADDLINKSCREEN-9E051065",
+      "kind": "container",
+      "is_container": true,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ARTICLEACTIONMENU-128442E3",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-READ-UNREAD",
+      "shell_symbol": "ShellModalArticleactionmenu128442e3",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalArticleactionmenu128442e3.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-ARTICLEFONTMENU-D9B99022",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": "ShellModalArticlefontmenuD9b99022",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalArticlefontmenuD9b99022.ets",
+      "mount_host_source": "feature-page"
+    },
+    {
+      "id": "PAGE-ARTICLELIST-AB5566F8",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ARTICLEREADER-B2B865F0",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ARTICLE-READ",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ARTICLESCREEN-23AF0624",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "shell_symbol": "ShellPageArticlescreen23af0624",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageArticlescreen23af0624.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": "ShellModalArticlestylepicker397873e0",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalArticlestylepicker397873e0.ets",
+      "mount_host_source": "feature-page"
+    },
+    {
+      "id": "PAGE-AUTODELETEMENU-3E3FD576",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": "ShellModalAutodeletemenu3e3fd576",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalAutodeletemenu3e3fd576.ets",
+      "mount_host_source": "feature-page"
+    },
+    {
+      "id": "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": "ShellModalEditfeeddialog69fc6e07",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalEditfeeddialog69fc6e07.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": "ShellModalEditfolderdialog9506cebf",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalEditfolderdialog9506cebf.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-FEEDACTIONMENU-075C1A17",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": "ShellModalFeedactionmenu075c1a17",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalFeedactionmenu075c1a17.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-FEEDLIST-228CEB83",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-FEED-REFRESH",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-FILTERACTIONMENU-07E67060",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "shell_symbol": "ShellModalFilteractionmenu07e67060",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalFilteractionmenu07e67060.ets",
+      "mount_host_source": "feature-page"
+    },
+    {
+      "id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": "ShellModalFolderactionmenuC5428ea8",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalFolderactionmenuC5428ea8.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-ARTICLE-READ",
+      "shell_symbol": "ShellPageImagepage18d3e5ad",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageImagepage18d3e5ad.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "shell_symbol": "ShellPageLoginscreen9d67f9d2",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-LOGINVIEW-49F18417",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-MAINACTIVITY-3FDE9431",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "shell_symbol": "ShellPageMainactivity3fde9431",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageMainactivity3fde9431.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-MARKALLREADDIALOG-46A35015",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-READ-UNREAD",
+      "shell_symbol": "ShellModalMarkallreaddialog46a35015",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalMarkallreaddialog46a35015.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-MARKALLREADMENU-464F3414",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-READ-UNREAD",
+      "shell_symbol": "ShellModalMarkallreadmenu464f3414",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalMarkallreadmenu464f3414.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-ARTICLE-READ",
+      "shell_symbol": "ShellPageOpenarticleinbrowseractivityD9097de2",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageOpenarticleinbrowseractivityD9097de2.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "kind": "menu",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": "ShellModalRefreshintervalmenuF4c57c66",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalRefreshintervalmenuF4c57c66.ets",
+      "mount_host_source": "feature-page"
+    },
+    {
+      "id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": "ShellModalRemovefeeddialogFdf24ff7",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalRemovefeeddialogFdf24ff7.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ADD-FEED",
+      "shell_symbol": "ShellModalRemovefolderdialog0de275ba",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalRemovefolderdialog0de275ba.ets",
+      "mount_host_source": "fallback-sorted-first-route"
+    },
+    {
+      "id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "kind": "page",
+      "is_container": false,
+      "route_or_mount": "route",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": "ShellPageSettingsscreenD0a9ff8d",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageSettingsscreenD0a9ff8d.ets",
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-SETTINGSVIEW-9331B5E9",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    },
+    {
+      "id": "PAGE-THEMEPICKER-6F79D5ED",
+      "kind": "dialog",
+      "is_container": false,
+      "route_or_mount": "modal@PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "feature_id": "FEAT-SETTINGS",
+      "shell_symbol": "ShellModalThemepicker6f79d5ed",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalThemepicker6f79d5ed.ets",
+      "mount_host_source": "feature-page"
+    },
+    {
+      "id": "PAGE-TOGGLESTARMENUITEM-5F309692",
+      "kind": "reusable-component",
+      "is_container": false,
+      "route_or_mount": "none",
+      "feature_id": "FEAT-STAR",
+      "shell_symbol": null,
+      "shell_file": null,
+      "mount_host_source": null
+    }
+  ],
+  "surface_plan_stats": {
+    "surface_count": 35,
+    "route_count": 7,
+    "modal_count": 16,
+    "passthrough_count": 12,
+    "nav_row_count": 6,
+    "nav_edge_kept": 0,
+    "nav_pages_skipped": 2,
+    "ui_blueprint_surface_count": 35,
+    "ui_blueprint_visual_memory_covered": 14
+  },
+  "data_contracts": [
+    {
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "data_object": "account_id",
+      "interface": "AccountIdRepository",
+      "object_id": "account_id",
+      "raw_name": "account_id",
+      "repository_symbol": "AccountIdRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "default_prefs:account_id"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/account_id.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "data_object": "account_id",
+      "interface": "AccountIdRepository",
+      "object_id": "account_id",
+      "raw_name": "account_id",
+      "repository_symbol": "AccountIdRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "default_prefs:account_id"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/account_id.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "data_object": "accounts_dir",
+      "interface": "AccountsDirRepository",
+      "object_id": "accounts_dir",
+      "raw_name": "accounts_dir",
+      "repository_symbol": "AccountsDirRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "file",
+          "filesDir/accounts/<accountID>/"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT"
+      ],
+      "contract_file": "data-contracts/accounts_dir.json"
+    },
+    {
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "data_object": "api_url",
+      "interface": "ApiUrlRepository",
+      "object_id": "api_url",
+      "raw_name": "api_url",
+      "repository_symbol": "ApiUrlRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "account_<accountID>.prefs:api_url"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "contract_file": "data-contracts/api_url.json"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "data_object": "app_theme",
+      "interface": "AppThemeRepository",
+      "object_id": "app_theme",
+      "raw_name": "app_theme",
+      "repository_symbol": "AppThemeRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "default_prefs:app_theme"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ],
+      "contract_file": "data-contracts/app_theme.json"
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "data_object": "article_filter",
+      "interface": "ArticleFilterRepository",
+      "object_id": "article_filter",
+      "raw_name": "article_filter",
+      "repository_symbol": "ArticleFilterRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "default_prefs:article_filter"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ARTICLE-LIST"
+      ],
+      "contract_file": "data-contracts/article_filter.json"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "data_object": "article_list_sort_order",
+      "interface": "ArticleListSortOrderRepository",
+      "object_id": "article_list_sort_order",
+      "raw_name": "article_list_sort_order",
+      "repository_symbol": "ArticleListSortOrderRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "default_prefs:article_list_sort_order"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ],
+      "contract_file": "data-contracts/article_list_sort_order.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "data_object": "article_statuses",
+      "interface": "ArticleStatusesRepository",
+      "object_id": "article_statuses",
+      "raw_name": "article_statuses",
+      "repository_symbol": "ArticleStatusesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#article_statuses"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR"
+      ],
+      "contract_file": "data-contracts/article_statuses.json"
+    },
+    {
+      "feature_id": "FEAT-READ-UNREAD",
+      "data_object": "article_statuses",
+      "interface": "ArticleStatusesRepository",
+      "object_id": "article_statuses",
+      "raw_name": "article_statuses",
+      "repository_symbol": "ArticleStatusesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#article_statuses"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR"
+      ],
+      "contract_file": "data-contracts/article_statuses.json"
+    },
+    {
+      "feature_id": "FEAT-STAR",
+      "data_object": "article_statuses",
+      "interface": "ArticleStatusesRepository",
+      "object_id": "article_statuses",
+      "raw_name": "article_statuses",
+      "repository_symbol": "ArticleStatusesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#article_statuses"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR"
+      ],
+      "contract_file": "data-contracts/article_statuses.json"
+    },
+    {
+      "feature_id": "FEAT-ADD-FEED",
+      "data_object": "articles",
+      "interface": "ArticlesRepository",
+      "object_id": "articles",
+      "raw_name": "articles",
+      "repository_symbol": "ArticlesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#articles"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/articles.json"
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-READ",
+      "data_object": "articles",
+      "interface": "ArticlesRepository",
+      "object_id": "articles",
+      "raw_name": "articles",
+      "repository_symbol": "ArticlesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#articles"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/articles.json"
+    },
+    {
+      "feature_id": "FEAT-FEED-REFRESH",
+      "data_object": "articles",
+      "interface": "ArticlesRepository",
+      "object_id": "articles",
+      "raw_name": "articles",
+      "repository_symbol": "ArticlesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#articles"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/articles.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "data_object": "articles",
+      "interface": "ArticlesRepository",
+      "object_id": "articles",
+      "raw_name": "articles",
+      "repository_symbol": "ArticlesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#articles"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/articles.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "data_object": "articles_<accountID>.db",
+      "interface": "ArticlesAccountidDbRepository",
+      "object_id": "articles__accountid_db",
+      "raw_name": "articles_<accountID>.db",
+      "repository_symbol": "ArticlesAccountidDbRepository",
+      "directions": [
+        "read"
+      ],
+      "android_persistence": [
+        [
+          "file",
+          "databases/articles_<accountID>.db"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/articles__accountid_db.json"
+    },
+    {
+      "feature_id": "FEAT-ADD-FEED",
+      "data_object": "feeds",
+      "interface": "FeedsRepository",
+      "object_id": "feeds",
+      "raw_name": "feeds",
+      "repository_symbol": "FeedsRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#feeds"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/feeds.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "data_object": "feeds",
+      "interface": "FeedsRepository",
+      "object_id": "feeds",
+      "raw_name": "feeds",
+      "repository_symbol": "FeedsRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "room_table",
+          "articles_<accountID>.db#feeds"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "contract_file": "data-contracts/feeds.json"
+    },
+    {
+      "feature_id": "FEAT-FEED-REFRESH",
+      "data_object": "last_refreshed_at",
+      "interface": "LastRefreshedAtRepository",
+      "object_id": "last_refreshed_at",
+      "raw_name": "last_refreshed_at",
+      "repository_symbol": "LastRefreshedAtRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "account_<accountID>.prefs:last_refreshed_at"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH"
+      ],
+      "contract_file": "data-contracts/last_refreshed_at.json"
+    },
+    {
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "data_object": "password",
+      "interface": "PasswordRepository",
+      "object_id": "password",
+      "raw_name": "password",
+      "repository_symbol": "PasswordRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "account_<accountID>.prefs:password"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "contract_file": "data-contracts/password.json"
+    },
+    {
+      "feature_id": "FEAT-FEED-REFRESH",
+      "data_object": "settings",
+      "interface": "SettingsRepository",
+      "object_id": "settings",
+      "raw_name": "settings",
+      "repository_symbol": "SettingsRepository",
+      "directions": [
+        "read"
+      ],
+      "android_persistence": [
+        [
+          "datastore_key",
+          "default_prefs:spotlight_current_index"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:api_url"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:can_save_article_externally"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:client_cert_alias"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:keyword_blocklist"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:last_refreshed_at"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:password"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:username"
+        ],
+        [
+          "preference_key",
+          "default_prefs:accent_colors"
+        ],
+        [
+          "preference_key",
+          "default_prefs:account_id"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_icons"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_name"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_shorten_titles"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_show_summary"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_horizontal_pagination"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_paging_tap_gesture"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_improve_talkback"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_confirm_mark_all_read"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_mark_read_on_scroll"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_pin_top_bar"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_follows_body_font"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_crash_reporting"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_sticky_full_content"
+        ],
+        [
+          "preference_key",
+          "default_prefs:feed_group_${type.toString().lowercase()}"
+        ],
+        [
+          "preference_key",
+          "default_prefs:open_links_internally"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pane_expansion_index"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pure_black_dark_mode"
+        ],
+        [
+          "preference_key",
+          "default_prefs:refresh_on_wifi_only"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-SETTINGS"
+      ],
+      "contract_file": "data-contracts/settings.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "data_object": "settings",
+      "interface": "SettingsRepository",
+      "object_id": "settings",
+      "raw_name": "settings",
+      "repository_symbol": "SettingsRepository",
+      "directions": [
+        "read"
+      ],
+      "android_persistence": [
+        [
+          "datastore_key",
+          "default_prefs:spotlight_current_index"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:api_url"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:can_save_article_externally"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:client_cert_alias"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:keyword_blocklist"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:last_refreshed_at"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:password"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:username"
+        ],
+        [
+          "preference_key",
+          "default_prefs:accent_colors"
+        ],
+        [
+          "preference_key",
+          "default_prefs:account_id"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_icons"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_name"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_shorten_titles"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_show_summary"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_horizontal_pagination"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_paging_tap_gesture"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_improve_talkback"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_confirm_mark_all_read"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_mark_read_on_scroll"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_pin_top_bar"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_follows_body_font"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_crash_reporting"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_sticky_full_content"
+        ],
+        [
+          "preference_key",
+          "default_prefs:feed_group_${type.toString().lowercase()}"
+        ],
+        [
+          "preference_key",
+          "default_prefs:open_links_internally"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pane_expansion_index"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pure_black_dark_mode"
+        ],
+        [
+          "preference_key",
+          "default_prefs:refresh_on_wifi_only"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-SETTINGS"
+      ],
+      "contract_file": "data-contracts/settings.json"
+    },
+    {
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "data_object": "settings",
+      "interface": "SettingsRepository",
+      "object_id": "settings",
+      "raw_name": "settings",
+      "repository_symbol": "SettingsRepository",
+      "directions": [
+        "read"
+      ],
+      "android_persistence": [
+        [
+          "datastore_key",
+          "default_prefs:spotlight_current_index"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:api_url"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:can_save_article_externally"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:client_cert_alias"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:keyword_blocklist"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:last_refreshed_at"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:password"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:username"
+        ],
+        [
+          "preference_key",
+          "default_prefs:accent_colors"
+        ],
+        [
+          "preference_key",
+          "default_prefs:account_id"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_icons"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_name"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_shorten_titles"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_show_summary"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_horizontal_pagination"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_paging_tap_gesture"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_improve_talkback"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_confirm_mark_all_read"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_mark_read_on_scroll"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_pin_top_bar"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_follows_body_font"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_crash_reporting"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_sticky_full_content"
+        ],
+        [
+          "preference_key",
+          "default_prefs:feed_group_${type.toString().lowercase()}"
+        ],
+        [
+          "preference_key",
+          "default_prefs:open_links_internally"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pane_expansion_index"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pure_black_dark_mode"
+        ],
+        [
+          "preference_key",
+          "default_prefs:refresh_on_wifi_only"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-SETTINGS"
+      ],
+      "contract_file": "data-contracts/settings.json"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "data_object": "settings",
+      "interface": "SettingsRepository",
+      "object_id": "settings",
+      "raw_name": "settings",
+      "repository_symbol": "SettingsRepository",
+      "directions": [
+        "read"
+      ],
+      "android_persistence": [
+        [
+          "datastore_key",
+          "default_prefs:spotlight_current_index"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:api_url"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:can_save_article_externally"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:client_cert_alias"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:keyword_blocklist"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:last_refreshed_at"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:password"
+        ],
+        [
+          "preference_key",
+          "account_<accountID>.prefs:username"
+        ],
+        [
+          "preference_key",
+          "default_prefs:accent_colors"
+        ],
+        [
+          "preference_key",
+          "default_prefs:account_id"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_icons"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_feed_name"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_shorten_titles"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_display_show_summary"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_horizontal_pagination"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_enable_paging_tap_gesture"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_improve_talkback"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_confirm_mark_all_read"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_list_mark_read_on_scroll"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_pin_top_bar"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_follows_body_font"
+        ],
+        [
+          "preference_key",
+          "default_prefs:article_title_font_size"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_crash_reporting"
+        ],
+        [
+          "preference_key",
+          "default_prefs:enable_sticky_full_content"
+        ],
+        [
+          "preference_key",
+          "default_prefs:feed_group_${type.toString().lowercase()}"
+        ],
+        [
+          "preference_key",
+          "default_prefs:open_links_internally"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pane_expansion_index"
+        ],
+        [
+          "preference_key",
+          "default_prefs:pure_black_dark_mode"
+        ],
+        [
+          "preference_key",
+          "default_prefs:refresh_on_wifi_only"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-SETTINGS"
+      ],
+      "contract_file": "data-contracts/settings.json"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "data_object": "source",
+      "interface": "SourceRepository",
+      "object_id": "source",
+      "raw_name": "source",
+      "repository_symbol": "SourceRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "account_<accountID>.prefs:source"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT"
+      ],
+      "contract_file": "data-contracts/source.json"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "data_object": "theme_mode",
+      "interface": "ThemeModeRepository",
+      "object_id": "theme_mode",
+      "raw_name": "theme_mode",
+      "repository_symbol": "ThemeModeRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "default_prefs:theme_mode"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ],
+      "contract_file": "data-contracts/theme_mode.json"
+    },
+    {
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "data_object": "username",
+      "interface": "UsernameRepository",
+      "object_id": "username",
+      "raw_name": "username",
+      "repository_symbol": "UsernameRepository",
+      "directions": [
+        "write"
+      ],
+      "android_persistence": [
+        [
+          "preference_key",
+          "account_<accountID>.prefs:username"
+        ]
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "contract_file": "data-contracts/username.json"
+    }
+  ],
+  "capability_seeds": [
+    {
+      "capability_id": "CAP-DATA-ACCOUNTIDREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/account_id.json",
+      "repository_symbol": "AccountIdRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-LOCAL-PERSISTENCE"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-ACCOUNTSDIRREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/accounts_dir.json",
+      "repository_symbol": "AccountsDirRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-APIURLREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/api_url.json",
+      "repository_symbol": "ApiUrlRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-APPTHEMEREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/app_theme.json",
+      "repository_symbol": "AppThemeRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-ARTICLEFILTERREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/article_filter.json",
+      "repository_symbol": "ArticleFilterRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ARTICLE-LIST"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-ARTICLELISTSORTORDERREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/article_list_sort_order.json",
+      "repository_symbol": "ArticleListSortOrderRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-ARTICLESTATUSESREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/article_statuses.json",
+      "repository_symbol": "ArticleStatusesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-ARTICLESREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/articles.json",
+      "repository_symbol": "ArticlesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-PERSISTENCE"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-ARTICLESACCOUNTIDDBREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/articles__accountid_db.json",
+      "repository_symbol": "ArticlesAccountidDbRepository",
+      "directions": [
+        "read"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-FEEDSREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/feeds.json",
+      "repository_symbol": "FeedsRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-LOCAL-PERSISTENCE"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-LASTREFRESHEDATREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/last_refreshed_at.json",
+      "repository_symbol": "LastRefreshedAtRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-PASSWORDREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/password.json",
+      "repository_symbol": "PasswordRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-SETTINGSREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/settings.json",
+      "repository_symbol": "SettingsRepository",
+      "directions": [
+        "read"
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-SETTINGS"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-SOURCEREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/source.json",
+      "repository_symbol": "SourceRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-THEMEMODEREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/theme_mode.json",
+      "repository_symbol": "ThemeModeRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ]
+    },
+    {
+      "capability_id": "CAP-DATA-USERNAMEREPOSITORY",
+      "kind": "data-repository-interface",
+      "interface_only": true,
+      "contract_file": "data-contracts/username.json",
+      "repository_symbol": "UsernameRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ]
+    }
+  ],
+  "obligations": [],
+  "obligations_note": "v3 does not consume probe/audit obligations chains",
+  "retired_inputs_note": "paradigm v3 retired inputs: closure-report.json/CLOSED/acceptance-registry.csv/evidence-anchors.snapshot.csv four-way chain, inventory.csv 26-column page rows, audit-replay/evidence-index consumption",
+  "arkui_template": {
+    "template_id": "ARKUI-STAGE-TEMPLATE-V1",
+    "manifest_path": "inputs/arkui-stage-template.manifest.sha256",
+    "file_count": 41,
+    "manifest_sha256": "8d721d373d2e830a436017da6b933b465be6690600489fcba54c3a938fd7371b"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "probe_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "registry_relative_path": "entry/src/main/ets/probe/SemanticProbeRegistry.ets",
+    "registry_sha256": "babb9a7d744a5a7e0c15644305ee65dd898927ead7f98779575e8a05b5449e49",
+    "probe_keys": [
+      "account_id",
+      "accounts_dir",
+      "api_url",
+      "app_theme",
+      "article_filter",
+      "article_list_sort_order",
+      "article_statuses",
+      "articles",
+      "articles__accountid_db",
+      "feeds",
+      "last_refreshed_at",
+      "password",
+      "settings",
+      "source",
+      "theme_mode",
+      "username"
+    ],
+    "snapshot_filename": "semantic-probe.json",
+    "hilog_tag": "SemanticProbe"
+  }
+}

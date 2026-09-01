@@ -1,0 +1,1046 @@
+{
+  "work_order_id": "WO-PHASE-04-F4616CF056FF",
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "phase": 4,
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T01:22:28Z",
+  "issued_by": "controller.capy-01",
+  "scope_relative_path": "controller/scope.json",
+  "scope_sha256": "be4445aa9dcf8321c81d5698b9402d3c0aeec61f1fcbf9664336aa7d659b924e",
+  "controller_gate3_snapshot_relative_path": "controller/work-orders/WO-PHASE-04-F4616CF056FF.phase-03-gate-report.json",
+  "controller_gate3_sha256": "151f6a90b125d675de8df1cdd2406d3eca54cfac576f4c15dcdecaed9d9a445b",
+  "human_review_id": "HR-P3-CAPY-001",
+  "human_review_decision": "APPROVED_DEVIATION",
+  "human_review_gate_sha256": "151f6a90b125d675de8df1cdd2406d3eca54cfac576f4c15dcdecaed9d9a445b",
+  "upstream_phase3_work_order_id": "WO-PHASE-03-36743C869835",
+  "upstream_phase3_work_order_relative_path": "controller/work-orders/WO-PHASE-03-36743C869835.json",
+  "upstream_phase3_work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "included_features": [
+    "FEAT-LOCAL-ACCOUNT",
+    "FEAT-ADD-FEED",
+    "FEAT-FEED-REFRESH",
+    "FEAT-ARTICLE-LIST",
+    "FEAT-ARTICLE-READ",
+    "FEAT-READ-UNREAD",
+    "FEAT-STAR",
+    "FEAT-LOCAL-PERSISTENCE",
+    "FEAT-SETTINGS",
+    "FEAT-ONLINE-ACCOUNT-UI"
+  ],
+  "excluded_features": [
+    "FEAT-ONLINE-SYNC-RUNTIME"
+  ],
+  "feature_manifest": [
+    {
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0001",
+        "REL-0042",
+        "REL-0043",
+        "REL-0044"
+      ],
+      "bc_ids": [
+        "BC-0001"
+      ],
+      "runtime_bc_ids": [
+        "BC-0001"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0001"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/MainActivity.kt:45",
+          "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:15",
+          "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountViewModel.kt:16",
+          "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountViewModel.kt:26",
+          "capy/src/main/java/com/jocmp/capy/AccountManager.kt:49",
+          "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:62",
+          "app/src/main/res/values/strings.xml:117",
+          "app/src/main/res/values/strings.xml:118"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0001"
+        ],
+        "data_relations": [
+          "REL-0001",
+          "REL-0023",
+          "REL-0042",
+          "REL-0043",
+          "REL-0044"
+        ],
+        "visual_memory_surface": [
+          "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 1,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-ADD-FEED",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-ADDFEEDBUTTON-067ECBF0",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ADDFEEDVIEW-20077793",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+          "kind": "container",
+          "is_container": true
+        },
+        {
+          "id": "PAGE-ADDLINKSCREEN-9E051065",
+          "kind": "container",
+          "is_container": true
+        },
+        {
+          "id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-FEEDACTIONMENU-075C1A17",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+          "kind": "dialog",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0031",
+        "REL-0032",
+        "REL-0033",
+        "REL-0034"
+      ],
+      "bc_ids": [
+        "BC-0004",
+        "BC-0005",
+        "BC-0006",
+        "BC-0007"
+      ],
+      "runtime_bc_ids": [
+        "BC-0004",
+        "BC-0005",
+        "BC-0007"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0004",
+          "BC-0005",
+          "BC-0006",
+          "BC-0007"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:21",
+          "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:80",
+          "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:144",
+          "app/src/main/java/com/capyreader/app/ui/articles/AddFeedViewModel.kt:43",
+          "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:60",
+          "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:90",
+          "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:96",
+          "capy/src/main/java/com/jocmp/capy/persistence/FeedRecords.kt:85",
+          "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:42",
+          "app/src/main/res/values/strings.xml:8",
+          "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:87",
+          "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:92",
+          "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:75",
+          "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:79",
+          "capy/src/main/java/com/jocmp/capy/accounts/AddFeedResult.kt:5",
+          "app/src/main/res/values/strings.xml:60",
+          "app/src/main/java/com/capyreader/app/AddLinkActivity.kt:17",
+          "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:46",
+          "app/src/main/AndroidManifest.xml:49",
+          "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:12",
+          "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:25",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:199",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:205",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:408"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0004",
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0005",
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0007"
+        ],
+        "data_relations": [
+          "REL-0023",
+          "REL-0031",
+          "REL-0032",
+          "REL-0033",
+          "REL-0034"
+        ],
+        "visual_memory_surface": [
+          "PAGE-ADDFEEDBUTTON-067ECBF0",
+          "PAGE-ADDFEEDDIALOG-DBEC7E69",
+          "PAGE-ADDFEEDVIEW-20077793",
+          "PAGE-ADDLINKACTIVITY-3ED2961B",
+          "PAGE-ADDLINKSCREEN-9E051065",
+          "PAGE-EDITFEEDDIALOG-69FC6E07",
+          "PAGE-EDITFOLDERDIALOG-9506CEBF",
+          "PAGE-FEEDACTIONMENU-075C1A17",
+          "PAGE-FOLDERACTIONMENU-C5428EA8",
+          "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+          "PAGE-REMOVEFOLDERDIALOG-0DE275BA"
+        ],
+        "p3_surface_plan": [
+          "ShellModalAddfeeddialogDbec7e69",
+          "ShellModalEditfeeddialog69fc6e07",
+          "ShellModalEditfolderdialog9506cebf",
+          "ShellModalFeedactionmenu075c1a17",
+          "ShellModalFolderactionmenuC5428ea8",
+          "ShellModalRemovefeeddialogFdf24ff7",
+          "ShellModalRemovefolderdialog0de275ba"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 1,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 3
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-FEED-REFRESH",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-FEEDLIST-228CEB83",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0030",
+        "REL-0035",
+        "REL-0036"
+      ],
+      "bc_ids": [
+        "BC-0008"
+      ],
+      "runtime_bc_ids": [
+        "BC-0008"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0008"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:107",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:598",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:476",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:450",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:230",
+          "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:43",
+          "capy/src/main/java/com/jocmp/capy/AccountPreferences.kt:38"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0008"
+        ],
+        "data_relations": [
+          "REL-0023",
+          "REL-0030",
+          "REL-0035",
+          "REL-0036"
+        ],
+        "visual_memory_surface": [
+          "PAGE-FEEDLIST-228CEB83"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 1,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLELIST-AB5566F8",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ARTICLESCREEN-23AF0624",
+          "kind": "page",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-FILTERACTIONMENU-07E67060",
+          "kind": "menu",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0053"
+      ],
+      "bc_ids": [
+        "BC-0009",
+        "BC-0010"
+      ],
+      "runtime_bc_ids": [
+        "BC-0009",
+        "BC-0010"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0009",
+          "BC-0010"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:292",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleStatusBar.kt:15",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:319",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:722",
+          "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:39",
+          "app/src/main/res/values/strings.xml:10",
+          "app/src/main/res/values/strings.xml:14",
+          "app/src/main/res/values/strings.xml:15",
+          "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:260",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:323",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:444"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0009",
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0010"
+        ],
+        "data_relations": [
+          "REL-0023",
+          "REL-0053"
+        ],
+        "visual_memory_surface": [
+          "PAGE-ARTICLELIST-AB5566F8",
+          "PAGE-ARTICLESCREEN-23AF0624",
+          "PAGE-FILTERACTIONMENU-07E67060"
+        ],
+        "p3_surface_plan": [
+          "ShellModalFilteractionmenu07e67060",
+          "ShellModalAddfeeddialogDbec7e69",
+          "ShellModalArticleactionmenu128442e3",
+          "ShellModalArticlefontmenuD9b99022",
+          "ShellModalArticlestylepicker397873e0",
+          "ShellModalEditfeeddialog69fc6e07",
+          "ShellModalEditfolderdialog9506cebf",
+          "ShellModalFeedactionmenu075c1a17",
+          "ShellModalFolderactionmenuC5428ea8",
+          "ShellModalMarkallreaddialog46a35015",
+          "ShellModalMarkallreadmenu464f3414",
+          "ShellModalRemovefeeddialogFdf24ff7",
+          "ShellModalRemovefolderdialog0de275ba"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 2,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-READ",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEREADER-B2B865F0",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-IMAGEPAGE-18D3E5AD",
+          "kind": "page",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0054"
+      ],
+      "bc_ids": [
+        "BC-0011",
+        "BC-0012",
+        "BC-0013"
+      ],
+      "runtime_bc_ids": [
+        "BC-0011"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0011",
+          "BC-0012",
+          "BC-0013"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:615",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:649",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:573",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:583",
+          "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleReader.kt:51",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:381",
+          "capy/src/main/java/com/jocmp/capy/persistence/ArticleRecords.kt:192",
+          "capy/src/main/sqldelight/com/jocmp/capy/db/articles.sq:199",
+          "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:166",
+          "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:76",
+          "app/src/main/java/com/capyreader/app/OpenArticleInBrowserActivity.kt:13",
+          "app/src/main/AndroidManifest.xml:63"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0011"
+        ],
+        "data_relations": [
+          "REL-0023",
+          "REL-0054"
+        ],
+        "visual_memory_surface": [
+          "PAGE-ARTICLEREADER-B2B865F0",
+          "PAGE-IMAGEPAGE-18D3E5AD",
+          "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 3,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-READ-UNREAD",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEACTIONMENU-128442E3",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-MARKALLREADDIALOG-46A35015",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-MARKALLREADMENU-464F3414",
+          "kind": "menu",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0037",
+        "REL-0038",
+        "REL-0039"
+      ],
+      "bc_ids": [
+        "BC-0014",
+        "BC-0015"
+      ],
+      "runtime_bc_ids": [
+        "BC-0014",
+        "BC-0015"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0014",
+          "BC-0015"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:83",
+          "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:86",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:598",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:602",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:385",
+          "capy/src/main/java/com/jocmp/capy/persistence/ArticleRecords.kt:200",
+          "capy/src/main/sqldelight/com/jocmp/capy/db/articles.sq:199",
+          "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt:39",
+          "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:21",
+          "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:29",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:354",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:368",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:366",
+          "capy/src/main/java/com/jocmp/capy/persistence/ArticleRecords.kt:188",
+          "app/src/main/res/values/strings.xml:82",
+          "app/src/main/res/values/strings.xml:83"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0014",
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0015"
+        ],
+        "data_relations": [
+          "REL-0023",
+          "REL-0037",
+          "REL-0038",
+          "REL-0039"
+        ],
+        "visual_memory_surface": [
+          "PAGE-ARTICLEACTIONMENU-128442E3",
+          "PAGE-MARKALLREADDIALOG-46A35015",
+          "PAGE-MARKALLREADMENU-464F3414"
+        ],
+        "p3_surface_plan": [
+          "ShellModalArticleactionmenu128442e3",
+          "ShellModalMarkallreaddialog46a35015",
+          "ShellModalMarkallreadmenu464f3414"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 2,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-STAR",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-TOGGLESTARMENUITEM-5F309692",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0040",
+        "REL-0041"
+      ],
+      "bc_ids": [
+        "BC-0016"
+      ],
+      "runtime_bc_ids": [
+        "BC-0016"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0016"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:95",
+          "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:98",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:612",
+          "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:616",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:312",
+          "capy/src/main/java/com/jocmp/capy/Account.kt:319",
+          "capy/src/main/java/com/jocmp/capy/persistence/ArticleRecords.kt:208",
+          "capy/src/main/sqldelight/com/jocmp/capy/db/articles.sq:204"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0016"
+        ],
+        "data_relations": [
+          "REL-0023",
+          "REL-0040",
+          "REL-0041"
+        ],
+        "visual_memory_surface": [
+          "PAGE-TOGGLESTARMENUITEM-5F309692"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 1,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0045",
+        "REL-0046",
+        "REL-0047",
+        "REL-0048",
+        "REL-0049"
+      ],
+      "bc_ids": [
+        "BC-0017"
+      ],
+      "runtime_bc_ids": [
+        "BC-0017"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0017"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/MainActivity.kt:43",
+          "app/src/main/java/com/capyreader/app/MainActivity.kt:48",
+          "app/src/main/java/com/capyreader/app/common/AndroidDatabaseProvider.kt:45",
+          "app/src/main/java/com/capyreader/app/common/SharedPreferenceStoreProvider.kt:35",
+          "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:35",
+          "capy/src/main/sqldelight/com/jocmp/capy/db/1_AddFeeds.sqm:1",
+          "capy/src/main/sqldelight/com/jocmp/capy/db/2_AddArticles.sqm:1",
+          "capy/src/main/sqldelight/com/jocmp/capy/db/3_AddArticleStatuses.sqm:3"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0017"
+        ],
+        "data_relations": [
+          "REL-0023",
+          "REL-0045",
+          "REL-0046",
+          "REL-0047",
+          "REL-0048",
+          "REL-0049"
+        ],
+        "visual_memory_surface": [
+          "PAGE-MAINACTIVITY-3FDE9431"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 1
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "verify_mode": "RUNTIME",
+      "risk_level": "high",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEFONTMENU-D9B99022",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-AUTODELETEMENU-3E3FD576",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+          "kind": "settings",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-SETTINGSVIEW-9331B5E9",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-THEMEPICKER-6F79D5ED",
+          "kind": "dialog",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0002",
+        "REL-0003",
+        "REL-0004",
+        "REL-0005",
+        "REL-0006",
+        "REL-0007",
+        "REL-0008",
+        "REL-0009",
+        "REL-0010",
+        "REL-0011",
+        "REL-0012",
+        "REL-0013",
+        "REL-0014",
+        "REL-0015",
+        "REL-0016",
+        "REL-0017",
+        "REL-0018",
+        "REL-0019",
+        "REL-0020",
+        "REL-0021",
+        "REL-0022",
+        "REL-0028",
+        "REL-0050",
+        "REL-0051",
+        "REL-0052"
+      ],
+      "bc_ids": [
+        "BC-0018",
+        "BC-0019",
+        "BC-0020",
+        "BC-0021"
+      ],
+      "runtime_bc_ids": [
+        "BC-0019",
+        "BC-0020"
+      ],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0018",
+          "BC-0019",
+          "BC-0020",
+          "BC-0021"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:98",
+          "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:101",
+          "app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:6",
+          "app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt:47",
+          "app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt:145",
+          "app/src/main/res/values/strings.xml:33",
+          "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:115",
+          "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:98",
+          "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:101",
+          "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsViewModel.kt:70",
+          "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:58",
+          "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:61",
+          "app/src/main/res/values/strings.xml:159",
+          "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:149",
+          "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsViewModel.kt:71",
+          "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:145",
+          "capy/src/main/java/com/jocmp/capy/articles/SortOrder.kt:3",
+          "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:47",
+          "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:97",
+          "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:130"
+        ],
+        "runtime_evidence_refs": [
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0019",
+          "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0020"
+        ],
+        "data_relations": [
+          "REL-0002",
+          "REL-0003",
+          "REL-0004",
+          "REL-0005",
+          "REL-0006",
+          "REL-0007",
+          "REL-0008",
+          "REL-0009",
+          "REL-0010",
+          "REL-0011",
+          "REL-0012",
+          "REL-0013",
+          "REL-0014",
+          "REL-0015",
+          "REL-0016",
+          "REL-0017",
+          "REL-0018",
+          "REL-0019",
+          "REL-0020",
+          "REL-0021",
+          "REL-0022",
+          "REL-0023",
+          "REL-0028",
+          "REL-0050",
+          "REL-0051",
+          "REL-0052"
+        ],
+        "visual_memory_surface": [
+          "PAGE-ARTICLEFONTMENU-D9B99022",
+          "PAGE-ARTICLESTYLEPICKER-397873E0",
+          "PAGE-AUTODELETEMENU-3E3FD576",
+          "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+          "PAGE-REFRESHINTERVALMENU-F4C57C66",
+          "PAGE-SETTINGSSCREEN-D0A9FF8D",
+          "PAGE-SETTINGSVIEW-9331B5E9",
+          "PAGE-THEMEPICKER-6F79D5ED"
+        ],
+        "p3_surface_plan": [
+          "ShellModalArticlefontmenuD9b99022",
+          "ShellModalArticlestylepicker397873e0",
+          "ShellModalAutodeletemenu3e3fd576",
+          "ShellModalRefreshintervalmenuF4c57c66",
+          "ShellModalThemepicker6f79d5ed"
+        ]
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 0,
+        "GAP": 4
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    },
+    {
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "verify_mode": "SOURCE_CONFIRM",
+      "risk_level": "normal",
+      "surfaces": [
+        {
+          "id": "PAGE-ADDACCOUNTVIEW-A37259FA",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-LOGINSCREEN-9D67F9D2",
+          "kind": "page",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-LOGINVIEW-49F18417",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_reads": [],
+      "data_writes": [],
+      "data_relation_ids": [
+        "REL-0024",
+        "REL-0025",
+        "REL-0026",
+        "REL-0027",
+        "REL-0029",
+        "REL-0055",
+        "REL-0056",
+        "REL-0057"
+      ],
+      "bc_ids": [
+        "BC-0002",
+        "BC-0003"
+      ],
+      "runtime_bc_ids": [],
+      "must_read": {
+        "behavior_contract_ids": [
+          "BC-0002",
+          "BC-0003"
+        ],
+        "android_source_refs": [
+          "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:65",
+          "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:77",
+          "app/src/main/java/com/capyreader/app/ui/accounts/AccountRow.kt:58",
+          "app/src/main/java/com/capyreader/app/ui/App.kt:47",
+          "app/src/main/res/values/strings.xml:112",
+          "app/src/main/res/values/strings.xml:115",
+          "app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:14",
+          "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:96",
+          "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:102",
+          "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:111",
+          "capy/src/main/java/com/jocmp/capy/accounts/Source.kt:18",
+          "app/src/main/res/values/strings.xml:99",
+          "app/src/main/res/values/strings.xml:101"
+        ],
+        "runtime_evidence_refs": [],
+        "data_relations": [
+          "REL-0023",
+          "REL-0024",
+          "REL-0025",
+          "REL-0026",
+          "REL-0027",
+          "REL-0029",
+          "REL-0055",
+          "REL-0056",
+          "REL-0057"
+        ],
+        "visual_memory_surface": [
+          "PAGE-ADDACCOUNTVIEW-A37259FA",
+          "PAGE-LOGINSCREEN-9D67F9D2",
+          "PAGE-LOGINVIEW-49F18417"
+        ],
+        "p3_surface_plan": []
+      },
+      "reconciliation": {
+        "CONFIRMED": 0,
+        "CONFLICT": 0,
+        "SOURCE_CONFIRMED": 2,
+        "GAP": 0
+      },
+      "android_steps_ref": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "harmony_steps": []
+    }
+  ],
+  "shared_data_relation_ids": [
+    "REL-0023"
+  ],
+  "semantic_probe": null,
+  "ownership": {
+    "implementation_lead_id": "impl-lead.capy-01",
+    "visual_asset_agent_id": "visual-asset.capy-01",
+    "verification_executor_id": "verify-exec.capy-01",
+    "parity_acceptance_agent_id": "parity-accept.capy-01"
+  },
+  "phase3_henvs": [
+    {
+      "henv_id": "HENV-001-P3",
+      "relative_path": "phase-03-harmony-scaffold/environments/HENV-001-P3/harmony-environment.json",
+      "sha256": "0c8c03bf41c8e98591bf98a355d36e04871efbe05d268a125c4c664e848b083e"
+    },
+    {
+      "henv_id": "HENV-002-P3",
+      "relative_path": "phase-03-harmony-scaffold/environments/HENV-002-P3/harmony-environment.json",
+      "sha256": "0ff3e963b0c8f841f065d3a30b9178fd16a65fae031cc8c88b14636af29b31c1"
+    },
+    {
+      "henv_id": "HENV-003-P3",
+      "relative_path": "phase-03-harmony-scaffold/environments/HENV-003-P3/harmony-environment.json",
+      "sha256": "76b8729029f18b62a7595b9854e8fe74decd1e6551291c8f2eff6a6b7eefcdff"
+    },
+    {
+      "henv_id": "HENV-004-P3",
+      "relative_path": "phase-03-harmony-scaffold/environments/HENV-004-P3/harmony-environment.json",
+      "sha256": "e1b40a1e712cc29f3613fec253a3e5f54ba98cc11a33be8af9af2a2aa41b0392"
+    },
+    {
+      "henv_id": "HENV-005-P3",
+      "relative_path": "phase-03-harmony-scaffold/environments/HENV-005-P3/harmony-environment.json",
+      "sha256": "f98e2085e06c27d7e0ae786900c697fd4ca5357590712ba41a6f507ac09bfef8"
+    }
+  ],
+  "required_skill": "harmonyos-feature-implementation",
+  "business_implementation_allowed": true,
+  "mp4_allowed": false,
+  "required_return": [
+    "stage-04-input-lock.json",
+    "phase-manifest.json",
+    "feature-dispatch.json",
+    "feature-work-orders/",
+    "implementation-ledger.csv",
+    "surface-contracts.csv",
+    "environments/",
+    "harmony-project/",
+    "builds/",
+    "evidence/",
+    "evidence-index.csv",
+    "attempt-ledger.csv",
+    "reviews/",
+    "acceptance-ledger.csv",
+    "rework-tickets.csv",
+    "stage-04-gate-report.json",
+    "stage-04-closure-manifest.sha256",
+    "CLOSED"
+  ],
+  "phase2_feature_map_sha256": "f5aaf130d012cd7cf636eb3fd42078678580ca0b3cceb4ce5ae30a2aa314b362",
+  "phase2_feature_map_relative_path": "phase-02-android-inventory/feature-map.json",
+  "phase2_behavior_contracts_sha256": "956b5bb5a2575abfb371263b68d5f93f0f6111ac860439c9325fbd3b3068c0dd",
+  "phase2_behavior_contracts_relative_path": "phase-02-android-inventory/behavior-contracts.csv",
+  "phase2_data_relations_sha256": "fac9d36c3d41540d0b713a9f8028546158a4326c89ad6da927b1b7bf5c06a4fe",
+  "phase2_data_relations_relative_path": "phase-02-android-inventory/data-relations.csv",
+  "phase2_reconciliation_sha256": "4c25c1b4d2e1d63633e9eb299be7d825fcf54b6651539762ec82698d5a54ff87",
+  "phase2_reconciliation_relative_path": "phase-02-android-inventory/reconciliation.csv",
+  "phase2_runtime_chains_sha256": "d77cb73f3a082807e9b55f82e46d708354a5151336b227911852e962edaace25",
+  "phase2_runtime_chains_relative_path": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+  "phase2_closure_sha256": "3eceddac3e24715dd17418576547a33e934b72ce81b7c552659268b0cd4fdbf9",
+  "phase2_closure_relative_path": "phase-02-android-inventory/phase-2-closure.json",
+  "phase3_input_lock_sha256": "d9f282e492ab9aa51297f9439574bc629a4d4f59e33f3637f63bd44667ceb189",
+  "phase3_input_lock_relative_path": "phase-03-harmony-scaffold/stage-03-input-lock.json",
+  "phase3_gate_report_sha256": "4e22ab93d1c80a9ae0c2ecc2f3a0faf1fd8903af1b104b1fa74a868c597b3d5b",
+  "phase3_gate_report_relative_path": "phase-03-harmony-scaffold/stage-03-gate-report.json",
+  "phase3_closure_manifest_sha256": "842f94f71d4cfbba0012b4965342f9ee8a3d3d9c9dfe48d0f395900d839594c8",
+  "phase3_closure_manifest_relative_path": "phase-03-harmony-scaffold/stage-03-closure-manifest.sha256",
+  "phase3_closed_sha256": "7da83327a1283fe9ebb1876dc407532f989932e5d27695766d84e00ee212f68d",
+  "phase3_closed_relative_path": "phase-03-harmony-scaffold/CLOSED",
+  "phase3_scaffold_snapshot_sha256": "20df6a8f6b9245188856f48ec4df99748d7e93483d55cff4ba54729ce2694909",
+  "phase3_scaffold_snapshot_relative_path": "phase-03-harmony-scaffold/scaffold-snapshot-manifest.json",
+  "phase3_module_registry_sha256": "2778cad1a6aafffd6ce5e84b8af392bd49c021bf553d5ae63f215f1ce55d8a7b",
+  "phase3_module_registry_relative_path": "phase-03-harmony-scaffold/module-registry.csv",
+  "phase3_route_registry_sha256": "fcfc320c58ee64eb20fd95a5c069f14bf83e14e52e7635e932d840d3999240e5",
+  "phase3_route_registry_relative_path": "phase-03-harmony-scaffold/route-registry.csv",
+  "phase3_surface_registry_sha256": "7be4bbe0ffb5d69e24db9a5fad093fa20451ba7654e1e68d6e39edcd9b49976a",
+  "phase3_surface_registry_relative_path": "phase-03-harmony-scaffold/surface-registry.csv",
+  "phase3_capability_contracts_sha256": "342b5b028d4d7f59ea6328896f9a52bad7921b48883660d34963198e0251e7b9",
+  "phase3_capability_contracts_relative_path": "phase-03-harmony-scaffold/capability-contracts.csv",
+  "phase3_henv_registry_sha256": "435f13fb2bbe3d5eeb3c1d98166c31458a55062a82f52eeda1518c764ec0effb",
+  "phase3_henv_registry_relative_path": "phase-03-harmony-scaffold/environments/henv-registry.csv"
+}

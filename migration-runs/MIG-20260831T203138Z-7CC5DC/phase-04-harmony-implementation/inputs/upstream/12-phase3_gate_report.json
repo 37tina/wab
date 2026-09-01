@@ -1,0 +1,78 @@
+{
+  "gate_id": "GATE3-20260901T010855Z-35A18C",
+  "phase": 3,
+  "paradigm": "v3",
+  "verdict": "PASS",
+  "reviewer_role": "architecture-acceptance-agent",
+  "reviewer_id": "arch-accept.capy-01",
+  "reviewed_at": "2026-09-01T01:08:55Z",
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "input_lock_sha256": "d9f282e492ab9aa51297f9439574bc629a4d4f59e33f3637f63bd44667ceb189",
+  "henv_id": "HENV-005-P3",
+  "verification_id": "HVER-006-P3",
+  "source_snapshot_sha256": "913cb41de19c783aeb3b5d6dbffcff35fdf62b8834050c569b05f8c985cfbee3",
+  "artifact_hashes": [
+    "1d4f46839d70d36626e46aad2f9656058b86bdd60e6bc6258e79bffbb8813bad"
+  ],
+  "counts": {
+    "features_total": 10,
+    "runtime_features": 3,
+    "runtime_features_carried": 3,
+    "lock_surfaces": 35,
+    "lock_surfaces_with_carrier": 23,
+    "user_visible_surfaces": 23,
+    "blueprint_complete_surfaces": 23,
+    "semantic_data_objects": 26,
+    "data_contracts": 26,
+    "smoke_commands": 6,
+    "route_smoke_commands": 23,
+    "screenshot_commands": 23,
+    "required_devices": 1
+  },
+  "rules": {
+    "surface_carrier_coverage": {
+      "status": "PASS",
+      "runtime_features": 3,
+      "runtime_features_carried": 3,
+      "user_visible_surfaces": 23,
+      "blueprint_complete_surfaces": 23
+    },
+    "data_contract_closure": {
+      "status": "PASS",
+      "semantic_data_objects": 26,
+      "data_contracts": 26,
+      "declared_interface_keys": 26,
+      "uncovered": 0,
+      "orphans": 0
+    },
+    "smoke_chain": {
+      "status": "PASS",
+      "required_categories": [
+        "TOOLCHAIN",
+        "CLEAN_BUILD",
+        "BUNDLE_CHECK",
+        "SIGNING_CHECK",
+        "INSTALL",
+        "LAUNCH"
+      ],
+      "smoke_commands": 6
+    },
+    "environment_chain": {
+      "status": "PASS",
+      "henv_id": "HENV-005-P3"
+    }
+  },
+  "attestations": {
+    "real_file_review": true,
+    "placeholder_boundaries": true,
+    "contract_only": true,
+    "dependency_review": true,
+    "runtime_smoke": true,
+    "screenshot_review": true
+  },
+  "errors": [],
+  "warnings": [],
+  "notes": "返工复核+终审（arch-accept.capy-01）：RT-P3-0001 整改合格——p3_screenshot.py 补截图前导航(force-stop→aa start --ps routeName→sleep)，HVER-006-P3 sealed PASS(53 命令/manifest 206 文件哈希全一致)截图哈希 1→9 唯一值且分布自洽(7 route 各异；modal 按宿主分组+状态栏分钟跳变 08:58/08:59 与 captured_at UTC+8 吻合)，视觉复核 7 张(5 route: ADDACCOUNT/ARTICLE/IMAGEPAGE/LOGIN/MAINACTIVITY 标题逐字符精确匹配 + 2 modal: ADDFEEDDIALOG 宿主 ARTICLESCREEN/THEMEPICKER 宿主 SETTINGSSCREEN 精确匹配，ADDFEEDDIALOG 另有与 ARTICLESCREEN route 截图同哈希同帧佐证)全部为模拟器完整帧+空白占位+返回箭头+浅色主题；RT-P3-0002 整改合格——public-ui-registry 补至 9 类(theme/color/typography/spacing/page container/loading/empty/error/responsive，逐行指向真实文件，AppTheme.typography/spacing 成员与 ErrorShell.ets/ResponsiveRules.ets 新建纯壳核实)，module-registry 补 entry 行(build-profile.json5 真实)；两票 CLOSED 闭环于 correction=HVER-006-P3；DEC-012(五项 TOOL_GAP 正式化)/DEC-013(返工路由)留痕确认；HVER-001/003/004 sealed FAIL 链+HENV-001~003 废弃链留痕完整。AppListShell 槽位以 BuilderParam 实现，注册表 symbol 列为槽位语义命名(与 AppTheme.colors 成员路径风格一致)已核实接受"
+}

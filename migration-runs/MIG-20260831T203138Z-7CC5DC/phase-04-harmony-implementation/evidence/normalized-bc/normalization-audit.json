@@ -1,0 +1,224 @@
+{
+  "adjudication": "DEC-016 v3 (extended: operation_steps target prefix-strip — gmi_runtime find_click lacks prefix handling, verified live 2026-09-01: bare 'Local' hit @(244,512), 'text=Local' None)",
+  "source_sha256": "956b5bb5a2575abfb371263b68d5f93f0f6111ac860439c9325fbd3b3068c0dd",
+  "derived_sha256": "8f333c3f4956af68c685d865fdc6b44206ef140e7c18463b51aeab463d48eac9",
+  "assertion_transformations": [
+    {
+      "bc_id": "BC-0001",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_visible\", \"target\": \"text=Add Account\", \"expected\": \"visible before selection\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Add Account\", \"note\": \"\", \"amended_from\": \"text_visible: text=Add Account\"}"
+    },
+    {
+      "bc_id": "BC-0001",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_visible\", \"target\": \"text=No feeds yet\", \"expected\": \"main article empty state reachable after local account creation (drawer-closed default; ori",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"No feeds yet\", \"note\": \"\", \"amended_from\": \"text_visible: text=No feeds yet\"}"
+    },
+    {
+      "bc_id": "BC-0002",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Feedbin\", \"expected\": \"feedbin entry row present on Add Account screen\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Feedbin\", \"note\": \"\", \"amended_from\": \"element_present: text=Feedbin (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0002",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=FreshRSS\", \"expected\": \"freshrss entry row present\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"FreshRSS\", \"note\": \"\", \"amended_from\": \"element_present: text=FreshRSS (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0002",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Miniflux\", \"expected\": \"miniflux entry row present\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Miniflux\", \"note\": \"\", \"amended_from\": \"element_present: text=Miniflux (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0002",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Reader\", \"expected\": \"reader entry row present\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Reader\", \"note\": \"\", \"amended_from\": \"element_present: text=Reader (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0003",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Username\", \"expected\": \"username field present on login form\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Username\", \"note\": \"\", \"amended_from\": \"element_present: text=Username (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0003",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Password\", \"expected\": \"password field present on login form\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Password\", \"note\": \"\", \"amended_from\": \"element_present: text=Password (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0004",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_visible\", \"target\": \"text=Feed added\", \"expected\": \"success snackbar\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Feed added\", \"note\": \"\", \"amended_from\": \"text_visible: text=Feed added\"}"
+    },
+    {
+      "bc_id": "BC-0004",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"desc=Mark All as Read\", \"expected\": \"article list toolbar present proving list populated (original count_ge had no oracle",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Mark All as Read\", \"note\": \"\", \"amended_from\": \"element_present: desc=Mark All as Read (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0004",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_visible\", \"target\": \"text=Ars Technica\", \"expected\": \"feed visible in list\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Ars Technica\", \"note\": \"\", \"amended_from\": \"text_visible: text=Ars Technica\"}"
+    },
+    {
+      "bc_id": "BC-0005",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_visible\", \"target\": \"text=Couldn't find feed\", \"expected\": \"error supporting text shown\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Couldn't find feed\", \"note\": \"\", \"amended_from\": \"text_visible: text=Couldn't find feed\"}"
+    },
+    {
+      "bc_id": "BC-0006",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"activity=com.capyreader.app.debug/.AddLinkActivity\", \"expected\": \"container activity declared and reachable via intent\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"activity=com.capyreader.app.debug/.AddLinkActivity\", \"note\": \"\", \"amended_from\": \"element_present: activity=com.capyreader.ap"
+    },
+    {
+      "bc_id": "BC-0007",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Ars Technica\", \"expected\": \"feed row removed from drawer after confirmed removal\", \"invert\": \"true\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Ars Technica\", \"note\": \"\", \"amended_from\": \"element_present: text=Ars Technica (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0008",
+      "mode": "key-rename-only",
+      "before": "{\"type\": \"count_ge\", \"target\": \"article_list_rows\", \"expected\": \"1\"}",
+      "after": "{\"target\": \"article_list_rows\", \"expected\": \"1\", \"kind\": \"count_ge\"}"
+    },
+    {
+      "bc_id": "BC-0008",
+      "mode": "equiv-data_equals",
+      "before": "{\"type\": \"data_equals\", \"target\": \"prefs:last_refreshed_at\", \"expected\": \">0 after refresh\"}",
+      "after": "{\"kind\": \"data_object\", \"object\": \"prefs:last_refreshed_at\", \"op\": \"equals\", \"value\": \">0 after refresh\", \"note\": \"\", \"amended_from\": \"data_equals: prefs:last_r"
+    },
+    {
+      "bc_id": "BC-0009",
+      "mode": "equiv-data_equals",
+      "before": "{\"type\": \"data_equals\", \"target\": \"prefs:article_filter\", \"expected\": \"status=UNREAD after selecting Unread\"}",
+      "after": "{\"kind\": \"data_object\", \"object\": \"prefs:article_filter\", \"op\": \"equals\", \"value\": \"status=UNREAD after selecting Unread\", \"note\": \"\", \"amended_from\": \"data_equ"
+    },
+    {
+      "bc_id": "BC-0010",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_visible\", \"target\": \"text=Ars Technica\", \"expected\": \"feed title shown as list title after selecting feed\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Ars Technica\", \"note\": \"\", \"amended_from\": \"text_visible: text=Ars Technica\"}"
+    },
+    {
+      "bc_id": "BC-0010",
+      "mode": "key-rename-only",
+      "before": "{\"type\": \"count_ge\", \"target\": \"article_list_rows\", \"expected\": \"1\"}",
+      "after": "{\"target\": \"article_list_rows\", \"expected\": \"1\", \"kind\": \"count_ge\"}"
+    },
+    {
+      "bc_id": "BC-0011",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"desc=Mark as read\", \"expected\": \"reader bottom bar visible when article opened\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Mark as read\", \"note\": \"\", \"amended_from\": \"element_present: desc=Mark as read (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0011",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_visible\", \"target\": \"reader_article_title\", \"expected\": \"opened article title rendered in reader view\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"reader_article_title\", \"note\": \"\", \"amended_from\": \"text_visible: reader_article_title\"}"
+    },
+    {
+      "bc_id": "BC-0012",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"fullscreen_image_view\", \"expected\": \"image page displayed\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"fullscreen_image_view\", \"note\": \"\", \"amended_from\": \"element_present: fullscreen_image_view (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0013",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"external_browser\", \"expected\": \"system browser opened with article url\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"external_browser\", \"note\": \"\", \"amended_from\": \"element_present: external_browser (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0014",
+      "mode": "equiv-data_equals",
+      "before": "{\"type\": \"data_equals\", \"target\": \"db:article_statuses.read(opened_article)\", \"expected\": \"0 after toggled unread\"}",
+      "after": "{\"kind\": \"data_object\", \"object\": \"db:article_statuses.read(opened_article)\", \"op\": \"equals\", \"value\": \"0 after toggled unread\", \"note\": \"\", \"amended_from\": \"da"
+    },
+    {
+      "bc_id": "BC-0014",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"desc=Mark as read\", \"expected\": \"toggle button still present after switch\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Mark as read\", \"note\": \"\", \"amended_from\": \"element_present: desc=Mark as read (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0015",
+      "mode": "prefix-strip",
+      "before": "{\"type\": \"text_gone\", \"target\": \"text=Mark all items as read?\", \"expected\": \"confirm dialog closed by successful Confirm tap\", \"amended_from\": \"text_visible (tr",
+      "after": "{\"kind\": \"text_gone\", \"value\": \"Mark all items as read?\", \"note\": \"PHASE2_AMEND (DEC-010): assertion anchor defect fixed per Gate 2 machine guidance; verdict re"
+    },
+    {
+      "bc_id": "BC-0015",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"desc=Mark All as Read\", \"expected\": \"article list toolbar still present after mark-all-read\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Mark All as Read\", \"note\": \"\", \"amended_from\": \"element_present: desc=Mark All as Read (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0016",
+      "mode": "equiv-data_equals",
+      "before": "{\"type\": \"data_equals\", \"target\": \"db:article_statuses.starred(opened_article)\", \"expected\": \"1 after star toggle\"}",
+      "after": "{\"kind\": \"data_object\", \"object\": \"db:article_statuses.starred(opened_article)\", \"op\": \"equals\", \"value\": \"1 after star toggle\", \"note\": \"\", \"amended_from\": \"da"
+    },
+    {
+      "bc_id": "BC-0016",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"desc=Star\", \"expected\": \"star toggle button present in reader bottom bar\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Star\", \"note\": \"\", \"amended_from\": \"element_present: desc=Star (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0017",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Add Account\", \"expected\": \"NOT shown after restart while account exists\", \"invert\": \"true\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Add Account\", \"note\": \"\", \"amended_from\": \"element_present: text=Add Account (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0017",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Ars Technica\", \"expected\": \"subscribed feed still listed after restart\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Ars Technica\", \"note\": \"\", \"amended_from\": \"element_present: text=Ars Technica (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0017",
+      "mode": "key-rename-only",
+      "before": "{\"type\": \"count_ge\", \"target\": \"article_list_rows\", \"expected\": \"1\"}",
+      "after": "{\"target\": \"article_list_rows\", \"expected\": \"1\", \"kind\": \"count_ge\"}"
+    },
+    {
+      "bc_id": "BC-0018",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"text=Display\", \"expected\": \"settings panels listed\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"Display\", \"note\": \"\", \"amended_from\": \"element_present: text=Display (equiv per 2B precedent)\"}"
+    },
+    {
+      "bc_id": "BC-0019",
+      "mode": "equiv-data_equals",
+      "before": "{\"type\": \"data_equals\", \"target\": \"prefs:app_theme\", \"expected\": \"NEWSPRINT\"}",
+      "after": "{\"kind\": \"data_object\", \"object\": \"prefs:app_theme\", \"op\": \"equals\", \"value\": \"NEWSPRINT\", \"note\": \"\", \"amended_from\": \"data_equals: prefs:app_theme\"}"
+    },
+    {
+      "bc_id": "BC-0020",
+      "mode": "equiv-data_equals",
+      "before": "{\"type\": \"data_equals\", \"target\": \"prefs:article_list_sort_order\", \"expected\": \"OLDEST_FIRST\"}",
+      "after": "{\"kind\": \"data_object\", \"object\": \"prefs:article_list_sort_order\", \"op\": \"equals\", \"value\": \"OLDEST_FIRST\", \"note\": \"\", \"amended_from\": \"data_equals: prefs:arti"
+    },
+    {
+      "bc_id": "BC-0021",
+      "mode": "equiv-element_present",
+      "before": "{\"type\": \"element_present\", \"target\": \"article_style_picker\", \"expected\": \"style picker reachable from reader\"}",
+      "after": "{\"kind\": \"text_visible\", \"value\": \"article_style_picker\", \"note\": \"\", \"amended_from\": \"element_present: article_style_picker (equiv per 2B precedent)\"}"
+    }
+  ],
+  "step_prefix_strips": 45
+}

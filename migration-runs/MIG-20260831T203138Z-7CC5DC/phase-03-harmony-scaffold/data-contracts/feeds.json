@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "contract_kind": "data-repository-interface",
+  "interface_only": true,
+  "paradigm": "feature-semantic",
+  "object_id": "feeds",
+  "raw_name": "feeds",
+  "repository_symbol": "FeedsRepository",
+  "semantics": {
+    "directions": [
+      "read",
+      "write"
+    ],
+    "note": "语义层读写集契约：仅声明业务数据对象的读写方向，不规定物理载体；鸿蒙侧实现自由选择 Preferences/RelationalStore 等。"
+  },
+  "required_operations": [
+    "create",
+    "update",
+    "delete",
+    "restore",
+    "list",
+    "get",
+    "set",
+    "reset"
+  ],
+  "required_operations_evidence": {
+    "base_rule": "directions-fallback",
+    "bc_ids": [
+      "BC-0004",
+      "BC-0005",
+      "BC-0007",
+      "BC-0008",
+      "BC-0009",
+      "BC-0010",
+      "BC-0017",
+      "BC-0018"
+    ],
+    "bc_derived_ops": [
+      "create",
+      "delete",
+      "reset",
+      "restore",
+      "update"
+    ]
+  },
+  "android_reference_persistence": [
+    {
+      "kind": "room_table",
+      "location": "articles_<accountID>.db#feeds"
+    }
+  ],
+  "feature_ids": [
+    "FEAT-ADD-FEED",
+    "FEAT-LOCAL-PERSISTENCE"
+  ],
+  "relation_ids": [
+    "REL-0031",
+    "REL-0032",
+    "REL-0034",
+    "REL-0046"
+  ],
+  "source_refs": [
+    "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:487",
+    "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:92",
+    "capy/src/main/java/com/jocmp/capy/persistence/FeedRecords.kt:85",
+    "capy/src/main/sqldelight/com/jocmp/capy/db/1_AddFeeds.sqm:1"
+  ],
+  "source": {
+    "data_relations_sha256": "fac9d36c3d41540d0b713a9f8028546158a4326c89ad6da927b1b7bf5c06a4fe"
+  },
+  "generated_at": "2026-09-01T00:11:30Z",
+  "domain_operations": [
+    {
+      "op": "add",
+      "bc_ids": [
+        "BC-0004"
+      ],
+      "intent": "Add Feed 对话框输入 URL 添加订阅入库"
+    },
+    {
+      "op": "remove",
+      "bc_ids": [
+        "BC-0007"
+      ],
+      "intent": "RemoveFeedDialog 确认删除订阅（级联条目）"
+    },
+    {
+      "op": "list",
+      "bc_ids": [
+        "BC-0010"
+      ],
+      "intent": "侧栏 Feeds 分组列出订阅"
+    },
+    {
+      "op": "refresh",
+      "bc_ids": [
+        "BC-0008"
+      ],
+      "intent": "Refresh all 逐 feed HTTP 拉取"
+    }
+  ],
+  "domain_operations_note": "BC 行为动词推导的领域操作面（interface-only 声明；与 required_operations 通用词表互补，Phase 4 实施以 BC 断言为准）"
+}

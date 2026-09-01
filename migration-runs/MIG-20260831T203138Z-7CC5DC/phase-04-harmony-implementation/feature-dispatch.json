@@ -1,0 +1,466 @@
+{
+  "created_at": "2026-09-01T01:37:37Z",
+  "created_by": "impl-lead.capy-01",
+  "dispatch": [
+    {
+      "bc_ids": [
+        "BC-0001"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0001",
+        "REL-0042",
+        "REL-0043",
+        "REL-0044"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0001"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+          "is_container": false,
+          "kind": "page"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0004",
+        "BC-0005",
+        "BC-0006",
+        "BC-0007"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0031",
+        "REL-0032",
+        "REL-0033",
+        "REL-0034"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-ADD-FEED",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0004",
+        "BC-0005",
+        "BC-0007"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-ADDFEEDBUTTON-067ECBF0",
+          "is_container": false,
+          "kind": "reusable-component"
+        },
+        {
+          "id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+          "is_container": false,
+          "kind": "dialog"
+        },
+        {
+          "id": "PAGE-ADDFEEDVIEW-20077793",
+          "is_container": false,
+          "kind": "reusable-component"
+        },
+        {
+          "id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+          "is_container": true,
+          "kind": "container"
+        },
+        {
+          "id": "PAGE-ADDLINKSCREEN-9E051065",
+          "is_container": true,
+          "kind": "container"
+        },
+        {
+          "id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+          "is_container": false,
+          "kind": "dialog"
+        },
+        {
+          "id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+          "is_container": false,
+          "kind": "dialog"
+        },
+        {
+          "id": "PAGE-FEEDACTIONMENU-075C1A17",
+          "is_container": false,
+          "kind": "menu"
+        },
+        {
+          "id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+          "is_container": false,
+          "kind": "menu"
+        },
+        {
+          "id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+          "is_container": false,
+          "kind": "dialog"
+        },
+        {
+          "id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+          "is_container": false,
+          "kind": "dialog"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0008"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0030",
+        "REL-0035",
+        "REL-0036"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-FEED-REFRESH",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0008"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-FEEDLIST-228CEB83",
+          "is_container": false,
+          "kind": "reusable-component"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0009",
+        "BC-0010"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0053"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0009",
+        "BC-0010"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLELIST-AB5566F8",
+          "is_container": false,
+          "kind": "reusable-component"
+        },
+        {
+          "id": "PAGE-ARTICLESCREEN-23AF0624",
+          "is_container": false,
+          "kind": "page"
+        },
+        {
+          "id": "PAGE-FILTERACTIONMENU-07E67060",
+          "is_container": false,
+          "kind": "menu"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0011",
+        "BC-0012",
+        "BC-0013"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0054"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-ARTICLE-READ",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0011"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEREADER-B2B865F0",
+          "is_container": false,
+          "kind": "reusable-component"
+        },
+        {
+          "id": "PAGE-IMAGEPAGE-18D3E5AD",
+          "is_container": false,
+          "kind": "page"
+        },
+        {
+          "id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+          "is_container": false,
+          "kind": "page"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0014",
+        "BC-0015"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0037",
+        "REL-0038",
+        "REL-0039"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-READ-UNREAD",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0014",
+        "BC-0015"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEACTIONMENU-128442E3",
+          "is_container": false,
+          "kind": "menu"
+        },
+        {
+          "id": "PAGE-MARKALLREADDIALOG-46A35015",
+          "is_container": false,
+          "kind": "dialog"
+        },
+        {
+          "id": "PAGE-MARKALLREADMENU-464F3414",
+          "is_container": false,
+          "kind": "menu"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0016"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0040",
+        "REL-0041"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-STAR",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [
+        "BC-0016"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-TOGGLESTARMENUITEM-5F309692",
+          "is_container": false,
+          "kind": "reusable-component"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0017"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0045",
+        "REL-0046",
+        "REL-0047",
+        "REL-0048",
+        "REL-0049"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0017"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "is_container": false,
+          "kind": "page"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0018",
+        "BC-0019",
+        "BC-0020",
+        "BC-0021"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0002",
+        "REL-0003",
+        "REL-0004",
+        "REL-0005",
+        "REL-0006",
+        "REL-0007",
+        "REL-0008",
+        "REL-0009",
+        "REL-0010",
+        "REL-0011",
+        "REL-0012",
+        "REL-0013",
+        "REL-0014",
+        "REL-0015",
+        "REL-0016",
+        "REL-0017",
+        "REL-0018",
+        "REL-0019",
+        "REL-0020",
+        "REL-0021",
+        "REL-0022",
+        "REL-0028",
+        "REL-0050",
+        "REL-0051",
+        "REL-0052"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-SETTINGS",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "high",
+      "runtime_bc_ids": [
+        "BC-0019",
+        "BC-0020"
+      ],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEFONTMENU-D9B99022",
+          "is_container": false,
+          "kind": "menu"
+        },
+        {
+          "id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+          "is_container": false,
+          "kind": "dialog"
+        },
+        {
+          "id": "PAGE-AUTODELETEMENU-3E3FD576",
+          "is_container": false,
+          "kind": "menu"
+        },
+        {
+          "id": "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+          "is_container": false,
+          "kind": "reusable-component"
+        },
+        {
+          "id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+          "is_container": false,
+          "kind": "menu"
+        },
+        {
+          "id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+          "is_container": false,
+          "kind": "settings"
+        },
+        {
+          "id": "PAGE-SETTINGSVIEW-9331B5E9",
+          "is_container": false,
+          "kind": "reusable-component"
+        },
+        {
+          "id": "PAGE-THEMEPICKER-6F79D5ED",
+          "is_container": false,
+          "kind": "dialog"
+        }
+      ],
+      "verify_mode": "RUNTIME",
+      "work_order_id": ""
+    },
+    {
+      "bc_ids": [
+        "BC-0002",
+        "BC-0003"
+      ],
+      "data_reads": [],
+      "data_relation_ids": [
+        "REL-0024",
+        "REL-0025",
+        "REL-0026",
+        "REL-0027",
+        "REL-0029",
+        "REL-0055",
+        "REL-0056",
+        "REL-0057"
+      ],
+      "data_writes": [],
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "harmony_steps": [],
+      "owner_id": "",
+      "risk_level": "normal",
+      "runtime_bc_ids": [],
+      "status": "NOT_STARTED",
+      "surfaces": [
+        {
+          "id": "PAGE-ADDACCOUNTVIEW-A37259FA",
+          "is_container": false,
+          "kind": "reusable-component"
+        },
+        {
+          "id": "PAGE-LOGINSCREEN-9D67F9D2",
+          "is_container": false,
+          "kind": "page"
+        },
+        {
+          "id": "PAGE-LOGINVIEW-49F18417",
+          "is_container": false,
+          "kind": "reusable-component"
+        }
+      ],
+      "verify_mode": "SOURCE_CONFIRM",
+      "work_order_id": ""
+    }
+  ],
+  "schema_version": 1,
+  "shared_data_relation_ids": [
+    "REL-0023"
+  ],
+  "work_order_id": "WO-PHASE-04-F4616CF056FF"
+}

@@ -1,0 +1,242 @@
+surface_id,symbol,kind,is_container,page_id,source_ref,notes
+PAGE-ADDLINKACTIVITY-3ED2961B,AddLinkActivity,container,true,PAGE-ADDLINKACTIVITY-3ED2961B,app/src/main/java/com/capyreader/app/AddLinkActivity.kt:17,activity-shell hosts AddLinkScreen
+PAGE-ADDLINKSCREEN-9E051065,AddLinkScreen,container,true,,app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:46,compose shell hosts AddLinkView
+PAGE-ADDFEEDDIALOG-DBEC7E69,AddFeedDialog,dialog,false,PAGE-ADDFEEDDIALOG-DBEC7E69,app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:8,dialog fragment
+PAGE-ARTICLESTYLEPICKER-397873E0,ArticleStylePicker,dialog,false,PAGE-ARTICLESTYLEPICKER-397873E0,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:47,picker surface
+PAGE-CREATELABELDIALOG-02FBDD06,CreateLabelDialog,dialog,false,PAGE-CREATELABELDIALOG-02FBDD06,app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:127,dialog fragment
+PAGE-DELETEPAGEDIALOG-7C205687,DeletePageDialog,dialog,false,PAGE-DELETEPAGEDIALOG-7C205687,app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:10,dialog fragment
+PAGE-EDITFEEDDIALOG-69FC6E07,EditFeedDialog,dialog,false,PAGE-EDITFEEDDIALOG-69FC6E07,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedDialog.kt:12,dialog fragment
+PAGE-EDITFOLDERDIALOG-9506CEBF,EditFolderDialog,dialog,false,PAGE-EDITFOLDERDIALOG-9506CEBF,app/src/main/java/com/capyreader/app/ui/articles/EditFolderDialog.kt:11,dialog fragment
+PAGE-MARKALLREADDIALOG-46A35015,MarkAllReadDialog,dialog,false,PAGE-MARKALLREADDIALOG-46A35015,app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:14,dialog fragment
+PAGE-REMOVEFEEDDIALOG-FDF24FF7,RemoveFeedDialog,dialog,false,PAGE-REMOVEFEEDDIALOG-FDF24FF7,app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:12,dialog fragment
+PAGE-REMOVEFOLDERDIALOG-0DE275BA,RemoveFolderDialog,dialog,false,PAGE-REMOVEFOLDERDIALOG-0DE275BA,app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:10,dialog fragment
+PAGE-SHAREIMAGEDIALOG-F5E017A1,ShareImageDialog,dialog,false,PAGE-SHAREIMAGEDIALOG-F5E017A1,app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:40,dialog fragment
+PAGE-SHARELINKDIALOG-E24FBFDC,ShareLinkDialog,dialog,false,PAGE-SHARELINKDIALOG-E24FBFDC,app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:31,dialog fragment
+PAGE-THEMEPICKER-6F79D5ED,ThemePicker,dialog,false,PAGE-THEMEPICKER-6F79D5ED,app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:43,picker surface
+PAGE-UNAUTHORIZEDALERTDIALOG-1F8521D8,UnauthorizedAlertDialog,dialog,false,PAGE-UNAUTHORIZEDALERTDIALOG-1F8521D8,app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:10,dialog fragment
+PAGE-UPDATEAUTHDIALOG-1FE89797,UpdateAuthDialog,dialog,false,PAGE-UPDATEAUTHDIALOG-1FE89797,app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthDialog.kt:13,dialog fragment
+PAGE-ARTICLEACTIONMENU-128442E3,ArticleActionMenu,menu,false,PAGE-ARTICLEACTIONMENU-128442E3,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:35,compose suffix Menu
+PAGE-ARTICLEFONTMENU-D9B99022,ArticleFontMenu,menu,false,PAGE-ARTICLEFONTMENU-D9B99022,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:26,compose suffix Menu
+PAGE-AUTODELETEMENU-3E3FD576,AutoDeleteMenu,menu,false,PAGE-AUTODELETEMENU-3E3FD576,app/src/main/java/com/capyreader/app/ui/settings/panels/AutoDeleteMenu.kt:16,compose suffix Menu
+PAGE-FEEDACTIONMENU-075C1A17,FeedActionMenu,menu,false,PAGE-FEEDACTIONMENU-075C1A17,app/src/main/java/com/capyreader/app/ui/articles/list/FeedActionMenu.kt:17,compose suffix Menu
+PAGE-FILTERACTIONMENU-07E67060,FilterActionMenu,menu,false,PAGE-FILTERACTIONMENU-07E67060,app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:32,compose suffix Menu
+PAGE-FOLDERACTIONMENU-C5428EA8,FolderActionMenu,menu,false,PAGE-FOLDERACTIONMENU-C5428EA8,app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:17,compose suffix Menu
+PAGE-MARKALLREADMENU-464F3414,MarkAllReadMenu,menu,false,PAGE-MARKALLREADMENU-464F3414,app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadMenu.kt:10,compose suffix Menu
+PAGE-REFRESHINTERVALMENU-F4C57C66,RefreshIntervalMenu,menu,false,PAGE-REFRESHINTERVALMENU-F4C57C66,app/src/main/java/com/capyreader/app/ui/settings/panels/RefreshIntervalMenu.kt:18,compose suffix Menu
+PAGE-SAVEDSEARCHACTIONMENU-9E3B7572,SavedSearchActionMenu,menu,false,PAGE-SAVEDSEARCHACTIONMENU-9E3B7572,app/src/main/java/com/capyreader/app/ui/articles/list/SavedSearchActionMenu.kt:20,compose suffix Menu
+PAGE-ADDACCOUNTSCREEN-A9C749BC,AddAccountScreen,page,false,PAGE-ADDACCOUNTSCREEN-A9C749BC,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:7,compose screen
+PAGE-ADDFEEDVIEWPREVIEW-FULLSCREEN-8870680D,AddFeedViewPreview_FullScreen,page,false,PAGE-ADDFEEDVIEWPREVIEW-FULLSCREEN-8870680D,app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:247,compose screen
+PAGE-ARTICLESCREEN-23AF0624,ArticleScreen,page,false,PAGE-ARTICLESCREEN-23AF0624,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:112,compose screen
+PAGE-IMAGEPAGE-18D3E5AD,ImagePage,page,false,PAGE-IMAGEPAGE-18D3E5AD,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:166,compose screen
+PAGE-LOGINSCREEN-9D67F9D2,LoginScreen,page,false,PAGE-LOGINSCREEN-9D67F9D2,app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:7,compose screen
+PAGE-MAINACTIVITY-3FDE9431,MainActivity,page,false,PAGE-MAINACTIVITY-3FDE9431,app/src/main/java/com/capyreader/app/MainActivity.kt:16,activity with own UI
+PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2,OpenArticleInBrowserActivity,page,false,PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2,app/src/main/java/com/capyreader/app/OpenArticleInBrowserActivity.kt:13,activity with own UI
+REPOSITORY-ARTICLESREPOSITORY-EA84E9B9,ArticlesRepository,repository,false,,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesWidget.kt:84,Repository class
+PAGE-ABOUTSETTINGSPANEL-7DDFEA34,AboutSettingsPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/AboutSettingsPanel.kt:44,compose function without page suffix
+PAGE-ACCOUNTROW-EE16B3B7,AccountRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AccountRow.kt:24,compose function without page suffix
+PAGE-ACCOUNTROWPREVIEW-DARK-5634D55E,AccountRowPreview_Dark,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AccountRow.kt:107,compose function without page suffix
+PAGE-ACCOUNTSETTINGSPANEL-FA63CE2C,AccountSettingsPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:50,compose function without page suffix
+PAGE-ACCOUNTSETTINGSPANELVIEW-037AE9D9,AccountSettingsPanelView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:103,compose function without page suffix
+PAGE-ADDACCOUNTVIEW-A37259FA,AddAccountView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:36,compose function without page suffix
+PAGE-ADDACCOUNTVIEWPREVIEW-TABLET-425483D9,AddAccountViewPreview_Tablet,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:144,compose function without page suffix
+PAGE-ADDFEEDBUTTON-067ECBF0,AddFeedButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:22,compose function without page suffix
+PAGE-ADDFEEDVIEW-20077793,AddFeedView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:52,compose function without page suffix
+PAGE-ADDLINKVIEW-E56EA472,AddLinkView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:90,compose function without page suffix
+PAGE-APP-0D04BFEB,App,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/App.kt:16,compose function without page suffix
+PAGE-ARTICLEACTIONS-BBDAA18E,ArticleActions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:35,compose function without page suffix
+PAGE-ARTICLEBOTTOMBAR-AB6DDA63,ArticleBottomBar,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:48,compose function without page suffix
+PAGE-ARTICLEHEADLINE-4B2702B5,ArticleHeadline,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt:46,compose function without page suffix
+PAGE-ARTICLEIMAGE-512620B3,ArticleImage,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:267,compose function without page suffix
+PAGE-ARTICLELIST-AB5566F8,ArticleList,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt:39,compose function without page suffix
+PAGE-ARTICLELISTBACKHANDLER-83ADA79B,ArticleListBackHandler,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleListBackHandler.kt:13,compose function without page suffix
+PAGE-ARTICLELISTEMPTYVIEW-5FFF8479,ArticleListEmptyView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleListEmptyView.kt:26,compose function without page suffix
+PAGE-ARTICLELISTSETTINGS-A165FE20,ArticleListSettings,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:66,compose function without page suffix
+PAGE-ARTICLELISTSETTINGSPANEL-FD30FC08,ArticleListSettingsPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettingsPanel.kt:6,compose function without page suffix
+PAGE-ARTICLELISTTOPBAR-77DF9248,ArticleListTopBar,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt:42,compose function without page suffix
+PAGE-ARTICLEMEDIAVIEW-A0197460,ArticleMediaView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:76,compose function without page suffix
+PAGE-ARTICLEMEDIAVIEWPREVIEW-FOLDABLE-C5BDB9C1,ArticleMediaViewPreview_Foldable,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:392,compose function without page suffix
+PAGE-ARTICLEMEDIAVIEWPREVIEW-PHONE-63A6341D,ArticleMediaViewPreview_Phone,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:411,compose function without page suffix
+PAGE-ARTICLEMEDIAVIEWPREVIEW-TABLET-6F70B53C,ArticleMediaViewPreview_Tablet,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:431,compose function without page suffix
+PAGE-ARTICLENAVIGATIONICON-918D09DE,ArticleNavigationIcon,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleNavigationIcon.kt:14,compose function without page suffix
+PAGE-ARTICLEREADER-B2B865F0,ArticleReader,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleReader.kt:50,compose function without page suffix
+PAGE-ARTICLEROW-C3650384,ArticleRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:90,compose function without page suffix
+PAGE-ARTICLEROWPREVIEWPLACEHOLDER-ECC32AA1,ArticleRowPreviewPlaceholder,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:660,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-ACCENTBAR-B426533D,ArticleRowPreview_AccentBar,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:670,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-LARGE-C9A92F13,ArticleRowPreview_Large,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:500,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-LARGETEXT-3021244F,ArticleRowPreview_LargeText,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:543,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-MEDIUM-52FABA20,ArticleRowPreview_Medium,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:520,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-RTL-42404CBF,ArticleRowPreview_Rtl,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:632,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-SELECTED-07111441,ArticleRowPreview_Selected,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:484,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-SELECTED-DARKMODE-CB319104,ArticleRowPreview_Selected_DarkMode,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:442,compose function without page suffix
+PAGE-ARTICLEROWPREVIEW-UNREAD-A1E37B4B,ArticleRowPreview_Unread,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:563,compose function without page suffix
+PAGE-ARTICLESTATUSBAR-697C235B,ArticleStatusBar,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleStatusBar.kt:14,compose function without page suffix
+PAGE-ARTICLESTATUSICON-DF09DDFD,ArticleStatusIcon,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleStatusIcon.kt:11,compose function without page suffix
+PAGE-ARTICLESTYLELISTENER-938C0FA1,ArticleStyleListener,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStyleListener.kt:15,compose function without page suffix
+PAGE-ARTICLETOPBAR-355EDBEA,ArticleTopBar,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:56,compose function without page suffix
+PAGE-ARTICLEVIEW-88C3B511,ArticleView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleView.kt:50,compose function without page suffix
+PAGE-BUTTONTEXT-66A7CA0D,ButtonText,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:44,compose function without page suffix
+PAGE-CAPTIONOVERLAY-FDC050D2,CaptionOverlay,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:290,compose function without page suffix
+PAGE-CAPYICON-DA1630D4,CapyIcon,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/CapyIcon.kt:23,compose function without page suffix
+PAGE-CAPYPLACEHOLDER-9C8DC9B4,CapyPlaceholder,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/CapyPlaceholder.kt:12,compose function without page suffix
+PAGE-CERTIFICATEFIELD-F70CA046,CertificateField,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:232,compose function without page suffix
+PAGE-CHECKBOXROW-7D07D51C,CheckboxRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:349,compose function without page suffix
+PAGE-CLOSEBUTTON-711116EB,CloseButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:329,compose function without page suffix
+PAGE-CLOSEICONBUTTON-F7DC568B,CloseIconButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/CloseIconButton.kt:22,compose function without page suffix
+PAGE-CONTENT-47BD2907,Content,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesWidget.kt:49,compose function without page suffix
+PAGE-COPYLINKMENUITEM-99BF947F,CopyLinkMenuItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:133,compose function without page suffix
+PAGE-COUNTBADGE-69088C31,CountBadge,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/CountBadge.kt:13,compose function without page suffix
+PAGE-CRASHLOGEXPORTITEM-B0FF1763,CrashLogExportItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/CrashLogExportItem.kt:19,compose function without page suffix
+PAGE-CRASHREPORTINGCHECKBOX-E70971DA,CrashReportingCheckbox,reusable-component,false,,app/src/free/java/com/capyreader/app/ui/settings/CrashReportingCheckbox.kt:14,compose function without page suffix
+PAGE-DIALOGHORIZONTALDIVIDER-CC4E0635,DialogHorizontalDivider,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/DialogHorizontalDivider.kt:8,compose function without page suffix
+PAGE-DISPLAYSETTINGSPANEL-650C8AEE,DisplaySettingsPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:41,compose function without page suffix
+PAGE-DISPLAYSETTINGSPANELVIEW-6A67E060,DisplaySettingsPanelView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:73,compose function without page suffix
+PAGE-EDITFEEDURLDISPLAY-58CC6B2C,EditFeedURLDisplay,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedURLDisplay.kt:24,compose function without page suffix
+PAGE-EDITFEEDURLDISPLAYLONG-1238E275,EditFeedURLDisplayLong,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedURLDisplay.kt:69,compose function without page suffix
+PAGE-EDITFEEDURLDISPLAYSHORT-9F4016EF,EditFeedURLDisplayShort,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedURLDisplay.kt:61,compose function without page suffix
+PAGE-EDITFEEDVIEW-13ACE50D,EditFeedView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:52,compose function without page suffix
+PAGE-EDITFEEDVIEWPREVIEW-SINGLESELECT-A1FFCF38,EditFeedViewPreview_SingleSelect,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:413,compose function without page suffix
+PAGE-EDITFOLDERVIEW-B7BB2B0C,EditFolderView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt:23,compose function without page suffix
+PAGE-EMPTYONBOARDINGVIEWPREVIEW-DE-8C3C51DD,EmptyOnboardingViewPreview_DE,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/EmptyOnboardingView.kt:47,compose function without page suffix
+PAGE-EMPTYSTATE-A422DF8C,EmptyState,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt:178,compose function without page suffix
+PAGE-EMPTYVIEW-AD8F484B,EmptyView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/EmptyView.kt:12,compose function without page suffix
+PAGE-ERRORALERT-406B5ECE,ErrorAlert,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:313,compose function without page suffix
+PAGE-FAVICONBADGE-D705B2AB,FaviconBadge,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/FaviconBadge.kt:23,compose function without page suffix
+PAGE-FAVICONBADGEPREVIEWDARK-CE52A8E2,FaviconBadgePreviewDark,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/FaviconBadge.kt:67,compose function without page suffix
+PAGE-FEEDACTIONMENUITEMS-6C416190,FeedActionMenuItems,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:21,compose function without page suffix
+PAGE-FEEDCHOICES-5E475626,FeedChoices,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt:104,compose function without page suffix
+PAGE-FEEDLIST-228CEB83,FeedList,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:51,compose function without page suffix
+PAGE-FEEDLISTDIVIDER-DB790648,FeedListDivider,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:300,compose function without page suffix
+PAGE-FEEDOPTIONS-419388A9,FeedOptions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:161,compose function without page suffix
+PAGE-FEEDOVERSCROLLBOX-876F8A2E,FeedOverScrollBox,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt:106,compose function without page suffix
+PAGE-FEEDROW-E4376704,FeedRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedRow.kt:17,compose function without page suffix
+PAGE-FILTERAPPBARTITLE-81E96B2C,FilterAppBarTitle,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/FilterAppBarTitle.kt:25,compose function without page suffix
+PAGE-FILTERSITEM-9A59200D,FiltersItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersItem.kt:16,compose function without page suffix
+PAGE-FILTERSVIEW-B8E22A32,FiltersView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt:39,compose function without page suffix
+PAGE-FLOATINGAUDIOPLAYER-19695D6D,FloatingAudioPlayer,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt:50,compose function without page suffix
+PAGE-FLOATINGAUDIOPLAYERPREVIEW-DARKMODE-3767E3BD,FloatingAudioPlayerPreview_DarkMode,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt:265,compose function without page suffix
+PAGE-FLOATINGAUDIOPLAYERPREVIEW-PLAYING-3DB4E046,FloatingAudioPlayerPreview_Playing,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt:243,compose function without page suffix
+PAGE-FOLDERACTIONMENUITEMS-451CADE5,FolderActionMenuItems,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/FolderActionMenuItems.kt:13,compose function without page suffix
+PAGE-FOLDERMULTISELECT-2624C598,FolderMultiselect,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:260,compose function without page suffix
+PAGE-FOLDERRADIOSELECT-8A9F014C,FolderRadioSelect,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:192,compose function without page suffix
+PAGE-FOLDERROW-9F466940,FolderRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/FolderRow.kt:30,compose function without page suffix
+PAGE-FULLCONTENTLOADINGICON-4599D851,FullContentLoadingIcon,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/FullContentLoadingIcon.kt:18,compose function without page suffix
+PAGE-GENERALSETTINGSPANEL-447ECAB1,GeneralSettingsPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:67,compose function without page suffix
+PAGE-GENERALSETTINGSPANELVIEW-3297C0B5,GeneralSettingsPanelView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:109,compose function without page suffix
+PAGE-GESTURESSETTINGPANEL-C95C54F5,GesturesSettingPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:26,compose function without page suffix
+PAGE-GESTURESSETTINGSPANELVIEW-2C163B47,GesturesSettingsPanelView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:52,compose function without page suffix
+PAGE-HEADLINESLAYOUT-E3ED87C0,HeadlinesLayout,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt:44,compose function without page suffix
+PAGE-ICONDROPDOWN-044F7726,IconDropdown,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/IconDropdown.kt:24,compose function without page suffix
+PAGE-IMAGEERRORVIEW-CEBF8B4A,ImageErrorView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ImageErrorView.kt:23,compose function without page suffix
+PAGE-LABELMENUITEM-823AB56A,LabelMenuItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:90,compose function without page suffix
+PAGE-LABELROW-339180B0,LabelRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:210,compose function without page suffix
+PAGE-LAYOUTNAVIGATIONHANDLER-60925606,LayoutNavigationHandler,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/LayoutNavigationHandler.kt:7,compose function without page suffix
+PAGE-LISTHEADLINE-0F8A3FCF,ListHeadline,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ListHeadline.kt:11,compose function without page suffix
+PAGE-LISTTITLE-E6647BDF,ListTitle,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ListTitle.kt:7,compose function without page suffix
+PAGE-LOADINGVIEW-C909C804,LoadingView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/LoadingView.kt:14,compose function without page suffix
+PAGE-LOGGEDOUTCONTENT-A0D1B9E6,LoggedOutContent,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/widget/SpotlightWidget.kt:104,compose function without page suffix
+PAGE-LOGINVIEW-49F18417,LoginView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:43,compose function without page suffix
+PAGE-MARKALLREADBUTTON-22E91D50,MarkAllReadButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt:19,compose function without page suffix
+PAGE-MARKREADONSCROLL-1F7152D0,MarkReadOnScroll,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:901,compose function without page suffix
+PAGE-MEDIAACTIONBUTTON-F8A5B913,MediaActionButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/MediaActionButton.kt:17,compose function without page suffix
+PAGE-MEDIASAVEBUTTON-9A5C3E79,MediaSaveButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/MediaSaveButton.kt:19,compose function without page suffix
+PAGE-MEDIASHAREBUTTON-60083ABE,MediaShareButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/MediaShareButton.kt:16,compose function without page suffix
+PAGE-MINISETTINGS-97472DC6,MiniSettings,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/MiniSettings.kt:41,compose function without page suffix
+PAGE-NAVBUTTONS-97A89E89,NavButtons,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt:140,compose function without page suffix
+PAGE-NAVIGATIONARROW-F8E07BB0,NavigationArrow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:347,compose function without page suffix
+PAGE-NOTIFICATIONCHECKBOX-F7D32794,NotificationCheckbox,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/NotificationCheckbox.kt:10,compose function without page suffix
+PAGE-NOTIFICATIONGROUPCHECKBOX-D36B44E2,NotificationGroupCheckbox,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/NotificationGroupCheckbox.kt:19,compose function without page suffix
+PAGE-NOTIFICATIONSLISTITEM-71BB91D2,NotificationsListItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:281,compose function without page suffix
+PAGE-NOTIFICATIONSSETTINGSPANEL-1E455AC2,NotificationsSettingsPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/NotificationsSettingsPanel.kt:17,compose function without page suffix
+PAGE-OPMLEXPORTBUTTON-D4AF6932,OPMLExportButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLExportButton.kt:12,compose function without page suffix
+PAGE-OPMLIMPORTBUTTON-C9A1465B,OPMLImportButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:20,compose function without page suffix
+PAGE-PLACEHOLDERARTICLEROW-06609BE6,PlaceholderArticleRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:298,compose function without page suffix
+PAGE-PREVIEWARTICLEROW-D79E8B6F,PreviewArticleRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:127,compose function without page suffix
+PAGE-PREVIEWIMAGE-5C34A295,PreviewImage,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:221,compose function without page suffix
+PAGE-RADIOROW-6949D694,RadioRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:326,compose function without page suffix
+PAGE-READERPAGINGBUTTON-C9984111,ReaderPagingButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/CornerTapGestureScroll.kt:69,compose function without page suffix
+PAGE-SAVEFORLATERMENUITEM-8E464437,SaveForLaterMenuItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:110,compose function without page suffix
+PAGE-SAVEPAGEVIEW-1DC55398,SavePageView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt:23,compose function without page suffix
+PAGE-SAVEDSEARCHROW-24C0B675,SavedSearchRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/SavedSearchRow.kt:13,compose function without page suffix
+PAGE-SCROLLABLEWEBVIEW-605EDFE0,ScrollableWebView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleReader.kt:169,compose function without page suffix
+PAGE-SEARCHINGVIEW-47E6603A,SearchingView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:206,compose function without page suffix
+PAGE-SECTIONHEADER-FD153354,SectionHeader,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt:128,compose function without page suffix
+PAGE-SERVICESIGNUP-40B74F3C,ServiceSignup,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/ServiceSignup.kt:16,compose function without page suffix
+PAGE-SETTINGSDISCLOSUREROW-A4B8719E,SettingsDisclosureRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsDisclosureRow.kt:14,compose function without page suffix
+PAGE-SETTINGSLIST-CB1229E6,SettingsList,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt:36,compose function without page suffix
+PAGE-SETTINGSVIEW-9331B5E9,SettingsView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt:46,compose function without page suffix
+PAGE-SHARELINKMENUITEM-7A236996,ShareLinkMenuItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:154,compose function without page suffix
+PAGE-SORTORDERSELECT-3127AF2F,SortOrderSelect,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadSortOrderSelect.kt:9,compose function without page suffix
+PAGE-SPOTLIGHTLAYOUT-3BC69AE0,SpotlightLayout,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt:51,compose function without page suffix
+PAGE-STARREDEXPORTBUTTON-40E12C38,StarredExportButton,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/StarredExportButton.kt:12,compose function without page suffix
+PAGE-SUBSCRIBEVIEW-7638D915,SubscribeView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt:38,compose function without page suffix
+PAGE-SUCCESSVIEW-153E54BE,SuccessView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:224,compose function without page suffix
+PAGE-SWIPEREFRESH-F1046E82,SwipeRefresh,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt:231,compose function without page suffix
+PAGE-SWIPEREFRESHINDICATOR-31BD1D72,SwipeRefreshIndicator,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/PullRefreshIndicator.kt:85,compose function without page suffix
+PAGE-SYNCSERVICEROW-16139703,SyncServiceRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:95,compose function without page suffix
+PAGE-TESTNOTIFICATIONROW-8B084E27,TestNotificationRow,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/TestNotificationRow.kt:15,compose function without page suffix
+PAGE-TEXTSWITCH-61B00F37,TextSwitch,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt:22,compose function without page suffix
+PAGE-THEMEMODEBUTTONS-D91B6C1E,ThemeModeButtons,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:184,compose function without page suffix
+PAGE-THEMEPREVIEWSQUARE-A3BCA10B,ThemePreviewSquare,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:125,compose function without page suffix
+PAGE-TITLEALIGNMENTBUTTONS-3C56566C,TitleAlignmentButtons,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:180,compose function without page suffix
+PAGE-TOGGLEACTIONMENUITEM-4CE6EB28,ToggleActionMenuItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:193,compose function without page suffix
+PAGE-TOGGLEREADMENUITEM-8543671A,ToggleReadMenuItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:179,compose function without page suffix
+PAGE-TOGGLESTARMENUITEM-5F309692,ToggleStarMenuItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:186,compose function without page suffix
+PAGE-UNREADBADGESGROUPCHECKBOX-6BB8BF7D,UnreadBadgesGroupCheckbox,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt:143,compose function without page suffix
+PAGE-UNREADBADGESSETTINGSPANEL-1313FD62,UnreadBadgesSettingsPanel,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt:38,compose function without page suffix
+PAGE-UPDATEAUTHVIEW-9BC3940E,UpdateAuthView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthView.kt:26,compose function without page suffix
+PAGE-WEBVIEW-C212DE85,WebView,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/WebView.kt:39,compose function without page suffix
+PAGE-ACTION-BD938C68,action,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/HorizontalReaderPager.kt:49,compose function without page suffix
+PAGE-ARTICLETEMPLATECOLORS-BB386EE7,articleTemplateColors,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTemplateColors.kt:9,compose function without page suffix
+PAGE-BORDERSTROKE-42E234BD,borderStroke,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/media/MediaActionButton.kt:41,compose function without page suffix
+PAGE-BUILDCOPYTOCLIPBOARD-EA3397AC,buildCopyToClipboard,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/CopyToClipboard.kt:10,compose function without page suffix
+PAGE-BUILDITEM-FADAB45C,buildItem,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AccountRow.kt:48,compose function without page suffix
+PAGE-BUILDPROMPT-D946B083,buildPrompt,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/ServiceSignup.kt:37,compose function without page suffix
+PAGE-MAPTOTHEME-2B9CCC4B,mapToTheme,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt:94,compose function without page suffix
+PAGE-PROVIDELINKOPENER-181DE11C,provideLinkOpener,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/LocalLinkOpener.kt:18,compose function without page suffix
+PAGE-REMEMBERACCENTCOLOR-0E59B147,rememberAccentColor,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/AccentColor.kt:13,compose function without page suffix
+PAGE-REMEMBERARTICLEACTIONS-61CCF7BA,rememberArticleActions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:788,compose function without page suffix
+PAGE-REMEMBERARTICLEOPTIONS-7A17ED7B,rememberArticleOptions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt:137,compose function without page suffix
+PAGE-REMEMBERARTICLEPANEEXPANSION-8193FAA0,rememberArticlePaneExpansion,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticlePaneExpansion.kt:71,compose function without page suffix
+PAGE-REMEMBERARTICLEROWSWIPESTATE-02917596,rememberArticleRowSwipeState,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleRowSwipeState.kt:37,compose function without page suffix
+PAGE-REMEMBERARTICLESCROLLSTATE-4946618D,rememberArticleScrollState,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleScrollState.kt:51,compose function without page suffix
+PAGE-REMEMBERCONTENTPADDING-9DAC6444,rememberContentPadding,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleView.kt:307,compose function without page suffix
+PAGE-REMEMBERCURRENTTIME-93EF7FA9,rememberCurrentTime,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt:123,compose function without page suffix
+PAGE-REMEMBERDISPLAYTIMEFORMATS-EFCB1057,rememberDisplayTimeFormats,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/LocalTimeFormats.kt:15,compose function without page suffix
+PAGE-REMEMBERFEEDACTIONS-A0BB25E2,rememberFeedActions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:816,compose function without page suffix
+PAGE-REMEMBERFOLDERACTIONS-E839E5E9,rememberFolderActions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:804,compose function without page suffix
+PAGE-REMEMBERFULLCONTENT-A75D007B,rememberFullContent,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:873,compose function without page suffix
+PAGE-REMEMBERLABELSACTIONS-89C8BE0D,rememberLabelsActions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:836,compose function without page suffix
+PAGE-REMEMBERLOCALCONNECTIVITY-7632C043,rememberLocalConnectivity,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/LocalConnectivity.kt:27,compose function without page suffix
+PAGE-REMEMBERREFRESHBUTTONSTATE-5576C140,rememberRefreshButtonState,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/RefreshButtonState.kt:15,compose function without page suffix
+PAGE-REMEMBERSAVEDSEARCHACTIONS-2FFE9E1A,rememberSavedSearchActions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:862,compose function without page suffix
+PAGE-REMEMBERSLIDEDISTANCE-CECA74E6,rememberSlideDistance,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/shared/MaterialSharedAxis.kt:44,compose function without page suffix
+PAGE-REMEMBERSWIPEPREFERENCES-DD2C58E7,rememberSwipePreferences,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleView.kt:293,compose function without page suffix
+PAGE-REMEMBERSWIPEREFRESHSTATE-71F3472A,rememberSwipeRefreshState,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt:46,compose function without page suffix
+PAGE-REMEMBERSWIPEABLEACTIONSSTATE-D71D879B,rememberSwipeableActionsState,reusable-component,false,,app/src/main/java/me/saket/swipe/SwipeableActionsState.kt:21,compose function without page suffix
+PAGE-REMEMBERSWIPERSTATE-25C7110C,rememberSwiperState,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/SwiperState.kt:11,compose function without page suffix
+PAGE-REMEMBERUPDATEDSLINGSHOT-4572395B,rememberUpdatedSlingshot,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/Slingshot.kt:23,compose function without page suffix
+PAGE-REMEMBERWEBVIEWSTATE-99783CC9,rememberWebViewState,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/WebView.kt:229,compose function without page suffix
+PAGE-RESETSCROLLBEHAVIORLISTENER-34F4B0F0,resetScrollBehaviorListener,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleLayoutScrollReset.kt:14,compose function without page suffix
+PAGE-SAFEEDGEPADDING-73BF0EA3,safeEdgePadding,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/SafeEdgePadding.kt:14,compose function without page suffix
+PAGE-SWIPEACTIONS-C690262E,swipeActions,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleRowSwipeState.kt:54,compose function without page suffix
+PAGE-TEXTSTYLE-804FD309,textStyle,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/components/FormSection.kt:48,compose function without page suffix
+PAGE-TITLEPADDING-4A84F851,titlePadding,reusable-component,false,,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:114,compose function without page suffix
+PAGE-SETTINGSSCREEN-D0A9FF8D,SettingsScreen,settings,false,PAGE-SETTINGSSCREEN-D0A9FF8D,app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:5,settings screen
+PAGE-LABELBOTTOMSHEET-90E5748E,LabelBottomSheet,sheet,false,PAGE-LABELBOTTOMSHEET-90E5748E,app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:46,bottom sheet
+SYSTEM-ARTICLESTATUSBROADCASTRECEIVER-DD1A43C1,ArticleStatusBroadcastReceiver,system-capability,false,,app/src/main/AndroidManifest.xml:1,manifest receiver
+SYSTEM-FILEPROVIDER-F9261200,FileProvider,system-capability,false,,app/src/main/AndroidManifest.xml:1,manifest provider
+SYSTEM-HEADLINESWIDGETRECEIVER-77421C54,HeadlinesWidgetReceiver,system-capability,false,,app/src/main/AndroidManifest.xml:1,manifest receiver
+SYSTEM-INITIALIZATIONPROVIDER-CE150D9D,InitializationProvider,system-capability,false,,app/src/main/AndroidManifest.xml:1,manifest provider
+SYSTEM-MEDIAPLAYBACKSERVICE-6EDC087F,MediaPlaybackService,system-capability,false,,app/src/main/AndroidManifest.xml:1,manifest service
+SYSTEM-SPOTLIGHTWIDGETRECEIVER-2EAD8243,SpotlightWidgetReceiver,system-capability,false,,app/src/main/AndroidManifest.xml:1,manifest receiver
+SYSTEM-SYSTEMFOREGROUNDSERVICE-CEB9978E,SystemForegroundService,system-capability,false,,app/src/main/AndroidManifest.xml:1,manifest service
+VIEWMODEL-ADDACCOUNTVIEWMODEL-A4063CAE,AddAccountViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountViewModel.kt:10,ViewModel subclass
+VIEWMODEL-ADDFEEDVIEWMODEL-3FC1F778,AddFeedViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/articles/AddFeedViewModel.kt:14,ViewModel subclass
+VIEWMODEL-ADDLINKVIEWMODEL-6F46B719,AddLinkViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/addintent/AddLinkViewModel.kt:16,ViewModel subclass
+VIEWMODEL-DISPLAYSETTINGSVIEWMODEL-A04C1693,DisplaySettingsViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsViewModel.kt:15,ViewModel subclass
+VIEWMODEL-EDITFEEDVIEWMODEL-FB58F26C,EditFeedViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedViewModel.kt:15,ViewModel subclass
+VIEWMODEL-EDITFOLDERVIEWMODEL-4E202F7E,EditFolderViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/articles/EditFolderViewModel.kt:11,ViewModel subclass
+VIEWMODEL-GENERALSETTINGSVIEWMODEL-A8515B33,GeneralSettingsViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsViewModel.kt:20,ViewModel subclass
+VIEWMODEL-GESTURESSETTINGSVIEWMODEL-251E7763,GesturesSettingsViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsViewModel.kt:13,ViewModel subclass
+VIEWMODEL-SETTINGSVIEWMODEL-BE1CF624,SettingsViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsViewModel.kt:13,ViewModel subclass
+VIEWMODEL-UPDATELOGINVIEWMODEL-EB275B97,UpdateLoginViewModel,viewmodel,false,,app/src/main/java/com/capyreader/app/ui/accounts/UpdateLoginViewModel.kt:18,ViewModel subclass

@@ -1,0 +1,61 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0020",
+    "bc_row_sha": "d7a7de8b9a98be377c7462f975dcf8cdac42cd854226cd12f983819720747f47",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [],
+    "bc_id": "BC-0020",
+    "blocked_reason": "UNSUPPORTED_ORACLE",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T05:35:37Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {},
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T05:35:37Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {},
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "path": "databases",
+          "reason": "no database files",
+          "status": "ABSENT",
+          "store": "databases"
+        }
+      ],
+      "tables": {},
+      "tool_gaps": []
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-j9io5u7r/runtime-evidence/evidence/chains/BC-0020",
+    "executed": false,
+    "feature_id": "FEAT-SETTINGS",
+    "note": "all assertion kinds unsupported: data_object (supported: text_visible|text_gone|persist_after_restart); chain not executed",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

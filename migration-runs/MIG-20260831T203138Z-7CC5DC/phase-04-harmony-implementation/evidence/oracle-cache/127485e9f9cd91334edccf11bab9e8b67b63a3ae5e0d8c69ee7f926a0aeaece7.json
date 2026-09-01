@@ -1,0 +1,161 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0001",
+    "bc_row_sha": "b8822971cef0d3a26852853256bed98a486c33468c04f1fce0d33375e86a6067",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [
+      {
+        "kind": "text_visible",
+        "optional": "false",
+        "value": "Add Account",
+        "verdict": "FAIL"
+      },
+      {
+        "kind": "text_visible",
+        "optional": "false",
+        "value": "No feeds yet",
+        "verdict": "PASS"
+      }
+    ],
+    "bc_id": "BC-0001",
+    "blocked_reason": "",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T02:30:06Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "account_id": "ad7daae4-34fe-40f2-bf19-171cab5e9eb3",
+        "last_refreshed_at": 1788229781,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_ad7daae4-34fe-40f2-bf19-171cab5e9eb3.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_ad7daae4-34fe-40f2-bf19-171cab5e9eb3.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "账号偏好文件 account_<UUID>.xml 写入 source",
+            "应用默认 SharedPreferences 写入 account_id"
+          ],
+          "path": "databases/articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3",
+          "status": "READ",
+          "store": "sqlite:articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3#账号偏好文件 account_<UUID>.xml 写入 source"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3#应用默认 SharedPreferences 写入 account_id"
+        }
+      ]
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T02:30:06Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "account_id": "ad7daae4-34fe-40f2-bf19-171cab5e9eb3",
+        "last_refreshed_at": 1788229781,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_ad7daae4-34fe-40f2-bf19-171cab5e9eb3.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_ad7daae4-34fe-40f2-bf19-171cab5e9eb3.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "账号偏好文件 account_<UUID>.xml 写入 source",
+            "应用默认 SharedPreferences 写入 account_id"
+          ],
+          "path": "databases/articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3",
+          "status": "READ",
+          "store": "sqlite:articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3#账号偏好文件 account_<UUID>.xml 写入 source"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_ad7daae4-34fe-40f2-bf19-171cab5e9eb3#应用默认 SharedPreferences 写入 account_id"
+        }
+      ]
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-gn6c3pxg/runtime-evidence/evidence/chains/BC-0001",
+    "executed": true,
+    "feature_id": "FEAT-LOCAL-ACCOUNT",
+    "note": "assertions failed: text_visible=Add Account",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [
+      "Add Feed",
+      "All",
+      "Mark All as Read",
+      "No feeds yet",
+      "Search articles",
+      "Start by adding a feed"
+    ],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

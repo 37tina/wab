@@ -1,0 +1,92 @@
+{
+  "commands": [
+    {
+      "label": "android-version",
+      "argv": [
+        "/Users/rainyday/Library/Android/sdk/cmdline-tools/latest/bin/android",
+        "--version"
+      ],
+      "started_at": "2026-08-31T20:57:38Z",
+      "finished_at": "2026-08-31T20:57:38Z",
+      "duration_seconds": 0.292,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "1.0.15985488\n",
+      "stderr": ""
+    },
+    {
+      "label": "android-info",
+      "argv": [
+        "/Users/rainyday/Library/Android/sdk/cmdline-tools/latest/bin/android",
+        "info"
+      ],
+      "started_at": "2026-08-31T20:57:38Z",
+      "finished_at": "2026-08-31T20:57:38Z",
+      "duration_seconds": 0.531,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "sdk: /Users/rainyday/Library/Android/sdk\nversion: 1.0.15985488\nlauncher_version: 1.0.15498356\n",
+      "stderr": ""
+    },
+    {
+      "label": "android-describe",
+      "argv": [
+        "/Users/rainyday/Library/Android/sdk/cmdline-tools/latest/bin/android",
+        "describe",
+        "--project_dir=/Users/rainyday/Desktop/finale/android/CapyReader"
+      ],
+      "started_at": "2026-08-31T20:57:38Z",
+      "finished_at": "2026-08-31T20:57:45Z",
+      "duration_seconds": 6.368,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "Target project directory: /Users/rainyday/Desktop/finale/android/CapyReader\nProject directory exists: /Users/rainyday/Desktop/finale/android/CapyReader\ninit.gradle.kts is up to date.\nParsed tasks:\nTask: :app\n  Variants:\n    Variant: freeDebug\n      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/freeDebug/createFreeDebugApkListingFileRedirect/redirect.txt\n        APK: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/outputs/apk/free/debug/app-free-debug.apk (Exists)\n    Variant: gplayDebug\n      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/gplayDebug/createGplayDebugApkListingFileRedirect/redirect.txt\n        APK: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/outputs/apk/gplay/debug/app-gplay-debug.apk (Exists)\n    Variant: freeRelease\n      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/freeRelease/createFreeReleaseApkListingFileRedirect/redirect.txt\n        Output listing file does not exist on disk.\n    Variant: gplayRelease\n      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/gplayRelease/createGplayReleaseApkListingFileRedirect/redirect.txt\n        Output listing file does not exist on disk.\n    Variant: freeNightly\n      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/freeNightly/createFreeNightlyApkListingFileRedirect/redirect.txt\n        Output listing file does not exist on disk.\n    Variant: gplayNightly\n      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/gplayNightly/createGplayNightlyApkListingFileRedirect/redirect.txt\n        Output listing file does not exist on disk.\ngradlew completed successfully.\n",
+      "stderr": ""
+    },
+    {
+      "label": "android-run-help",
+      "argv": [
+        "/Users/rainyday/Library/Android/sdk/cmdline-tools/latest/bin/android",
+        "run",
+        "--help"
+      ],
+      "started_at": "2026-08-31T20:57:45Z",
+      "finished_at": "2026-08-31T20:57:45Z",
+      "duration_seconds": 0.287,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "Usage: android run [-hv] [--debug] [--use-delta-install] [--activity=PARAM]\n                   [--device=PARAM] [--type=PARAM] [--apks=PARAM[,PARAM...]]...\n                   [--install-options=PARAM[,PARAM...]]...\nBuild, deploy, and launch an Android application on a connected device or\nemulator.\n      --activity=PARAM      The activity name\n      --apks=PARAM[,PARAM...]\n                            The paths to the APKs\n      --debug               Run in debug mode\n      --device=PARAM        The device serial number\n  -h, --help                Show this help message and exit.\n      --install-options=PARAM[,PARAM...]\n                            Additional options/flags to pass to package manager\n                              install (e.g. -g,-d)\n      --type=PARAM          The component type (ACTIVITY, WATCH_FACE, TILE,\n                              COMPLICATION, DECLARATIVE_WATCH_FACE, WEAR_WIDGET)\n      --use-delta-install   Use fast delta install (speeds up incremental\n                              updates by transferring only modified code and\n                              resources; default: false)\n  -v, --verbose             Enable verbose logging\n",
+      "stderr": ""
+    },
+    {
+      "label": "android-layout-help",
+      "argv": [
+        "/Users/rainyday/Library/Android/sdk/cmdline-tools/latest/bin/android",
+        "layout",
+        "--help"
+      ],
+      "started_at": "2026-08-31T20:57:45Z",
+      "finished_at": "2026-08-31T20:57:45Z",
+      "duration_seconds": 0.282,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "Usage: android layout [-dhp] [--device=PARAM] [-o=PARAM]\nReturns the layout tree of an application\n  -d, --diff           Returns a flat list of the layout elements that have\n                         changed since the last invocation of ui-dump\n      --device=PARAM   The device serial number\n  -h, --help           Show this help message and exit.\n  -o, --output=PARAM   Writes the layout tree to the specified file or\n                         directory. If omitted, prints the tree to standard\n                         output\n  -p, --pretty         Pretty-prints the returned JSON\n",
+      "stderr": ""
+    },
+    {
+      "label": "android-screen-help",
+      "argv": [
+        "/Users/rainyday/Library/Android/sdk/cmdline-tools/latest/bin/android",
+        "screen",
+        "--help"
+      ],
+      "started_at": "2026-08-31T20:57:45Z",
+      "finished_at": "2026-08-31T20:57:46Z",
+      "duration_seconds": 0.305,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "Usage: android screen [-h] [COMMAND]\nCommands to view the device\n  -h, --help   Show this help message and exit.\nCommands:\n  capture  Outputs the device screen to a PNG\n  resolve  Target UI elements visually\n",
+      "stderr": ""
+    }
+  ]
+}

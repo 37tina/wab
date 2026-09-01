@@ -1,0 +1,175 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-561C64E5E3F0",
+  "phase": 4,
+  "feature_id": "FEAT-ADD-FEED",
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T02:39:41Z",
+  "issued_by": "impl-lead.capy-01",
+  "verify_mode": "RUNTIME",
+  "risk_level": "high",
+  "bc_ids": [
+    "BC-0004",
+    "BC-0005",
+    "BC-0006",
+    "BC-0007"
+  ],
+  "runtime_bc_ids": [
+    "BC-0004",
+    "BC-0005",
+    "BC-0007"
+  ],
+  "data_reads": [],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0031",
+    "REL-0032",
+    "REL-0033",
+    "REL-0034"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-ADDFEEDBUTTON-067ECBF0",
+      "is_container": false,
+      "kind": "reusable-component"
+    },
+    {
+      "id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "is_container": false,
+      "kind": "dialog"
+    },
+    {
+      "id": "PAGE-ADDFEEDVIEW-20077793",
+      "is_container": false,
+      "kind": "reusable-component"
+    },
+    {
+      "id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+      "is_container": true,
+      "kind": "container"
+    },
+    {
+      "id": "PAGE-ADDLINKSCREEN-9E051065",
+      "is_container": true,
+      "kind": "container"
+    },
+    {
+      "id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+      "is_container": false,
+      "kind": "dialog"
+    },
+    {
+      "id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "is_container": false,
+      "kind": "dialog"
+    },
+    {
+      "id": "PAGE-FEEDACTIONMENU-075C1A17",
+      "is_container": false,
+      "kind": "menu"
+    },
+    {
+      "id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+      "is_container": false,
+      "kind": "menu"
+    },
+    {
+      "id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "is_container": false,
+      "kind": "dialog"
+    },
+    {
+      "id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "is_container": false,
+      "kind": "dialog"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead.capy-01",
+    "ui_agent_id": "impl-lead.capy-01",
+    "business_data_agent_id": "impl-lead.capy-01",
+    "native_capability_agent_id": "impl-lead.capy-01"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0004",
+      "BC-0005",
+      "BC-0006",
+      "BC-0007"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:21",
+      "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:80",
+      "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:144",
+      "app/src/main/java/com/capyreader/app/ui/articles/AddFeedViewModel.kt:43",
+      "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:60",
+      "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:90",
+      "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:96",
+      "capy/src/main/java/com/jocmp/capy/persistence/FeedRecords.kt:85",
+      "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:42",
+      "app/src/main/res/values/strings.xml:8",
+      "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:87",
+      "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:92",
+      "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:75",
+      "capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt:79",
+      "capy/src/main/java/com/jocmp/capy/accounts/AddFeedResult.kt:5",
+      "app/src/main/res/values/strings.xml:60",
+      "app/src/main/java/com/capyreader/app/AddLinkActivity.kt:17",
+      "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:46",
+      "app/src/main/AndroidManifest.xml:49",
+      "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:12",
+      "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:25",
+      "capy/src/main/java/com/jocmp/capy/Account.kt:199",
+      "capy/src/main/java/com/jocmp/capy/Account.kt:205",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:408"
+    ],
+    "runtime_evidence_refs": [
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0004",
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0005",
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0007"
+    ],
+    "data_relations": [
+      "REL-0023",
+      "REL-0031",
+      "REL-0032",
+      "REL-0033",
+      "REL-0034"
+    ],
+    "visual_memory_surface": [
+      "PAGE-ADDFEEDBUTTON-067ECBF0",
+      "PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "PAGE-ADDFEEDVIEW-20077793",
+      "PAGE-ADDLINKACTIVITY-3ED2961B",
+      "PAGE-ADDLINKSCREEN-9E051065",
+      "PAGE-EDITFEEDDIALOG-69FC6E07",
+      "PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "PAGE-FEEDACTIONMENU-075C1A17",
+      "PAGE-FOLDERACTIONMENU-C5428EA8",
+      "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "PAGE-REMOVEFOLDERDIALOG-0DE275BA"
+    ],
+    "p3_surface_plan": [
+      "ShellModalAddfeeddialogDbec7e69",
+      "ShellModalEditfeeddialog69fc6e07",
+      "ShellModalEditfolderdialog9506cebf",
+      "ShellModalFeedactionmenu075c1a17",
+      "ShellModalFolderactionmenuC5428ea8",
+      "ShellModalRemovefeeddialogFdf24ff7",
+      "ShellModalRemovefolderdialog0de275ba"
+    ]
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555"
+}

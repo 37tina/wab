@@ -1,0 +1,55 @@
+{
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "project_id": "CAPYREADER",
+  "project_root": "/Users/rainyday/Desktop/finale/android/CapyReader",
+  "created_at": "2026-08-31T20:31:38Z",
+  "controller_skill": "android-harmony-migration-controller",
+  "status": "IN_PROGRESS",
+  "skill_freeze_manifest_sha256": "2bb2e587bfc86dd793b5d50e54c453cfbdb76bae1c25560296a5c041aafb03b7",
+  "phase2_closure_gate": {
+    "unmapped": 0,
+    "feature_coverage": {
+      "required": true,
+      "ok": true,
+      "included": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ADD-FEED",
+        "FEAT-FEED-REFRESH",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR",
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-SETTINGS",
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "covered": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ADD-FEED",
+        "FEAT-FEED-REFRESH",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR",
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-SETTINGS",
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "missing": []
+    },
+    "completeness_rows": 290,
+    "completeness_missing_total": 203,
+    "completeness_na_total": 32,
+    "audit_discrepancy": 0,
+    "visited": 2,
+    "visited_rows": 0,
+    "not_entered": 12,
+    "not_entered_rows": 0,
+    "pages_total": 14,
+    "pages_visited_pct": 14.3,
+    "chain_mode": true,
+    "chains_total": 14,
+    "chains_pass": 2,
+    "chains_fail_blocked": 12
+  }
+}

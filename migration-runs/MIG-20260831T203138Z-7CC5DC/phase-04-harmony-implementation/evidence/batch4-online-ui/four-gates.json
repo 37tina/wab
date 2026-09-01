@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+  "fwo": "FWO-4E36499BADFF (active, issued-by impl-lead.capy-01, 2026-09-01T05:54:52Z)",
+  "verify_mode": "SOURCE_CONFIRM(无真机重放,四门槛静态+既有设备证据检查)",
+  "executor": "verify-exec.capy-01 (4B-R4)",
+  "verified_at": "2026-09-01T06:10:00Z"
+ },
+ "gates": {
+  "a_implementation_exists": {
+   "verdict": "PASS",
+   "evidence": [
+    "evidence/p4-addaccount-coldstart.png — Harmony真机无账号冷启动首屏(4A采集),读图确认五选项完整:Local(On your device)/Feedbin(feedbin.com)/FreshRSS(freshrss.org)/Miniflux(miniflux.app)/Reader(Self-hosted Google Reader API),可见文本锚点逐一在屏",
+    "evidence/batch3-4b/A3_00_addaccount_coldstart.json — Android真机(4B-R4本轮)uiautomator原生dump同页面,五选项逐字一致,两侧对齐"
+   ],
+   "four_online_items_visible": [
+    "Feedbin",
+    "FreshRSS",
+    "Miniflux",
+    "Reader"
+   ]
+  },
+  "b_no_noop_placeholder": {
+   "verdict": "PASS",
+   "evidence": [
+    "ShellPageAddaccountscreenA9c749bc.ets:55 — 选项点击绑定 pathStack.pushPathByName('PAGE-LOGINSCREEN-9D67F9D2', opt.title),非空处理",
+    "ShellPageLoginscreen9d67f9d2.ets:33-35 SERVICES表; :6-9 Server URL字段(hasCustomURL服务)+Feedbin真实端点api.feedbin.com/authentication.json Basic Auth; :52 loginService StorageLink默认Feedbin",
+    "P3壳+批次0实现链(4A走查记录)"
+   ],
+   "caveat": "本轮真机点击Feedbin→LoginScreen动态交互未现场重放(Harmony环境故障:点击即退桌面+数据被差分链清除,见batch3-manual-evidence.json recheck_4b_r4.env_incidents_4b_r4);判定依据=源码导航绑定+LoginScreen实实现+4A证据,动态复验待环境恢复补"
+  },
+  "c_source_traceable": {
+   "verdict": "PASS",
+   "records": [
+    "ShellPageAddaccountscreenA9c749bc.ets:25 Local",
+    "ShellPageAddaccountscreenA9c749bc.ets:26 Feedbin",
+    "ShellPageAddaccountscreenA9c749bc.ets:27 FreshRSS",
+    "ShellPageAddaccountscreenA9c749bc.ets:28 Miniflux",
+    "ShellPageAddaccountscreenA9c749bc.ets:29 Reader",
+    "ShellPageAddaccountscreenA9c749bc.ets:55 pushPathByName PAGE-LOGINSCREEN-9D67F9D2",
+    "ShellPageLoginscreen9d67f9d2.ets:33-35 SERVICES表; :52; :6-9"
+   ]
+  },
+  "d_buildable": {
+   "verdict": "PASS",
+   "evidence": "BATCH3-STATE-DOMAIN HAP(含AddAccountScreen/LoginScreen页面栈)已装于127.0.0.1:5557且本轮全程可aa start冷启动运行(多次截屏验证)——构建产物在设备端运行即证"
+  }
+ },
+ "overall": "四门槛4/4 PASS(b门附环境受阻动态交互补验备注);SOURCE_CONFIRM无需harmony-steps重放行",
+ "next": "consumed回执追加1行"
+}

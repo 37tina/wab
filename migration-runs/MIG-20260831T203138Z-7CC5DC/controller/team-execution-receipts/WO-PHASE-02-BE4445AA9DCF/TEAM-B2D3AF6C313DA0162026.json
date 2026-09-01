@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-B2D3AF6C313DA0162026",
+  "phase": 2,
+  "work_order_id": "WO-PHASE-02-BE4445AA9DCF",
+  "work_order_sha256": "1ecc48b505b09ea62d490ce8f901f815b5f45829f3539608b908e9920d36d048",
+  "role_key": "runtime_state_agent_ids",
+  "actor_id": "runtime-oracle.capy-01",
+  "platform_task_id": "ses_fa5defc07ffe3Z9lKk2kr13BkE-RUN",
+  "started_at": "2026-08-31T21:20:17Z",
+  "ended_at": "2026-08-31T23:38:59Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-09-01T00:01:42Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-02-android-inventory/runtime-evidence/runtime-chains.csv",
+      "sha256": "d77cb73f3a082807e9b55f82e46d708354a5151336b227911852e962edaace25"
+    }
+  ]
+}

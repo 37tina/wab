@@ -1,0 +1,1128 @@
+{
+  "schema_version": 1,
+  "paradigm": "feature-semantic",
+  "routes": [
+    {
+      "surface_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "kind": "page",
+      "route_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "shell_symbol": "ShellPageAddaccountscreenA9c749bc",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets",
+      "android_structure": "PAGE-ADDACCOUNTSCREEN-A9C749BC：主要类：View×15、Button×4、TextView×4、FrameLayout×2；ComposeView 宿主；27 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation+NavPathStack+List/Scroll",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "kind": "page",
+      "route_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "shell_symbol": "ShellPageArticlescreen23af0624",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageArticlescreen23af0624.ets",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "All",
+          "Unread",
+          "Starred",
+          "Ars Technica",
+          "No feeds yet",
+          "Start by adding a feed"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Add Feed",
+          "Open settings navigation",
+          "Refresh all",
+          "More options",
+          "Mark as read",
+          "Star"
+        ],
+        "palette": [],
+        "note": "BC 锚点机械提取（快照缺口补强）：状态栏三段 Unread/All/Starred（BC-0009）；feed 标题 Ars Technica（BC-0007/0010）；空态文案（BC-0001）；工具栏/抽屉无障碍入口（BC-0004/0008/0011/0014/0016）。行为语义另见：文章时间戳渲染、已读条目淡化（BC-0011/0014 断言）",
+        "evidence": [
+          "BC-0001",
+          "BC-0004",
+          "BC-0007",
+          "BC-0008",
+          "BC-0009",
+          "BC-0010",
+          "BC-0011",
+          "BC-0014",
+          "BC-0016"
+        ]
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation+NavPathStack+SideBarContainer(Overlay 抽屉,A17)+List+LazyForEach(A13)+Refresh(A11)+ArticleStatusBar 过滤段(Unread/All/Starred=SegmentButton 风格)",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "feature_id": "FEAT-ARTICLE-READ",
+      "kind": "page",
+      "route_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "shell_symbol": "ShellPageImagepage18d3e5ad",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageImagepage18d3e5ad.ets",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "BC-0012：全屏图片纯展示页（无固定文案锚点），关闭返回阅读视图",
+        "evidence": [
+          "BC-0012"
+        ]
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation+NavPathStack+Stack 全屏+Image(A4)",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "kind": "page",
+      "route_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "shell_symbol": "ShellPageLoginscreen9d67f9d2",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "Username",
+          "Password",
+          "API URL"
+        ],
+        "content_descs": [],
+        "palette": [],
+        "note": "BC-0003 源码级确认：服务名标题动态（Feedbin/FreshRSS/Miniflux/Reader）；API URL 字段仅 hasCustomURL 服务显示",
+        "evidence": [
+          "BC-0003"
+        ]
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation+NavPathStack+Column 表单+TextInput/TextArea(A2:Username/Password/API URL)+Button(A3)",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "kind": "page",
+      "route_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "shell_symbol": "ShellPageMainactivity3fde9431",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageMainactivity3fde9431.ets",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "Ars Technica"
+        ],
+        "content_descs": [
+          "Open settings"
+        ],
+        "palette": [],
+        "note": "BC-0017 重启直达：账号存在时 Add Account 不出现，主界面侧栏feed 与条目完整恢复；本壳为路由分发宿主",
+        "evidence": [
+          "BC-0017"
+        ]
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation+NavPathStack+List/Scroll",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "feature_id": "FEAT-ARTICLE-READ",
+      "kind": "page",
+      "route_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "shell_symbol": "ShellPageOpenarticleinbrowseractivityD9097de2",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageOpenarticleinbrowseractivityD9097de2.ets",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "Open in Browser"
+        ],
+        "content_descs": [],
+        "palette": [],
+        "note": "BC-0013：系统 intent 跳外部浏览器承载文章 URL（无自有内容渲染）",
+        "evidence": [
+          "BC-0013"
+        ]
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation+NavPathStack+List/Scroll",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "page",
+      "route_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "shell_symbol": "ShellPageSettingsscreenD0a9ff8d",
+      "shell_file": "entry/src/main/ets/pages/shells/ShellPageSettingsscreenD0a9ff8d.ets",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "Display",
+          "General",
+          "Article List"
+        ],
+        "content_descs": [
+          "Open settings"
+        ],
+        "palette": [],
+        "note": "BC-0018：设置分区列表（Display/General/Article List 等面板导航宿主）",
+        "evidence": [
+          "BC-0018"
+        ]
+      },
+      "native_carrier": "route：Navigation 路由节点（独立页面，NavDestination 承载）",
+      "native_component": "Navigation+NavPathStack 二级页+List(分区面板)+Radio/RadioContainer(A31)+Select(A27)+Switch(A29)",
+      "matched_rule": "page+plain-content",
+      "custom_allowed": "no",
+      "reason": ""
+    }
+  ],
+  "modals": [
+    {
+      "surface_id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalAddfeeddialogDbec7e69",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalAddfeeddialogDbec7e69.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "PAGE-ADDFEEDDIALOG-DBEC7E69：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM",
+          "Feed or Website URL",
+          "Add",
+          "Feed added",
+          "Couldn't find feed"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit",
+          "Add Feed"
+        ],
+        "palette": [],
+        "note": "BC-0004/0005：URL 输入、成功 snackbar 与错误文案锚点（快照补充）",
+        "evidence": [
+          "BC-0004",
+          "BC-0005"
+        ]
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "BC-0004 page_ref=PAGE-ARTICLESCREEN(5C3108E6) symbol 对齐"
+    },
+    {
+      "surface_id": "PAGE-ARTICLEACTIONMENU-128442E3",
+      "feature_id": "FEAT-READ-UNREAD",
+      "kind": "menu",
+      "shell_symbol": "ShellModalArticleactionmenu128442e3",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalArticleactionmenu128442e3.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [
+          "More options",
+          "Star"
+        ],
+        "palette": [],
+        "note": "列表行操作菜单：加星/取消星入口（ArticleActionMenu.kt:186）",
+        "evidence": [
+          "BC-0007",
+          "BC-0016"
+        ]
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "BC-0011 列表行菜单（article_row 点击链）"
+    },
+    {
+      "surface_id": "PAGE-ARTICLEFONTMENU-D9B99022",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "menu",
+      "shell_symbol": "ShellModalArticlefontmenuD9b99022",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalArticlefontmenuD9b99022.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "无 BC 直接锚点（源码 ui/articles/detail/ArticleFontMenu.kt:26）：阅读器字体菜单，选项动态；从阅读视图进入",
+        "evidence": []
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "源码目录归属 ui/articles/detail/（阅读器字体菜单）"
+    },
+    {
+      "surface_id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalArticlestylepicker397873e0",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalArticlestylepicker397873e0.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "BC-0021：阅读样式选择（字体/标题对齐），选项动态源于article_font_size 等 prefs 键；从阅读视图进入",
+        "evidence": [
+          "BC-0021"
+        ]
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "BC-0021 从阅读视图进入（reader detail pane）"
+    },
+    {
+      "surface_id": "PAGE-AUTODELETEMENU-3E3FD576",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "menu",
+      "shell_symbol": "ShellModalAutodeletemenu3e3fd576",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalAutodeletemenu3e3fd576.ets",
+      "host_surface_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "mount_host_source": "feature-page",
+      "host_candidates": [
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "无 BC 直接锚点（源码 settings/panels/AutoDeleteMenu.kt:16）：设置子菜单",
+        "evidence": []
+      },
+      "native_carrier": "modal@PAGE-SETTINGSSCREEN-D0A9FF8D：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalEditfeeddialog69fc6e07",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalEditfeeddialog69fc6e07.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "PAGE-EDITFEEDDIALOG-69FC6E07：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "FEAT-ADD-FEED 抽屉 FeedActionMenu 触发链（ui/articles/）"
+    },
+    {
+      "surface_id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalEditfolderdialog9506cebf",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalEditfolderdialog9506cebf.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "PAGE-EDITFOLDERDIALOG-9506CEBF：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "FEAT-ADD-FEED 抽屉 FolderActionMenu 触发链（ui/articles/）"
+    },
+    {
+      "surface_id": "PAGE-FEEDACTIONMENU-075C1A17",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "menu",
+      "shell_symbol": "ShellModalFeedactionmenu075c1a17",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalFeedactionmenu075c1a17.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "PAGE-FEEDACTIONMENU-075C1A17：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "BC-0007 侧栏 feed 操作菜单（FeedActionMenuItems.kt）"
+    },
+    {
+      "surface_id": "PAGE-FILTERACTIONMENU-07E67060",
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "kind": "menu",
+      "shell_symbol": "ShellModalFilteractionmenu07e67060",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalFilteractionmenu07e67060.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "feature-page",
+      "host_candidates": [
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "android_structure": "PAGE-FILTERACTIONMENU-07E67060：主要类：View×15、Button×4、TextView×4、FrameLayout×2；ComposeView 宿主；27 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "menu",
+      "shell_symbol": "ShellModalFolderactionmenuC5428ea8",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalFolderactionmenuC5428ea8.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "PAGE-FOLDERACTIONMENU-C5428EA8：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "侧栏 folder 操作菜单（ui/articles/）"
+    },
+    {
+      "surface_id": "PAGE-MARKALLREADDIALOG-46A35015",
+      "feature_id": "FEAT-READ-UNREAD",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalMarkallreaddialog46a35015",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalMarkallreaddialog46a35015.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "Mark all items as read?",
+          "Confirm"
+        ],
+        "content_descs": [],
+        "palette": [],
+        "note": "BC-0015：确认对话框（article_list_confirm_mark_all_read 默认开启）",
+        "evidence": [
+          "BC-0015"
+        ]
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "BC-0015 article list toolbar 触发"
+    },
+    {
+      "surface_id": "PAGE-MARKALLREADMENU-464F3414",
+      "feature_id": "FEAT-READ-UNREAD",
+      "kind": "menu",
+      "shell_symbol": "ShellModalMarkallreadmenu464f3414",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalMarkallreadmenu464f3414.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [
+          "Mark All as Read"
+        ],
+        "palette": [],
+        "note": "BC-0015 触发链：article list toolbar desc=Mark All as Read",
+        "evidence": [
+          "BC-0015"
+        ]
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "BC-0015 article list toolbar 触发"
+    },
+    {
+      "surface_id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "menu",
+      "shell_symbol": "ShellModalRefreshintervalmenuF4c57c66",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalRefreshintervalmenuF4c57c66.ets",
+      "host_surface_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "mount_host_source": "feature-page",
+      "host_candidates": [
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "无 BC 直接锚点（源码 settings/panels/RefreshIntervalMenu.kt:18）：设置子菜单",
+        "evidence": []
+      },
+      "native_carrier": "modal@PAGE-SETTINGSSCREEN-D0A9FF8D：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "native_component": "bindMenu",
+      "matched_rule": "menu",
+      "custom_allowed": "no",
+      "reason": ""
+    },
+    {
+      "surface_id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalRemovefeeddialogFdf24ff7",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalRemovefeeddialogFdf24ff7.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "PAGE-REMOVEFEEDDIALOG-FDF24FF7：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "BC-0007 触发链 More options→Remove Feed（列表/侧栏）"
+    },
+    {
+      "surface_id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalRemovefolderdialog0de275ba",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalRemovefolderdialog0de275ba.ets",
+      "host_surface_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "mount_host_source": "bc-pageref-symbol-align",
+      "host_candidates": [
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "android_structure": "PAGE-REMOVEFOLDERDIALOG-0DE275BA：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "modal@PAGE-ARTICLESCREEN-23AF0624：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-ARTICLESCREEN-23AF0624",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": "",
+      "host_fix_reason": "FEAT-ADD-FEED 抽屉 FolderActionMenu 触发链"
+    },
+    {
+      "surface_id": "PAGE-THEMEPICKER-6F79D5ED",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "dialog",
+      "shell_symbol": "ShellModalThemepicker6f79d5ed",
+      "shell_file": "entry/src/main/ets/pages/modals/ShellModalThemepicker6f79d5ed.ets",
+      "host_surface_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "mount_host_source": "feature-page",
+      "host_candidates": [
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "Theme",
+          "Default",
+          "Newsprint"
+        ],
+        "content_descs": [],
+        "palette": [],
+        "note": "BC-0019：Display 面板 Theme 下拉选择器（enum 持久化 app_theme）",
+        "evidence": [
+          "BC-0019"
+        ]
+      },
+      "native_carrier": "modal@PAGE-SETTINGSSCREEN-D0A9FF8D：以 bindSheet/CustomDialog 模态挂载于宿主页面 PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "native_component": "CustomDialog/bindMenu",
+      "matched_rule": "dialog",
+      "custom_allowed": "no",
+      "reason": ""
+    }
+  ],
+  "passthrough": [
+    {
+      "surface_id": "PAGE-ADDACCOUNTVIEW-A37259FA",
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "visual-memory 对该 surface 无可用证据（无快照或无色板），保留要求退化为 feature-map surface 声明本身"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-ADDFEEDBUTTON-067ECBF0",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "PAGE-ADDFEEDBUTTON-067ECBF0：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-ADDFEEDVIEW-20077793",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "PAGE-ADDFEEDVIEW-20077793：主要类：View×48、TextView×20、Button×4、FrameLayout×2；ComposeView 宿主；76 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "4:02 AM",
+          "2:39 AM",
+          "2:10 AM",
+          "1:11 AM",
+          "12:33 AM"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read",
+          "Edit"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "container",
+      "reason": "",
+      "android_structure": "PAGE-ADDLINKACTIVITY-3ED2961B：主要类：View×15、Button×4、TextView×4、FrameLayout×2；ComposeView 宿主；27 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-ADDLINKSCREEN-9E051065",
+      "feature_id": "FEAT-ADD-FEED",
+      "kind": "container",
+      "reason": "",
+      "android_structure": "PAGE-ADDLINKSCREEN-9E051065：主要类：View×15、Button×4、TextView×4、FrameLayout×2；ComposeView 宿主；27 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-ARTICLELIST-AB5566F8",
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "PAGE-ARTICLELIST-AB5566F8：主要类：View×15、Button×4、TextView×4、FrameLayout×2；ComposeView 宿主；27 节点/最大深度 15",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [
+          "No feeds yet",
+          "Start by adding a feed",
+          "Add Feed",
+          "All"
+        ],
+        "content_descs": [
+          "Search articles",
+          "Mark All as Read"
+        ],
+        "palette": [],
+        "note": "原生重表达必须保留以上可见文本/无障碍入口/主色板"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-ARTICLEREADER-B2B865F0",
+      "feature_id": "FEAT-ARTICLE-READ",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "visual-memory 对该 surface 无可用证据（无快照或无色板），保留要求退化为 feature-map surface 声明本身"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "visual-memory 对该 surface 无可用证据（无快照或无色板），保留要求退化为 feature-map surface 声明本身"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-FEEDLIST-228CEB83",
+      "feature_id": "FEAT-FEED-REFRESH",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "visual-memory 对该 surface 无可用证据（无快照或无色板），保留要求退化为 feature-map surface 声明本身"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-LOGINVIEW-49F18417",
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "visual-memory 对该 surface 无可用证据（无快照或无色板），保留要求退化为 feature-map surface 声明本身"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-SETTINGSVIEW-9331B5E9",
+      "feature_id": "FEAT-SETTINGS",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "visual-memory 对该 surface 无可用证据（无快照或无色板），保留要求退化为 feature-map surface 声明本身"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    },
+    {
+      "surface_id": "PAGE-TOGGLESTARMENUITEM-5F309692",
+      "feature_id": "FEAT-STAR",
+      "kind": "reusable-component",
+      "reason": "",
+      "android_structure": "visual-memory 未覆盖该 surface 的 ui_tree_summary（Phase 2 无对应运行时快照），结构描述退化",
+      "preserve": {
+        "policy": "UI_FIDELITY=HIGH",
+        "texts": [],
+        "content_descs": [],
+        "palette": [],
+        "note": "visual-memory 对该 surface 无可用证据（无快照或无色板），保留要求退化为 feature-map surface 声明本身"
+      },
+      "native_carrier": "none：透传（不生成壳，Phase 4 透明宿主组合进宿主页面）",
+      "native_component": "none (透传)",
+      "matched_rule": "container/component-passthrough",
+      "custom_allowed": "no"
+    }
+  ],
+  "edges": [],
+  "skipped_nav_pages": [
+    "PAGE-ADDLINKACTIVITY-F9EC19DF",
+    "PAGE-ARTICLESCREEN-5C3108E6"
+  ],
+  "stats": {
+    "surface_count": 35,
+    "route_count": 7,
+    "modal_count": 16,
+    "passthrough_count": 12,
+    "nav_row_count": 6,
+    "nav_edge_kept": 0,
+    "nav_pages_skipped": 2,
+    "ui_blueprint_surface_count": 35,
+    "ui_blueprint_visual_memory_covered": 14
+  },
+  "ui_blueprint": {
+    "policy": "UI_FIDELITY=HIGH",
+    "purpose": "Android UI 在 HarmonyOS 上的原生表达决策（P3 冻结，Phase 4 按图施工，不临时发挥）",
+    "mapping_rules": [
+      "page+bottom-tabs -> Navigation+NavPathStack+Tabs(barPosition=End)+List+LazyForEach",
+      "page+plain-content -> Navigation+NavPathStack+List/Scroll",
+      "sheet -> bindSheet(detents MEDIUM/LARGE)",
+      "dialog -> CustomDialog/bindMenu",
+      "menu -> bindMenu",
+      "container/component -> none (透传)"
+    ],
+    "tabs_owner_arbitration": {
+      "rule": "一个 Navigation 体系只有一个底栏 Tabs；多 page 共享同一快照证据时按 特征强度 > 主入口命名标记(HOME/MAIN/LAUNCHER) > nav 出度 > 字典序 仲裁唯一持有者",
+      "tabs_owner_surface_id": null,
+      "tab_feature_page_ids": []
+    },
+    "custom_allowed_policy": "默认 no；仅 class_histogram 出现自绘类（SurfaceView/TextureView/GLSurfaceView）判系统组件无法表达时 yes 并登记 reason",
+    "visual_memory": {
+      "available": true,
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory/visual-memory.json",
+      "sha256": "4bd61164b5be983b968849af8f544e76281647ca9164eeea1c4af80082ece7dd",
+      "surface_count": 35
+    },
+    "stats": {
+      "blueprinted_surface_count": 35,
+      "visual_memory_covered_surface_count": 14
+    }
+  },
+  "generated_at": "2026-09-01T00:11:30Z",
+  "theme_tokens": {
+    "generated_by": "public-ui.capy-01:derive_theme_from_source",
+    "mode": "android-source-derived",
+    "visual_memory": {
+      "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory/visual-memory.json",
+      "sha256": "4bd61164b5be983b968849af8f544e76281647ca9164eeea1c4af80082ece7dd",
+      "available": true
+    },
+    "color_token_count": 18,
+    "resource_color_count": 9,
+    "dark_mode": "android-source-dark-scheme",
+    "gradient": null,
+    "typography": {
+      "source": "platform-standard-ladder",
+      "ladder": {
+        "display": 32,
+        "title": 24,
+        "subtitle": 20,
+        "body": 16,
+        "caption": 12
+      },
+      "text_sizes_available": false
+    },
+    "spacing": {
+      "source": "platform-standard-ladder",
+      "ladder": {
+        "xs": 4,
+        "s": 8,
+        "m": 12,
+        "l": 16,
+        "xl": 24
+      }
+    },
+    "radius": {
+      "source": "platform-guidance (key_bounds carries no corner-radius attribute)",
+      "ladder": {
+        "card": 12,
+        "sheet": 16,
+        "button": 20
+      }
+    },
+    "files": {
+      "app_theme": "entry/src/main/ets/foundation/AppTheme.ets",
+      "color_base": "entry/src/main/resources/base/element/color.json",
+      "color_dark": "entry/src/main/resources/dark/element/color.json"
+    },
+    "source_map": {
+      "background": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:70",
+      "pageBackground": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:87",
+      "surface": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:88",
+      "elevatedSurface": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:89",
+      "onBackground": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:71",
+      "onBackgroundVariant": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:75",
+      "onPrimary": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:58",
+      "primary": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:57",
+      "scrim": "platform-default"
+    },
+    "dark_source_map": {
+      "background": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:34",
+      "pageBackground": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:51",
+      "surface": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:52",
+      "elevatedSurface": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:53",
+      "onBackground": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:35",
+      "onBackgroundVariant": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:39",
+      "onPrimary": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:22",
+      "primary": "app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:21",
+      "scrim": "platform-default"
+    },
+    "derivation_note": "Phase 2 global_palette 空集（DEC-009），按工单从 Android 源码主题实值派生：Theme.kt:117 AppTheme.DEFAULT -> TachiyomiColorScheme.kt light/dark Material3 色槽"
+  }
+}

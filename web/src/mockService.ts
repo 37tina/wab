@@ -206,7 +206,7 @@ export class MockMigrationServiceImpl implements MigrationService {
    * 外部驱动项目镜像导入：一次性构造终态项目（四阶段已审完成 + 各阶段汇总全文）。
    * 不经过 createProject/record/review 状态机——零定时器零副作用，杜绝阶段被打回执行中。
    */
-  importExternalProject(input: { id: string; name: string; sourceType: "github" | "zip"; sourceValue: string; workspaceDir?: string; runModel?: string; session?: string; phases: Array<{ n: number; response: string }> }): Project {
+  importExternalProject(input: { id: string; name: string; sourceType: "github" | "zip"; sourceValue: string; workspaceDir?: string; runModel?: string; session?: string; phases: Array<{ n: number; response: string }>; activePhase?: number }): Project {
     const base = baseProject({
       name: input.name,
       sourceType: input.sourceType,
@@ -220,14 +220,17 @@ export class MockMigrationServiceImpl implements MigrationService {
     });
     base.id = input.id;
     base.activeSessionId = input.session;
-    base.status = "completed";
-    base.currentPhase = 4;
+    const active = Math.min(Math.max(input.activePhase ?? 5, 1), 5);
+    base.status = active >= 5 ? "completed" : "running";
+    base.currentPhase = Math.min(active, 4) as PhaseNumber;
     base.phases = base.phases.map((item) => {
       const response = input.phases.find((x) => x.n === item.number)?.response ?? "";
+      const done = item.number < active;
+      const running = item.number === active;
       return {
         ...item,
-        status: (item.number === 4 ? "completed" : "approved") as Phase["status"],
-        progress: 100,
+        status: (done ? (item.number === 4 ? "completed" : "approved") : running ? "running" : "pending") as Phase["status"],
+        progress: done ? 100 : running ? 45 : 0,
         execution: {
           mode: "codearts-agentteam",
           status: "succeeded",

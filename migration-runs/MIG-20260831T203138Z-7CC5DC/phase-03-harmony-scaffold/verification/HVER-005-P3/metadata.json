@@ -1,0 +1,3144 @@
+{
+  "verification_id": "HVER-005-P3",
+  "henv_id": "HENV-004-P3",
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "executed_by": "toolchain.capy-01",
+  "created_at": "2026-09-01T00:37:18Z",
+  "status": "PASS",
+  "input_lock_sha256": "d9f282e492ab9aa51297f9439574bc629a4d4f59e33f3637f63bd44667ceb189",
+  "environment_sha256": "e1b40a1e712cc29f3613fec253a3e5f54ba98cc11a33be8af9af2a2aa41b0392",
+  "source_snapshot_sha256": "14b7634740f07be042251747acb0b6e2e28792cec403937320727cdefa13d07a",
+  "category_order": [
+    "TOOLCHAIN",
+    "DEVICE",
+    "BUNDLE_CHECK",
+    "SIGNING_CHECK",
+    "CLEAN_BUILD",
+    "INSTALL",
+    "LAUNCH",
+    "ROUTE_SMOKE",
+    "SCREENSHOT_CAPTURE"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "--version"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:24Z",
+      "finished_at": "2026-09-01T00:35:24Z",
+      "duration_seconds": 0.116,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-TOOLCHAIN",
+      "category": "TOOLCHAIN",
+      "device_id": "",
+      "device_serial": "",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "required_argv_tokens": [
+        "--version"
+      ],
+      "success_output_contains": [
+        "6.24.3"
+      ],
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "success_output_matches": [
+        "6.24.3"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-TOOLCHAIN.stdout.log",
+      "stdout_sha256": "684aa4f4bdd851f66c5ef2be00ec925f4f27288ff156edab79a6239478b40e24",
+      "stderr_path": "logs/CMD-P3-TOOLCHAIN.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "list",
+        "targets"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:24Z",
+      "finished_at": "2026-09-01T00:35:24Z",
+      "duration_seconds": 0.022,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-DEVICE",
+      "category": "DEVICE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "list",
+        "targets"
+      ],
+      "success_output_contains": [
+        "127.0.0.1:5557"
+      ],
+      "error_output_contains": [
+        "[Fail]"
+      ],
+      "success_output_matches": [
+        "127.0.0.1:5557"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-DEVICE.stdout.log",
+      "stdout_sha256": "d861ba83146515f001b5ca1ff526d7b6c1689de5c4e7b6ceee4e169e1e31ca82",
+      "stderr_path": "logs/CMD-P3-DEVICE.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.capyreader.app.debug"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:24Z",
+      "finished_at": "2026-09-01T00:35:24Z",
+      "duration_seconds": 0.053,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-BUNDLE",
+      "category": "BUNDLE_CHECK",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "bm",
+        "dump",
+        "-n",
+        "com.capyreader.app.debug"
+      ],
+      "success_output_contains": [
+        "failed to get information"
+      ],
+      "error_output_contains": [
+        "unable to connect"
+      ],
+      "success_output_matches": [
+        "failed to get information"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-BUNDLE.stdout.log",
+      "stdout_sha256": "11870ca139e6ec870a3c0919cec22696ae10630cbe889de2e075996c08fb871f",
+      "stderr_path": "logs/CMD-P3-BUNDLE.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_signing_check.py",
+        "--hap",
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/signing/entry-default-signed.hap",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--fingerprint",
+        "BF4EC3E50804878A8E333C42F2F0AECBC907578AA567CC81FA5EACD715C9969E",
+        "--java",
+        "/Applications/DevEco-Studio.app/Contents/jbr/Contents/Home/bin/java",
+        "--jar",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/lib/hap-sign-tool.jar"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:24Z",
+      "finished_at": "2026-09-01T00:35:25Z",
+      "duration_seconds": 0.658,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-SIGNING",
+      "category": "SIGNING_CHECK",
+      "device_id": "",
+      "device_serial": "",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_signing_check.py",
+      "executable_sha256": "9938dc83f4f032c83e3ae6c352f75699e8dc1f1d661a4802113ca9ff1b060db6",
+      "required_argv_tokens": [
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--fingerprint",
+        "BF4EC3E50804878A8E333C42F2F0AECBC907578AA567CC81FA5EACD715C9969E"
+      ],
+      "success_output_contains": [
+        "SIGNING-VERIFY-PASS"
+      ],
+      "error_output_contains": [
+        "SIGNING-VERIFY-FAIL"
+      ],
+      "success_output_matches": [
+        "SIGNING-VERIFY-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-SIGNING.stdout.log",
+      "stdout_sha256": "88dbc27668e8a7881852c8f6bba6f2a7a807b7e2848e258357e66a04b9717026",
+      "stderr_path": "logs/CMD-P3-SIGNING.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default",
+        "-p",
+        "buildMode=debug",
+        "--no-daemon"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:25Z",
+      "finished_at": "2026-09-01T00:35:30Z",
+      "duration_seconds": 5.266,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-BUILD",
+      "category": "CLEAN_BUILD",
+      "device_id": "",
+      "device_serial": "",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/tools/hvigor/bin/hvigorw",
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "required_argv_tokens": [
+        "clean",
+        "assembleHap",
+        "--mode",
+        "module",
+        "-p",
+        "product=default"
+      ],
+      "success_output_contains": [
+        "BUILD SUCCESSFUL"
+      ],
+      "error_output_contains": [
+        "BUILD FAILED"
+      ],
+      "success_output_matches": [
+        "BUILD SUCCESSFUL"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-BUILD.stdout.log",
+      "stdout_sha256": "f47dff87d069c8d7e1f4d6d794c6fb6ff05ba50e1bd189c99b51c811d63f1134",
+      "stderr_path": "logs/CMD-P3-BUILD.stderr.log",
+      "stderr_sha256": "0cea6de31d52daa2e4e9cae9fd683fd49263a04a9a5d452f6cf96645b7ab8630",
+      "command_verdict": "PASS",
+      "artifact_states_after_clean_build": {
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project/entry/build/default/outputs/default/entry-default-unsigned.hap": {
+          "sha256": "e5aeccdba1ce812d96627bb989612fdabca5640d23c03390e027cae1518d4a5f",
+          "size": 265616,
+          "mtime_ns": 1788222930426972292
+        }
+      }
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "install",
+        "entry/build/default/outputs/default/entry-default-unsigned.hap"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:30Z",
+      "finished_at": "2026-09-01T00:35:30Z",
+      "duration_seconds": 0.199,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-INSTALL",
+      "category": "INSTALL",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "install",
+        "entry/build/default/outputs/default/entry-default-unsigned.hap"
+      ],
+      "success_output_contains": [
+        "install bundle successfully"
+      ],
+      "error_output_contains": [
+        "install bundle failed"
+      ],
+      "success_output_matches": [
+        "install bundle successfully"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-INSTALL.stdout.log",
+      "stdout_sha256": "8eb898479a843743bb1ee39b06fccc2bc41544d99de2f5d97fa80face1ad83b7",
+      "stderr_path": "logs/CMD-P3-INSTALL.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "aa",
+        "start",
+        "-b",
+        "com.capyreader.app.debug",
+        "-a",
+        "EntryAbility"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:30Z",
+      "finished_at": "2026-09-01T00:35:30Z",
+      "duration_seconds": 0.126,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-P3-LAUNCH",
+      "category": "LAUNCH",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "required_argv_tokens": [
+        "-t",
+        "127.0.0.1:5557",
+        "shell",
+        "aa",
+        "start",
+        "-b",
+        "com.capyreader.app.debug",
+        "-a",
+        "EntryAbility"
+      ],
+      "success_output_contains": [
+        "start ability successfully"
+      ],
+      "error_output_contains": [
+        "failed to start ability"
+      ],
+      "success_output_matches": [
+        "start ability successfully"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-P3-LAUNCH.stdout.log",
+      "stdout_sha256": "4765cf6e38f61be3ce9fa13fdcf53077b79f3da39c947a2123d1facd6c0e3962",
+      "stderr_path": "logs/CMD-P3-LAUNCH.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+        "--page",
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+        "--shell",
+        "PSHELL-PAGE-ADDACCOUNTSCREEN-A9C749BC",
+        "--shell-symbol",
+        "ShellPageAddaccountscreenA9c749bc",
+        "--result",
+        "build/results/route-PAGE-ADDACCOUNTSCREEN-A9C749BC.json",
+        "--route-name",
+        "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:30Z",
+      "finished_at": "2026-09-01T00:35:35Z",
+      "duration_seconds": 4.403,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-PAGE-ADDACCOUNTSCREEN-A9C749BC.stdout.log",
+      "stdout_sha256": "4a9d4799b60068c1b782dc8362f582e3314635418bbf1dbc2f677868e8dae23b",
+      "stderr_path": "logs/CMD-SMOKE-PAGE-ADDACCOUNTSCREEN-A9C749BC.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "page_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "page_shell_id": "PSHELL-PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "result_output_relative": "build/results/route-PAGE-ADDACCOUNTSCREEN-A9C749BC.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellPageArticlescreen23af0624",
+        "--result",
+        "build/results/route-PAGE-ARTICLESCREEN-23AF0624.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:35Z",
+      "finished_at": "2026-09-01T00:35:39Z",
+      "duration_seconds": 4.287,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-PAGE-ARTICLESCREEN-23AF0624",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-PAGE-ARTICLESCREEN-23AF0624.stdout.log",
+      "stdout_sha256": "12b308ae5284f483a0731d720543e9bb18ea1df13967f9138ee4557bf85155c0",
+      "stderr_path": "logs/CMD-SMOKE-PAGE-ARTICLESCREEN-23AF0624.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/route-PAGE-ARTICLESCREEN-23AF0624.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-IMAGEPAGE-18D3E5AD",
+        "--page",
+        "PAGE-IMAGEPAGE-18D3E5AD",
+        "--shell",
+        "PSHELL-PAGE-IMAGEPAGE-18D3E5AD",
+        "--shell-symbol",
+        "ShellPageImagepage18d3e5ad",
+        "--result",
+        "build/results/route-PAGE-IMAGEPAGE-18D3E5AD.json",
+        "--route-name",
+        "PAGE-IMAGEPAGE-18D3E5AD"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:39Z",
+      "finished_at": "2026-09-01T00:35:43Z",
+      "duration_seconds": 4.333,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-PAGE-IMAGEPAGE-18D3E5AD",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-PAGE-IMAGEPAGE-18D3E5AD.stdout.log",
+      "stdout_sha256": "58d6acc8bce92da53c13b403fdf4ad05085648dcb3ce850ab665ec8e64d47b23",
+      "stderr_path": "logs/CMD-SMOKE-PAGE-IMAGEPAGE-18D3E5AD.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "page_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "page_shell_id": "PSHELL-PAGE-IMAGEPAGE-18D3E5AD",
+      "result_output_relative": "build/results/route-PAGE-IMAGEPAGE-18D3E5AD.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-LOGINSCREEN-9D67F9D2",
+        "--page",
+        "PAGE-LOGINSCREEN-9D67F9D2",
+        "--shell",
+        "PSHELL-PAGE-LOGINSCREEN-9D67F9D2",
+        "--shell-symbol",
+        "ShellPageLoginscreen9d67f9d2",
+        "--result",
+        "build/results/route-PAGE-LOGINSCREEN-9D67F9D2.json",
+        "--route-name",
+        "PAGE-LOGINSCREEN-9D67F9D2"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:43Z",
+      "finished_at": "2026-09-01T00:35:48Z",
+      "duration_seconds": 4.331,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-PAGE-LOGINSCREEN-9D67F9D2",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-PAGE-LOGINSCREEN-9D67F9D2.stdout.log",
+      "stdout_sha256": "072a38a913d38f371b591361a6bf68ebe14cc033ce49b3e56c91985c2f214bb0",
+      "stderr_path": "logs/CMD-SMOKE-PAGE-LOGINSCREEN-9D67F9D2.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "page_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "page_shell_id": "PSHELL-PAGE-LOGINSCREEN-9D67F9D2",
+      "result_output_relative": "build/results/route-PAGE-LOGINSCREEN-9D67F9D2.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-MAINACTIVITY-3FDE9431",
+        "--page",
+        "PAGE-MAINACTIVITY-3FDE9431",
+        "--shell",
+        "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+        "--shell-symbol",
+        "ShellPageMainactivity3fde9431",
+        "--result",
+        "build/results/route-PAGE-MAINACTIVITY-3FDE9431.json",
+        "--route-name",
+        "PAGE-MAINACTIVITY-3FDE9431"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:48Z",
+      "finished_at": "2026-09-01T00:35:52Z",
+      "duration_seconds": 4.28,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-PAGE-MAINACTIVITY-3FDE9431",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-PAGE-MAINACTIVITY-3FDE9431.stdout.log",
+      "stdout_sha256": "6087ca4cb382bfef2e1679279d0f5f5e3e6af35128e750f352117406adb839b1",
+      "stderr_path": "logs/CMD-SMOKE-PAGE-MAINACTIVITY-3FDE9431.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_shell_id": "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+      "result_output_relative": "build/results/route-PAGE-MAINACTIVITY-3FDE9431.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+        "--page",
+        "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+        "--shell",
+        "PSHELL-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+        "--shell-symbol",
+        "ShellPageOpenarticleinbrowseractivityD9097de2",
+        "--result",
+        "build/results/route-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2.json",
+        "--route-name",
+        "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:52Z",
+      "finished_at": "2026-09-01T00:35:56Z",
+      "duration_seconds": 4.257,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2.stdout.log",
+      "stdout_sha256": "3607991321b27ccd5db419066a14cb22d756035ce392cf69f8fe604c9283e190",
+      "stderr_path": "logs/CMD-SMOKE-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "page_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "page_shell_id": "PSHELL-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "result_output_relative": "build/results/route-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "ROUTE",
+        "--target",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--page",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell",
+        "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell-symbol",
+        "ShellPageSettingsscreenD0a9ff8d",
+        "--result",
+        "build/results/route-PAGE-SETTINGSSCREEN-D0A9FF8D.json",
+        "--route-name",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:35:56Z",
+      "finished_at": "2026-09-01T00:36:00Z",
+      "duration_seconds": 4.239,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-PAGE-SETTINGSSCREEN-D0A9FF8D.stdout.log",
+      "stdout_sha256": "1c45041b26d3f0fe3ccd5c68f5924345c57b6f8b3dc45a1c3fa5a89385bf786e",
+      "stderr_path": "logs/CMD-SMOKE-PAGE-SETTINGSSCREEN-D0A9FF8D.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "result_output_relative": "build/results/route-PAGE-SETTINGSSCREEN-D0A9FF8D.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalAddfeeddialogDbec7e69",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalAddfeeddialogDbec7e69",
+        "--result",
+        "build/results/surface-PAGE-ADDFEEDDIALOG-DBEC7E69.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:00Z",
+      "finished_at": "2026-09-01T00:36:05Z",
+      "duration_seconds": 4.284,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-ADDFEEDDIALOG-DBEC7E69.stdout.log",
+      "stdout_sha256": "75660ce0b20dfb028455949488a75b8e77c32dcc74e821df896df4bffc7d64d0",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-ADDFEEDDIALOG-DBEC7E69.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalAddfeeddialogDbec7e69",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-ADDFEEDDIALOG-DBEC7E69.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalArticleactionmenu128442e3",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalArticleactionmenu128442e3",
+        "--result",
+        "build/results/surface-PAGE-ARTICLEACTIONMENU-128442E3.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:05Z",
+      "finished_at": "2026-09-01T00:36:09Z",
+      "duration_seconds": 4.302,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-ARTICLEACTIONMENU-128442E3",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-ARTICLEACTIONMENU-128442E3.stdout.log",
+      "stdout_sha256": "f9194d94a64fab4fbf44410e26f55c78e1315c1f8735f9f7ca8a2de355218c59",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-ARTICLEACTIONMENU-128442E3.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalArticleactionmenu128442e3",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-ARTICLEACTIONMENU-128442E3.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalArticlefontmenuD9b99022",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalArticlefontmenuD9b99022",
+        "--result",
+        "build/results/surface-PAGE-ARTICLEFONTMENU-D9B99022.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:09Z",
+      "finished_at": "2026-09-01T00:36:13Z",
+      "duration_seconds": 4.324,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-ARTICLEFONTMENU-D9B99022",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-ARTICLEFONTMENU-D9B99022.stdout.log",
+      "stdout_sha256": "9901975565571c31e8a9759f97ac89a88e27f76a5ece7eec7fbab014307e2d43",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-ARTICLEFONTMENU-D9B99022.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalArticlefontmenuD9b99022",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-ARTICLEFONTMENU-D9B99022.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalArticlestylepicker397873e0",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalArticlestylepicker397873e0",
+        "--result",
+        "build/results/surface-PAGE-ARTICLESTYLEPICKER-397873E0.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:13Z",
+      "finished_at": "2026-09-01T00:36:18Z",
+      "duration_seconds": 4.283,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-ARTICLESTYLEPICKER-397873E0",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-ARTICLESTYLEPICKER-397873E0.stdout.log",
+      "stdout_sha256": "ff2847a810f80afe866b6ef2d4fda1d65bee4369e3490a1b0b893e6e7b7552e4",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-ARTICLESTYLEPICKER-397873E0.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalArticlestylepicker397873e0",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-ARTICLESTYLEPICKER-397873E0.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalAutodeletemenu3e3fd576",
+        "--page",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell",
+        "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell-symbol",
+        "ShellModalAutodeletemenu3e3fd576",
+        "--result",
+        "build/results/surface-PAGE-AUTODELETEMENU-3E3FD576.json",
+        "--route-name",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:18Z",
+      "finished_at": "2026-09-01T00:36:22Z",
+      "duration_seconds": 4.326,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-AUTODELETEMENU-3E3FD576",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-AUTODELETEMENU-3E3FD576.stdout.log",
+      "stdout_sha256": "7cc74a6355d6faf969e1cd0aeee80b9347460d298dc1f80588b6b8b2c7f9e631",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-AUTODELETEMENU-3E3FD576.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalAutodeletemenu3e3fd576",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "result_output_relative": "build/results/surface-PAGE-AUTODELETEMENU-3E3FD576.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalEditfeeddialog69fc6e07",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalEditfeeddialog69fc6e07",
+        "--result",
+        "build/results/surface-PAGE-EDITFEEDDIALOG-69FC6E07.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:22Z",
+      "finished_at": "2026-09-01T00:36:26Z",
+      "duration_seconds": 4.284,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-EDITFEEDDIALOG-69FC6E07",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-EDITFEEDDIALOG-69FC6E07.stdout.log",
+      "stdout_sha256": "92d41a5fc8d0403f9b0094a0b7251f2b05e5cdf3f727c38537d3013710690258",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-EDITFEEDDIALOG-69FC6E07.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalEditfeeddialog69fc6e07",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-EDITFEEDDIALOG-69FC6E07.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalEditfolderdialog9506cebf",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalEditfolderdialog9506cebf",
+        "--result",
+        "build/results/surface-PAGE-EDITFOLDERDIALOG-9506CEBF.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:26Z",
+      "finished_at": "2026-09-01T00:36:31Z",
+      "duration_seconds": 4.29,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-EDITFOLDERDIALOG-9506CEBF.stdout.log",
+      "stdout_sha256": "9af236a0ba17b570bba30f3059288e7530119334c5c010ac518bc9aaaeb16879",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-EDITFOLDERDIALOG-9506CEBF.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalEditfolderdialog9506cebf",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-EDITFOLDERDIALOG-9506CEBF.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalFeedactionmenu075c1a17",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalFeedactionmenu075c1a17",
+        "--result",
+        "build/results/surface-PAGE-FEEDACTIONMENU-075C1A17.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:31Z",
+      "finished_at": "2026-09-01T00:36:35Z",
+      "duration_seconds": 4.236,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-FEEDACTIONMENU-075C1A17",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-FEEDACTIONMENU-075C1A17.stdout.log",
+      "stdout_sha256": "8969f43e0ea69379c3a5f9b3a256fcd61661a6b3b3871a272d31e755ffb18777",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-FEEDACTIONMENU-075C1A17.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalFeedactionmenu075c1a17",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-FEEDACTIONMENU-075C1A17.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalFilteractionmenu07e67060",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalFilteractionmenu07e67060",
+        "--result",
+        "build/results/surface-PAGE-FILTERACTIONMENU-07E67060.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:35Z",
+      "finished_at": "2026-09-01T00:36:39Z",
+      "duration_seconds": 4.258,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-FILTERACTIONMENU-07E67060",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-FILTERACTIONMENU-07E67060.stdout.log",
+      "stdout_sha256": "eba125eac2351819f6a59fc52501e4f8a444130cfc35e43a9428171f4befd55d",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-FILTERACTIONMENU-07E67060.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalFilteractionmenu07e67060",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-FILTERACTIONMENU-07E67060.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalFolderactionmenuC5428ea8",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalFolderactionmenuC5428ea8",
+        "--result",
+        "build/results/surface-PAGE-FOLDERACTIONMENU-C5428EA8.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:39Z",
+      "finished_at": "2026-09-01T00:36:43Z",
+      "duration_seconds": 4.261,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-FOLDERACTIONMENU-C5428EA8",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-FOLDERACTIONMENU-C5428EA8.stdout.log",
+      "stdout_sha256": "60621e8dc4e2e6dedf9c28efd8375f51bf50eb99b6c0c206089e01ffc40c121c",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-FOLDERACTIONMENU-C5428EA8.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalFolderactionmenuC5428ea8",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-FOLDERACTIONMENU-C5428EA8.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalMarkallreaddialog46a35015",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalMarkallreaddialog46a35015",
+        "--result",
+        "build/results/surface-PAGE-MARKALLREADDIALOG-46A35015.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:43Z",
+      "finished_at": "2026-09-01T00:36:48Z",
+      "duration_seconds": 4.261,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-MARKALLREADDIALOG-46A35015",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-MARKALLREADDIALOG-46A35015.stdout.log",
+      "stdout_sha256": "2d9c877617ee6e88480727b5ec5cba5bbaacb8709e489606f105d1c96b8fce33",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-MARKALLREADDIALOG-46A35015.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalMarkallreaddialog46a35015",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-MARKALLREADDIALOG-46A35015.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalMarkallreadmenu464f3414",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalMarkallreadmenu464f3414",
+        "--result",
+        "build/results/surface-PAGE-MARKALLREADMENU-464F3414.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:48Z",
+      "finished_at": "2026-09-01T00:36:52Z",
+      "duration_seconds": 4.286,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-MARKALLREADMENU-464F3414",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-MARKALLREADMENU-464F3414.stdout.log",
+      "stdout_sha256": "a4378b16a636137e4aa997d1e51ca6921a76039df42e9f57a2d23bd35cd3b586",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-MARKALLREADMENU-464F3414.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalMarkallreadmenu464f3414",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-MARKALLREADMENU-464F3414.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalRefreshintervalmenuF4c57c66",
+        "--page",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell",
+        "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell-symbol",
+        "ShellModalRefreshintervalmenuF4c57c66",
+        "--result",
+        "build/results/surface-PAGE-REFRESHINTERVALMENU-F4C57C66.json",
+        "--route-name",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:52Z",
+      "finished_at": "2026-09-01T00:36:56Z",
+      "duration_seconds": 4.245,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-REFRESHINTERVALMENU-F4C57C66.stdout.log",
+      "stdout_sha256": "242c5b4d207b6c52e7e2d362622f71740d76a5f57958dfcfa204c09fb320fc84",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-REFRESHINTERVALMENU-F4C57C66.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalRefreshintervalmenuF4c57c66",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "result_output_relative": "build/results/surface-PAGE-REFRESHINTERVALMENU-F4C57C66.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalRemovefeeddialogFdf24ff7",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalRemovefeeddialogFdf24ff7",
+        "--result",
+        "build/results/surface-PAGE-REMOVEFEEDDIALOG-FDF24FF7.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:36:56Z",
+      "finished_at": "2026-09-01T00:37:00Z",
+      "duration_seconds": 4.284,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-REMOVEFEEDDIALOG-FDF24FF7.stdout.log",
+      "stdout_sha256": "04a4e3c0f4bb40b8e5aa460e8882fa834aa2f302ac5d9cfaba1c9682d01c630b",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-REMOVEFEEDDIALOG-FDF24FF7.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalRemovefeeddialogFdf24ff7",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-REMOVEFEEDDIALOG-FDF24FF7.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalRemovefolderdialog0de275ba",
+        "--page",
+        "PAGE-ARTICLESCREEN-23AF0624",
+        "--shell",
+        "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+        "--shell-symbol",
+        "ShellModalRemovefolderdialog0de275ba",
+        "--result",
+        "build/results/surface-PAGE-REMOVEFOLDERDIALOG-0DE275BA.json",
+        "--route-name",
+        "PAGE-ARTICLESCREEN-23AF0624"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:00Z",
+      "finished_at": "2026-09-01T00:37:05Z",
+      "duration_seconds": 4.269,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-REMOVEFOLDERDIALOG-0DE275BA.stdout.log",
+      "stdout_sha256": "14407c7180dabb9390f2ad6cc37c60c467dec60e7bd0032d2cacc4bed8b2aae8",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-REMOVEFOLDERDIALOG-0DE275BA.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalRemovefolderdialog0de275ba",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "result_output_relative": "build/results/surface-PAGE-REMOVEFOLDERDIALOG-0DE275BA.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--device",
+        "HDEVICE-001",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--kind",
+        "MODAL",
+        "--target",
+        "ShellModalThemepicker6f79d5ed",
+        "--page",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell",
+        "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+        "--shell-symbol",
+        "ShellModalThemepicker6f79d5ed",
+        "--result",
+        "build/results/surface-PAGE-THEMEPICKER-6F79D5ED.json",
+        "--route-name",
+        "PAGE-SETTINGSSCREEN-D0A9FF8D"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:05Z",
+      "finished_at": "2026-09-01T00:37:09Z",
+      "duration_seconds": 4.253,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SMOKE-S-PAGE-THEMEPICKER-6F79D5ED",
+      "category": "ROUTE_SMOKE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_route_smoke.py",
+      "executable_sha256": "1600c5381317d96ebc518f1a3c80bdb9c277250a52e2cc65d1a92d62c1243c03",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--bundle",
+        "com.capyreader.app.debug",
+        "--result"
+      ],
+      "success_output_contains": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_contains": [
+        "ROUTE-SMOKE-FAIL"
+      ],
+      "success_output_matches": [
+        "ROUTE-SMOKE-PASS"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SMOKE-S-PAGE-THEMEPICKER-6F79D5ED.stdout.log",
+      "stdout_sha256": "fc26951615b19c5eea5e87bcc35f34057d50934ab0fd5612c7ad7d288eebc27a",
+      "stderr_path": "logs/CMD-SMOKE-S-PAGE-THEMEPICKER-6F79D5ED.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalThemepicker6f79d5ed",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "result_output_relative": "build/results/surface-PAGE-THEMEPICKER-6F79D5ED.json"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-ADDACCOUNTSCREEN-A9C749BC.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:09Z",
+      "finished_at": "2026-09-01T00:37:09Z",
+      "duration_seconds": 0.415,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-01",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-01.stdout.log",
+      "stdout_sha256": "9d6f750680dd81ffe357ea97e17020eb8bb6360963e4871ddaaf5dc192d3141a",
+      "stderr_path": "logs/CMD-SCREEN-01.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "page_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "page_shell_id": "PSHELL-PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "screenshot_id": "HSCREEN-P3-PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "smoke_command_id": "CMD-SMOKE-PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-ADDACCOUNTSCREEN-A9C749BC.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-ARTICLESCREEN-23AF0624.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:09Z",
+      "finished_at": "2026-09-01T00:37:10Z",
+      "duration_seconds": 0.411,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-02",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-02.stdout.log",
+      "stdout_sha256": "d5c308de137030a3b2bdbe06b78b68f9ea9c0b56634d4516f82ff8c91382b771",
+      "stderr_path": "logs/CMD-SCREEN-02.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-ARTICLESCREEN-23AF0624",
+      "smoke_command_id": "CMD-SMOKE-PAGE-ARTICLESCREEN-23AF0624",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-ARTICLESCREEN-23AF0624.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-IMAGEPAGE-18D3E5AD.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:10Z",
+      "finished_at": "2026-09-01T00:37:10Z",
+      "duration_seconds": 0.41,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-03",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-03.stdout.log",
+      "stdout_sha256": "664b37333b99683740818e53307dc6f268e6f7f16f3657fb570567da592c83cc",
+      "stderr_path": "logs/CMD-SCREEN-03.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "page_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "page_shell_id": "PSHELL-PAGE-IMAGEPAGE-18D3E5AD",
+      "screenshot_id": "HSCREEN-P3-PAGE-IMAGEPAGE-18D3E5AD",
+      "smoke_command_id": "CMD-SMOKE-PAGE-IMAGEPAGE-18D3E5AD",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-IMAGEPAGE-18D3E5AD.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-LOGINSCREEN-9D67F9D2.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:10Z",
+      "finished_at": "2026-09-01T00:37:11Z",
+      "duration_seconds": 0.426,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-04",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-04.stdout.log",
+      "stdout_sha256": "7b3cacf7d30f6a08e2e2c54cdfc27e36eb6639384378eeea9a5c9c11e6c76165",
+      "stderr_path": "logs/CMD-SCREEN-04.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "page_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "page_shell_id": "PSHELL-PAGE-LOGINSCREEN-9D67F9D2",
+      "screenshot_id": "HSCREEN-P3-PAGE-LOGINSCREEN-9D67F9D2",
+      "smoke_command_id": "CMD-SMOKE-PAGE-LOGINSCREEN-9D67F9D2",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-LOGINSCREEN-9D67F9D2.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-MAINACTIVITY-3FDE9431.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:11Z",
+      "finished_at": "2026-09-01T00:37:11Z",
+      "duration_seconds": 0.398,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-05",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-05.stdout.log",
+      "stdout_sha256": "03c47e606da8bf3a4ffc0c1319911b0e5e57e024e4cfb660efe51d21684d07bb",
+      "stderr_path": "logs/CMD-SCREEN-05.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "page_shell_id": "PSHELL-PAGE-MAINACTIVITY-3FDE9431",
+      "screenshot_id": "HSCREEN-P3-PAGE-MAINACTIVITY-3FDE9431",
+      "smoke_command_id": "CMD-SMOKE-PAGE-MAINACTIVITY-3FDE9431",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-MAINACTIVITY-3FDE9431.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:11Z",
+      "finished_at": "2026-09-01T00:37:11Z",
+      "duration_seconds": 0.401,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-06",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-06.stdout.log",
+      "stdout_sha256": "a00984c88751b7b0156540e24b929012e83cae9d168660e26b6189ae3d2893f6",
+      "stderr_path": "logs/CMD-SCREEN-06.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "page_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "page_shell_id": "PSHELL-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "screenshot_id": "HSCREEN-P3-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "smoke_command_id": "CMD-SMOKE-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-SETTINGSSCREEN-D0A9FF8D.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:11Z",
+      "finished_at": "2026-09-01T00:37:12Z",
+      "duration_seconds": 0.394,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-07",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-07.stdout.log",
+      "stdout_sha256": "cdaddee0de70a67159618d239bbf7bcfbfebb692da295fa0d28f001e0982f879",
+      "stderr_path": "logs/CMD-SCREEN-07.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "ROUTE",
+      "target_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "screenshot_id": "HSCREEN-P3-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "smoke_command_id": "CMD-SMOKE-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-SETTINGSSCREEN-D0A9FF8D.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-ADDFEEDDIALOG-DBEC7E69.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:12Z",
+      "finished_at": "2026-09-01T00:37:12Z",
+      "duration_seconds": 0.412,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-08",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-08.stdout.log",
+      "stdout_sha256": "89e6b02b85cf73cdd524d94ba94e8bf7736fdd2e816dbbe40cd6cdfd15bdcbe4",
+      "stderr_path": "logs/CMD-SCREEN-08.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalAddfeeddialogDbec7e69",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-ADDFEEDDIALOG-DBEC7E69.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-ARTICLEACTIONMENU-128442E3.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:12Z",
+      "finished_at": "2026-09-01T00:37:13Z",
+      "duration_seconds": 0.403,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-09",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-09.stdout.log",
+      "stdout_sha256": "eaa2cccecbe0bf4c4ac82eb811f9393bb2086c81d665579d96d4587293d2fb2c",
+      "stderr_path": "logs/CMD-SCREEN-09.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalArticleactionmenu128442e3",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-ARTICLEACTIONMENU-128442E3",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-ARTICLEACTIONMENU-128442E3",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-ARTICLEACTIONMENU-128442E3.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-ARTICLEFONTMENU-D9B99022.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:13Z",
+      "finished_at": "2026-09-01T00:37:13Z",
+      "duration_seconds": 0.402,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-10",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-10.stdout.log",
+      "stdout_sha256": "a0e994898fd4b61a330f9831105c2b5b15444d062136f5fbc60983d01b18f45a",
+      "stderr_path": "logs/CMD-SCREEN-10.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalArticlefontmenuD9b99022",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-ARTICLEFONTMENU-D9B99022",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-ARTICLEFONTMENU-D9B99022",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-ARTICLEFONTMENU-D9B99022.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-ARTICLESTYLEPICKER-397873E0.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:13Z",
+      "finished_at": "2026-09-01T00:37:14Z",
+      "duration_seconds": 0.399,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-11",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-11.stdout.log",
+      "stdout_sha256": "af74d855562b17bbeb256f14d54901c687e4144a441dc36d7f1f39b4c79eb458",
+      "stderr_path": "logs/CMD-SCREEN-11.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalArticlestylepicker397873e0",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-ARTICLESTYLEPICKER-397873E0",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-ARTICLESTYLEPICKER-397873E0",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-ARTICLESTYLEPICKER-397873E0.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-AUTODELETEMENU-3E3FD576.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:14Z",
+      "finished_at": "2026-09-01T00:37:14Z",
+      "duration_seconds": 0.404,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-12",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-12.stdout.log",
+      "stdout_sha256": "b30758116ec9481041cbcab1ca5627d2dbf41971ddd59bac19ac74f19497a4b0",
+      "stderr_path": "logs/CMD-SCREEN-12.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalAutodeletemenu3e3fd576",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "screenshot_id": "HSCREEN-P3-PAGE-AUTODELETEMENU-3E3FD576",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-AUTODELETEMENU-3E3FD576",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-AUTODELETEMENU-3E3FD576.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-EDITFEEDDIALOG-69FC6E07.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:14Z",
+      "finished_at": "2026-09-01T00:37:14Z",
+      "duration_seconds": 0.401,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-13",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-13.stdout.log",
+      "stdout_sha256": "42398dc3af459a85770a5a35912a9df8f58390509822cecb11ed3d035de458a9",
+      "stderr_path": "logs/CMD-SCREEN-13.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalEditfeeddialog69fc6e07",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-EDITFEEDDIALOG-69FC6E07",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-EDITFEEDDIALOG-69FC6E07",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-EDITFEEDDIALOG-69FC6E07.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-EDITFOLDERDIALOG-9506CEBF.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:14Z",
+      "finished_at": "2026-09-01T00:37:15Z",
+      "duration_seconds": 0.406,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-14",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-14.stdout.log",
+      "stdout_sha256": "aa93c4defe93b754d70826bb6072db817d55fa62770ff975046d9d8684c1ef37",
+      "stderr_path": "logs/CMD-SCREEN-14.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalEditfolderdialog9506cebf",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-EDITFOLDERDIALOG-9506CEBF.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-FEEDACTIONMENU-075C1A17.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:15Z",
+      "finished_at": "2026-09-01T00:37:15Z",
+      "duration_seconds": 0.402,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-15",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-15.stdout.log",
+      "stdout_sha256": "67930ef58da711ebf100f4279c5ff8f138d191350fc104e9a366ceafbba816f7",
+      "stderr_path": "logs/CMD-SCREEN-15.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalFeedactionmenu075c1a17",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-FEEDACTIONMENU-075C1A17",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-FEEDACTIONMENU-075C1A17",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-FEEDACTIONMENU-075C1A17.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-FILTERACTIONMENU-07E67060.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:15Z",
+      "finished_at": "2026-09-01T00:37:16Z",
+      "duration_seconds": 0.412,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-16",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-16.stdout.log",
+      "stdout_sha256": "094eb923f9df49fa218fb7328eaeb57d745e04c259e1ede75a7fe8d73323faf9",
+      "stderr_path": "logs/CMD-SCREEN-16.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalFilteractionmenu07e67060",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-FILTERACTIONMENU-07E67060",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-FILTERACTIONMENU-07E67060",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-FILTERACTIONMENU-07E67060.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-FOLDERACTIONMENU-C5428EA8.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:16Z",
+      "finished_at": "2026-09-01T00:37:16Z",
+      "duration_seconds": 0.401,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-17",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-17.stdout.log",
+      "stdout_sha256": "ee608ab65a3c1d2ba960a9e2ae54c4d46e95fecabde0c6caa2fe946117f2cf04",
+      "stderr_path": "logs/CMD-SCREEN-17.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalFolderactionmenuC5428ea8",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-FOLDERACTIONMENU-C5428EA8",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-FOLDERACTIONMENU-C5428EA8",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-FOLDERACTIONMENU-C5428EA8.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-MARKALLREADDIALOG-46A35015.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:16Z",
+      "finished_at": "2026-09-01T00:37:16Z",
+      "duration_seconds": 0.411,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-18",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-18.stdout.log",
+      "stdout_sha256": "d39cd7938755ba7e6a9b3cd7c7b60cbbdad3792b022ce1c6b9d0a34ca8d5905d",
+      "stderr_path": "logs/CMD-SCREEN-18.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalMarkallreaddialog46a35015",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-MARKALLREADDIALOG-46A35015",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-MARKALLREADDIALOG-46A35015",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-MARKALLREADDIALOG-46A35015.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-MARKALLREADMENU-464F3414.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:16Z",
+      "finished_at": "2026-09-01T00:37:17Z",
+      "duration_seconds": 0.401,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-19",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-19.stdout.log",
+      "stdout_sha256": "ee5d4d7f75d1b4fb0996a57ade5b45f4f022ae1458129377277511b583bda6ed",
+      "stderr_path": "logs/CMD-SCREEN-19.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalMarkallreadmenu464f3414",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-MARKALLREADMENU-464F3414",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-MARKALLREADMENU-464F3414",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-MARKALLREADMENU-464F3414.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-REFRESHINTERVALMENU-F4C57C66.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:17Z",
+      "finished_at": "2026-09-01T00:37:17Z",
+      "duration_seconds": 0.405,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-20",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-20.stdout.log",
+      "stdout_sha256": "5a3b102b6defb9d01498c0f385ab3b00e74f71e4904b5485af27fbbb5c8016ad",
+      "stderr_path": "logs/CMD-SCREEN-20.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalRefreshintervalmenuF4c57c66",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "screenshot_id": "HSCREEN-P3-PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-REFRESHINTERVALMENU-F4C57C66.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-REMOVEFEEDDIALOG-FDF24FF7.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:17Z",
+      "finished_at": "2026-09-01T00:37:18Z",
+      "duration_seconds": 0.399,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-21",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-21.stdout.log",
+      "stdout_sha256": "f31c86721755fc5d7f96443392f2639e43220a2c25e4a7b342030220dab021b1",
+      "stderr_path": "logs/CMD-SCREEN-21.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalRemovefeeddialogFdf24ff7",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-REMOVEFEEDDIALOG-FDF24FF7.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-REMOVEFOLDERDIALOG-0DE275BA.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:18Z",
+      "finished_at": "2026-09-01T00:37:18Z",
+      "duration_seconds": 0.412,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-22",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-22.stdout.log",
+      "stdout_sha256": "ba163e63083afd7ea9decc63791d543a1bf8b8a1a71cda543f06c22d4215b778",
+      "stderr_path": "logs/CMD-SCREEN-22.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalRemovefolderdialog0de275ba",
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "page_shell_id": "PSHELL-PAGE-ARTICLESCREEN-23AF0624",
+      "screenshot_id": "HSCREEN-P3-PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-REMOVEFOLDERDIALOG-0DE275BA.png"
+    },
+    {
+      "argv": [
+        "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+        "--hdc",
+        "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "--serial",
+        "127.0.0.1:5557",
+        "--output",
+        "build/screenshots/HSCREEN-P3-PAGE-THEMEPICKER-6F79D5ED.png",
+        "--width",
+        "1320",
+        "--height",
+        "2856"
+      ],
+      "cwd": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-03-harmony-scaffold/harmony-project",
+      "started_at": "2026-09-01T00:37:18Z",
+      "finished_at": "2026-09-01T00:37:18Z",
+      "duration_seconds": 0.402,
+      "exit_code": 0,
+      "timed_out": false,
+      "command_id": "CMD-SCREEN-23",
+      "category": "SCREENSHOT_CAPTURE",
+      "device_id": "HDEVICE-001",
+      "device_serial": "127.0.0.1:5557",
+      "resolved_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+      "executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+      "required_argv_tokens": [
+        "--serial",
+        "127.0.0.1:5557",
+        "--output"
+      ],
+      "success_output_contains": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_contains": [
+        "SCREENSHOT-FAIL"
+      ],
+      "success_output_matches": [
+        "SCREENSHOT-OK"
+      ],
+      "error_output_matches": [],
+      "stdout_path": "logs/CMD-SCREEN-23.stdout.log",
+      "stdout_sha256": "2cd7d4b2511c4ff84d182d0424d41df400be14c106834d3c48b0e67fbb71dac8",
+      "stderr_path": "logs/CMD-SCREEN-23.stderr.log",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command_verdict": "PASS",
+      "target_kind": "MODAL",
+      "target_id": "ShellModalThemepicker6f79d5ed",
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "screenshot_id": "HSCREEN-P3-PAGE-THEMEPICKER-6F79D5ED",
+      "smoke_command_id": "CMD-SMOKE-S-PAGE-THEMEPICKER-6F79D5ED",
+      "output_relative": "build/screenshots/HSCREEN-P3-PAGE-THEMEPICKER-6F79D5ED.png"
+    }
+  ],
+  "required_devices": [
+    "HDEVICE-001"
+  ],
+  "screenshot_required_devices": [
+    "HDEVICE-001"
+  ],
+  "screenshot_ids": [
+    "HSCREEN-P3-PAGE-ADDACCOUNTSCREEN-A9C749BC",
+    "HSCREEN-P3-PAGE-ADDFEEDDIALOG-DBEC7E69",
+    "HSCREEN-P3-PAGE-ARTICLEACTIONMENU-128442E3",
+    "HSCREEN-P3-PAGE-ARTICLEFONTMENU-D9B99022",
+    "HSCREEN-P3-PAGE-ARTICLESCREEN-23AF0624",
+    "HSCREEN-P3-PAGE-ARTICLESTYLEPICKER-397873E0",
+    "HSCREEN-P3-PAGE-AUTODELETEMENU-3E3FD576",
+    "HSCREEN-P3-PAGE-EDITFEEDDIALOG-69FC6E07",
+    "HSCREEN-P3-PAGE-EDITFOLDERDIALOG-9506CEBF",
+    "HSCREEN-P3-PAGE-FEEDACTIONMENU-075C1A17",
+    "HSCREEN-P3-PAGE-FILTERACTIONMENU-07E67060",
+    "HSCREEN-P3-PAGE-FOLDERACTIONMENU-C5428EA8",
+    "HSCREEN-P3-PAGE-IMAGEPAGE-18D3E5AD",
+    "HSCREEN-P3-PAGE-LOGINSCREEN-9D67F9D2",
+    "HSCREEN-P3-PAGE-MAINACTIVITY-3FDE9431",
+    "HSCREEN-P3-PAGE-MARKALLREADDIALOG-46A35015",
+    "HSCREEN-P3-PAGE-MARKALLREADMENU-464F3414",
+    "HSCREEN-P3-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+    "HSCREEN-P3-PAGE-REFRESHINTERVALMENU-F4C57C66",
+    "HSCREEN-P3-PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+    "HSCREEN-P3-PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+    "HSCREEN-P3-PAGE-SETTINGSSCREEN-D0A9FF8D",
+    "HSCREEN-P3-PAGE-THEMEPICKER-6F79D5ED"
+  ],
+  "route_result_count": 7,
+  "surface_result_count": 16,
+  "errors": []
+}

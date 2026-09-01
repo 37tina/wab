@@ -1,0 +1,104 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-4E36499BADFF",
+  "phase": 4,
+  "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T05:54:52Z",
+  "issued_by": "impl-lead.capy-01",
+  "verify_mode": "SOURCE_CONFIRM",
+  "risk_level": "normal",
+  "bc_ids": [
+    "BC-0002",
+    "BC-0003"
+  ],
+  "runtime_bc_ids": [],
+  "data_reads": [],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0024",
+    "REL-0025",
+    "REL-0026",
+    "REL-0027",
+    "REL-0029",
+    "REL-0055",
+    "REL-0056",
+    "REL-0057"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-ADDACCOUNTVIEW-A37259FA",
+      "is_container": false,
+      "kind": "reusable-component"
+    },
+    {
+      "id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "is_container": false,
+      "kind": "page"
+    },
+    {
+      "id": "PAGE-LOGINVIEW-49F18417",
+      "is_container": false,
+      "kind": "reusable-component"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead.capy-01",
+    "ui_agent_id": "impl-lead.capy-01",
+    "business_data_agent_id": "impl-lead.capy-01",
+    "native_capability_agent_id": "impl-lead.capy-01"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0002",
+      "BC-0003"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:65",
+      "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:77",
+      "app/src/main/java/com/capyreader/app/ui/accounts/AccountRow.kt:58",
+      "app/src/main/java/com/capyreader/app/ui/App.kt:47",
+      "app/src/main/res/values/strings.xml:112",
+      "app/src/main/res/values/strings.xml:115",
+      "app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:14",
+      "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:96",
+      "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:102",
+      "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:111",
+      "capy/src/main/java/com/jocmp/capy/accounts/Source.kt:18",
+      "app/src/main/res/values/strings.xml:99",
+      "app/src/main/res/values/strings.xml:101"
+    ],
+    "runtime_evidence_refs": [],
+    "data_relations": [
+      "REL-0023",
+      "REL-0024",
+      "REL-0025",
+      "REL-0026",
+      "REL-0027",
+      "REL-0029",
+      "REL-0055",
+      "REL-0056",
+      "REL-0057"
+    ],
+    "visual_memory_surface": [
+      "PAGE-ADDACCOUNTVIEW-A37259FA",
+      "PAGE-LOGINSCREEN-9D67F9D2",
+      "PAGE-LOGINVIEW-49F18417"
+    ],
+    "p3_surface_plan": []
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555"
+}

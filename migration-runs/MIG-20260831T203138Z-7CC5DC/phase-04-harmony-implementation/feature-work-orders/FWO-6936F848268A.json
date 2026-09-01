@@ -1,0 +1,83 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-6936F848268A",
+  "phase": 4,
+  "feature_id": "FEAT-LOCAL-PERSISTENCE",
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T05:01:14Z",
+  "issued_by": "impl-lead.capy-01",
+  "verify_mode": "RUNTIME",
+  "risk_level": "high",
+  "bc_ids": [
+    "BC-0017"
+  ],
+  "runtime_bc_ids": [
+    "BC-0017"
+  ],
+  "data_reads": [],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0045",
+    "REL-0046",
+    "REL-0047",
+    "REL-0048",
+    "REL-0049"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-MAINACTIVITY-3FDE9431",
+      "is_container": false,
+      "kind": "page"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead.capy-01",
+    "ui_agent_id": "impl-lead.capy-01",
+    "business_data_agent_id": "impl-lead.capy-01",
+    "native_capability_agent_id": "impl-lead.capy-01"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0017"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/capyreader/app/MainActivity.kt:43",
+      "app/src/main/java/com/capyreader/app/MainActivity.kt:48",
+      "app/src/main/java/com/capyreader/app/common/AndroidDatabaseProvider.kt:45",
+      "app/src/main/java/com/capyreader/app/common/SharedPreferenceStoreProvider.kt:35",
+      "app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt:35",
+      "capy/src/main/sqldelight/com/jocmp/capy/db/1_AddFeeds.sqm:1",
+      "capy/src/main/sqldelight/com/jocmp/capy/db/2_AddArticles.sqm:1",
+      "capy/src/main/sqldelight/com/jocmp/capy/db/3_AddArticleStatuses.sqm:3"
+    ],
+    "runtime_evidence_refs": [
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0017"
+    ],
+    "data_relations": [
+      "REL-0023",
+      "REL-0045",
+      "REL-0046",
+      "REL-0047",
+      "REL-0048",
+      "REL-0049"
+    ],
+    "visual_memory_surface": [
+      "PAGE-MAINACTIVITY-3FDE9431"
+    ],
+    "p3_surface_plan": []
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555"
+}

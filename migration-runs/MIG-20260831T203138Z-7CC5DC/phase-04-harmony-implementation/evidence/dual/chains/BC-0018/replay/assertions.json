@@ -1,0 +1,13 @@
+{
+  "assertions": [],
+  "bc_id": "BC-0018",
+  "categories": {
+    "data": "MANUAL_VERIFY_REQUIRED",
+    "observable": "MANUAL_VERIFY_REQUIRED",
+    "persistence": "MANUAL_VERIFY_REQUIRED",
+    "side_effect": "MANUAL_VERIFY_REQUIRED"
+  },
+  "feature_id": "FEAT-SETTINGS",
+  "precondition_status": "PRECONDITION_FAILED",
+  "replay_verdict": "PRECONDITION_FAILED"
+}

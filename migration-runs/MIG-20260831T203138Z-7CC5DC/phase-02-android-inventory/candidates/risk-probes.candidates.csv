@@ -1,0 +1,283 @@
+candidate_id,probe_id,category,severity,file,line,signal,count,page_id,harmony_hint
+CAND-RISK-0001,RISK-SDK,第三方 SDK 调用点,中,app/src/gplay/java/com/capyreader/app/ui/settings/CrashReportingCheckbox.kt,14,Firebase,3,,需要鸿蒙侧同等 SDK 或降级方案
+CAND-RISK-0002,RISK-SDK,第三方 SDK 调用点,中,app/src/gplay/java/com/capyreader/app/ui/settings/CrashReportingCheckbox.kt,31,Firebase,3,,需要鸿蒙侧同等 SDK 或降级方案
+CAND-RISK-0003,RISK-SDK,第三方 SDK 调用点,中,app/src/gplay/java/com/capyreader/app/ui/settings/CrashReportingCheckbox.kt,31,Crashlytics,3,,需要鸿蒙侧同等 SDK 或降级方案
+CAND-RISK-0004,RISK-AUTH,账号/认证,中,app/src/main/assets/mercury-parser.js,3,signIn,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0005,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/AccountModule.kt,6,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0006,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/AccountModule.kt,16,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0007,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/ArticleStatusBroadcastReceiver.kt,3,BroadcastReceiver,2,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0008,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/ArticleStatusBroadcastReceiver.kt,14,BroadcastReceiver,2,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0009,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/CommonModule.kt,15,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0010,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/CommonModule.kt,21,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0011,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/CommonModule.kt,10,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0012,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/CommonModule.kt,29,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0013,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/MainApplication.kt,10,OkHttp,4,,端点/拦截器行为需逐条迁移
+CAND-RISK-0014,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/MainApplication.kt,18,OkHttp,4,,端点/拦截器行为需逐条迁移
+CAND-RISK-0015,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/MainApplication.kt,49,OkHttp,4,,端点/拦截器行为需逐条迁移
+CAND-RISK-0016,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/MainApplication.kt,5,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0017,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/common/AndroidClientCertManager.kt,6,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0018,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/common/AndroidClientCertManager.kt,16,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0019,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/ArticleFilterSaver.kt,7,kotlinx.serialization,1,,数据模型迁移需确认序列化兼容
+CAND-RISK-0020,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/AudioEnclosure.kt,6,kotlinx.serialization,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0021,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/AudioEnclosure.kt,6,Serializable,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0022,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/AudioEnclosure.kt,7,kotlinx.serialization,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0023,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/AudioEnclosure.kt,9,Serializable,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0024,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/common/MD5.kt,5,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0025,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/Media.kt,6,kotlinx.serialization,5,,数据模型迁移需确认序列化兼容
+CAND-RISK-0026,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/Media.kt,6,Serializable,5,,数据模型迁移需确认序列化兼容
+CAND-RISK-0027,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/Media.kt,7,kotlinx.serialization,5,,数据模型迁移需确认序列化兼容
+CAND-RISK-0028,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/Media.kt,9,Serializable,5,,数据模型迁移需确认序列化兼容
+CAND-RISK-0029,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/Media.kt,15,Serializable,5,,数据模型迁移需确认序列化兼容
+CAND-RISK-0030,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/common/WebViewInterface.kt,7,kotlinx.serialization,1,,数据模型迁移需确认序列化兼容
+CAND-RISK-0031,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/notifications/DeleteNotificationWorker.kt,8,WorkManager,2,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0032,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/notifications/DeleteNotificationWorker.kt,31,WorkManager,2,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0033,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/preferences/AppPreferences.kt,20,kotlinx.serialization,1,,数据模型迁移需确认序列化兼容
+CAND-RISK-0034,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/refresher/RefreshScheduler.kt,8,WorkManager,3,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0035,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/refresher/RefreshScheduler.kt,30,WorkManager,3,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0036,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/refresher/RefreshScheduler.kt,44,WorkManager,3,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0037,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/transfers/OPMLImportWorker.kt,19,WorkManager,3,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0038,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/transfers/OPMLImportWorker.kt,116,WorkManager,3,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0039,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/transfers/OPMLImportWorker.kt,173,WorkManager,3,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0040,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/Route.kt,4,kotlinx.serialization,6,,数据模型迁移需确认序列化兼容
+CAND-RISK-0041,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/Route.kt,4,Serializable,6,,数据模型迁移需确认序列化兼容
+CAND-RISK-0042,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/Route.kt,7,Serializable,6,,数据模型迁移需确认序列化兼容
+CAND-RISK-0043,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/Route.kt,10,Serializable,6,,数据模型迁移需确认序列化兼容
+CAND-RISK-0044,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/Route.kt,13,Serializable,6,,数据模型迁移需确认序列化兼容
+CAND-RISK-0045,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/Route.kt,16,Serializable,6,,数据模型迁移需确认序列化兼容
+CAND-RISK-0046,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountViewModel.kt,4,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0047,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/AddAccountViewModel.kt,11,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0048,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,26,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0049,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,231,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0050,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt,14,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0051,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt,42,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0052,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/LoginViewModel.kt,16,AccountManager,4,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0053,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/LoginViewModel.kt,31,AccountManager,4,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0054,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/LoginViewModel.kt,102,loginError(,4,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0055,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/LoginViewModel.kt,171,loginError(,4,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0056,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/accounts/MiniSettings.kt,13,ExperimentalMaterial3Api,2,PAGE-MINISETTINGS-2235D2DC,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0057,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/accounts/MiniSettings.kt,40,@OptIn(Experimental,2,PAGE-MINISETTINGS-2235D2DC,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0058,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/UpdateLoginViewModel.kt,58,loginError(,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0059,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/accounts/UpdateLoginViewModel.kt,93,loginError(,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0060,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,23,ExperimentalMaterial3Api,2,PAGE-ADDLINKSCREEN-C6EC3530,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0061,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,89,@OptIn(Experimental,2,PAGE-ADDLINKSCREEN-C6EC3530,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0062,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticlePaneExpansion.kt,70,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0063,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,4,ExperimentalFoundationApi,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0064,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,414,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0065,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleScaffold.kt,27,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0066,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleScaffold.kt,75,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0067,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,12,ExperimentalMaterial3Api,3,PAGE-ARTICLESCREEN-5C3108E6,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0068,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,111,@OptIn(Experimental,3,PAGE-ARTICLESCREEN-5C3108E6,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0069,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,111,ExperimentalMaterial3Api,3,PAGE-ARTICLESCREEN-5C3108E6,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0070,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt,57,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0071,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/ArticleStatusBar.kt,13,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0072,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/FilterAppBarTitle.kt,7,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0073,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/FilterAppBarTitle.kt,68,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0074,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthView.kt,7,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0075,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthView.kt,25,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0076,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,24,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0077,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,73,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0078,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/ui/articles/audio/MediaPlaybackService.kt,34,Service() {,1,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0079,RISK-MEDIA,音视频/相机,高,app/src/main/java/com/capyreader/app/ui/articles/audio/MediaPlaybackService.kt,16,ExoPlayer,3,,鸿蒙需 AVSession/Camera API 重写
+CAND-RISK-0080,RISK-MEDIA,音视频/相机,高,app/src/main/java/com/capyreader/app/ui/articles/audio/MediaPlaybackService.kt,65,ExoPlayer,3,,鸿蒙需 AVSession/Camera API 重写
+CAND-RISK-0081,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/ui/articles/audio/MediaPlaybackService.kt,15,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0082,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/ui/articles/audio/MediaPlaybackService.kt,53,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0083,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt,13,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0084,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt,34,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0085,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt,47,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0086,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt,6,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0087,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt,25,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0088,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStyleListener.kt,67,evaluateJavascript,6,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0089,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStyleListener.kt,78,evaluateJavascript,6,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0090,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStyleListener.kt,100,evaluateJavascript,6,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0091,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStyleListener.kt,116,evaluateJavascript,6,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0092,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStyleListener.kt,126,evaluateJavascript,6,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0093,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStyleListener.kt,136,evaluateJavascript,6,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0094,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,179,@OptIn(Experimental,1,PAGE-ARTICLESTYLEPICKER-848F9DCA,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0095,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,23,ExperimentalMaterial3Api,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0096,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,55,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0097,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,215,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0098,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/CornerTapGestureScroll.kt,3,ExperimentalFoundationApi,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0099,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/detail/CornerTapGestureScroll.kt,68,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0100,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleLayoutScrollReset.kt,4,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0101,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleLayoutScrollReset.kt,13,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0102,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt,11,ExperimentalMaterial3Api,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0103,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt,41,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0104,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt,152,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0105,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,21,ExperimentalMaterial3Api,2,PAGE-LABELBOTTOMSHEET-0225305A,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0106,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,45,@OptIn(Experimental,2,PAGE-LABELBOTTOMSHEET-0225305A,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0107,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/components/SearchTextField.kt,11,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0108,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/components/SearchTextField.kt,29,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0109,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/components/ShareLink.kt,8,kotlinx.serialization,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0110,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/components/ShareLink.kt,8,Serializable,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0111,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/components/ShareLink.kt,9,kotlinx.serialization,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0112,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/components/ShareLink.kt,11,Serializable,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0113,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,15,ExperimentalMaterial3Api,2,PAGE-THEMEPICKER-926677D4,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0114,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,42,@OptIn(Experimental,2,PAGE-THEMEPICKER-926677D4,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0115,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/components/ToolbarTooltip.kt,3,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0116,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/components/ToolbarTooltip.kt,12,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0117,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebRequestProxyPolicy.kt,15,loadDataWithBaseURL,2,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0118,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebRequestProxyPolicy.kt,27,loadDataWithBaseURL,2,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0119,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,9,WebViewClient,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0120,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,38,JavaScriptEnabled,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0121,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,58,WebViewClient,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0122,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,62,WebViewClient,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0123,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,180,WebViewClient,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0124,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,191,loadDataWithBaseURL,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0125,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,214,evaluateJavascript,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0126,RISK-WEBVIEW,WebView/JS Bridge,高,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,216,evaluateJavascript,12,,鸿蒙需 Web 组件 + JS bridge 重写，API 不兼容
+CAND-RISK-0127,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,33,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0128,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,61,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0129,RISK-NETAPI,网络 API 定义,中,app/src/main/java/com/capyreader/app/ui/components/WebView.kt,232,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0130,RISK-CUSTOMPAINT,自定义绘制/动画,高,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/CircularProgressPainter.kt,52,onDraw(,1,,Canvas 绘制与 ArkUI 画布 API 不同，需逐点迁移
+CAND-RISK-0131,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt,12,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0132,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt,35,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0133,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/settings/SettingsPanelScaffold.kt,9,ExperimentalMaterial3Api,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0134,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/settings/SettingsPanelScaffold.kt,28,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0135,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/settings/SettingsScaffold.kt,13,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0136,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt,45,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0137,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsViewModel.kt,12,WorkManager,2,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0138,RISK-BACKGROUND,后台任务/服务,高,app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsViewModel.kt,57,WorkManager,2,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0139,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsViewModel.kt,18,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0140,RISK-AUTH,账号/认证,中,app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsViewModel.kt,27,AccountManager,2,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0141,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt,183,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0142,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,3,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0143,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,21,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0144,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,26,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0145,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,31,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0146,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,37,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0147,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,42,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0148,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,47,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0149,RISK-SERIALIZE,序列化方案,中,app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsPanel.kt,53,Parcelable,9,,数据模型迁移需确认序列化兼容
+CAND-RISK-0150,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/shared/MaterialSharedAxis.kt,22,ExperimentalAnimationApi,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0151,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/shared/MaterialSharedAxis.kt,66,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0152,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/shared/MaterialSharedAxis.kt,125,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0153,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt,11,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0154,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt,138,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0155,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt,163,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0156,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,12,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0157,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,108,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0158,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,117,@OptIn(Experimental,2,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0159,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesWidget.kt,7,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0160,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/HeadlinesWidgetReceiver.kt,3,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0161,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/SpotlightActions.kt,4,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0162,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,15,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0163,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,227,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0164,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,250,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0165,RISK-EXPERIMENTAL,Compose 实验性 API,中,app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,270,@OptIn(Experimental,3,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0166,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/SpotlightWidget.kt,11,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0167,RISK-SHORTCUT,快捷方式/小组件,中,app/src/main/java/com/capyreader/app/ui/widget/SpotlightWidgetReceiver.kt,3,Glance,1,,小组件需列在 entry 并提供 Harmony 侧实现
+CAND-RISK-0168,RISK-CUSTOMPAINT,自定义绘制/动画,高,app/src/main/java/me/saket/swipe/SwipeableActionsBox.kt,149,onDraw(,1,,Canvas 绘制与 ArkUI 画布 API 不同，需逐点迁移
+CAND-RISK-0169,RISK-AUTH,账号/认证,中,bench/src/main/kotlin/com/jocmp/bench/BenchAccount.kt,4,AccountManager,3,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0170,RISK-AUTH,账号/认证,中,bench/src/main/kotlin/com/jocmp/bench/BenchAccount.kt,39,AccountManager,3,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0171,RISK-AUTH,账号/认证,中,bench/src/main/kotlin/com/jocmp/bench/BenchAccount.kt,49,AccountManager,3,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0172,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/Account.kt,10,OkHttp,6,,端点/拦截器行为需逐条迁移
+CAND-RISK-0173,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/Account.kt,14,OkHttp,6,,端点/拦截器行为需逐条迁移
+CAND-RISK-0174,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/Account.kt,50,OkHttp,6,,端点/拦截器行为需逐条迁移
+CAND-RISK-0175,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/Account.kt,66,OkHttp,6,,端点/拦截器行为需逐条迁移
+CAND-RISK-0176,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/Account.kt,542,OkHttp,6,,端点/拦截器行为需逐条迁移
+CAND-RISK-0177,RISK-AUTH,账号/认证,中,capy/src/main/java/com/jocmp/capy/AccountManager.kt,11,AccountManager,1,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0178,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,3,kotlinx.serialization,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0179,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,3,Serializable,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0180,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,5,Serializable,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0181,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,37,Serializable,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0182,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,43,Serializable,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0183,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,50,Serializable,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0184,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,57,Serializable,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0185,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleFilter.kt,66,Serializable,8,,数据模型迁移需确认序列化兼容
+CAND-RISK-0186,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleStatus.kt,3,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0187,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleStatus.kt,3,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0188,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/ArticleStatus.kt,5,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0189,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/ClientCertManager.kt,3,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0190,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/ClientCertManager.kt,6,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0191,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/Feed.kt,3,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0192,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/Feed.kt,3,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0193,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/Feed.kt,5,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0194,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/Folder.kt,3,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0195,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/Folder.kt,3,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0196,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/Folder.kt,5,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0197,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/SavedSearch.kt,3,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0198,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/SavedSearch.kt,3,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0199,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/SavedSearch.kt,5,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0200,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/FaviconFinder.kt,7,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0201,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/FaviconFinder.kt,13,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0202,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/HttpClientBuilder.kt,6,OkHttp,4,,端点/拦截器行为需逐条迁移
+CAND-RISK-0203,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/HttpClientBuilder.kt,16,OkHttp,4,,端点/拦截器行为需逐条迁移
+CAND-RISK-0204,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/HttpClientBuilder.kt,32,OkHttp,4,,端点/拦截器行为需逐条迁移
+CAND-RISK-0205,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/HttpClientBuilder.kt,35,OkHttp,4,,端点/拦截器行为需逐条迁移
+CAND-RISK-0206,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/LocalOkHttpClient.kt,5,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0207,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/LocalOkHttpClient.kt,10,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0208,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/LocalOkHttpClient.kt,11,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0209,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/MinifluxExt.kt,5,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0210,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/MinifluxExt.kt,16,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0211,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/accounts/Source.kt,3,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0212,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/accounts/Source.kt,3,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0213,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/accounts/Source.kt,5,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0214,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/accounts/SubscriptionChoice.kt,3,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0215,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/accounts/SubscriptionChoice.kt,3,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0216,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/accounts/SubscriptionChoice.kt,5,Serializable,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0217,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/accounts/feedbin/FeedbinAccountDelegate.kt,41,kotlinx.serialization,1,,数据模型迁移需确认序列化兼容
+CAND-RISK-0218,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/feedbin/FeedbinOkHttpClient.kt,7,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0219,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/feedbin/FeedbinOkHttpClient.kt,10,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0220,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/feedbin/FeedbinOkHttpClient.kt,11,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0221,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt,27,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0222,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/local/LocalAccountDelegate.kt,34,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0223,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/miniflux/MinifluxOkHttpClient.kt,11,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0224,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/miniflux/MinifluxOkHttpClient.kt,14,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0225,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/miniflux/MinifluxOkHttpClient.kt,15,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0226,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/reader/BuildReaderDelegate.kt,18,OkHttp,1,,端点/拦截器行为需逐条迁移
+CAND-RISK-0227,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/reader/ReaderOkHttpClient.kt,8,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0228,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/reader/ReaderOkHttpClient.kt,11,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0229,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/accounts/reader/ReaderOkHttpClient.kt,12,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0230,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/articles/ArticleContent.kt,5,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0231,RISK-NETAPI,网络 API 定义,中,capy/src/main/java/com/jocmp/capy/articles/ArticleContent.kt,13,OkHttp,2,,端点/拦截器行为需逐条迁移
+CAND-RISK-0232,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/articles/ParseHTML.kt,4,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0233,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/articles/ParseHTML.kt,5,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0234,RISK-SERIALIZE,序列化方案,中,capy/src/main/java/com/jocmp/capy/articles/ParseHTML.kt,6,kotlinx.serialization,3,,数据模型迁移需确认序列化兼容
+CAND-RISK-0235,RISK-AUTH,账号/认证,中,capy/src/test/resources/article_german_iso8859.html,1022,login_links(,1,,OAuth/令牌逻辑通常与平台绑定
+CAND-RISK-0236,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,5,OkHttp,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0237,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,7,Retrofit,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0238,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,23,@GET,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0239,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,33,@GET,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0240,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,36,@GET,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0241,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,39,@GET,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0242,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,42,@GET,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0243,RISK-NETAPI,网络 API 定义,中,feedbinclient/src/main/java/com/jocmp/feedbinclient/Feedbin.kt,46,@GET,27,,端点/拦截器行为需逐条迁移
+CAND-RISK-0244,RISK-NETAPI,网络 API 定义,中,feedfinder/src/main/java/com/jocmp/feedfinder/DefaultFeedFinder.kt,16,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0245,RISK-NETAPI,网络 API 定义,中,feedfinder/src/main/java/com/jocmp/feedfinder/DefaultFeedFinder.kt,20,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0246,RISK-NETAPI,网络 API 定义,中,feedfinder/src/main/java/com/jocmp/feedfinder/DefaultFeedFinder.kt,24,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0247,RISK-NETAPI,网络 API 定义,中,feedfinder/src/main/java/com/jocmp/feedfinder/DefaultRequest.kt,10,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0248,RISK-NETAPI,网络 API 定义,中,feedfinder/src/main/java/com/jocmp/feedfinder/DefaultRequest.kt,16,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0249,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,5,OkHttp,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0250,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,7,Retrofit,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0251,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,18,@GET,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0252,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,21,@GET,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0253,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,24,@POST,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0254,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,27,@PUT,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0255,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,33,@DELETE,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0256,RISK-NETAPI,网络 API 定义,中,minifluxclient/src/main/java/com/jocmp/minifluxclient/Miniflux.kt,36,@GET,33,,端点/拦截器行为需逐条迁移
+CAND-RISK-0257,RISK-BACKGROUND,后台任务/服务,高,openapi/miniflux.yaml,622,: Service,1,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0258,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,4,OkHttp,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0259,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,6,Retrofit,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0260,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,17,@GET,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0261,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,22,@GET,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0262,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,27,@GET,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0263,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,40,@POST,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0264,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,48,@POST,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0265,RISK-NETAPI,网络 API 定义,中,readerclient/src/main/java/com/jocmp/readerclient/GoogleReader.kt,58,@POST,16,,端点/拦截器行为需逐条迁移
+CAND-RISK-0266,RISK-NETAPI,网络 API 定义,中,rssparser/src/main/kotlin/com/jocmp/rssparser/RssParserBuilder.kt,7,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0267,RISK-NETAPI,网络 API 定义,中,rssparser/src/main/kotlin/com/jocmp/rssparser/RssParserBuilder.kt,14,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0268,RISK-NETAPI,网络 API 定义,中,rssparser/src/main/kotlin/com/jocmp/rssparser/RssParserBuilder.kt,20,OkHttp,3,,端点/拦截器行为需逐条迁移
+CAND-RISK-0269,RISK-EXPERIMENTAL,Compose 实验性 API,中,rssparser/src/main/kotlin/com/jocmp/rssparser/internal/DefaultParser.kt,76,@OptIn(Experimental,1,,实验 API 在鸿蒙侧可能无直接对应
+CAND-RISK-0270,RISK-BACKGROUND,后台任务/服务,高,rssparser/src/test/resources/atom-relative-image.xml,1603,background.html,1,,鸿蒙需 WorkScheduler/长时任务，API 不同
+CAND-RISK-0271,RISK-BIOMETRIC,生物识别/加密,中,rssparser/src/test/resources/feed-atom-html-title-entities.xml,338,Fingerprint,7,,鸿蒙需认证库/合规审批
+CAND-RISK-0272,RISK-BIOMETRIC,生物识别/加密,中,rssparser/src/test/resources/feed-atom-html-title-entities.xml,351,Fingerprint,7,,鸿蒙需认证库/合规审批
+CAND-RISK-0273,RISK-BIOMETRIC,生物识别/加密,中,rssparser/src/test/resources/feed-atom-html-title-entities.xml,421,Fingerprint,7,,鸿蒙需认证库/合规审批
+CAND-RISK-0274,RISK-BIOMETRIC,生物识别/加密,中,rssparser/src/test/resources/feed-atom-html-title-entities.xml,490,Fingerprint,7,,鸿蒙需认证库/合规审批
+CAND-RISK-0275,RISK-CUSTOMPAINT,自定义绘制/动画,高,rssparser/src/test/resources/feed-item-author.xml,1190,Canvas.,2,,Canvas 绘制与 ArkUI 画布 API 不同，需逐点迁移
+CAND-RISK-0276,RISK-SERIALIZE,序列化方案,中,rssparser/src/test/resources/feed-test-image-link.xml,575,Jackson,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0277,RISK-SERIALIZE,序列化方案,中,rssparser/src/test/resources/feed-test-image-link.xml,589,Jackson,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0278,RISK-SERIALIZE,序列化方案,中,rssparser/src/test/resources/feed-test-image-link.xml,610,Jackson,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0279,RISK-SERIALIZE,序列化方案,中,rssparser/src/test/resources/feed-test-image-link.xml,624,Jackson,4,,数据模型迁移需确认序列化兼容
+CAND-RISK-0280,RISK-SDK,第三方 SDK 调用点,中,rssparser/src/test/resources/feed-test-malformed.xml,34,Analytics,1,,需要鸿蒙侧同等 SDK 或降级方案
+CAND-RISK-0281,RISK-SDK,第三方 SDK 调用点,中,rssparser/src/test/resources/feed-test.xml,27,Analytics,1,,需要鸿蒙侧同等 SDK 或降级方案
+CAND-RISK-0282,RISK-BACKGROUND,后台任务/服务,高,scripts/force-refresh,5,WorkManager,1,,鸿蒙需 WorkScheduler/长时任务，API 不同

@@ -1,0 +1,26 @@
+{
+  "screenshot_id": "HSCREEN-P3-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+  "verification_id": "HVER-003-P3",
+  "henv_id": "HENV-003-P3",
+  "device_id": "HDEVICE-001",
+  "device_serial": "127.0.0.1:5557",
+  "bundle_name": "com.capyreader.app.debug",
+  "target_kind": "ROUTE",
+  "target_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+  "feature_ids": [
+    "FEAT-ARTICLE-READ"
+  ],
+  "page_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+  "page_shell_id": "PSHELL-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+  "smoke_command_id": "CMD-SMOKE-PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+  "capture_command_id": "CMD-SCREEN-06",
+  "capture_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+  "capture_executable_sha256": "7e695a146f2100fb52f1bc8b7897ab06860e543b6466b4d5d8b670ed9452dcc9",
+  "capture_stdout_sha256": "a00984c88751b7b0156540e24b929012e83cae9d168660e26b6189ae3d2893f6",
+  "capture_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "captured_by": "toolchain.capy-01",
+  "captured_at": "2026-09-01T00:32:12Z",
+  "width": 1320,
+  "height": 2856,
+  "png_sha256": "c09ae99bd5627f83d52a7351c29245b2015e49c1b1b5dea57b85c92f4535fd1a"
+}

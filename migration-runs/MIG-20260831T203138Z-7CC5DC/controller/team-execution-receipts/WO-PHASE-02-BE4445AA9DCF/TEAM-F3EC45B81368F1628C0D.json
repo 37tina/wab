@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-F3EC45B81368F1628C0D",
+  "phase": 2,
+  "work_order_id": "WO-PHASE-02-BE4445AA9DCF",
+  "work_order_sha256": "1ecc48b505b09ea62d490ce8f901f815b5f45829f3539608b908e9920d36d048",
+  "role_key": "inventory_lead_id",
+  "actor_id": "inventory-lead.capy-01",
+  "platform_task_id": "ses_fa67ed390ffeWlWJdWtR0Qsby1-INV",
+  "started_at": "2026-08-31T20:50:00Z",
+  "ended_at": "2026-08-31T23:55:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-09-01T00:01:42Z",
+  "artifacts": [
+    {
+      "relative_path": "controller/task-ledger.csv",
+      "sha256": "4aaf116ab4b590de29203552186ebd5951a0c503f70308ba425fad6820e6fe3c"
+    }
+  ]
+}

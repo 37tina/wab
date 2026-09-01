@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-C2C6F694F29D93C79D44",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "role_key": "architecture_acceptance_agent_id",
+  "actor_id": "arch-accept.capy-01",
+  "platform_task_id": "ses_fa598afc0ffeNsHehXzuNz4E72-ACC",
+  "started_at": "2026-09-01T00:38:00Z",
+  "ended_at": "2026-09-01T01:09:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-09-01T01:10:09Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/stage-03-gate-report.json",
+      "sha256": "4e22ab93d1c80a9ae0c2ecc2f3a0faf1fd8903af1b104b1fa74a868c597b3d5b"
+    }
+  ]
+}

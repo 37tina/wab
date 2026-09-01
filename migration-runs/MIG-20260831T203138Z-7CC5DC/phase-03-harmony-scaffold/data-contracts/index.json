@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "contract_kind": "data-repository-interface",
+  "interface_only": true,
+  "paradigm": "feature-semantic",
+  "source": {
+    "path": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory/data-relations.csv",
+    "sha256": "fac9d36c3d41540d0b713a9f8028546158a4326c89ad6da927b1b7bf5c06a4fe",
+    "row_count": 57
+  },
+  "contracts": [
+    {
+      "object_id": "account_id",
+      "repository_symbol": "AccountIdRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "required_operations": [
+        "create",
+        "restore",
+        "list",
+        "get",
+        "set"
+      ],
+      "contract_file": "account_id.json",
+      "domain_operations": [
+        "createLocal"
+      ]
+    },
+    {
+      "object_id": "accounts_dir",
+      "repository_symbol": "AccountsDirRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT"
+      ],
+      "required_operations": [
+        "set"
+      ],
+      "contract_file": "accounts_dir.json",
+      "domain_operations": [
+        "createLocal"
+      ]
+    },
+    {
+      "object_id": "api_url",
+      "repository_symbol": "ApiUrlRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "required_operations": [
+        "set"
+      ],
+      "contract_file": "api_url.json"
+    },
+    {
+      "object_id": "app_theme",
+      "repository_symbol": "AppThemeRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ],
+      "required_operations": [
+        "update",
+        "restore",
+        "get",
+        "set"
+      ],
+      "contract_file": "app_theme.json",
+      "domain_operations": [
+        "setTheme"
+      ]
+    },
+    {
+      "object_id": "article_filter",
+      "repository_symbol": "ArticleFilterRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ARTICLE-LIST"
+      ],
+      "required_operations": [
+        "update",
+        "restore",
+        "list",
+        "get",
+        "set"
+      ],
+      "contract_file": "article_filter.json",
+      "domain_operations": [
+        "getFilter",
+        "setFilter"
+      ]
+    },
+    {
+      "object_id": "article_list_sort_order",
+      "repository_symbol": "ArticleListSortOrderRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ],
+      "required_operations": [
+        "update",
+        "set"
+      ],
+      "contract_file": "article_list_sort_order.json",
+      "domain_operations": [
+        "getSort",
+        "setSort"
+      ]
+    },
+    {
+      "object_id": "article_statuses",
+      "repository_symbol": "ArticleStatusesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR"
+      ],
+      "required_operations": [
+        "update",
+        "delete",
+        "restore",
+        "list",
+        "get",
+        "set",
+        "reset"
+      ],
+      "contract_file": "article_statuses.json",
+      "domain_operations": [
+        "markRead",
+        "markUnread",
+        "markAllRead",
+        "star",
+        "unstar"
+      ]
+    },
+    {
+      "object_id": "articles",
+      "repository_symbol": "ArticlesRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "required_operations": [
+        "create",
+        "update",
+        "delete",
+        "restore",
+        "list",
+        "get",
+        "set",
+        "reset"
+      ],
+      "contract_file": "articles.json",
+      "domain_operations": [
+        "list",
+        "read",
+        "refresh"
+      ]
+    },
+    {
+      "object_id": "articles__accountid_db",
+      "repository_symbol": "ArticlesAccountidDbRepository",
+      "directions": [
+        "read"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "required_operations": [
+        "list",
+        "get"
+      ],
+      "contract_file": "articles__accountid_db.json"
+    },
+    {
+      "object_id": "feeds",
+      "repository_symbol": "FeedsRepository",
+      "directions": [
+        "read",
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-LOCAL-PERSISTENCE"
+      ],
+      "required_operations": [
+        "create",
+        "update",
+        "delete",
+        "restore",
+        "list",
+        "get",
+        "set",
+        "reset"
+      ],
+      "contract_file": "feeds.json",
+      "domain_operations": [
+        "add",
+        "remove",
+        "list",
+        "refresh"
+      ]
+    },
+    {
+      "object_id": "last_refreshed_at",
+      "repository_symbol": "LastRefreshedAtRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH"
+      ],
+      "required_operations": [
+        "update",
+        "set"
+      ],
+      "contract_file": "last_refreshed_at.json"
+    },
+    {
+      "object_id": "password",
+      "repository_symbol": "PasswordRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "required_operations": [
+        "set"
+      ],
+      "contract_file": "password.json"
+    },
+    {
+      "object_id": "settings",
+      "repository_symbol": "SettingsRepository",
+      "directions": [
+        "read"
+      ],
+      "feature_ids": [
+        "FEAT-FEED-REFRESH",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-SETTINGS"
+      ],
+      "required_operations": [
+        "update",
+        "list",
+        "get",
+        "set",
+        "reset"
+      ],
+      "contract_file": "settings.json",
+      "domain_operations": [
+        "getTheme",
+        "setTheme",
+        "getSort",
+        "setSort",
+        "getFilter",
+        "setFilter"
+      ]
+    },
+    {
+      "object_id": "source",
+      "repository_symbol": "SourceRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-LOCAL-ACCOUNT"
+      ],
+      "required_operations": [
+        "create",
+        "set"
+      ],
+      "contract_file": "source.json",
+      "domain_operations": [
+        "createLocal"
+      ]
+    },
+    {
+      "object_id": "theme_mode",
+      "repository_symbol": "ThemeModeRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-SETTINGS"
+      ],
+      "required_operations": [
+        "update",
+        "restore",
+        "get",
+        "set"
+      ],
+      "contract_file": "theme_mode.json",
+      "domain_operations": [
+        "setThemeMode"
+      ]
+    },
+    {
+      "object_id": "username",
+      "repository_symbol": "UsernameRepository",
+      "directions": [
+        "write"
+      ],
+      "feature_ids": [
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "required_operations": [
+        "set"
+      ],
+      "contract_file": "username.json"
+    }
+  ],
+  "generated_at": "2026-09-01T00:11:30Z"
+}

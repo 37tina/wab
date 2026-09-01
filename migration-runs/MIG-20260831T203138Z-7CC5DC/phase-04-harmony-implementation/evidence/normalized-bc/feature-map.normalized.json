@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "generated_at": "FEATURE_MAP",
+  "features": [
+    {
+      "feature_id": "FEAT-LOCAL-ACCOUNT",
+      "name": "Local account setup",
+      "summary": "Cold-start Add Account screen offers Local (On Device); selecting it creates a UUID local account (account_<id> prefs source=local, default prefs account_id) and enters the Articles UI (MainActivity routes by account_id).",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:7",
+        "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:7",
+        "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:8"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "display/navigation only",
+      "verify_mode_source": "scope.feature_verify_modes (Phase-1 frozen authority, DEC-007/017)"
+    },
+    {
+      "feature_id": "FEAT-ADD-FEED",
+      "name": "Add / manage RSS subscriptions",
+      "summary": "Add Feed dialog (side drawer Add Feed button) takes a feed URL, resolves it via feedfinder, upserts into SQLite feeds and saves articles; includes edit/remove feed-folder dialogs and the external AddLinkActivity entry container.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/AddLinkActivity.kt:17",
+        "app/src/main/java/com/capyreader/app/AddLinkActivity.kt:17",
+        "app/src/main/java/com/capyreader/app/AddLinkActivity.kt:18",
+        "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:106",
+        "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:142",
+        "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:143",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:22",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:23",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:30",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:8",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:8",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:9",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:108",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:127",
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:162",
+        "app/src/main/java/com/capyreader/app/ui/articles/EditFolderDialog.kt:11",
+        "app/src/main/java/com/capyreader/app/ui/articles/EditFolderDialog.kt:11",
+        "app/src/main/java/com/capyreader/app/ui/articles/EditFolderDialog.kt:12",
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:12",
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:12",
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:13",
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:10",
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:10",
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:11"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-ADDFEEDBUTTON-067ECBF0",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ADDFEEDVIEW-20077793",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+          "kind": "container",
+          "is_container": true
+        },
+        {
+          "id": "PAGE-ADDLINKSCREEN-9E051065",
+          "kind": "container",
+          "is_container": true
+        },
+        {
+          "id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-FEEDACTIONMENU-075C1A17",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+          "kind": "dialog",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "high",
+      "risk": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "runtime whitelist seed"
+    },
+    {
+      "feature_id": "FEAT-FEED-REFRESH",
+      "name": "Manual feed refresh",
+      "summary": "Side-drawer 'Refresh all' button and list pull-to-refresh trigger account.refresh; LocalAccountDelegate fetches each feed over HTTP, upserts articles and touches account prefs last_refreshed_at.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:51"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-FEEDLIST-228CEB83",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "no operable page surfaces (container/component shell only)",
+      "verify_mode_source": "scope.feature_verify_modes (Phase-1 frozen authority, DEC-007/017)"
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-LIST",
+      "name": "Article list & filters",
+      "summary": "ArticleScreen hosts the paged article list with drawer feed/folder navigation and Unread/All/Starred status switching (ArticleStatusBar); the chosen ArticleFilter persists to prefs article_filter.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt:39",
+        "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:111",
+        "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:112",
+        "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:112",
+        "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:32"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLELIST-AB5566F8",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ARTICLESCREEN-23AF0624",
+          "kind": "page",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-FILTERACTIONMENU-07E67060",
+          "kind": "menu",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "display/navigation only",
+      "verify_mode_source": "scope.feature_verify_modes (Phase-1 frozen authority, DEC-007/017)"
+    },
+    {
+      "feature_id": "FEAT-ARTICLE-READ",
+      "name": "Article reading view",
+      "summary": "Selecting a row opens ArticleView/ArticleReader (WebView render of content_html) in the detail pane, marks the article read on open, with image page and open-in-browser affordances.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/OpenArticleInBrowserActivity.kt:13",
+        "app/src/main/java/com/capyreader/app/OpenArticleInBrowserActivity.kt:13",
+        "app/src/main/java/com/capyreader/app/OpenArticleInBrowserActivity.kt:14",
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleReader.kt:50",
+        "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:166",
+        "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:167"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEREADER-B2B865F0",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-IMAGEPAGE-18D3E5AD",
+          "kind": "page",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "display/navigation only",
+      "verify_mode_source": "scope.feature_verify_modes (Phase-1 frozen authority, DEC-007/017)"
+    },
+    {
+      "feature_id": "FEAT-READ-UNREAD",
+      "name": "Read / unread management",
+      "summary": "Open-marks-read plus reader bottom-bar toggle (ArticleRecords.markRead/markUnread on article_statuses.read), Mark All as Read flow with confirm dialog batching read=1.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:35",
+        "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:14",
+        "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:14",
+        "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:15",
+        "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadMenu.kt:10"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEACTIONMENU-128442E3",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-MARKALLREADDIALOG-46A35015",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-MARKALLREADMENU-464F3414",
+          "kind": "menu",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "display/navigation only",
+      "verify_mode_source": "scope.feature_verify_modes (Phase-1 frozen authority, DEC-007/017)"
+    },
+    {
+      "feature_id": "FEAT-STAR",
+      "name": "Star (saved) management",
+      "summary": "Reader bottom-bar Star toggle and list article menu add/remove star via Account.addStar/removeStar on article_statuses.starred; visible under the Starred filter.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:186"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-TOGGLESTARMENUITEM-5F309692",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "no operable page surfaces (container/component shell only)",
+      "verify_mode_source": "scope.feature_verify_modes (Phase-1 frozen authority, DEC-007/017)"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "name": "Local persistence across restarts",
+      "summary": "Per-account SQLDelight SQLite database articles_<accountID> (feeds/articles/article_statuses/folders/taggings) plus SharedPreferences (default store and account_<id>) keep feeds, articles, read/star states and settings across process death; MainActivity restores directly into Articles when account_id exists.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/MainActivity.kt:16",
+        "app/src/main/java/com/capyreader/app/MainActivity.kt:16",
+        "app/src/main/java/com/capyreader/app/MainActivity.kt:17"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-MAINACTIVITY-3FDE9431",
+          "kind": "page",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "high",
+      "risk": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "runtime whitelist seed"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "name": "Settings (display & preferences)",
+      "summary": "Settings screen panels (Display/General/Article List) edit core preferences persisted via AppPreferences: app theme picker, theme mode buttons, sort order, refresh interval; changes take effect immediately and survive restart.",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:26",
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:179",
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:181",
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:185",
+        "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:126",
+        "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:15",
+        "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:154",
+        "app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:5",
+        "app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:5",
+        "app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:6",
+        "app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt:46",
+        "app/src/main/java/com/capyreader/app/ui/settings/panels/AutoDeleteMenu.kt:16",
+        "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:41",
+        "app/src/main/java/com/capyreader/app/ui/settings/panels/RefreshIntervalMenu.kt:18"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-ARTICLEFONTMENU-D9B99022",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+          "kind": "dialog",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-AUTODELETEMENU-3E3FD576",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-DISPLAYSETTINGSPANEL-650C8AEE",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+          "kind": "menu",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+          "kind": "settings",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-SETTINGSVIEW-9331B5E9",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-THEMEPICKER-6F79D5ED",
+          "kind": "dialog",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "high",
+      "risk": "high",
+      "verify_mode": "RUNTIME",
+      "status": "OPEN",
+      "_verify_mode_reason": "runtime whitelist seed"
+    },
+    {
+      "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+      "name": "Online account entry & login UI (source-confirm)",
+      "summary": "Add Account screen lists Feedbin/FreshRSS/Miniflux/Reader service rows; each routes to LoginScreen whose form shows service title, Username/Password and an API URL field only for hasCustomURL sources. Source-level confirmation only; real login/sync is excluded (FEAT-ONLINE-SYNC-RUNTIME).",
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:36",
+        "app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:13",
+        "app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:7",
+        "app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:7",
+        "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:43"
+      ],
+      "surfaces": [
+        {
+          "id": "PAGE-ADDACCOUNTVIEW-A37259FA",
+          "kind": "reusable-component",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-LOGINSCREEN-9D67F9D2",
+          "kind": "page",
+          "is_container": false
+        },
+        {
+          "id": "PAGE-LOGINVIEW-49F18417",
+          "kind": "reusable-component",
+          "is_container": false
+        }
+      ],
+      "data_objects": {
+        "writes": [],
+        "reads": []
+      },
+      "risk_level": "normal",
+      "risk": "normal",
+      "verify_mode": "SOURCE_CONFIRM",
+      "status": "OPEN",
+      "_verify_mode_reason": "display/navigation only"
+    }
+  ],
+  "coverage_gate": {
+    "included_features_covered": true,
+    "included": [
+      "FEAT-LOCAL-ACCOUNT",
+      "FEAT-ADD-FEED",
+      "FEAT-FEED-REFRESH",
+      "FEAT-ARTICLE-LIST",
+      "FEAT-ARTICLE-READ",
+      "FEAT-READ-UNREAD",
+      "FEAT-STAR",
+      "FEAT-LOCAL-PERSISTENCE",
+      "FEAT-SETTINGS",
+      "FEAT-ONLINE-ACCOUNT-UI"
+    ],
+    "covered": [
+      "FEAT-LOCAL-ACCOUNT",
+      "FEAT-ADD-FEED",
+      "FEAT-FEED-REFRESH",
+      "FEAT-ARTICLE-LIST",
+      "FEAT-ARTICLE-READ",
+      "FEAT-READ-UNREAD",
+      "FEAT-STAR",
+      "FEAT-LOCAL-PERSISTENCE",
+      "FEAT-SETTINGS",
+      "FEAT-ONLINE-ACCOUNT-UI"
+    ],
+    "missing": []
+  }
+}

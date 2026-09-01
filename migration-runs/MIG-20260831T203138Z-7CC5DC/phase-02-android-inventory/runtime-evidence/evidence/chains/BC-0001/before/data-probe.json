@@ -1,0 +1,18 @@
+{
+ "schema": "android-data-probe/1",
+ "package": "com.capyreader.app.debug",
+ "device": "emulator-5554",
+ "captured_at": "2026-08-31T23:45:13Z",
+ "access_mode": "run-as",
+ "preferences": {},
+ "tables": {},
+ "stores": [
+  {
+   "store": "databases",
+   "path": "databases",
+   "status": "ABSENT",
+   "reason": "no database files"
+  }
+ ],
+ "tool_gaps": []
+}

@@ -1,0 +1,141 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0005",
+    "bc_row_sha": "3e407e4e6e07cd0f61bd491f5874da40bf718e5fd850cc2ab2cac3ca2f2ea998",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [],
+    "bc_id": "BC-0005",
+    "blocked_reason": "NAV_FAIL",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T03:21:04Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "account_id": "bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+        "last_refreshed_at": 1788232531,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "path": "databases/articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "status": "READ",
+          "store": "sqlite:articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "tables": 11
+        }
+      ],
+      "tables": {
+        "article_notifications": [],
+        "article_statuses": [],
+        "article_sync_statuses": [],
+        "articles": [],
+        "enclosures": [],
+        "excluded_statuses": [],
+        "feeds": [],
+        "folders": [],
+        "saved_search_articles": [],
+        "saved_searches": [],
+        "taggings": []
+      },
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        }
+      ]
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T03:21:04Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "account_id": "bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+        "last_refreshed_at": 1788232531,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "path": "databases/articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "status": "READ",
+          "store": "sqlite:articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "tables": 11
+        }
+      ],
+      "tables": {
+        "article_notifications": [],
+        "article_statuses": [],
+        "article_sync_statuses": [],
+        "articles": [],
+        "enclosures": [],
+        "excluded_statuses": [],
+        "feeds": [],
+        "folders": [],
+        "saved_search_articles": [],
+        "saved_searches": [],
+        "taggings": []
+      },
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        }
+      ]
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-ur1snr0x/runtime-evidence/evidence/chains/BC-0005",
+    "executed": false,
+    "feature_id": "FEAT-ADD-FEED",
+    "note": "anchors_tried=0 fallback=True feats=46",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

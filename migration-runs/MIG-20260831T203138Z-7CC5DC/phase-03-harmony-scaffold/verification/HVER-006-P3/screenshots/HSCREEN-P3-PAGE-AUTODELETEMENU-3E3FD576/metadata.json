@@ -1,0 +1,26 @@
+{
+  "screenshot_id": "HSCREEN-P3-PAGE-AUTODELETEMENU-3E3FD576",
+  "verification_id": "HVER-006-P3",
+  "henv_id": "HENV-005-P3",
+  "device_id": "HDEVICE-001",
+  "device_serial": "127.0.0.1:5557",
+  "bundle_name": "com.capyreader.app.debug",
+  "target_kind": "MODAL",
+  "target_id": "ShellModalAutodeletemenu3e3fd576",
+  "feature_ids": [
+    "FEAT-SETTINGS"
+  ],
+  "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+  "page_shell_id": "PSHELL-PAGE-SETTINGSSCREEN-D0A9FF8D",
+  "smoke_command_id": "CMD-SMOKE-S-PAGE-AUTODELETEMENU-3E3FD576",
+  "capture_command_id": "CMD-SCREEN-12",
+  "capture_executable": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/tools/p3_screenshot.py",
+  "capture_executable_sha256": "f7268257719b35896e31d2f4f22b60e7af752cb81feececfe497173ba7c88185",
+  "capture_stdout_sha256": "c442adac4e7c079fe7c6f64d7dc482cf4d1ab4a0f87a71d5a3d773cd3c9b4277",
+  "capture_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "captured_by": "toolchain.capy-01",
+  "captured_at": "2026-09-01T00:58:56Z",
+  "width": 1320,
+  "height": 2856,
+  "png_sha256": "d49a1d93559568b27301a71a348ec833da6c018a9e28f2df4dab03523676a839"
+}

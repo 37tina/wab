@@ -1,0 +1,652 @@
+{
+ "schema": "android-data-probe/1",
+ "package": "com.capyreader.app.debug",
+ "device": "emulator-5554",
+ "captured_at": "2026-08-31T23:51:29Z",
+ "access_mode": "run-as",
+ "preferences": {
+  "CachedFlagsDisabled": [],
+  "CachedFlagsEnabled": [
+   "EnablePerfettoSystemTracing"
+  ],
+  "lastVersionCodeUsed": 787118103,
+  "last_refreshed_at": 1788219912,
+  "source": "LOCAL",
+  "account_id": "83f1914d-0a65-49a2-9e72-fa22324550a5",
+  "article_filter": "{\"type\":\"com.jocmp.capy.ArticleFilter.Feeds\",\"status\":\"ALL\",\"feedID\":\"https://feeds.arstechnica.com/arstechnica/index\",\"folderTitle\":null,\"feedStatus\":\"ALL\"}",
+  "pane_expansion_index": 4
+ },
+ "tables": {
+  "article_notifications": [],
+  "article_statuses": [
+   {
+    "article_id": "https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220281,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220282,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220282,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220283,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220284,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220284,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220284,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220284,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/",
+    "read": 1,
+    "starred": 0,
+    "last_read_at": 1788220284,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/",
+    "read": 0,
+    "starred": 0,
+    "last_read_at": null,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/",
+    "read": 0,
+    "starred": 0,
+    "last_read_at": null,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/",
+    "read": 0,
+    "starred": 0,
+    "last_read_at": null,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   },
+   {
+    "article_id": "https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/",
+    "read": 0,
+    "starred": 0,
+    "last_read_at": null,
+    "updated_at": 1788220172,
+    "last_unstarred_at": null
+   }
+  ],
+  "article_sync_statuses": [],
+  "articles": [
+   {
+    "id": "https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "The Bentley Supersports: A stripped-out engineer's indulgence",
+    "author": "Jonathan M. Gitlin",
+    "content_html": "<aside class=\"pullbox sidebar fullwidth\">Bentley provided flights from Washington, DC, to Monterey, California, and accommodation so Ars could drive the Supersports, as well as ride in a preproduction Torcal EV, <a href=\"https://arstechnica.com/cars/2026/08/an-ev-that-sounds-like-a-6-75-l-v8-a-ride-in-the-bentley-torcal/\">which we wrote about</a> last week. Ars does not accept paid editorial content.</aside>\n<p>MONTEREY, Calif.—Last week, we <a href=\"https://arstechnica.com/cars/2026/08/an-ev-that-sounds-like-a-6-75-l-v8-a-ride-in-the-bentley-torcal/\">brought news</a> of the Bentley Torcal, a new electric vehicle that the luxury automaker has been cooking up at its HQ in Crewe, England. The company wants to attract new customers with its first battery EV, part of a plan to make sustainability as much a part of the brand's character as its high-end fit and finish. W12 engines have given way to V8 plug-in hybrid power, and the new Continental GT is <a href=\"https://arstechnica.com/cars/2025/05/the-2025-bentley-continental-gt-the-highs-and-lows-of-borrowed-bits/\">all the better for it</a>.</p>\n<p>But around the same time as Ars <a href=\"https://arstechnica.com/cars/2024/05/heres-what-we-learned-driving-a-prototype-of-bentleys-new-hybrid-gt/\">got its first experience</a> of that new PHEV two-door on a rather wet Spanish racetrack, some of Bentley's boffins were wondering what might happen if you also built one without the hybrid stuff.</p>\n<p>Or all-wheel drive—something that has been a characteristic of every new road-going Bentley since the turn of the century. That would certainly cut the curb weight. So, too, would leaving out the rear seats. That sort of idea leads down a well-trodden path for some OEMs, and Porsche in particular is famous for making stripped-out road cars inspired by its race cars and making money from them, too.</p><p><a href=\"https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/",
+    "summary": "It's the lightest Bentley in 85 years.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/DragonRed.Supersports-6-1152x648.jpg",
+    "published_at": 1788217276,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Trump admin shelves Cyclospora research despite record-breaking outbreak",
+    "author": "Beth Mole",
+    "content_html": "<p>The Trump administration is halting vital federal research on the foodborne parasite <em>Cyclospora, </em>despite the record-breaking, nationwide outbreak of the diarrheal pathogen, <a href=\"https://www.politico.com/news/2026/08/30/usda-cyclospora-research-projects-01055989\">according to Politico</a>.</p>\n<p>Of the three research programs that represent nearly all of the <em>Cyclospora</em> work at the US Department of Agriculture, two have been defunded, and the third is about to lose every scientist working on it. The Trump administration is shuttering the USDA's Beltsville Agricultural Research Center near Washington, DC, and moving its work to a location in Iowa. That includes relocating the remaining <em>Cyclospora</em> research.</p>\n<p>Although the research is still funded, insiders told Politico that not one of the scientists working on the project plans to relocate from Maryland to Iowa. Instead, they are either retiring, being reassigned to a different project, or leaving the USDA's research services.</p><p><a href=\"https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/",
+    "summary": "The CDC has tallied nearly 30,000 confirmed and probable cases this summer.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/7827_lores-700x648.jpg",
+    "published_at": 1788211389,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Get in on the Ars community that doesn’t fit beneath an article",
+    "author": "Eric Bangeman",
+    "content_html": "<p>If you’re like many of our readers, you’ve got Ars Technica bookmarked and hit the front page a few times a day. But for others, a compelling story is what brings them here for the first time. And the discussions sometimes keep them coming back.</p>\n<p>Since its launch in 1998, Ars Technica has been known for its depth of community. If all you're doing is checking out the front page and the discussion threads that sit beneath each story, you’re missing out on more than you realize.</p>\n<p>The <a href=\"https://arstechnica.com/civis/\">Ars OpenForum</a> is a place for readers to ask questions, compare notes, argue (without being jerks to each other), and go down all sorts of rabbit holes. Our <a href=\"https://arstechnica.com/civis/forums/-/list#hardware-tweaking.5\">Hardware and Tweaking forums</a> cover <a href=\"https://arstechnica.com/civis/forums/case-and-cooling-fetish.7/\">PC builds</a>, <a href=\"https://arstechnica.com/civis/forums/networking-matrix.10/\">networking</a>, <a href=\"https://arstechnica.com/civis/forums/mobile-computing-outpost.9/\">mobile computing</a>, <a href=\"https://arstechnica.com/civis/forums/cpu-motherboard-technologia.8/\">CPUs and motherboards</a>, <a href=\"https://arstechnica.com/civis/forums/audio-visual-club.6/\">A/V</a>, and just about any other <a href=\"https://arstechnica.com/civis/forums/other-hardware.11/\">hardware-related topic</a> you can think of. Stop by the <a href=\"https://arstechnica.com/civis/forums/-/list#operating-systems-software.13\">Operating Systems &amp; Software</a> forums for in-depth discussion on <a href=\"https://arstechnica.com/civis/forums/windows-technical-mojo.17/\">Windows</a>, <a href=\"https://arstechnica.com/civis/forums/macintoshian-achaia.19/\">macOS</a>, or <a href=\"https://arstechnica.com/civis/forums/linux-kung-fu.16/\">Linux</a> or just to have a good, friendly argument over <a href=\"https://arstechnica.com/civis/forums/battlefront.14/\">why your preferred OS rules</a>.</p><p><a href=\"https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/",
+    "summary": "You've read the stories. Now check out our forums.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ars-sub-1152x648.jpg",
+    "published_at": 1788210721,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Review: Coyote vs. Acme is an unabashed love letter to Looney Tunes",
+    "author": "Jennifer Ouellette",
+    "content_html": "<p>It took three years, but <a href=\"https://en.wikipedia.org/wiki/Coyote_vs._Acme\"><em>Coyote vs. Acme</em></a> is finally in theaters and delighting audiences of all ages with its irresistible blend of slapstick humor, pointed satire, and even a warm fuzzy here and there. We're happy to report that the film was worth the wait.</p>\n<p><strong>(Some spoilers below but no major reveals.)</strong></p>\n<p>The film is based on a <a href=\"https://www.newyorker.com/magazine/1990/02/26/coyote-v-acme\">well-known satirical piece</a> by Ian Frazier (also titled “Coyote vs. Acme”) published in The New Yorker in 1990. Development of a film version didn’t start until 2018, but some pretty talented people worked on the script, including James Gunn. Small wonder that Warner Bros.’ bizarre 2023 decision to shelve the film in order to take a tax write-off sparked outrage both within the industry and among fans online.</p><p><a href=\"https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/",
+    "summary": "Director Dave Green's live action/animated hybrid captures smart, subversive weirdness of the classic cartoons.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/coyotevsacme-1152x648.jpg",
+    "published_at": 1788206536,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Trump tells FCC to punish journalist for calling his election results \"mixed\"",
+    "author": "Jon Brodkin",
+    "content_html": "<p>President Trump yesterday demanded that the Federal Communications Commission punish or rebuke an NBC journalist for saying he has \"mixed results\" in his election endorsements. In the latest example of how Trump is using the FCC to harass reporters and news organizations that he dislikes, he said <em>Meet the Press</em> host Kristen Welker \"will be reported to the FCC for rebuke or punishment\" for what he claimed was a \"purposeful inaccuracy.\"</p>\n<p>\"Kristen Welker, the Unpopular 'Hostess' of the once great Meet the Press, now considered Meet the Fake Press, just stated that Donald Trump has 'mixed results' on his Endorsements of Candidates, when the recent WINS of Darline Graham and Mike Mazzei, stand at 100% for the U.S. Senate, and 98% for the U.S. House, recently and over the longterm. How can anyone be allowed to say this, working for freely given Public Airwaves? Results are attached. Because of this purposeful inaccuracy, she will be reported to the FCC for rebuke or punishment,\" Trump wrote in a <a href=\"https://truthsocial.com/@realDonaldTrump/posts/117184581053116309\">Truth Social post</a>.</p>\n<p>A separate <a href=\"https://truthsocial.com/@realDonaldTrump/posts/117184527741564500\">post</a> from Trump yesterday said, \"THE FAKE POLLS USED BY OUR CROOKED MEDIA ARE OUT OF CONTROL, AND SOMETHING MUST BE DONE ABOUT IT. FCC TO THE RESCUE! President DJT.\" Trump also <a href=\"https://truthsocial.com/@realDonaldTrump/posts/117175050400064794\">posted a rant</a> on Friday about New York Times journalist Maggie Haberman, calling her \"an unattractive person both inside and out\" who \"should be forced to turn over any and all money that she’s made through her fake reporting on me.\" Trump referred to Haberman throughout his post as \"Maggot Haberman.\"</p><p><a href=\"https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/",
+    "summary": "Trump furious at NBC's Kristen Welker for saying he had mixed results in primary endorsements.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/trump-media-1152x648-1788199474.jpg",
+    "published_at": 1788201565,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "“Zlibrary my beloved”: Anthropic staff chats extolling piracy cited in Sony suit",
+    "author": "Ashley Belanger",
+    "content_html": "<p>Some of the world’s leading music publishers think that Anthropic got off too light in a <a href=\"https://arstechnica.com/tech-policy/2025/09/first-of-its-kind-ai-settlement-anthropic-to-pay-authors-1-5-billion/\">historic settlement</a> where the Claude maker <a href=\"https://arstechnica.com/tech-policy/2026/07/judge-approves-anthropics-1-5-billion-copyright-settlement-with-authors/\">paid authors $1.5 billion</a> after admitting to pirating more than 7 million books to train AI.</p>\n<p>“$1.5 billion is obviously not a large enough settlement to deter infringing conduct by a company that has parlayed such mass infringement into a staggering $2-trillion-dollar valuation,” music publishers said in a <a href=\"https://cdn.arstechnica.net/wp-content/uploads/2026/08/Sony-v-Anthropic-Complaint-8-28-26.pdf\">lawsuit</a> filed Friday.</p>\n<p>Music publishers suing Anthropic include Sony, EMI, and Warner Chappell. They alleged that Anthropic’s illegal torrenting also included “thousands upon thousands” of their copyrighted musical compositions.</p><p><a href=\"https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/",
+    "summary": "Lawsuit: Anthropic’s torrenting totally screwed songwriters as AI songs top charts.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-172575622-1152x648.jpg",
+    "published_at": 1788199845,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Raindrops are tiny lightning bolts, and they’re corroding cars, study finds",
+    "author": "Jacek Krywko",
+    "content_html": "<p>The standard explanation for why rain causes corrosion is that water carries dissolved salts and acids to a surface, constant drumming of raindrops abrades whatever protective coating is on it, and oxygen does the rest. Nearly all our tools to prevent this—paints, polymer films, or oxide layers—are built around this idea. But we’ve apparently been missing something important about the rain.</p>\n<p>A new study led by Zhongyuan Ni, Rüdiger Berger, and Hans-Jürgen Butt at the Max Planck Institute for Polymer Research in Mainz, Germany, has shown that water drops routinely arrive at a surface carrying an electrical charge large enough to punch through an insulating coating. Not scratch it. Not slowly dissolve it. Electrically blow a hole in it, the way a spark jumps a gap.</p>\n<h2>Charged rain</h2>\n<p>The starting point of the study is a phenomenon called \"slide electrification,\" which has only been properly quantified in the past few years. When a water drop slides across an insulating surface like a leaf, a painted wall, a windowpane, or a plastic panel, it strips charge from that surface and leaves an opposing charge behind. The voltages involved are not trivial. Drops charged this way have been measured at up to 9,000 volts.</p><p><a href=\"https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/",
+    "summary": "Finding reveals an overlooked way that water can damage surfaces.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-1856868830-1152x648.jpg",
+    "published_at": 1788196308,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Think twice before installing this device promising free movies",
+    "author": "Dan Goodin",
+    "content_html": "<p>As online services get better at blocking malicious traffic, the attackers and scammers behind them have been forced to find new ways to reach their targets. The alternative of choice is now what are known as residential proxy networks. These systems funnel millions of home Internet connections into a unified network, and the proxy operators allow attackers to route their malicious traffic through these connections for a fee. The online services see only IP addresses with good reputations and geolocations that don’t stand out.</p>\n<p>More often than not, the home users have no idea that their connections are being used to facilitate crime and occasionally even <a href=\"https://arstechnica.com/security/2023/09/china-state-hackers-are-camping-out-in-cisco-routers-us-and-japan-warn/\">nation-state attacks</a>. Users who do know often don’t care much. In exchange for leasing out part of their unlimited bandwidth to others, many get free movie and TV show streaming. Several less tech-savvy people I know who own such digital media players have told me, after I explain how the media players piggyback off their connections, that the bonanza of content is worth it. They find the tangible benefits outweigh the abstract harm they pose.</p>\n<h2>Infecting already compromised devices</h2>\n<p>Research published Monday brings the threat into much clearer view. Security firm Plume cataloged a vast ecosystem of malware that preys squarely on users of <a href=\"https://mysuperboxtv.com/\">SuperBox</a>, just one of many media players offering pirated content. These malicious apps can be surreptitiously installed by remote attackers even when the devices are positioned behind a router. While Monday’s deep-dive analysis focused exclusively on SuperBox, Plume warned that dozens of similar streaming devices pose precisely the same threat.</p><p><a href=\"https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/",
+    "summary": "In exchange for free stuff, devices make home connections part of a proxy network.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/superbox-s7-pro-1152x648.webp",
+    "published_at": 1788194018,
+    "enclosure_type": "image/webp"
+   },
+   {
+    "id": "https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "El Niño is now stronger than at any point in the last 1,000 years, study finds",
+    "author": "Jacek Krywko",
+    "content_html": "<p>Every few years, El Niño or its cool counterpart, La Niña, shifts rainfall across the tropics, dries out Australia, floods parts of Peru, and rearranges the weather on most of the planet. The two are the warm and cold swings of a single system, the El Niño–Southern Oscillation, or ENSO, and that system is the largest source of year-to-year climate variation on Earth. Its swings sit atop the steadily rising temperatures driven by global warming.</p>\n<p>But we didn't know whether global warming was making it stronger. It’s possible that the added energy in the atmosphere and oceans was causing its swings to be more dramatic.</p>\n<p>“We've been seeing some very strong El Niño events in the late 20th and early 21st century, and what we didn't know was how unusual those are,” said Julie Cole, an environmental scientist at the University of Michigan. Because models disagree with one another and the instrumental data are too short to separate a trend, Cole’s team reconstructed a thousand-year-long ocean surface temperature record by analyzing fossilized Galápagos corals.</p><p><a href=\"https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/",
+    "summary": "“One more warning sign here of what we're facing in a warmer world.”",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ssta.daily_.current-1152x648.png",
+    "published_at": 1788192284,
+    "enclosure_type": "image/png"
+   },
+   {
+    "id": "https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Google Maps renames \"Lake Ontario\" to \"Lake America\" even faster than US government",
+    "author": "Ryan Whitwam",
+    "content_html": "<p>Trade talks between the US and Canada broke down last week, leading to a wave of tariffs and retaliatory tariffs. US President Donald Trump also fell back on an old favorite to needle his opponents, signing an executive order on Thursday to rename Lake Ontario to \"Lake America.\"</p>\n<p>The body of water, which straddles the US-Canada border, gave its name to the Canadian province rather than the other way around. Regardless, the US government now refers to this great lake as Lake America—or it will soon. Official US government maps have yet to be updated, but Google wasted no time adopting the new, Trumpian name.</p>\n<p>Google began rolling out this change for US users on Saturday. The company posted a <a href=\"https://blog.google/products-and-platforms/products/maps/gnis-lake-ontario-lake-america-name-change/\">brief update</a> on its Google Maps blog, noting that it follows the US Geographic Names Information System (GNIS) for its maps, so the company implies it had no choice but to rename Lake Ontario in Google Maps, which is the most popular mapping platform in the US by a wide margin.</p><p><a href=\"https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/",
+    "summary": "Google rolled out the Lake America change on Saturday, while the official US government maps are still waiting.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/Google-Maps-Lake-America.jpg",
+    "published_at": 1788190412,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "ChatGPT and Reddit now face EU's toughest online safety rules",
+    "author": "Barbara Moens, Financial Times",
+    "content_html": "<p>OpenAI’s ChatGPT will have to comply with tougher EU rules such as removing illegal content or face potential fines, the European Commission said on Monday, as Brussels grapples with how its existing digital regulation applies to rapidly evolving AI services.</p>\n<p>The Commission said the chatbot, social media forum Reddit, and gaming platform Roblox would be classified as so-called very large online platforms under the EU Digital Services Act, its landmark online safety regime.</p>\n<p>The designation means all three services will face additional obligations such as removing illegal content and protecting the privacy and security of minors and could face fines of up to 6 percent of their global revenue if they fail to comply.</p><p><a href=\"https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
+    "summary": "Explosive growth comes with a new regulatory burden in the European Union.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2022/03/getty-eu-flag-1152x648.jpg",
+    "published_at": 1788183700,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "NASA's next \"great observatory\" begins mission to widen our view of the Universe",
+    "author": "Stephen Clark",
+    "content_html": "<p>NASA's $4.3 billion Nancy Grace Roman Space Telescope, equipped with a 300-megapixel camera sighted through a refurbished spy mirror, launched Sunday from Kennedy Space Center in Florida on a mission to reveal the mysterious forces driving the Universe.</p>\n<p>The new mission will extend the vision of NASA's other famous observatories, providing a field of view 100 times wider than the Hubble Space Telescope and complementing the <a href=\"https://arstechnica.com/science/2024/12/latest-james-webb-data-hints-at-new-physics-in-universes-expansion/\">groundbreaking work of the James Webb Space Telescope</a>. Roman is just the second NASA-led astrophysics mission to launch this century, following the <a href=\"https://arstechnica.com/space/2024/11/more-and-more-astronomers-are-eager-to-use-the-james-webb-space-telescope/\">launch of Webb in 2021</a>.</p>\n<p>Unlike Webb, which suffered <a href=\"https://arstechnica.com/science/2022/01/whats-left-for-the-webb-telescope-now-waggling-mirrors-turning-on-instruments/\">many years of delays</a> before reaching space, Roman arrived at the launch pad nine months before NASA's commitment to send it skyward by May 2027.</p><p><a href=\"https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
+    "summary": "\"We would need over half a million 4K TVs to fully display the single Roman image from our largest survey.\"",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/HRAzV1dXYAEXjHy-1152x648.jpg",
+    "published_at": 1788181269,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Pocket's AI made my game ideas real. Now Meta controls the results.",
+    "author": "Kyle Orland",
+    "content_html": "<p>The relatively recent rise of <a href=\"https://arstechnica.com/ai/2026/01/developers-say-ai-coding-tools-work-and-thats-precisely-what-worries-them/\">AI-assisted coding tools</a> and the <a href=\"https://arstechnica.com/ai/2025/03/is-vibe-coding-with-ai-gnarly-or-reckless-maybe-some-of-both/\">whole concept of \"vibe coding\"</a> have effectively <a href=\"https://arstechnica.com/ai/2026/03/ai-can-rewrite-open-source-code-but-can-it-rewrite-the-license-too/\">upended</a> entire software development workflows. While these tools have been available to <a href=\"https://arstechnica.com/information-technology/2026/01/10-things-i-learned-from-burning-myself-out-with-ai-coding-agents/\">novice coders</a> willing to <a href=\"https://arstechnica.com/features/2026/02/so-yeah-i-vibe-coded-a-log-colorizer-and-i-feel-good-about-it/\">put in the work to set them up</a>, those with little to no coding experience could still be a little put off by <a href=\"https://arstechnica.com/ai/2025/06/google-is-bringing-vibe-coding-to-your-terminal-with-gemini-cli/\">the CLIs</a>, <a href=\"https://arstechnica.com/google/2025/11/google-unveils-gemini-3-ai-model-and-ai-first-ide-called-antigravity/\">IDEs</a>, and <a href=\"https://arstechnica.com/ai/2025/12/how-openai-is-using-gpt-5-codex-to-improve-the-ai-tool-itself/\">terminal-based tinkering</a> needed to create a complex AI-coded project these days.</p>\n<p>Meta's latest AI-based project launch wants to make that kind of vibe coding as instantly accessible as posting on social media. Pocket—which <a href=\"https://techcrunch.com/2026/08/20/meta-brings-pocket-an-app-that-lets-you-vibe-code-and-share-games-to-us-users/\">launched in the US last Friday, August 21,</a> after Meta <a href=\"https://www.businessinsider.com/ex-snapchat-engineers-behind-gizmo-join-meta-superintelligence-labs-2026-3\">acquired the staff behind the now-defunct vibe-coding app Gizmo</a> in March—is a mobile app that lets users create fully functional interactive \"gizmos\" just by typing prompts into a text box, without even the option to look at a line of code. Those gizmos can then be shared with the world in a TikTok-style endless scroll complete with likes, comments, reposts, and all the other hallmarks of social media addiction.</p>\n<p>After playing around with Pocket for the better part of a week, I found myself getting hooked on the simple process of quickly standing up functional, relatively feature-rich game prototypes simply by chatting with an LLM. But the result of all that time and AI effort is a couple of interactive toys that are effectively trapped in Meta's new walled garden, without any real way to turn them into something separate.</p><p><a href=\"https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/",
+    "summary": "Interactive mobile \"gizmos\" are easy to make, hard to share outside Meta's platform.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/pocketsling-1152x648-1787932298.png",
+    "published_at": 1788170434,
+    "enclosure_type": "image/png"
+   },
+   {
+    "id": "https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "A 12TB Steam “teraleak” spills more than a decade of lost PC gaming history",
+    "author": "Kyle Orland",
+    "content_html": "<p>Here at Ars, we're <a href=\"https://arstechnica.com/gaming/2018/07/steam-data-leak-reveals-precise-player-count-for-thousands-of-games/\">intimately familiar</a> with <a href=\"https://arstechnica.com/gaming/2024/05/leaks-from-valves-deadlock-look-like-a-pressed-sandwich-of-every-game-around/\">data leaks</a> surrounding Valve's <a href=\"https://arstechnica.com/gaming/2020/04/valve-responds-to-source-code-leak-csgo-players-are-fine-maybe-not-tf2s/\">games</a>, <a href=\"https://arstechnica.com/gaming/2019/04/valve-leaks-another-apparent-look-at-its-index-vr-headset/\">hardware</a>, and <a href=\"https://arstechnica.com/gaming/2024/07/valve-runs-its-massive-pc-gaming-ecosystem-with-only-about-350-employees/\">the workings of Steam itself</a>. But nothing could have prepared us for this weekend's \"terarelease\" encompassing more than 12TB of content related to seemingly every title available on Steam between 2003 and 2013.</p>\n<p>What's being sold as an \"as-complete-as-possible ... content server dump\" of Steam's defunct \"Steam2\" server architecture from that time period is now circulating around via a BitTorrent tracker that Valve seems unlikely to ever completely purge from the Internet. The massive collection includes <a href=\"https://steam2-db.pages.dev/\">thousands of \"depots\"</a> representing what seems to be every version of every game uploaded to those old Steam2 servers. That includes public release builds, of course, but in many cases also covers previously unseen pre-release, prototype, and playtest versions of popular titles published by Valve and third-party Steam publishers.</p>\n<h2>Steam2: Electric Boogaloo</h2>\n<p>The reason this weekend's leaked content cuts off abruptly in 2013 is because that's when Valve <a href=\"https://developer.valvesoftware.com/wiki/SteamPipe\">updated its content distribution system from \"Steam2\" to the current SteamPipe system</a>. In moving from a proprietary file distribution format to standard HTTP file trees, the new system <a href=\"https://www.pcgamesn.com/tf2/what-steampipe\">removed various update approval bottlenecks</a> on Valve's end and streamlined update and patch downloads so they only reflected file differentials.</p><p><a href=\"https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/",
+    "summary": "Cut content from Portal 2, hints of Half Life 2: Episode 3, and so much more.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/teraweapon-1152x648-1788124932.jpg",
+    "published_at": 1788126056,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Why it matters that President Trump just dialed in to a NASA news conference",
+    "author": "Eric Berger",
+    "content_html": "<p>As is standard procedure for major NASA missions, the US space agency held a <a href=\"https://www.youtube.com/watch?v=dnAJJwgpHs4\">post-launch news conference</a> on Sunday morning at Kennedy Space Center in Florida to provide information about how the Nancy Grace Roman Space Telescope was faring during its initial maneuvers.</p>\n<p>What was not standard, however, is what happened in the middle of the news conference. A little less than half an hour in, NASA Administrator Jared Isaacman looked down at his mobile phone, and then stood up and walked away from the dais where he had been seated behind a table along with other NASA officials. He briefly left the room.</p>\n<p>Isaacman returned about a minute later, phone in hand, apologizing for interrupting NASA's chief of science, Nicky Fox, as she was speaking about the mission. \"The President of the United States of America would like to address and congratulate everyone on this mission,\" Isaacman said, returning to his seat.</p><p><a href=\"https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/",
+    "summary": "With just one more major mission upcoming, NASA's science programs need a boost.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/NHQ20260828_admin_0045large-1152x648.jpg",
+    "published_at": 1788111630,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Inside Meta’s push to put robots to work in data centers",
+    "author": "Paresh Dave, WIRED.com",
+    "content_html": "<p>Meta is testing robots that can plug in cables, reset servers, and handle other tasks inside its <a href=\"https://www.wired.com/story/how-data-centers-broke-american-politics/\">data centers</a>, according to several current and former workers familiar with the projects. The ongoing effort, which has not been previously reported, may eventually allow <a href=\"https://www.wired.com/tag/meta/\">Meta</a> to operate its rapidly expanding data center footprint with fewer humans, keeping labor costs in check as its spending on <a href=\"https://www.wired.com/story/microsoft-google-meta-2025-earnings/\">AI infrastructure soars</a>.</p>\n<p>Meta is using robots and related hardware from several different vendors, including Watney Robotics, Kinova, and ABB, according to the same workers, who asked to remain anonymous because they weren’t authorized to speak to the media. Kinova and ABB declined to comment. Watney didn’t respond to requests for comment.</p>\n<p>In one experiment, Meta is evaluating whether a Kinova Gen3 robotic arm could be used for power cycling or cutting off electricity to servers. The company is also testing a different robot to swap networking cables. One Meta data center worker estimates that if it’s successful, the bot could replace up to 80 percent of some people’s workloads. “We thought those of us performing the physical tasks were safe for a while, but not anymore,” says the worker. “It’s coming for us all, unfortunately.”</p><p><a href=\"https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/",
+    "summary": "The company is testing robots on tasks that can performed by technicians.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/data-center-server-room-1152x648.jpg",
+    "published_at": 1788087827,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "I asked 100 companies for my data. Some deleted it instead.",
+    "author": "Reece Rodgers, wired.com",
+    "content_html": "<p>I filed a request with McDonald’s earlier this month to access all of the personal data the fast food company collected about me, and I received a stunning <a href=\"https://www.wired.com/story/mcdonalds-built-a-515-page-dossier-on-me-it-says-ill-never-leave/\">515-page report</a> a few days later that detailed my app interactions in granular detail and predicted I would never stop eating there.</p>\n<p>Under the <a href=\"https://www.wired.com/story/ccpa-guide-california-privacy-law-takes-effect/\">California Consumer Privacy Act</a>, I have the legal right to request access to information from large companies that collect personal data. So I was curious what others might have on me, and I spent the next week filing more than 100 requests.</p>\n<p>The CCPA went into effect in 2020, and three of its key provisions are the right to <a href=\"https://www.wired.com/story/data-brokers-and-ai-firms-opt-out-forms-are-built-to-fail-report-finds/\">opt out</a> of the selling of personal information, the right to delete that info, and the right to request a copy for yourself.</p><p><a href=\"https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/",
+    "summary": "Testing 100 companies found privacy requests often led to confusion and dead ends.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/personaldata-1024x648.jpg",
+    "published_at": 1788000631,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Court rules Kalshi sports bets aren't \"swaps,\" just gambling with a different name",
+    "author": "Jon Brodkin",
+    "content_html": "<p>Kalshi today lost a major ruling over whether it can evade state gambling laws, as a federal appeals court found that Nevada can stop the prediction market from allowing sports bets. While the Trump administration is trying to help prediction markets avoid state regulation, a panel of three Trump-appointed judges unanimously <a href=\"https://cdn.ca9.uscourts.gov/datastore/opinions/2026/08/28/25-7516.pdf\">ruled</a> against Kalshi in today's decision from the US Court of Appeals for the 9th Circuit.</p>\n<p>The Nevada Gaming Control Board today <a href=\"https://www.gaming.nv.gov/siteassets/content/about/press-release/ninth-circuit-rules-in-favor-of-nevada.pdf\">said</a> the 9th Circuit \"emphatically reject[ed] the view that the federal Commodity Exchange Act preempts application of Nevada’s gaming laws to sports-event contracts offered by Kalshi, Crypto.com, and Robinhood.\" Nevada Governor Joe Lombardo, a Republican, said that \"prediction markets offering sports-event contracts constitute gambling and must comply with Nevada’s gaming laws and regulatory framework.\"</p>\n<p>The judges affirmed a district court order that let Nevada enforce state laws against Kalshi’s sports-related event contracts.</p><p><a href=\"https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/",
+    "summary": "Kalshi can't evade Nevada gambling laws by calling bets \"swaps,\" judges rule.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/kalshi-ad-1152x648-1783536871.jpg",
+    "published_at": 1787955292,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Cities terminate Flock contracts at record pace in August",
+    "author": "Cyrus Farivar",
+    "content_html": "<p><a href=\"https://docs.google.com/spreadsheets/d/1cg67JW-8_9BnObb2v3yU5jJdpDDIZMC6/edit?usp=drivesdk&amp;ouid=118328836220657927964&amp;rtpof=true&amp;sd=true\">New data compiled</a> by a Bay Area anti-surveillance advocacy group shows that not only are American localities <a href=\"https://arstechnica.com/tech-policy/2026/08/as-wisconsin-cities-flee-flock-its-shared-camera-network-loses-value/\">dropping cameras from Flock Safety,</a> but they are doing it at an accelerating rate.</p>\n<p>Communities from Lansing, Michigan, to Pflugerville, Texas, are ending their relationship with Flock, largely over concerns regarding out-of-control surveillance, unwanted data sharing, high expenses, and <a href=\"https://arstechnica.com/tech-policy/2026/08/flock-cant-tech-its-way-out-of-the-stalker-cop-problem-experts-say/\">reports of police abusing the tool</a>.</p>\n<p><a href=\"http://secure-justice.org/\">Secure Justice</a>, an Oakland-based advocacy group, has <a href=\"https://bsky.app/profile/securejustice.bsky.social/post/3mu3zxl7qw624\">recorded 214 cities and counties that have dropped Flock since 2021</a>. Of those, 90 ended their relationship with Flock in August 2026 alone, a fourfold increase compared to the previous month.</p><p><a href=\"https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/",
+    "summary": "Cancellations have accelerated.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/flock-camera-1152x648-1779223467.jpg",
+    "published_at": 1787952834,
+    "enclosure_type": "image/jpeg"
+   },
+   {
+    "id": "https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/",
+    "feed_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "\"RFK Jr. has lied to the Senate\": Lawmakers call for criminal probe, ouster",
+    "author": "Beth Mole",
+    "content_html": "<p>Senators are renewing calls for anti-vaccine Health Secretary Robert F. Kennedy to step down or be ousted—and at least one is calling for a criminal investigation—amid the release of documents they say prove Kennedy lied to them during his confirmation hearings last year.</p>\n<p>\"This is a pattern, not a slip,\" Sen. Edward J. Markey (D-Mass.) said in a statement. \"RFK Jr. has lied to the Senate, lied to the American people, and jeopardized the health of children to advance his anti-vaccine agenda.\"</p>\n<p>Sen. Ron Wyden (D-Ore.) said in <a href=\"https://bsky.app/profile/wyden.senate.gov/post/3mu5oh4oce223\">a social media post Friday</a> that the documents were \"Proof we got RFK lying on the record during his confirmation hearing (a crime).\" He called for the matter to be referred to the US Department of Justice for a criminal investigation. In <a href=\"https://www.theguardian.com/us-news/2026/aug/27/rfk-jr-confirmation-hearing-investigation\">a separate statement to The Guardian</a>, Wyden added that \"RFK's platform is built on lies and grifts that leave a trail of dead children in their wake. There are consequences for lying to Congress.\"</p><p><a href=\"https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/\">Read full article</a></p>\n<p><a href=\"https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/#comments\">Comments</a></p>",
+    "extracted_content_url": null,
+    "url": "https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/",
+    "summary": "RFK Jr. went to Samoa to spread vaccine fears. The measles outbreak after killed 83.",
+    "image_url": "https://cdn.arstechnica.net/wp-content/uploads/2025/03/GettyImages-2203339270-1152x648.jpg",
+    "published_at": 1787951858,
+    "enclosure_type": "image/jpeg"
+   }
+  ],
+  "enclosures": [
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/DragonRed.Supersports-6-1152x648.jpg",
+    "article_id": "https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/7827_lores-700x648.jpg",
+    "article_id": "https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ars-sub-1152x648.jpg",
+    "article_id": "https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/coyotevsacme-1152x648.jpg",
+    "article_id": "https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/trump-media-1152x648-1788199474.jpg",
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-172575622-1152x648.jpg",
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-1856868830-1152x648.jpg",
+    "article_id": "https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/superbox-s7-pro-1152x648.webp",
+    "article_id": "https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/",
+    "type": "image/webp",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ssta.daily_.current-1152x648.png",
+    "article_id": "https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/",
+    "type": "image/png",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/Google-Maps-Lake-America.jpg",
+    "article_id": "https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2022/03/getty-eu-flag-1152x648.jpg",
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/HRAzV1dXYAEXjHy-1152x648.jpg",
+    "article_id": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/pocketsling-1152x648-1787932298.png",
+    "article_id": "https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/",
+    "type": "image/png",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/teraweapon-1152x648-1788124932.jpg",
+    "article_id": "https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/NHQ20260828_admin_0045large-1152x648.jpg",
+    "article_id": "https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/data-center-server-room-1152x648.jpg",
+    "article_id": "https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/personaldata-1024x648.jpg",
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/kalshi-ad-1152x648-1783536871.jpg",
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/flock-camera-1152x648-1779223467.jpg",
+    "article_id": "https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   },
+   {
+    "url": "https://cdn.arstechnica.net/wp-content/uploads/2025/03/GettyImages-2203339270-1152x648.jpg",
+    "article_id": "https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/",
+    "type": "image/jpeg",
+    "itunes_duration_seconds": null,
+    "itunes_image": null
+   }
+  ],
+  "excluded_statuses": [],
+  "feeds": [
+   {
+    "id": "https://feeds.arstechnica.com/arstechnica/index",
+    "subscription_id": "https://feeds.arstechnica.com/arstechnica/index",
+    "title": "Ars Technica - All content",
+    "feed_url": "https://feeds.arstechnica.com/arstechnica/index",
+    "site_url": "https://arstechnica.com",
+    "favicon_url": "https://cdn.arstechnica.net/wp-content/uploads/2016/10/cropped-ars-logo-512_480-60x60.png",
+    "enable_sticky_full_content": 0,
+    "enable_notifications": 0,
+    "open_articles_in_browser": 0,
+    "priority": null,
+    "show_unread_badge": 1,
+    "itunes_image_url": null,
+    "read_later": 0,
+    "etag": null,
+    "last_modified": null,
+    "conditional_get_refreshed_at": null
+   }
+  ],
+  "folders": [],
+  "saved_search_articles": [],
+  "saved_searches": [],
+  "taggings": []
+ },
+ "stores": [
+  {
+   "store": "shared_prefs:WebViewChromiumPrefs.xml",
+   "path": "shared_prefs/WebViewChromiumPrefs.xml",
+   "status": "READ",
+   "keys": 3
+  },
+  {
+   "store": "shared_prefs:account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml",
+   "path": "shared_prefs/account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml",
+   "status": "READ",
+   "keys": 2
+  },
+  {
+   "store": "shared_prefs:com.capyreader.app.debug_preferences.xml",
+   "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+   "status": "READ",
+   "keys": 3
+  },
+  {
+   "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+   "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+   "status": "TOOL_GAP",
+   "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)"
+  },
+  {
+   "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+   "path": "databases/articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+   "status": "READ",
+   "tables": 11
+  }
+ ],
+ "tool_gaps": [
+  {
+   "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+   "reason": "DataStore parsing is TOOL_GAP in v1"
+  }
+ ]
+}

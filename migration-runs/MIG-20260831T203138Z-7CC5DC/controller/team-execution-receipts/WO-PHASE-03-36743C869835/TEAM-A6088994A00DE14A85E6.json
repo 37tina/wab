@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-A6088994A00DE14A85E6",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "role_key": "toolchain_agent_id",
+  "actor_id": "toolchain.capy-01",
+  "platform_task_id": "ses_fa5b9c072ffeysHsyqivOsKrhP-TC",
+  "started_at": "2026-09-01T00:30:00Z",
+  "ended_at": "2026-09-01T00:59:39Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-09-01T01:10:09Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/verification/HVER-006-P3/metadata.json",
+      "sha256": "30a7a9f44443b3c02692d7b5097cc8d315eefcafec063a8c5f35e5f8c0fcb33f"
+    }
+  ]
+}

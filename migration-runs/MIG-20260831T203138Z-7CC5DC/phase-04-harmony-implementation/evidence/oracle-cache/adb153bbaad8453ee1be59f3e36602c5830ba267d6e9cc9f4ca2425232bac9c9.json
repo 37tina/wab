@@ -1,0 +1,131 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0008",
+    "bc_row_sha": "a8460325c25eb61a91f57e89b696fa57769c98ffacffb098751e66efa65568b9",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [],
+    "bc_id": "BC-0008",
+    "blocked_reason": "UNSUPPORTED_ORACLE",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T03:23:21Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "account_id": "bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+        "last_refreshed_at": 1788232531,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "prefs:last_refreshed_at"
+          ],
+          "path": "databases/articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "status": "READ",
+          "store": "sqlite:articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4#prefs:last_refreshed_at"
+        }
+      ]
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T03:23:21Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "account_id": "bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+        "last_refreshed_at": 1788232531,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_bc8aacc2-66fb-4a05-95d1-56fe698bdda4.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "prefs:last_refreshed_at"
+          ],
+          "path": "databases/articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "status": "READ",
+          "store": "sqlite:articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_bc8aacc2-66fb-4a05-95d1-56fe698bdda4#prefs:last_refreshed_at"
+        }
+      ]
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-baom1po4/runtime-evidence/evidence/chains/BC-0008",
+    "executed": false,
+    "feature_id": "FEAT-FEED-REFRESH",
+    "note": "all assertion kinds unsupported: count_ge;data_object (supported: text_visible|text_gone|persist_after_restart); chain not executed",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

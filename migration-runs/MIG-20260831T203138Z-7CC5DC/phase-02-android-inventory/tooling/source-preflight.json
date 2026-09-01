@@ -1,0 +1,39 @@
+{
+  "commands": [
+    {
+      "label": "git-revision",
+      "argv": [
+        "git",
+        "-C",
+        "/Users/rainyday/Desktop/finale/android/CapyReader",
+        "rev-parse",
+        "HEAD"
+      ],
+      "started_at": "2026-08-31T20:57:38Z",
+      "finished_at": "2026-08-31T20:57:38Z",
+      "duration_seconds": 0.019,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "6aa1ddfd154189c3deb107210e35952dceddf2a3\n",
+      "stderr": ""
+    },
+    {
+      "label": "git-worktree",
+      "argv": [
+        "git",
+        "-C",
+        "/Users/rainyday/Desktop/finale/android/CapyReader",
+        "status",
+        "--porcelain",
+        "--untracked-files=all"
+      ],
+      "started_at": "2026-08-31T20:57:38Z",
+      "finished_at": "2026-08-31T20:57:38Z",
+      "duration_seconds": 0.035,
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

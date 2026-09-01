@@ -1,0 +1,81 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-8D6BB738E815",
+  "phase": 4,
+  "feature_id": "FEAT-LOCAL-ACCOUNT",
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T01:37:52Z",
+  "issued_by": "impl-lead.capy-01",
+  "verify_mode": "SOURCE_CONFIRM",
+  "risk_level": "normal",
+  "bc_ids": [
+    "BC-0001"
+  ],
+  "runtime_bc_ids": [
+    "BC-0001"
+  ],
+  "data_reads": [],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0001",
+    "REL-0042",
+    "REL-0043",
+    "REL-0044"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "is_container": false,
+      "kind": "page"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead.capy-01",
+    "ui_agent_id": "impl-lead.capy-01",
+    "business_data_agent_id": "impl-lead.capy-01",
+    "native_capability_agent_id": "impl-lead.capy-01"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0001"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/capyreader/app/MainActivity.kt:45",
+      "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:15",
+      "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountViewModel.kt:16",
+      "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountViewModel.kt:26",
+      "capy/src/main/java/com/jocmp/capy/AccountManager.kt:49",
+      "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt:62",
+      "app/src/main/res/values/strings.xml:117",
+      "app/src/main/res/values/strings.xml:118"
+    ],
+    "runtime_evidence_refs": [
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0001"
+    ],
+    "data_relations": [
+      "REL-0001",
+      "REL-0023",
+      "REL-0042",
+      "REL-0043",
+      "REL-0044"
+    ],
+    "visual_memory_surface": [
+      "PAGE-ADDACCOUNTSCREEN-A9C749BC"
+    ],
+    "p3_surface_plan": []
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555"
+}

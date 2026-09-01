@@ -1,0 +1,2723 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateCrashReporting,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/gplay/java/com/capyreader/app/ui/settings/CrashReportingCheckbox.kt:35",
+      "event_id": "EVENT-APP-SRC-GPLAY-JAVA-COM-CAPYREADER-APP-UI-SET-F93EFBAA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateCrashReporting,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/gplay/java/com/capyreader/app/ui/settings/CrashReportingCheckbox.kt:37",
+      "event_id": "EVENT-APP-SRC-GPLAY-JAVA-COM-CAPYREADER-APP-UI-SET-2E93F50B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onUsernameChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:102",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-85973341",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onPasswordChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:123",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-3606B006",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onPasswordChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:140",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-E958F0F7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setPasswordVisibility(!showPassword) }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:171",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-609E5B6D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setApiTokenPreference(!hasApiToken) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:182",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-F3B224CC",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "submit,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:218",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-E8BB647A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:238",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-146A9551",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onClearClientCert",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:251",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-34D63342",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconDropdown",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:290",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-FF231231",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onUsernameChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:104",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-C51E4B1C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onPasswordChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:125",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-476946A3",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onPasswordChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:142",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-A949D9E1",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setPasswordVisibility(!showPassword) }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:172",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-1D836F90",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setApiTokenPreference(!hasApiToken) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:183",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-542C0315",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "submit,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:219",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-450B6687",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:240",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-95961F4F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onClearClientCert",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:252",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-D035EEC9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconDropdown",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt:292",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-242D9642",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Scaffold",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:61",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-4BA235C2",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "UrlField",
+      "event": "onChange",
+      "handler_excerpt": "onUrlChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:103",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-54696FAB",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:141",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-DFDA0B27",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:67",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-8780143F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "UrlField",
+      "event": "onChange",
+      "handler_excerpt": "onUrlChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:104",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-F92DA178",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt:143",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-E99DB01A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setOpen(true) }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/MiniSettings.kt:50",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-6FD861D5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/MiniSettings.kt:69",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-CA415DD6",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/MiniSettings.kt:70",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ACCO-D193B8E5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ setSelectedTab(tab) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:150",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-344BDC1B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "MutableInteractionSource",
+      "event": "onClick",
+      "handler_excerpt": "onBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:130",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-483F2FC0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ setSelectedTab(tab) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:152",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-4E895B20",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "onSavePage,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt:63",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-31B515B2",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "onSavePage,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt:64",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-E2741301",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt:77",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-D04F7BCC",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RadioButton",
+      "event": "onClick",
+      "handler_excerpt": "null)",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt:140",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-74160C45",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt:78",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-89DC584F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Row",
+      "event": "onClick",
+      "handler_excerpt": "{ onOptionSelect(option) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt:128",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ADDI-0B9A68C5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:37",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-967E53E6",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedButton",
+      "event": "onClick",
+      "handler_excerpt": "onClick) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:46",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-C5E99FE6",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "AddFeedButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setDialogOpen(true) }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:34",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-507C394C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt:38",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-3E100627",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "setQueryURL,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:80",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-4792AC00",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onCancel() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:133",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-221C1CFD",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ addFeed() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:139",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CCE2B48C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{ addFeed() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:148",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-FCC0FB78",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RadioButton",
+      "event": "onClick",
+      "handler_excerpt": "null)",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:188",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-AFA355B1",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "setQueryURL,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:82",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-D15EDE70",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onCancel() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:134",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-5FE53A8E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ addFeed() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:140",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-651A87E5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{ addFeed() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:149",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-4C4656C4",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Row",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:180",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-0DB76795",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ArticleBox",
+      "event": "onClick",
+      "handler_excerpt": "{ onSelect(article.id) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:125",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-ABEEB1BB",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Box",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:423",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-8D0249E2",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ArticleBox",
+      "event": "onClick",
+      "handler_excerpt": "{ onSelect(article.id) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:126",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-C97B3815",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Box",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt:426",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-2EC3918D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleStatusBar.kt:23",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CDE933CA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleStatusBar.kt:25",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-6789A586",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismissRequest) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:20",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-C5511845",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onConfirm) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:25",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-895F2D57",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "setTitle,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt:38",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-E676ADB8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onCancel) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt:58",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-138C898C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ submit() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt:61",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CE2E5F2C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "setTitle,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt:40",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-F5BC87B7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:39",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-7508F833",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:53",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9654A469",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:63",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DB4D1771",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:73",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-4493C32F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "onToggleOpenInBrowser",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:92",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-39BB2BC4",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "onToggleUnreadBadge",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FeedActionMenuItems.kt:107",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DE8666CA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onRequestSearch) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:51",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-AFE7A2CA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setMenuExpanded(true) }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:65",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-3AD2AA1B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FolderActionMenuItems.kt:24",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-587B426B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FolderActionMenuItems.kt:33",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-035F7A31",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismissRequest) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:27",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-0BB88C2C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onConfirm) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:32",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CFD26B94",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismissRequest) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:25",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-A7D3BA79",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onConfirm) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:30",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-47D46DE7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CountBadge",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/SavedSearchRow.kt:28",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-66E00D28",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismissRequest) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:24",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-D375C8B9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onConfirm) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:29",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-49CD7000",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthView.kt:49",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-5E233D60",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthView.kt:50",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-378F9219",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onPlayPause) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt:143",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-49458D01",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismiss) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt:151",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-121FBF55",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Slider",
+      "event": "onValueChange",
+      "handler_excerpt": "{ fraction ->",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt:175",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-BDB6971D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleRead() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:49",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-561DF6F8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleStar() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:61",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-066F6EFE",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ labelsActions.openSheet(article.id) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:75",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9375E6E9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleExtractContent() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:88",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-2C427055",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setStyleSheetOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:104",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9B23121C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ context.shareArticle(article = article) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:116",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-0F4F3587",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleRead() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:50",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-8934A00B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleStar() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:62",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-78EC1ABC",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ labelsActions.openSheet(article.id) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:76",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-D4C9B18D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleExtractContent() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:89",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DF1E68BE",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setStyleSheetOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:105",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-32BFEF35",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ context.shareArticle(article = article) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt:117",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-03E03CD6",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleRead() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:83",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-43C9A05F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleStar() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:95",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-6BE568A9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:107",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-94C5D648",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleExtractContent() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:125",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-7E807887",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ context.shareArticle(article = article) }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:141",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-B7BFF330",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:109",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9A304EBA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:47",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CBDE8552",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:66",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CCCF3E66",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onClose) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleNavigationIcon.kt:21",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-3AA86B15",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onToggleFullscreen) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleNavigationIcon.kt:28",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-940A72FE",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onToggleFullscreen) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleNavigationIcon.kt:35",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-E5636879",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ checked ->",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:166",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-97BB9909",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onAlignmentChange(option) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:191",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-0956BCFE",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Slider",
+      "event": "onValueChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:95",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-4240B821",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Slider",
+      "event": "onValueChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:144",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-F21C6A73",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ checked ->",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:167",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-06D0FA8C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onAlignmentChange(option) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:193",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-7EEB2A53",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:116",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-D7F1F9EF",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setDeletePageDialogOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:137",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-3EC00292",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ labelsActions.openSheet(articleId) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:152",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9140E491",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setStyleSheetOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:166",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-E61ACF50",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setDeletePageDialogOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:138",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-45B53EA0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ labelsActions.openSheet(articleId) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:153",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-78D4FC2E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setStyleSheetOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt:167",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-E869FDD0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "MutableInteractionSource",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/CornerTapGestureScroll.kt:89",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-3C41C98E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Surface",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt:52",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-33E61354",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt:134",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-AC930C42",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt:147",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CD3671B5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt:160",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-124DAA0B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconDropdown",
+      "event": "onClick",
+      "handler_excerpt": "toggle)",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedGroupList.kt:68",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-451921C0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Box",
+      "event": "onClick",
+      "handler_excerpt": "toggle,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedGroupList.kt:60",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-98143555",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onNavigateToSettings() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:98",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-6F252F40",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onRefresh() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:104",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-1A8BD1D5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CountBadge",
+      "event": "onClick",
+      "handler_excerpt": "{ onFilterSelect() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:133",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-14E3181D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CountBadge",
+      "event": "onClick",
+      "handler_excerpt": "{ onSelectToday() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:163",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-BB3CA7FB",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CountBadge",
+      "event": "onClick",
+      "handler_excerpt": "{ onSelectFeed(readLaterFeed, null) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt:194",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-518A2C81",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CountBadge",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedRow.kt:38",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-B412FB84",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "DrawerItem",
+      "event": "onClick",
+      "handler_excerpt": "{ onFolderSelect(folder) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FolderRow.kt:53",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-B28D99E7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconDropdown",
+      "event": "onClick",
+      "handler_excerpt": "{ onExpanded(!expanded) }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FolderRow.kt:61",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-AB9E2D94",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "DrawerItem",
+      "event": "onClick",
+      "handler_excerpt": "{ onFolderSelect(folder) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FolderRow.kt:55",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-8F6D92DF",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconDropdown",
+      "event": "onClick",
+      "handler_excerpt": "{ onExpanded(!expanded) }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/FolderRow.kt:63",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-828E4264",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Box",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/IconDropdown.kt:45",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-63BBC37C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "setName,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:127",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-FC0A8103",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onCancel) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:183",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-105EFDD3",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ submitFeed() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:186",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-060B055E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{ value ->",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:208",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-6E3378FC",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RadioRow",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:246",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-B9D3D73A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onUpdateNewFolder,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:272",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-B3869FF8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RadioButton",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:335",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-57E6DB66",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onCheck(it) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:360",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-981CD6EB",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "setName,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:129",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-78297795",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{ value ->",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:210",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-89E791CF",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RadioRow",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:249",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-C81C7BEA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onUpdateNewFolder,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:274",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-704AD7B7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:292",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-6FF9D093",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RadioButton",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:337",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-96BBD25C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onCheck(it) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt:362",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DC459839",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{ onMarkAllRead(After(article.id)) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:71",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9FE75193",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{ onMarkAllRead(Before(article.id)) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:82",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-8052E019",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:103",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9399DDEB",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:126",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-154B7913",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:147",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-286C3A88",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:172",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-FE2B9538",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:206",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-0DB9EA38",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "closeSearch) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt:84",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-3E55994E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt:118",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-65D017C5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateToDrawer",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt:129",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-71D66185",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onValueChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt:76",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-78F0414A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt:119",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9D0978E4",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateToDrawer",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt:130",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DA44D4D8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "EmptyOnboardingView",
+      "event": "onClick",
+      "handler_excerpt": "{ }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/EmptyOnboardingView.kt:50",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-2F31CC7A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "EmptyOnboardingView",
+      "event": "onClick",
+      "handler_excerpt": "{ }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/EmptyOnboardingView.kt:64",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-BA419446",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedButton",
+      "event": "onClick",
+      "handler_excerpt": "{ }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/EmptyOnboardingView.kt:52",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9B526FEF",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedButton",
+      "event": "onClick",
+      "handler_excerpt": "{ }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/EmptyOnboardingView.kt:66",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-7E5C4245",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:50",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-E79363EB",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:61",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DAAD1A0A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:71",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-93197DA0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ showCreateDialog = true }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:74",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9EAC1D0C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:162",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-54D58AFA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:191",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-EA2DAFF0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismiss,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:201",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-EE20C600",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onToggle() }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:223",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-EDA212A5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:164",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-39B23AB8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:192",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-854712C7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismiss,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:202",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-AB14F684",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ onToggle() }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:225",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-C58685A0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "FloatingActionButton",
+      "event": "onClick",
+      "handler_excerpt": "{ requestMarkAllRead() }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt:32",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DA3B043F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ requestMarkAllRead() }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt:44",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-DAD39847",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "FloatingActionButton",
+      "event": "onClick",
+      "handler_excerpt": "{ requestMarkAllRead() }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt:35",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-CB911901",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ requestMarkAllRead() }",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt:46",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-71DEF951",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onDismissRequest) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:23",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-42508A12",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onConfirm) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:28",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-FB8DF166",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadMenu.kt:24",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-9E0CC13D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/SavedSearchActionMenu.kt:56",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-E3F4DFE7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "NavigationArrow",
+      "event": "onClick",
+      "handler_excerpt": "onGoBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:267",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-0510A209",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "NavigationArrow",
+      "event": "onClick",
+      "handler_excerpt": "onGoForward,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:274",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-46C21C93",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CloseButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onDismissRequest() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:281",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-6652B764",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CloseIconButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onClick() })",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:339",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-90A583DA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Builder",
+      "event": "onClick",
+      "handler_excerpt": "{ onToggleOverlay() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:189",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-A023370D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "NavigationArrow",
+      "event": "onClick",
+      "handler_excerpt": "onGoBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:269",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-595C9959",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "NavigationArrow",
+      "event": "onClick",
+      "handler_excerpt": "onGoForward,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:276",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-BA9C0533",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CloseButton",
+      "event": "onClick",
+      "handler_excerpt": "{ onDismissRequest() },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:282",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-D6C9A8DA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "CloseIconButton",
+      "event": "onClick",
+      "handler_excerpt": "{})",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/CloseIconButton.kt:55",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-169B9096",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedButton",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/MediaActionButton.kt:25",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-8FAE1553",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "MediaActionButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/MediaSaveButton.kt:48",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-0CCD7AB1",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "MediaActionButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/MediaSaveButton.kt:49",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-27E56D73",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "MediaActionButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/MediaShareButton.kt:46",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-855F0602",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "MediaActionButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/MediaShareButton.kt:47",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-EE33B018",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "SearchTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{})",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/SearchTextField.kt:120",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-0CBCCF10",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "BasicTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "onValueChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/SearchTextField.kt:79",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-7AA4EADA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Switch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "onCheckedChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt:58",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-C2762B7E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt:71",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-7D3D8B6B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt:85",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-31F85F29",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Switch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "onCheckedChange,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt:60",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-99292595",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt:73",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-8C79B6C1",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt:87",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-68EC1402",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:68",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-E6B1DEE5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Text",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:114",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-COMP-8C7E2B40",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RadioButton",
+      "event": "onClick",
+      "handler_excerpt": "null)",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt:112",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-5A5F6815",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Row",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt:103",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-1CF3A1AF",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt:54",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-D56356E6",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateBack,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt:55",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-80F7EC87",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/SettingsPanelScaffold.kt:52",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-438BFD4F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/SettingsPanelScaffold.kt:53",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-06601F4D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt:80",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-CEFF140A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "updateText,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt:100",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-0079EFC3",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt:119",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-791DBD64",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt:81",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-A3E6709D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OutlinedTextField",
+      "event": "onValueChange",
+      "handler_excerpt": "updateText,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt:103",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-662905E3",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "IconButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt:120",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-6E63F9F6",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "{ linkOpener.open(Support.ABOUT_URL.toUri()) }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AboutSettingsPanel.kt:119",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-58F3F225",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLImportButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:167",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-1D4B2CC8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLExportButton",
+      "event": "onClick",
+      "handler_excerpt": "onRequestExport,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:179",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-39773F1A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "StarredExportButton",
+      "event": "onClick",
+      "handler_excerpt": "onRequestStarredExport,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:184",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-E35CE5AA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onRemoveCancel) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:211",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-D6AC52A7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onRequestRemove) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:216",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-E6843752",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "FilledTonalButton",
+      "event": "onClick",
+      "handler_excerpt": "onClick, modifier = modifier, content = content)",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:239",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-A37E52B2",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLImportButton",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:168",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-05413AC5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLExportButton",
+      "event": "onClick",
+      "handler_excerpt": "onRequestExport,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:180",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-5DD44F4E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "StarredExportButton",
+      "event": "onClick",
+      "handler_excerpt": "onRequestStarredExport,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:185",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-EC25F85F",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "RemoveAccountButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setRemoveDialogOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:196",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-7583AD68",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "onClick, modifier = modifier, content = content",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt:236",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-A6271DAE",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateFeedName,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:92",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-79F652C7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateFeedIcons,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:97",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-9B267A90",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateSummary,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:102",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-E06BDA6A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateShortenTitles,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:107",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-79808047",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Slider",
+      "event": "onValueChange",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:84",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-96C5F5D5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateFeedName,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:93",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-7E974BE5",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateFeedIcons,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:98",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-C964D5DA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateSummary,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:103",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-5EF4C0EE",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "options.updateShortenTitles,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt:108",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-E8F68B68",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updatePureBlackDarkMode,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:112",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-C2444D94",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateAccentColors,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:124",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-158D3E3C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updatePinArticleBars,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:158",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-C38081BB",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ updateThemeMode(mode) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:195",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-1D069821",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updatePureBlackDarkMode,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:113",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-E0858CE9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateAccentColors,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:125",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-AF782878",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "SettingsDisclosureRow",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateToArticleList,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:135",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-DE9C5F4C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "SettingsDisclosureRow",
+      "event": "onClick",
+      "handler_excerpt": "onNavigateToUnreadBadges,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:140",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-0B66F173",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updatePinArticleBars,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:161",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-201BF45B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "ToggleButton",
+      "event": "onCheckedChange",
+      "handler_excerpt": "{ updateThemeMode(mode) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt:197",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-2C7CA086",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "onToggle,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/FeedSettingsCheckbox.kt:29",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-84A3E174",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Checkbox",
+      "event": "onCheckedChange",
+      "handler_excerpt": "onToggle,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/FeedSettingsCheckbox.kt:31",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-EC8753F1",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateRefreshOnWiFiOnly,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:160",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-FDA063D3",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateOpenLinksInternally,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:186",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-87DEA8DA",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateStickyFullContent,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:196",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-0F24DBB9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateMarkReadOnScroll,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:210",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-A3A8EC2D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateConfirmMarkAllRead,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:217",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-7C2E8D81",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "FilledTonalButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setClearArticlesDialogOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:248",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-2B5C498E",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onClearArticlesCancel) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:268",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-95CAAAC9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextButton",
+      "event": "onClick",
+      "handler_excerpt": "onRequestClearArticles) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:273",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-B155E091",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateRefreshOnWiFiOnly,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:162",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-34A08C09",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateOpenLinksInternally,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:188",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-3C38767B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateStickyFullContent,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:198",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-25E59F08",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateMarkReadOnScroll,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:211",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-D5F0730C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateConfirmMarkAllRead,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:218",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-7BE0817B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "FilledTonalButton",
+      "event": "onClick",
+      "handler_excerpt": "{ setClearArticlesDialogOpen(true) },",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt:249",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-40BCF8EE",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateHorizontalPagination,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:102",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-740B8607",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updatePagingTapGesture,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:111",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-9E3CFEF2",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateImproveTalkback,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:120",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-3A6DB975",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateHorizontalPagination,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:103",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-7E9599D4",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updatePagingTapGesture,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:112",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-F75AD22D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TextSwitch",
+      "event": "onCheckedChange",
+      "handler_excerpt": "updateImproveTalkback,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt:121",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-C5417FE8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TriStateCheckbox",
+      "event": "onClick",
+      "handler_excerpt": "onClick",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/NotificationGroupCheckbox.kt:49",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-D36D1F30",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "NotificationGroupCheckbox",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/NotificationGroupCheckbox.kt:27",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-C7BFC719",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TriStateCheckbox",
+      "event": "onClick",
+      "handler_excerpt": "onClick",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/NotificationGroupCheckbox.kt:51",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-1843EC93",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLExportButton.kt:17",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-AA9B0AA2",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLExportButton.kt:18",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-6C3D21E3",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:29",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-C24D3C45",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLImportButton",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:76",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-3B62E69C",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLImportButton",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:80",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-ABEE7814",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:31",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-5C5CFCA9",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLImportButton",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:77",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-865F11F0",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "OPMLImportButton",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/OPMLImportButton.kt:81",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-CF5F0A75",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "SettingsDisclosureRow",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsDisclosureRow.kt:35",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-D652A174",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "SettingsDisclosureRow",
+      "event": "onClick",
+      "handler_excerpt": "{},",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/SettingsDisclosureRow.kt:37",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-DA38BB9A",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/StarredExportButton.kt:17",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-42FE88A7",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/StarredExportButton.kt:18",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-FDF3A61D",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "{ notify() }) {",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/TestNotificationRow.kt:30",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-1F3298C8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TriStateCheckbox",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt:171",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-503447F1",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "UnreadBadgesGroupCheckbox",
+      "event": "onClick",
+      "handler_excerpt": "{",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt:149",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-D1281BA1",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "TriStateCheckbox",
+      "event": "onClick",
+      "handler_excerpt": "onClick,",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt:173",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-SETT-26B80FC6",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "context.openUnread(),",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt:93",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-F3D40DF8",
+      "page_id": "PENDING_SOURCE_BINDING"
+    },
+    {
+      "component_symbol": "Button",
+      "event": "onClick",
+      "handler_excerpt": "context.openAll(),",
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt:194",
+      "event_id": "EVENT-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-2D76714B",
+      "page_id": "PENDING_SOURCE_BINDING"
+    }
+  ]
+}

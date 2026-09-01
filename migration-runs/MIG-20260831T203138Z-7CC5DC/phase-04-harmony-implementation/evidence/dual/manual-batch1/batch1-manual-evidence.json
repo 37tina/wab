@@ -1,0 +1,24 @@
+{
+  "batch": "BC-0004/0005/0007/0008", "collected_by": "verify-exec.capy-01 (Agent 4B)", "date": "2026-09-01 11:14-11:55",
+  "precondition_setup": {
+    "android": "am start MainActivity -> input tap <Local row center> (account created, empty state)",
+    "harmony": "seed-reset -> launch -> uitest uiInput click 482 503 (account re-created, empty state)",
+    "note": "批 A 起跑前发现 Harmony 实为有账号+Ars feed 态（与指令'无账号冷态'不符，疑 4A 装 BATCH1 HAP 测试残留），已 seed-reset 重建对齐"
+  },
+  "BC-0004_manual": {
+    "android": {
+      "ui_sequence": "tap Add Feed(576,1415) -> tap input field -> input text URL -> tap Add(878,987)",
+      "result": "SUCCESS(real network)",
+      "anchors": {"Feed added": "visible", "Ars Technica": "visible (article source rows 'Ars Technica - All content', list populated ~20)", "Mark All as Read": "not captured in top-22 texts (toolbar; low-confidence, needs recheck)"}
+    },
+    "harmony": {
+      "ui_sequence": "click Add Feed(688,189) -> click input(660,1968) -> inputText URL -> keyEvent Enter -> click Add(962,2301)",
+      "result": "PARTIAL/INPUT_FAIL",
+      "detail": "sheet opens OK; Add submit walks real network path (error feedback shown); BUT inputText 未落字（输入框保持 placeholder）-> 返回 \"Couldn't find feed\"，feed 未添加",
+      "classification": "ENV/TOOL_GAP 嫌疑（uitest inputText 焦点/IME 状态；4A notes 曾以同法 verified on device）——不定性 DIFF，待输入链复测后重验"
+    }
+  },
+  "BC-0005_machine_note": "Harmony 链全通 3/3（tap Add Feed -> input 坏URL -> tap Add，notes 见 operations.log）；Android NAV_FAIL",
+  "BC-0008_machine_note": "Harmony 链全通 1/1（tap Refresh all @(412,189)）；Android UNSUPPORTED_ORACLE；last_refreshed_at 手采未及（时间盒），Harmony probe 待补",
+  "BC-0007": "首验未完成：差分前置（两侧 feed 对齐）未达成（Harmony feed 添加卡输入链）+ 时间盒耗尽；4A 走查项维持 INCOMPLETE 转下轮"
+}

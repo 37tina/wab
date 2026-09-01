@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-9E33A31A6B34E37F847F",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "role_key": "navigation_agent_id",
+  "actor_id": "nav-shell.capy-01",
+  "platform_task_id": "ses_fa5b9c072ffeysHsyqivOsKrhP-NAV",
+  "started_at": "2026-09-01T00:15:00Z",
+  "ended_at": "2026-09-01T00:25:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-09-01T01:10:09Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/route-registry.csv",
+      "sha256": "fcfc320c58ee64eb20fd95a5c069f14bf83e14e52e7635e932d840d3999240e5"
+    }
+  ]
+}

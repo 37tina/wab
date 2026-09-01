@@ -1,0 +1,26 @@
+{
+ "bc_id": "BC-0004",
+ "status": "CHAIN_PASS",
+ "note": "ok",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "Feed added",
+   "verdict": "PASS",
+   "optional": "false",
+   "note": "observed at wait-step dump (transient snackbar)"
+  },
+  {
+   "kind": "text_visible",
+   "value": "Mark All as Read",
+   "verdict": "PASS",
+   "optional": "false"
+  },
+  {
+   "kind": "text_visible",
+   "value": "Ars Technica",
+   "verdict": "PASS",
+   "optional": "false"
+  }
+ ]
+}

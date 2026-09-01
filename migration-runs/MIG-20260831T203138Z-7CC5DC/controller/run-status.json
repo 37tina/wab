@@ -1,0 +1,13 @@
+{
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "run_status": "IN_MIGRATION",
+  "updated_at": "2026-08-31T20:45:52Z",
+  "history": [
+    {
+      "from": "INIT",
+      "to": "IN_MIGRATION",
+      "at": "2026-08-31T20:45:52Z",
+      "why": "first specialist work order issued: WO-PHASE-02-BE4445AA9DCF"
+    }
+  ]
+}

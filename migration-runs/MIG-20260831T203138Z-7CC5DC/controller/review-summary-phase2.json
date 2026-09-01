@@ -1,0 +1,76 @@
+{
+  "phase": 2,
+  "status": "WAITING_HUMAN_REVIEW",
+  "coverage": {
+    "included_features": 10
+  },
+  "critical_count": 0,
+  "warning_count": 3,
+  "top_risks": [
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "BC-0017: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (ANR_BLOCKED): FORENSICS_TOOL_LIMITATION: coll'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-002",
+      "severity": "MEDIUM",
+      "title": "BC-0019: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigat'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-003",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "BC-0017: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (ANR_BLOCKED): FORENSICS_TOOL_LIMITATION: coll'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-002",
+      "severity": "MEDIUM",
+      "title": "BC-0019: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigat'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-003",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "key_samples": [
+    {
+      "kind": "feature",
+      "id": "FEAT-ADD-FEED"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-ARTICLE-LIST"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-ARTICLE-READ"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-FEED-REFRESH"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-LOCAL-ACCOUNT"
+    }
+  ],
+  "evidence_links": [
+    "controller/gate-report.json",
+    "phase-02-android-inventory/evidence-index.csv"
+  ],
+  "recommended_action": "REVIEW"
+}

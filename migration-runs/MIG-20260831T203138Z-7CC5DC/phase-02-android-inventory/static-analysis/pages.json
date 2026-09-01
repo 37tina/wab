@@ -1,0 +1,741 @@
+{
+  "schema_version": 1,
+  "pages": [
+    {
+      "page_id": "PAGE-ADDACCOUNTSCREEN-A9C749BC",
+      "symbol": "AddAccountScreen",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:7"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "symbol": "AddFeedDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:8"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-ADDFEEDVIEWPREVIEW-FULLSCREEN-8870680D",
+      "symbol": "AddFeedViewPreview_FullScreen",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:247"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-ADDLINKACTIVITY-3ED2961B",
+      "symbol": "AddLinkActivity",
+      "kinds": [
+        "ACTIVITY"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [
+        "AddLinkScreen"
+      ],
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.SEND"
+          ],
+          "categories": [
+            "android.intent.category.DEFAULT"
+          ],
+          "data": [
+            {
+              "mimeType": "text/plain"
+            }
+          ]
+        }
+      ],
+      "source_refs": [
+        "app/src/main/AndroidManifest.xml:1",
+        "app/src/main/java/com/capyreader/app/AddLinkActivity.kt:17"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-ARTICLEACTIONMENU-128442E3",
+      "symbol": "ArticleActionMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:35"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-ARTICLEFONTMENU-D9B99022",
+      "symbol": "ArticleFontMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:26"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-ARTICLESCREEN-23AF0624",
+      "symbol": "ArticleScreen",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:112"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+      "symbol": "ArticleStylePicker",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:47"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-AUTODELETEMENU-3E3FD576",
+      "symbol": "AutoDeleteMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD",
+        "FEAT-SETTINGS"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/settings/panels/AutoDeleteMenu.kt:16"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-CREATELABELDIALOG-02FBDD06",
+      "symbol": "CreateLabelDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:127"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-DELETEPAGEDIALOG-7C205687",
+      "symbol": "DeletePageDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:10"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+      "symbol": "EditFeedDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedDialog.kt:12"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "symbol": "EditFolderDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/EditFolderDialog.kt:11"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-FEEDACTIONMENU-075C1A17",
+      "symbol": "FeedActionMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/FeedActionMenu.kt:17"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-FILTERACTIONMENU-07E67060",
+      "symbol": "FilterActionMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:32"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+      "symbol": "FolderActionMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:17"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "symbol": "ImagePage",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:166"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-LABELBOTTOMSHEET-90E5748E",
+      "symbol": "LabelBottomSheet",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:46"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-LOGINSCREEN-9D67F9D2",
+      "symbol": "LoginScreen",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-READ",
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ONLINE-ACCOUNT-UI",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:7"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-MAINACTIVITY-3FDE9431",
+      "symbol": "MainActivity",
+      "kinds": [
+        "ACTIVITY"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [
+        {
+          "actions": [
+            "android.intent.action.MAIN"
+          ],
+          "categories": [
+            "android.intent.category.LAUNCHER"
+          ],
+          "data": []
+        }
+      ],
+      "source_refs": [
+        "app/src/main/AndroidManifest.xml:1",
+        "app/src/main/java/com/capyreader/app/MainActivity.kt:16"
+      ],
+      "surface_disposition": "RUNTIME_BINDING_REQUIRED",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-MARKALLREADDIALOG-46A35015",
+      "symbol": "MarkAllReadDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:14"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-MARKALLREADMENU-464F3414",
+      "symbol": "MarkAllReadMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadMenu.kt:10"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "symbol": "OpenArticleInBrowserActivity",
+      "kinds": [
+        "ACTIVITY"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/AndroidManifest.xml:1",
+        "app/src/main/java/com/capyreader/app/OpenArticleInBrowserActivity.kt:13"
+      ],
+      "surface_disposition": "RUNTIME_BINDING_REQUIRED",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-REFRESHINTERVALMENU-F4C57C66",
+      "symbol": "RefreshIntervalMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-READ-UNREAD",
+        "FEAT-SETTINGS"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/settings/panels/RefreshIntervalMenu.kt:18"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "symbol": "RemoveFeedDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ADD-FEED",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-FEED-REFRESH",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:12"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "symbol": "RemoveFolderDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:10"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-SAVEDSEARCHACTIONMENU-9E3B7572",
+      "symbol": "SavedSearchActionMenu",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/list/SavedSearchActionMenu.kt:20"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-SETTINGSSCREEN-D0A9FF8D",
+      "symbol": "SettingsScreen",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD",
+        "FEAT-SETTINGS"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:5"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-SHAREIMAGEDIALOG-F5E017A1",
+      "symbol": "ShareImageDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:40"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-SHARELINKDIALOG-E24FBFDC",
+      "symbol": "ShareLinkDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:31"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-THEMEPICKER-6F79D5ED",
+      "symbol": "ThemePicker",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:43"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-UNAUTHORIZEDALERTDIALOG-1F8521D8",
+      "symbol": "UnauthorizedAlertDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:10"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    },
+    {
+      "page_id": "PAGE-UPDATEAUTHDIALOG-1FE89797",
+      "symbol": "UpdateAuthDialog",
+      "kinds": [
+        "COMPOSABLE"
+      ],
+      "candidate_feature_ids": [
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD"
+      ],
+      "layout_names": [],
+      "compose_root_symbols": [],
+      "intent_filters": [],
+      "source_refs": [
+        "app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthDialog.kt:13"
+      ],
+      "surface_disposition": "UI_BOUND",
+      "confidence": "LOW",
+      "collection_item_layouts": []
+    }
+  ]
+}

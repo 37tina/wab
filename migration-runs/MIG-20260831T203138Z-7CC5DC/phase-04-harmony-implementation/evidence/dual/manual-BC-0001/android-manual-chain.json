@@ -1,0 +1,24 @@
+{
+  "bc_id": "BC-0001", "side": "android", "device": "emulator-5554", "package": "com.capyreader.app.debug",
+  "collected_by": "verify-exec.capy-01 (Agent 4B, manual chain, TOOL_GAP fallback)",
+  "collected_at": "2026-09-01 09:55-10:00 local",
+  "locale_note": "zh-CN device locale; BC English anchors map: Add Account=添加账号, No feeds yet=还没有订阅源",
+  "pre_state": {
+    "method": "adb shell pm clear com.capyreader.app.debug && am start -n com.capyreader.app.debug/com.capyreader.app.MainActivity",
+    "coldstart_screen_texts": ["添加账号", "本地", "在设备上", "Feedbin", "feedbin.com", "FreshRSS", "freshrss.org", "Miniflux", "miniflux.app", "Reader", "自托管的 Google Reader API"],
+    "five_options_present": true, "add_account_title_present": true
+  },
+  "operation": {"action": "tap", "target": "text=本地(Local)", "coord": [232, 524]},
+  "after_state": {"screen_texts": ["还没有订阅源", "请添加订阅源以开始", "添加订阅源", "全部"], "no_feeds_yet_equivalent_present": true},
+  "data_after": {
+    "default_prefs_account_id": "ff669ed2-c9f8-44e9-b08d-8a3f03929298",
+    "account_prefs_source": "LOCAL",
+    "account_prefs_file": "shared_prefs/account_ff669ed2-c9f8-44e9-b08d-8a3f03929298.xml",
+    "accounts_dir_entry": "files/accounts/ff669ed2-c9f8-44e9-b08d-8a3f03929298"
+  },
+  "restart": {
+    "method": "am force-stop && am start MainActivity",
+    "screen_texts": ["还没有订阅源", "请添加订阅源以开始", "添加订阅源", "全部"],
+    "add_account_screen_present": false, "lands_on_main_empty_state": true
+  }
+}

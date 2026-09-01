@@ -1,0 +1,11 @@
+feature_id,feature_name,applicable_env_ids,code_mapped,runtime_states_captured,business_rules_mapped,data_dependencies_mapped,status,owner,notes
+FEAT-LOCAL-ACCOUNT,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-ADD-FEED,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-FEED-REFRESH,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-ARTICLE-LIST,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-ARTICLE-READ,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-READ-UNREAD,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-STAR,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-LOCAL-PERSISTENCE,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-SETTINGS,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,
+FEAT-ONLINE-ACCOUNT-UI,,"[""ENV-001""]",false,false,false,false,OPEN,inventory-lead.capy-01,

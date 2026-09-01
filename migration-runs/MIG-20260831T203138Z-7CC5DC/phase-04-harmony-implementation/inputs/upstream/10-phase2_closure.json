@@ -1,0 +1,96 @@
+{
+  "generator": "gmi_closure",
+  "workspace": "/Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-02-android-inventory",
+  "closure_at": "2026-08-31T23:58:57Z",
+  "gaps": [
+    {
+      "feature_id": "FEAT-ADD-FEED",
+      "reason": "chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigation race (force-stop/am st"
+    },
+    {
+      "feature_id": "FEAT-ADD-FEED",
+      "reason": "declared but chain not run"
+    },
+    {
+      "feature_id": "FEAT-ADD-FEED",
+      "reason": "chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: RemoveFeedDialog entry lives insi"
+    },
+    {
+      "feature_id": "FEAT-LOCAL-PERSISTENCE",
+      "reason": "chain blocked (ANR_BLOCKED): FORENSICS_TOOL_LIMITATION: collector-induced pseudo-ANR duri"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "reason": "no declaration and chain not run"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "reason": "chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigation race (cold-start windo"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "reason": "chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigation race (cold-start windo"
+    },
+    {
+      "feature_id": "FEAT-SETTINGS",
+      "reason": "declared but chain not run"
+    }
+  ],
+  "conflicts_explained": [],
+  "gate": {
+    "unmapped": 0,
+    "feature_coverage": {
+      "required": true,
+      "ok": true,
+      "included": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ADD-FEED",
+        "FEAT-FEED-REFRESH",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR",
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-SETTINGS",
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "covered": [
+        "FEAT-LOCAL-ACCOUNT",
+        "FEAT-ADD-FEED",
+        "FEAT-FEED-REFRESH",
+        "FEAT-ARTICLE-LIST",
+        "FEAT-ARTICLE-READ",
+        "FEAT-READ-UNREAD",
+        "FEAT-STAR",
+        "FEAT-LOCAL-PERSISTENCE",
+        "FEAT-SETTINGS",
+        "FEAT-ONLINE-ACCOUNT-UI"
+      ],
+      "missing": []
+    },
+    "completeness_rows": 290,
+    "completeness_missing_total": 203,
+    "completeness_na_total": 32,
+    "audit_discrepancy": 0,
+    "visited": 2,
+    "visited_rows": 0,
+    "not_entered": 12,
+    "not_entered_rows": 0,
+    "pages_total": 14,
+    "pages_visited_pct": 14.3,
+    "chain_mode": true,
+    "chains_total": 14,
+    "chains_pass": 2,
+    "chains_fail_blocked": 12
+  },
+  "artifact_hashes": {
+    "candidates_dir_sha256": "a88252287de15b516797436120a6e7b307e3b579d4fff1597ac2aec8e899f404",
+    "coverage_ledger_sha256": "e017f0f323114bdf6f5f862e1325666b4334c5149055d2dd2a11d15bd12ad4ba",
+    "runtime_evidence_dir_sha256": "",
+    "behavior_contracts_sha256": "956b5bb5a2575abfb371263b68d5f93f0f6111ac860439c9325fbd3b3068c0dd",
+    "phase2_report_sha256": "aedc76b4e308359077dea4b87bbd029163267ba1597b151ba33ba2d3d8f98a2a",
+    "reconciliation_sha256": "4c25c1b4d2e1d63633e9eb299be7d825fcf54b6651539762ec82698d5a54ff87",
+    "runtime_chains_sha256": "d77cb73f3a082807e9b55f82e46d708354a5151336b227911852e962edaace25",
+    "visual_memory_sha256": "4bd61164b5be983b968849af8f544e76281647ca9164eeea1c4af80082ece7dd"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "template_id": "ARKUI-STAGE-TEMPLATE-V1",
+  "template_manifest_sha256": "8d721d373d2e830a436017da6b933b465be6690600489fcba54c3a938fd7371b",
+  "generated_file_count": 41,
+  "generated_project_manifest_sha256": "b6493bc521c4d3d8479a9c3d63f193dc8c17357d596f1b650d7767eb6cdf23d2",
+  "required_files": [
+    "AppScope/app.json5",
+    "build-profile.json5",
+    "entry/build-profile.json5",
+    "entry/src/main/ets/entryability/EntryAbility.ets",
+    "entry/src/main/ets/pages/Index.ets",
+    "entry/src/main/module.json5",
+    "oh-package.json5"
+  ],
+  "bundle_name": "com.capyreader.app.debug",
+  "app_name": "CAPYREADER",
+  "vendor": "migration",
+  "log_tag": "CAPYREADER"
+}

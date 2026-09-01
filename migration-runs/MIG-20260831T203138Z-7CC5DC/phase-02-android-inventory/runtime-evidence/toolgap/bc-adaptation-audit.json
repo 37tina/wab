@@ -1,0 +1,1176 @@
+{
+ "generated_at": "2026-09-01T07:40:59+0800",
+ "tool_gaps": [
+  "GAP-1",
+  "GAP-2",
+  "GAP-3",
+  "GAP-4",
+  "GAP-5",
+  "GAP-6"
+ ],
+ "rows": [
+  {
+   "bc_id": "BC-0001",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Local",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Local",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "text_visible",
+      "target": "text=Add Account",
+      "expected": "visible before selection"
+     },
+     "adapted": {
+      "type": "text_visible",
+      "target": "text=Add Account",
+      "expected": "visible before selection"
+     }
+    },
+    {
+     "raw": {
+      "type": "text_visible",
+      "target": "text=No feeds yet",
+      "expected": "main article empty state reachable after local account creation (drawer-closed default; original drawer anchor was a BC-filling defect; PHASE2_AMEND DEC-010: anchor defect corrected per Gate2 machine guidance (fix assertion); original assertion preserved in decision-log)"
+     },
+     "adapted": {
+      "type": "text_visible",
+      "target": "text=No feeds yet",
+      "expected": "main article empty state reachable after local account creation (drawer-closed default; original drawer anchor was a BC-filling defect; PHASE2_AMEND DEC-010: anchor defect corrected per Gate2 machine guidance (fix assertion); original assertion preserved in decision-log)"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0002",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Feedbin",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Feedbin",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Feedbin",
+      "expected": "feedbin entry row present on Add Account screen"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Feedbin",
+      "expected": "feedbin entry row present on Add Account screen"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=FreshRSS",
+      "expected": "freshrss entry row present"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=FreshRSS",
+      "expected": "freshrss entry row present"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Miniflux",
+      "expected": "miniflux entry row present"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Miniflux",
+      "expected": "miniflux entry row present"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Reader",
+      "expected": "reader entry row present"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Reader",
+      "expected": "reader entry row present"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0003",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=FreshRSS",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=FreshRSS",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Username",
+      "expected": "username field present on login form"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Username",
+      "expected": "username field present on login form"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Password",
+      "expected": "password field present on login form"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Password",
+      "expected": "password field present on login form"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0004",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Add Feed",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Add Feed",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "input",
+      "target": "text=Feed or Website URL",
+      "value": "https://feeds.arstechnica.com/arstechnica/index"
+     },
+     "adapted": {
+      "action": "input",
+      "target": "text=Feed or Website URL",
+      "value": "https://feeds.arstechnica.com/arstechnica/index"
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Add",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Add",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "wait",
+      "target": "text=Feed added",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "text=Feed added",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "text_visible",
+      "target": "text=Feed added",
+      "expected": "success snackbar"
+     },
+     "adapted": {
+      "type": "text_visible",
+      "target": "text=Feed added",
+      "expected": "success snackbar"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "desc=Mark All as Read",
+      "expected": "article list toolbar present proving list populated (original count_ge had no oracle; PHASE2_AMEND DEC-010: anchor defect corrected per Gate2 machine guidance (fix assertion); original assertion preserved in decision-log)"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "desc=Mark All as Read",
+      "expected": "article list toolbar present proving list populated (original count_ge had no oracle; PHASE2_AMEND DEC-010: anchor defect corrected per Gate2 machine guidance (fix assertion); original assertion preserved in decision-log)"
+     }
+    },
+    {
+     "raw": {
+      "type": "text_visible",
+      "target": "text=Ars Technica",
+      "expected": "feed visible in list"
+     },
+     "adapted": {
+      "type": "text_visible",
+      "target": "text=Ars Technica",
+      "expected": "feed visible in list"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0005",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Add Feed",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Add Feed",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "input",
+      "target": "text=Feed or Website URL",
+      "value": "https://example.com/nonexistent-feed-xyz"
+     },
+     "adapted": {
+      "action": "input",
+      "target": "text=Feed or Website URL",
+      "value": "https://example.com/nonexistent-feed-xyz"
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Add",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Add",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "wait",
+      "target": "text=Couldn't find feed",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "text=Couldn't find feed",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "text_visible",
+      "target": "text=Couldn't find feed",
+      "expected": "error supporting text shown"
+     },
+     "adapted": {
+      "type": "text_visible",
+      "target": "text=Couldn't find feed",
+      "expected": "error supporting text shown"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0006",
+   "steps": [
+    {
+     "raw": {
+      "action": "wait",
+      "target": "text=Add Account",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "text=Add Account",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "activity=com.capyreader.app.debug/.AddLinkActivity",
+      "expected": "container activity declared and reachable via intent"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "activity=com.capyreader.app.debug/.AddLinkActivity",
+      "expected": "container activity declared and reachable via intent"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0007",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=More options",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=More options",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Remove Feed",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Remove Feed",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Remove",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Remove",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Ars Technica",
+      "expected": "feed row removed from drawer after confirmed removal",
+      "invert": "true"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Ars Technica",
+      "expected": "feed row removed from drawer after confirmed removal",
+      "invert": "true"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0008",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Open settings navigation",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Open settings navigation",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Refresh all",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Refresh all",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "wait",
+      "target": "desc=Refresh all",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "desc=Refresh all",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "count_ge",
+      "target": "article_list_rows",
+      "expected": "1"
+     },
+     "adapted": {
+      "type": "count_ge",
+      "target": "article_list_rows",
+      "expected": "1"
+     }
+    },
+    {
+     "raw": {
+      "type": "data_equals",
+      "target": "prefs:last_refreshed_at",
+      "expected": ">0 after refresh"
+     },
+     "adapted": {
+      "type": "data_equals",
+      "target": "prefs:last_refreshed_at",
+      "expected": ">0 after refresh"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0009",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Open settings navigation",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Open settings navigation",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Starred",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Starred",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=All",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=All",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Unread",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Unread",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "data_equals",
+      "target": "prefs:article_filter",
+      "expected": "status=UNREAD after selecting Unread"
+     },
+     "adapted": {
+      "type": "data_equals",
+      "target": "prefs:article_filter",
+      "expected": "status=UNREAD after selecting Unread"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0010",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Open settings navigation",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Open settings navigation",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Ars Technica",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Ars Technica",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "text_visible",
+      "target": "text=Ars Technica",
+      "expected": "feed title shown as list title after selecting feed"
+     },
+     "adapted": {
+      "type": "text_visible",
+      "target": "text=Ars Technica",
+      "expected": "feed title shown as list title after selecting feed"
+     }
+    },
+    {
+     "raw": {
+      "type": "count_ge",
+      "target": "article_list_rows",
+      "expected": "1"
+     },
+     "adapted": {
+      "type": "count_ge",
+      "target": "article_list_rows",
+      "expected": "1"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0011",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "class=article_row_index_0",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "class=article_row_index_0",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "wait",
+      "target": "desc=Mark as read",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "desc=Mark as read",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "desc=Mark as read",
+      "expected": "reader bottom bar visible when article opened"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "desc=Mark as read",
+      "expected": "reader bottom bar visible when article opened"
+     }
+    },
+    {
+     "raw": {
+      "type": "text_visible",
+      "target": "reader_article_title",
+      "expected": "opened article title rendered in reader view"
+     },
+     "adapted": {
+      "type": "text_visible",
+      "target": "reader_article_title",
+      "expected": "opened article title rendered in reader view"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0012",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "class=image_in_reader",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "class=image_in_reader",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "fullscreen_image_view",
+      "expected": "image page displayed"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "fullscreen_image_view",
+      "expected": "image page displayed"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0013",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Open in Browser",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Open in Browser",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "external_browser",
+      "expected": "system browser opened with article url"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "external_browser",
+      "expected": "system browser opened with article url"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0014",
+   "steps": [
+    {
+     "raw": {
+      "action": "wait",
+      "target": "desc=Mark as read",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "desc=Mark as read",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Mark as read",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Mark as read",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "data_equals",
+      "target": "db:article_statuses.read(opened_article)",
+      "expected": "0 after toggled unread"
+     },
+     "adapted": {
+      "type": "data_equals",
+      "target": "db:article_statuses.read(opened_article)",
+      "expected": "0 after toggled unread"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "desc=Mark as read",
+      "expected": "toggle button still present after switch"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "desc=Mark as read",
+      "expected": "toggle button still present after switch"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0015",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Mark All as Read",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Mark All as Read",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "wait",
+      "target": "text=Mark all items as read?",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "text=Mark all items as read?",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Confirm",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Confirm",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "text_gone",
+      "target": "text=Mark all items as read?",
+      "expected": "confirm dialog closed by successful Confirm tap",
+      "amended_from": "text_visible (transient dialog; after-timepoint observation limit)",
+      "note": "PHASE2_AMEND (DEC-010): assertion anchor defect fixed per Gate 2 machine guidance; verdict re-derived offline from sealed evidence"
+     },
+     "adapted": {
+      "type": "text_gone",
+      "target": "text=Mark all items as read?",
+      "expected": "confirm dialog closed by successful Confirm tap",
+      "amended_from": "text_visible (transient dialog; after-timepoint observation limit)",
+      "note": "PHASE2_AMEND (DEC-010): assertion anchor defect fixed per Gate 2 machine guidance; verdict re-derived offline from sealed evidence"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "desc=Mark All as Read",
+      "expected": "article list toolbar still present after mark-all-read"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "desc=Mark All as Read",
+      "expected": "article list toolbar still present after mark-all-read"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0016",
+   "steps": [
+    {
+     "raw": {
+      "action": "wait",
+      "target": "desc=Star",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "desc=Star",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Star",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Star",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "data_equals",
+      "target": "db:article_statuses.starred(opened_article)",
+      "expected": "1 after star toggle"
+     },
+     "adapted": {
+      "type": "data_equals",
+      "target": "db:article_statuses.starred(opened_article)",
+      "expected": "1 after star toggle"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "desc=Star",
+      "expected": "star toggle button present in reader bottom bar"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "desc=Star",
+      "expected": "star toggle button present in reader bottom bar"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0017",
+   "steps": [
+    {
+     "raw": {
+      "action": "press_back",
+      "target": "",
+      "value": ""
+     },
+     "adapted": {
+      "action": "press_back",
+      "target": "",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "wait",
+      "target": "desc=Open settings",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "desc=Open settings",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Add Account",
+      "expected": "NOT shown after restart while account exists",
+      "invert": "true"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Add Account",
+      "expected": "NOT shown after restart while account exists",
+      "invert": "true"
+     }
+    },
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Ars Technica",
+      "expected": "subscribed feed still listed after restart"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Ars Technica",
+      "expected": "subscribed feed still listed after restart"
+     }
+    },
+    {
+     "raw": {
+      "type": "count_ge",
+      "target": "article_list_rows",
+      "expected": "1"
+     },
+     "adapted": {
+      "type": "count_ge",
+      "target": "article_list_rows",
+      "expected": "1"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0018",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Open settings",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Open settings",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "wait",
+      "target": "text=Display",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "text=Display",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "text=Display",
+      "expected": "settings panels listed"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "text=Display",
+      "expected": "settings panels listed"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0019",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Open settings",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Open settings",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Display",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Display",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Default",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Default",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Newsprint",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Newsprint",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "data_equals",
+      "target": "prefs:app_theme",
+      "expected": "NEWSPRINT"
+     },
+     "adapted": {
+      "type": "data_equals",
+      "target": "prefs:app_theme",
+      "expected": "NEWSPRINT"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0020",
+   "steps": [
+    {
+     "raw": {
+      "action": "tap",
+      "target": "desc=Open settings",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "desc=Open settings",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=General",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=General",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Newest first",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Newest first",
+      "value": ""
+     }
+    },
+    {
+     "raw": {
+      "action": "tap",
+      "target": "text=Oldest first",
+      "value": ""
+     },
+     "adapted": {
+      "action": "tap",
+      "target": "text=Oldest first",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "data_equals",
+      "target": "prefs:article_list_sort_order",
+      "expected": "OLDEST_FIRST"
+     },
+     "adapted": {
+      "type": "data_equals",
+      "target": "prefs:article_list_sort_order",
+      "expected": "OLDEST_FIRST"
+     }
+    }
+   ]
+  },
+  {
+   "bc_id": "BC-0021",
+   "steps": [
+    {
+     "raw": {
+      "action": "wait",
+      "target": "desc=Mark as read",
+      "value": ""
+     },
+     "adapted": {
+      "action": "wait",
+      "target": "desc=Mark as read",
+      "value": ""
+     }
+    }
+   ],
+   "assertions": [
+    {
+     "raw": {
+      "type": "element_present",
+      "target": "article_style_picker",
+      "expected": "style picker reachable from reader"
+     },
+     "adapted": {
+      "type": "element_present",
+      "target": "article_style_picker",
+      "expected": "style picker reachable from reader"
+     }
+    }
+   ]
+  }
+ ]
+}

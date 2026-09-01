@@ -62,7 +62,7 @@ async function restoreProjectFromMirror(id: string): Promise<Project | undefined
     if (!response.ok) return undefined;
     const recipe = await response.json() as {
       id?: string; name?: string; source?: string; workspace?: string; model?: string;
-      session?: string; version?: number; phases?: Array<{ n: number; response: string }>;
+      session?: string; version?: number; activePhase?: number; phases?: Array<{ n: number; response: string }>;
     };
     if (recipe.id !== id || !recipe.name) return undefined;
     const version = Number(recipe.version ?? 1);
@@ -72,6 +72,7 @@ async function restoreProjectFromMirror(id: string): Promise<Project | undefined
     const imported = mockService.importExternalProject({
       id,
       name: recipe.name,
+      activePhase: recipe.activePhase,
       sourceType: /\.zip$/i.test(recipe.source ?? "") ? "zip" : "github",
       sourceValue: recipe.source ?? "",
       workspaceDir: recipe.workspace,

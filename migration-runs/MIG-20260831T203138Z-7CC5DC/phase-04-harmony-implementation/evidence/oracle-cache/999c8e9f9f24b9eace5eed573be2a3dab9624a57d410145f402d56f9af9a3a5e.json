@@ -1,0 +1,165 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0001",
+    "bc_row_sha": "fe4667aa9fa9ccf69bc2400b0a3a9acef876c09aa2c9a415fc3b6cc461a92fb7",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [],
+    "bc_id": "BC-0001",
+    "blocked_reason": "chain-not-executed",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T01:52:56Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "CachedFlagsDisabled": [],
+        "CachedFlagsEnabled": [
+          "EnablePerfettoSystemTracing"
+        ],
+        "account_id": "83f1914d-0a65-49a2-9e72-fa22324550a5",
+        "article_filter": "{\"type\":\"com.jocmp.capy.ArticleFilter.Feeds\",\"status\":\"ALL\",\"feedID\":\"https://feeds.arstechnica.com/arstechnica/index\",\"folderTitle\":null,\"feedStatus\":\"ALL\"}",
+        "lastVersionCodeUsed": 787118103,
+        "last_refreshed_at": 1788219912,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 3,
+          "path": "shared_prefs/WebViewChromiumPrefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:WebViewChromiumPrefs.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml"
+        },
+        {
+          "keys": 3,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "账号偏好文件 account_<UUID>.xml 写入 source",
+            "应用默认 SharedPreferences 写入 account_id"
+          ],
+          "path": "databases/articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+          "status": "READ",
+          "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5#账号偏好文件 account_<UUID>.xml 写入 source"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5#应用默认 SharedPreferences 写入 account_id"
+        }
+      ]
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T01:52:56Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "CachedFlagsDisabled": [],
+        "CachedFlagsEnabled": [
+          "EnablePerfettoSystemTracing"
+        ],
+        "account_id": "83f1914d-0a65-49a2-9e72-fa22324550a5",
+        "article_filter": "{\"type\":\"com.jocmp.capy.ArticleFilter.Feeds\",\"status\":\"ALL\",\"feedID\":\"https://feeds.arstechnica.com/arstechnica/index\",\"folderTitle\":null,\"feedStatus\":\"ALL\"}",
+        "lastVersionCodeUsed": 787118103,
+        "last_refreshed_at": 1788219912,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 3,
+          "path": "shared_prefs/WebViewChromiumPrefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:WebViewChromiumPrefs.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml"
+        },
+        {
+          "keys": 3,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "账号偏好文件 account_<UUID>.xml 写入 source",
+            "应用默认 SharedPreferences 写入 account_id"
+          ],
+          "path": "databases/articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+          "status": "READ",
+          "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5#账号偏好文件 account_<UUID>.xml 写入 source"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5#应用默认 SharedPreferences 写入 account_id"
+        }
+      ]
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-lxj9nd_t/runtime-evidence/evidence/chains/BC-0001",
+    "executed": false,
+    "feature_id": "FEAT-LOCAL-ACCOUNT",
+    "note": "",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

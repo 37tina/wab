@@ -1,0 +1,58 @@
+{
+ "schema": "android-data-probe/1",
+ "package": "com.capyreader.app.debug",
+ "device": "emulator-5554",
+ "captured_at": "2026-08-31T23:49:18Z",
+ "access_mode": "run-as",
+ "preferences": {
+  "last_refreshed_at": 1788219912,
+  "source": "LOCAL",
+  "account_id": "83f1914d-0a65-49a2-9e72-fa22324550a5",
+  "pane_expansion_index": 4
+ },
+ "tables": {
+  "article_notifications": [],
+  "article_statuses": [],
+  "article_sync_statuses": [],
+  "articles": [],
+  "enclosures": [],
+  "excluded_statuses": [],
+  "feeds": [],
+  "folders": [],
+  "saved_search_articles": [],
+  "saved_searches": [],
+  "taggings": []
+ },
+ "stores": [
+  {
+   "store": "shared_prefs:account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml",
+   "path": "shared_prefs/account_83f1914d-0a65-49a2-9e72-fa22324550a5.xml",
+   "status": "READ",
+   "keys": 2
+  },
+  {
+   "store": "shared_prefs:com.capyreader.app.debug_preferences.xml",
+   "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+   "status": "READ",
+   "keys": 2
+  },
+  {
+   "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+   "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+   "status": "TOOL_GAP",
+   "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)"
+  },
+  {
+   "store": "sqlite:articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+   "path": "databases/articles_83f1914d-0a65-49a2-9e72-fa22324550a5",
+   "status": "READ",
+   "tables": 11
+  }
+ ],
+ "tool_gaps": [
+  {
+   "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+   "reason": "DataStore parsing is TOOL_GAP in v1"
+  }
+ ]
+}

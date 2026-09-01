@@ -1,0 +1,30 @@
+{
+  "bc_id": "BC-0001", "side": "harmony", "device": "127.0.0.1:5557", "bundle": "com.capyreader.app.debug",
+  "collected_by": "verify-exec.capy-01 (Agent 4B, manual chain, TOOL_GAP fallback)",
+  "collected_at": "2026-09-01 10:00-10:05 local",
+  "locale_note": "en device locale; anchors match BC English form verbatim",
+  "pre_state": {
+    "method": "p4_hdc_tool.py seed-reset -> launch (cold start parity)",
+    "coldstart_screen_texts": ["Add Account", "Local", "On your device", "Feedbin", "feedbin.com", "FreshRSS", "freshrss.org", "Miniflux", "miniflux.app", "Reader", "Self-hosted Google Reader API"],
+    "five_options_present": true, "add_account_title_present": true
+  },
+  "operation": {"action": "tap", "target": "text=Local", "coord": [482, 503], "cmd": "uitest uiInput click 482 503"},
+  "after_state": {
+    "screen_texts": ["No feeds yet", "Start by adding a feed", "Add Feed", "Feeds", "Refresh all", "Open settings"],
+    "no_feeds_yet_present": true, "drawer_anchors_visible": ["Feeds", "Refresh all", "Open settings"]
+  },
+  "data_after": {
+    "sandbox_root": "/data/app/el2/100/base/com.capyreader.app.debug/haps/entry",
+    "default_prefs_account_id": "bee445dc-b3b4-4a37-bb1e-aa815c0b7de2",
+    "account_prefs_source": "local",
+    "account_prefs_file": "preferences/account_bee445dc-b3b4-4a37-bb1e-aa815c0b7de2",
+    "accounts_dir_entry": "files/accounts/bee445dc-b3b4-4a37-bb1e-aa815c0b7de2",
+    "semantic_probe_file": "files/semantic-probe.json (DebugSemanticProbe): account_id=bee445dc-b3b4-4a37-bb1e-aa815c0b7de2, source=local, accounts_dir set"
+  },
+  "restart": {
+    "method": "aa force-stop -> launch",
+    "screen_texts": ["No feeds yet", "Start by adding a feed", "Add Feed", "Feeds", "Refresh all", "Open settings"],
+    "add_account_screen_present": false, "lands_on_main_empty_state": true
+  },
+  "note_vs_android": ["source 存储值大小写差异：Android='LOCAL' vs Harmony='local'（同一枚举序列化形态差异，语义等价；供人工复核裁量）"]
+}

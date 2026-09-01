@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "task": "#23 4B-R3 批次2差分收口",
+    "executor": "verify-exec.capy-01 (4B 第三任)",
+    "date": "2026-09-01",
+    "devices": {"harmony": "127.0.0.1:5557", "android": "emulator-5554"},
+    "inherited_evidence": "evidence/batch2-4b/H2_*.json (4B-R2: 输入链/Add Feed/阅读页/Mark 两次固化)",
+    "new_evidence_prefix": {"harmony": "B1_~B4_ probe_b* (本任)", "android": "A2_*.xml (本任, pm clear 重来)"},
+    "pitfalls_fixed": [
+      "hdc uitest dumpLayout 写入随机文件名 layout_<num>.json 而非固定 layout.json —— 必须从输出解析 'saved to:' 路径再 cat，否则读到前任旧缓存（本任开局误读 Todos 应用旧布局）",
+      "Harmony TextInput 点击目标是 placeholder 下方的输入本体（收 IME 后位于 y≈2007-2175），点 placeholder y=1968 无法唤起 IME",
+      "Android status 过滤条(ArticleStatusBar)是抽屉 FeedList 底部三个纯图标 ToggleButton(contentDescription=null)，uiautomator 按 text/desc 过滤会漏，需按 checkable/clickable+bounds 定位",
+      "dual_verify.py 全量 7 BC 必超时(>8min)，需单 BC 或 3 BC 分批 + subprocess 硬超时"
+    ]
+  },
+  "bc_results": {
+    "BC-0014": {
+      "title": "阅读页 Mark 已读/未读切换",
+      "harmony": {
+        "steps": "阅读页(Bentley) 点 Mark(257,2652) 两次，探针佐证",
+        "ui_anchor": "按钮文本恒为 'Mark as read'，图标 ●(read=1) → ○(read=0) → ●(read=1) 双向切换",
+        "probe": "semantic-probe read_count: 1 → 0 → 1; Bentley 文章 read: 1 → 0 → 1",
+        "evidence": ["B1_before_remark", "B1_after_remark", "B1_after_remark2", "probe_b1_base", "probe_b1_after", "probe_b1_after2"]
+      },
+      "android": {
+        "steps": "pm clear → 建号 → Add Feed → 点开 Bentley → 点 Mark(276,2213) 三次",
+        "ui_anchor": "按钮 content-desc 恒为 'Mark as read'（三次点击不翻转）；契约(源码 ArticleBottomBar)证实 Android 同为图标式状态变化（已读=空心圆 FiberManualRecord/未读=实心圆）",
+        "evidence": ["A2_04_reader", "A2_05_mark_flipped", "A2_05_mark_click2", "A2_05_mark_click3"]
+      },
+      "verdict": "表现差异项（非 DIFF）",
+      "diff_candidates": [
+        "Mark 图标语义方向疑似相反：Harmony 实测 ●=已读(read=1)/○=未读(read=0)；Android 契约注明 已读=空心圆/未读=实心圆（即 ●=未读）。双侧各自内部自洽且状态真实切换，方向语义需人工裁决（可能 Android 契约描述的是'待执行动作'视角，Harmony 是'当前状态'视角）",
+        "任务书预期 'Android 文本翻转 Mark as unread' 与实测不符：Android content-desc 恒定，翻转只发生在图标（源码 ArticleBottomBar.kt 支持）——前任记忆偏差，已按契约修正口径"
+      ]
+    },
+    "BC-0016": {
+      "title": "阅读页 Star 星标",
+      "harmony": {
+        "steps": "阅读页点 Star(649,2652) → Back → 底栏 Starred(556,2677)",
+        "ui": "☆ → ★ 翻转；Starred 过滤后列表仅剩 Bentley 1 篇",
+        "probe": "starred_count=1",
+        "evidence": ["B2_star_clicked", "probe_b2_starred", "B2_back_list", "B2_starred_filter"]
+      },
+      "android": {
+        "steps": "阅读页点 Star(408,2213) → Back → 抽屉 → STARRED Toggle(805,2246)",
+        "ui": "Star 点击后返回；抽屉过滤段显示 Starred(1)；过滤列表仅剩 Bentley",
+        "evidence": ["A2_06_star_clicked", "A2_13_drawer_bottom", "A2_14_starred_filter", "A2_14_starred_list"]
+      },
+      "verdict": "MATCH（功能等价）",
+      "presentation_note": "过滤入口位置不同：Harmony=主界面底部状态栏文本段(Unread/All/Starred)；Android=导航抽屉底部纯图标 ToggleButton 组(ALL/UNREAD/STARRED, 无 desc)"
+    },
+    "BC-0015": {
+      "title": "Mark All as Read 批量已读",
+      "harmony": {
+        "steps": "工具栏 Mark All as Read(1045,313) → 确认框 → Confirm(939,1535)",
+        "ui": "确认框文案 'Mark all items as read?' + Cancel/Confirm；Confirm 后底栏 Unread 过滤清空（空态文案复用 'No feeds yet'/'Start by adding a feed'——空态文案复用记表现细节）；All 过滤下文章仍在",
+        "probe": "read_count=20",
+        "evidence": ["B4_markall_dlg", "B4_after_confirm_unread_tab", "B4_all_tab_back", "probe_b4_after_markall"]
+      },
+      "android": {
+        "steps": "desc=Mark All as Read(1003,231) → 确认框 → Confirm(756,1299)",
+        "ui": "确认框文案 'Mark all items as read?' + Confirm/Cancel（与 Harmony 完全一致）；Confirm 后抽屉计数归零(All/Today/Feeds 无数字)，UNREAD 过滤列表空（仅标题）",
+        "evidence": ["A2_16_markall_dlg", "A2_17_after_markall_drawer", "A2_17_unread_empty"]
+      },
+      "verdict": "MATCH",
+      "presentation_note": "Harmony Unread 空态显示 'No feeds yet'（与无 feed 空态同文案）；Android Unread 空仅显示过滤标题——空态文案策略差异，功能等价"
+    },
+    "BC-0007": {
+      "title": "Remove Feed 退订",
+      "harmony": {
+        "steps": "侧栏 Ars Technica 行 More options(590,647) → Remove Feed → 确认框 → Remove(939,1601)",
+        "ui": "菜单项 'Mark All as Read'/'Remove Feed'；确认框标题 'Unsubscribe' + 正文 'Are you sure you want to unsubscribe from \"Ars Technica\"?' + Cancel/Remove；确认后侧栏 Ars Technica 消失、列表空态",
+        "ui_final": "feed 消失 + 空态 'No feeds yet'；随后按输入链重加 feed 成功(Feed added banner + 20 篇) 备后续",
+        "evidence": ["B3_more_options", "B3_remove_confirm_dlg", "B3_after_remove", "B3_readd_sheet", "B3_retry_typed", "B3_kb_down", "B3_readd_success", "B3_readd_refreshed"]
+      },
+      "android": {
+        "steps": "抽屉长按 Ars Technica 行(426,906, 800ms) → 菜单 'Unsubscribe'(174,1470) → 对话框 → Unsubscribe(773,1392)",
+        "ui": "长按菜单：Mark All as Read/Edit Feed/Reload Icon/Unsubscribe/Open Articles In Browser；对话框标题 'Unsubscribe' + 按钮 Unsubscribe/Cancel；确认后抽屉 Ars Technica 消失、文章清空",
+        "ui_final": "feed 消失 + 文章清空",
+        "evidence": ["A2_19_feed_menu", "A2_20_unsub_dlg", "A2_21_after_remove"]
+      },
+      "verdict": "表现差异项（非 DIFF，功能等价）",
+      "diff_candidates": [
+        "菜单入口方式：Harmony=feed 行内显式 'More options' 图标 → 'Remove Feed' 菜单项；Android=长按 feed 行（无可见入口提示）→ 'Unsubscribe' 菜单项",
+        "确认按钮文案：Harmony='Remove'；Android='Unsubscribe'（对话框标题双侧均为 'Unsubscribe'）"
+      ]
+    },
+    "BC-0009": {
+      "title": "列表状态过滤 Unread/All/Starred",
+      "verdict": "表现差异项（功能等价）",
+      "note": "Harmony=主界面底部文本状态栏；Android=抽屉底部图标 ToggleButton(contentDescription=null, accessibility 缺失)。双侧切换后列表内容均正确变化（Starred 过滤双侧均仅剩星标文章，见 BC-0016 证据）",
+      "android_accessibility_note": "Android status 图标无 contentDescription（ArticleStatusIcon.kt contentDescription=null），无障碍视角劣于 Harmony 文本段"
+    },
+    "BC-0010": {
+      "title": "侧栏选中 feed 过滤列表",
+      "verdict": "MATCH（沿用批次1/继承证据）",
+      "note": "Harmony 侧栏 Ars Technica 行点击 → 列表显示该 feed 文章（B2_back_list 等）；Android 抽屉 feed 行点击同效（A2_10_global2 显示 feed 名行内标注 + 全局视图）"
+    },
+    "BC-0011": {
+      "title": "点文章进阅读页",
+      "verdict": "MATCH（继承证据+本批双侧复验）",
+      "note": "Harmony: 标题+来源+日期+底栏三按钮(Mark as read/Star/Open in Browser)，正文 '(no content)'（RSS summary 缺失）; Android: 顶栏 Font style + 底栏五按钮(Mark as read/Star/Go to next article/Extract Full Content/Share article)+WebView 正文（含链接 desc 节点）",
+      "diff_candidates": [
+        "阅读页底栏按钮集合：Harmony 3 个 vs Android 5 个（缺 Go to next article/Extract Full Content；多 Open in Browser）",
+        "正文渲染：Harmony '(no content)' 空占位 vs Android WebView 渲染全文摘要（Ars RSS summary 在 Harmony 侧未展示——真实值差异候选，需确认 Harmony 是否解析 summary 字段，若未解析则应 DIFF）"
+      ]
+    }
+  },
+  "presentation_diff_items_for_human_review": [
+    "PD-1 Mark 锚点：Harmony 图标态(●/○)+文本恒定 vs Android 图标态(实心/空心圆,desc 恒定)——双侧均图标式，但图标语义方向疑似相反（Harmony ●=已读；Android 契约 实心=未读）",
+    "PD-2 BC-0007 入口：More options 显式图标 vs 长按手势（Android 无可见入口提示）",
+    "PD-3 BC-0007 确认按钮文案：Remove vs Unsubscribe",
+    "PD-4 BC-0009 过滤条位置与形态：主界面底栏文本段 vs 抽屉底部图标 Toggle(无 desc)",
+    "PD-5 BC-0011 阅读页底栏：3 按钮 vs 5 按钮（Next/Extract 缺失, Open in Browser 多出）",
+    "PD-6 BC-0015 空态文案：Harmony Unread 空态复用 'No feeds yet' vs Android 仅标题",
+    "PD-7 列表行信息密度：Harmony 标题+日期 vs Android 标题+feed名+摘要+时间"
+  ],
+  "diff_candidates_real_value": [
+    "DC-1 BC-0011 正文 '(no content)'：Harmony 未渲染 RSS summary 而 Android 渲染——若为 summary 解析缺失属真实值差异，建议人工裁决或交 4C 修复确认"
+  ],
+  "machine_diff_stats": {
+    "batch2_run": "7 BC × 4 assertion = 28 行，verdict 全部 MANUAL",
+    "manual_reason": "execution-incomplete:android: UNRESOLVED_PAGE_REF（重放器无法把契约 page_ref 解析到当前 Android 项目页面——工具结构性限制，与批次 1 PRECONDITION_FAILED 同类），判定依据回落到双侧手采证据",
+    "merged_final": {
+      "file": "dual-diff-results-final-merged.csv",
+      "rows": 40,
+      "by_verdict": {"MATCH": 0, "DIFF": 0, "MANUAL": 40},
+      "by_bc": ["BC-0004", "BC-0005", "BC-0007", "BC-0008", "BC-0009", "BC-0010", "BC-0011", "BC-0014", "BC-0015", "BC-0016"],
+      "source": "batch1=12 行(dual-diff-results.csv 原文件保留) + batch2-machine=28 行(dual-diff-results-batch2.csv)"
+    }
+  },
+  "reset_confirmation": {
+    "harmony": "aa force-stop com.capyreader.app.debug -> force stop process successfully (2026-09-01 收口时)",
+    "android": "pm clear com.capyreader.app.debug -> Success (2026-09-01 收口时)"
+  }
+}

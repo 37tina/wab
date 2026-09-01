@@ -1,0 +1,13 @@
+{
+ "bc_id": "BC-0005",
+ "status": "STEPS_FAIL",
+ "note": "steps interrupted at 1/4",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "Couldn't find feed",
+   "verdict": "FAIL",
+   "optional": "false"
+  }
+ ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-C4FF4D0C6CA2",
+  "phase": 4,
+  "feature_id": "FEAT-ARTICLE-READ",
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T03:28:59Z",
+  "issued_by": "impl-lead.capy-01",
+  "verify_mode": "SOURCE_CONFIRM",
+  "risk_level": "normal",
+  "bc_ids": [
+    "BC-0011",
+    "BC-0012",
+    "BC-0013"
+  ],
+  "runtime_bc_ids": [
+    "BC-0011"
+  ],
+  "data_reads": [],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0054"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-ARTICLEREADER-B2B865F0",
+      "is_container": false,
+      "kind": "reusable-component"
+    },
+    {
+      "id": "PAGE-IMAGEPAGE-18D3E5AD",
+      "is_container": false,
+      "kind": "page"
+    },
+    {
+      "id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2",
+      "is_container": false,
+      "kind": "page"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead.capy-01",
+    "ui_agent_id": "impl-lead.capy-01",
+    "business_data_agent_id": "impl-lead.capy-01",
+    "native_capability_agent_id": "impl-lead.capy-01"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0011",
+      "BC-0012",
+      "BC-0013"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:615",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:649",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:573",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:583",
+      "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleReader.kt:51",
+      "capy/src/main/java/com/jocmp/capy/Account.kt:381",
+      "capy/src/main/java/com/jocmp/capy/persistence/ArticleRecords.kt:192",
+      "capy/src/main/sqldelight/com/jocmp/capy/db/articles.sq:199",
+      "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:166",
+      "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:76",
+      "app/src/main/java/com/capyreader/app/OpenArticleInBrowserActivity.kt:13",
+      "app/src/main/AndroidManifest.xml:63"
+    ],
+    "runtime_evidence_refs": [
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0011"
+    ],
+    "data_relations": [
+      "REL-0023",
+      "REL-0054"
+    ],
+    "visual_memory_surface": [
+      "PAGE-ARTICLEREADER-B2B865F0",
+      "PAGE-IMAGEPAGE-18D3E5AD",
+      "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2"
+    ],
+    "p3_surface_plan": []
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555"
+}

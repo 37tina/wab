@@ -1,0 +1,447 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0010",
+    "bc_row_sha": "bc3a63a7f36d586399880217c49c185eb132559f448d9355cf9321e01a39739d",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [],
+    "bc_id": "BC-0010",
+    "blocked_reason": "UNRESOLVED_PAGE_REF",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T04:43:28Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "CachedFlagsDisabled": [],
+        "CachedFlagsEnabled": [
+          "EnablePerfettoSystemTracing"
+        ],
+        "account_id": "f44529b1-80f8-4259-9ff7-8e579349d0df",
+        "article_filter": "{\"type\":\"com.jocmp.capy.ArticleFilter.Articles\",\"status\":\"ALL\",\"articleStatus\":\"ALL\"}",
+        "lastVersionCodeUsed": 787118103,
+        "last_refreshed_at": 1788237206,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 3,
+          "path": "shared_prefs/WebViewChromiumPrefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:WebViewChromiumPrefs.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml"
+        },
+        {
+          "keys": 3,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "path": "databases/articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "status": "READ",
+          "store": "sqlite:articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "tables": 11
+        }
+      ],
+      "tables": {
+        "article_notifications": [],
+        "article_statuses": [],
+        "article_sync_statuses": [],
+        "articles": [],
+        "enclosures": [
+          {
+            "article_id": "https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/DragonRed.Supersports-6-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/7827_lores-700x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ars-sub-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/coyotevsacme-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/trump-media-1152x648-1788199474.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-172575622-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-1856868830-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/webp",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/superbox-s7-pro-1152x648.webp"
+          },
+          {
+            "article_id": "https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/png",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ssta.daily_.current-1152x648.png"
+          },
+          {
+            "article_id": "https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/Google-Maps-Lake-America.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2022/03/getty-eu-flag-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/HRAzV1dXYAEXjHy-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/png",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/pocketsling-1152x648-1787932298.png"
+          },
+          {
+            "article_id": "https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/teraweapon-1152x648-1788124932.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/NHQ20260828_admin_0045large-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/data-center-server-room-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/personaldata-1024x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/kalshi-ad-1152x648-1783536871.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/flock-camera-1152x648-1779223467.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2025/03/GettyImages-2203339270-1152x648.jpg"
+          }
+        ],
+        "excluded_statuses": [],
+        "feeds": [],
+        "folders": [],
+        "saved_search_articles": [],
+        "saved_searches": [],
+        "taggings": []
+      },
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        }
+      ]
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T04:43:28Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "CachedFlagsDisabled": [],
+        "CachedFlagsEnabled": [
+          "EnablePerfettoSystemTracing"
+        ],
+        "account_id": "f44529b1-80f8-4259-9ff7-8e579349d0df",
+        "article_filter": "{\"type\":\"com.jocmp.capy.ArticleFilter.Articles\",\"status\":\"ALL\",\"articleStatus\":\"ALL\"}",
+        "lastVersionCodeUsed": 787118103,
+        "last_refreshed_at": 1788237206,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 3,
+          "path": "shared_prefs/WebViewChromiumPrefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:WebViewChromiumPrefs.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml"
+        },
+        {
+          "keys": 3,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "path": "databases/articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "status": "READ",
+          "store": "sqlite:articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "tables": 11
+        }
+      ],
+      "tables": {
+        "article_notifications": [],
+        "article_statuses": [],
+        "article_sync_statuses": [],
+        "articles": [],
+        "enclosures": [
+          {
+            "article_id": "https://arstechnica.com/cars/2026/08/the-bentley-supersports-a-stripped-out-engineers-indulgence/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/DragonRed.Supersports-6-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/health/2026/08/trump-admin-shelves-cyclospora-research-despite-record-breaking-outbreak/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/7827_lores-700x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/staff/2026/08/get-in-on-the-ars-community-that-doesnt-fit-beneath-an-article/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ars-sub-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/culture/2026/08/review-coyote-vs-acme-is-an-unabashed-love-letter-to-looney-tunes/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/coyotevsacme-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/trump-tells-fcc-to-punish-journalist-for-calling-his-election-results-mixed/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/trump-media-1152x648-1788199474.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/zlibrary-my-beloved-anthropic-staff-chats-extolling-piracy-cited-in-sony-suit/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-172575622-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/science/2026/08/raindrops-are-tiny-lightning-bolts-and-theyre-corroding-cars-study-finds/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-1856868830-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/security/2026/08/how-some-media-streaming-devices-open-home-networks-to-a-world-of-harm/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/webp",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/superbox-s7-pro-1152x648.webp"
+          },
+          {
+            "article_id": "https://arstechnica.com/science/2026/08/el-nino-is-now-stronger-than-at-any-point-in-the-last-1000-years-study-finds/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/png",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/ssta.daily_.current-1152x648.png"
+          },
+          {
+            "article_id": "https://arstechnica.com/gadgets/2026/08/google-maps-renames-lake-ontario-to-lake-america-even-faster-than-us-government/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/Google-Maps-Lake-America.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/chatgtp-and-reddit-now-face-eus-toughest-online-safety-rules/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2022/03/getty-eu-flag-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/space/2026/08/nasas-next-great-observatory-begins-mission-to-widen-our-view-of-the-universe/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/HRAzV1dXYAEXjHy-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/gaming/2026/08/pockets-ai-made-my-game-ideas-real-now-meta-controls-the-results/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/png",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/pocketsling-1152x648-1787932298.png"
+          },
+          {
+            "article_id": "https://arstechnica.com/gaming/2026/08/a-12tb-steam-teraleak-spills-more-than-a-decade-of-lost-pc-gaming-history/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/teraweapon-1152x648-1788124932.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/space/2026/08/why-it-matters-that-president-trump-just-dialed-into-a-nasa-news-conference/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/NHQ20260828_admin_0045large-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/data-center-server-room-1152x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/i-asked-100-companies-for-my-data-some-deleted-it-instead/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/08/personaldata-1024x648.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/kalshi-cant-evade-nevada-gambling-laws-by-calling-bets-swaps-court-rules/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/07/kalshi-ad-1152x648-1783536871.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/tech-policy/2026/08/cities-terminate-flock-contracts-at-record-pace-in-august/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2026/05/flock-camera-1152x648-1779223467.jpg"
+          },
+          {
+            "article_id": "https://arstechnica.com/health/2026/08/rfk-jr-has-lied-to-the-senate-lawmakers-call-for-criminal-probe-ouster/",
+            "itunes_duration_seconds": null,
+            "itunes_image": null,
+            "type": "image/jpeg",
+            "url": "https://cdn.arstechnica.net/wp-content/uploads/2025/03/GettyImages-2203339270-1152x648.jpg"
+          }
+        ],
+        "excluded_statuses": [],
+        "feeds": [],
+        "folders": [],
+        "saved_search_articles": [],
+        "saved_searches": [],
+        "taggings": []
+      },
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        }
+      ]
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-1_9ob4jt/runtime-evidence/evidence/chains/BC-0010",
+    "executed": false,
+    "feature_id": "FEAT-ARTICLE-LIST",
+    "note": "page_ref 'PAGE-ARTICLESCREEN-5C3108E6' not in candidate Page-ID map",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

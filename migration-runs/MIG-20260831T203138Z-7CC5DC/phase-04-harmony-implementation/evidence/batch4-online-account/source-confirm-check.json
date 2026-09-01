@@ -1,0 +1,37 @@
+{
+ "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+ "work_order_id": "FWO-4E36499BADFF",
+ "checked_by": "verify-exec.capy-01",
+ "checked_at": "2026-09-01T05:55:49Z",
+ "scope": "SOURCE_CONFIRM (feature-level four gates)",
+ "gates": {
+  "gate1_implementation_exists": {
+   "verdict": "FAIL",
+   "evidence": {
+    "addaccount_five_options_ui": "PASS — device dump b4-harmony-addaccount-fresh.json shows Add Account + Local/On your device + Feedbin/feedbin.com + FreshRSS/freshrss.org + Miniflux/miniflux.app + Reader/Self-hosted Google Reader API (identical option set to Android seed-00-addaccount-firstscreen.xml)",
+    "login_screens_for_online_options": "FAIL — ShellPageLoginscreen9d67f9d2.ets is an empty Phase-3 scaffold shell (Stack+Column, no Server/Username/Password TextField fields); route PAGE-LOGINSCREEN-9D67F9D2 registered in AppNavigationShell.ets:29/65-66 but AddAccountScreen never navigates to it",
+    "feedbin_tap_probe": "tap on Feedbin row produced no login form (no-op branch in source); subsequent dump showed either unchanged AddAccount screen or Local-created main screen"
+   }
+  },
+  "gate2_no_noop_placeholder": {
+   "verdict": "FAIL",
+   "evidence": "ShellPageAddaccountscreenA9c749bc.ets onSelect(): `if (!opt.isLocal || this.creating) { return; }` — all four online options (Feedbin/FreshRSS/Miniflux/Reader) are explicit no-op placeholders; in-code comment admits 'Online service rows: navigation placeholder; the login flow is delivered by FEAT-ONLINE-ACCOUNT-UI (SOURCE_CONFIRM scope)'"
+  },
+  "gate3_source_traceable": {
+   "verdict": "PASS",
+   "source_refs": [
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets:25 (Feedbin AccountOption)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets:41-44 (online-option no-op branch)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets:78 (onClick wiring)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets:8-20 (empty login shell)",
+    "harmony-project/entry/src/main/ets/foundation/AppNavigationShell.ets:29 (route table entry PAGE-LOGINSCREEN-9D67F9D2)",
+    "harmony-project/entry/src/main/ets/foundation/AppNavigationShell.ets:65-66 (shell binding)"
+   ]
+  },
+  "gate4_buildable": {
+   "verdict": "PASS",
+   "evidence": "BATCH3-STATE-DOMAIN HAP already built and installed on 127.0.0.1:5557; sha256=498c6af73f5334172fd6521f54bda9434fdf7db2d3a333684b95c0c6e35c811d; verify-exec made zero source changes (no rebuild required)"
+  }
+ },
+ "overall": "FAIL (2/4 gates passed; gates 1&2 failed — online-account login UI not implemented; AddAccountScreen options are declared placeholders)"
+}

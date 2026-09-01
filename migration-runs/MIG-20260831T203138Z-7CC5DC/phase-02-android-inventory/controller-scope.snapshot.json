@@ -1,0 +1,172 @@
+{
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "project_id": "CAPYREADER",
+  "created_at": "2026-08-31T20:31:38Z",
+  "android": {
+    "project_root": "/Users/rainyday/Desktop/finale/android/CapyReader",
+    "source_revision": "6aa1ddfd154189c3deb107210e35952dceddf2a3",
+    "source_revision_kind": "git-commit",
+    "apk_path": "/Users/rainyday/Desktop/finale/android/CapyReader/app/build/outputs/apk/free/debug/app-free-debug.apk",
+    "apk_sha256": "db018a2122e16767de49d1105fc901736c1492d76315145006a6a9f84a34785f",
+    "application_id": "com.capyreader.app.debug",
+    "app_version": "2026.07.1212",
+    "app_build": "1212",
+    "build_variant": "free-debug"
+  },
+  "target": {
+    "platform": "HarmonyOS NEXT",
+    "sdk_or_api_target": "HarmonyOS NEXT API 24",
+    "device_classes": ["phone"],
+    "target_device_registry": {
+      "TD-HM-001": {
+        "device_serial": "127.0.0.1:5557",
+        "product_model": "emulator",
+        "software_version": "emulator 6.1.0.125(SP9DEVC00E120R4P11)",
+        "ohos_api_version": 24,
+        "render_resolution": "1320x2856",
+        "hdc_path": "/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/toolchains/hdc",
+        "deveco_version": "6.1.1",
+        "hvigor_available": true,
+        "_note": "target-side reproducibility metadata captured 2026-08-31 via hdc param/hidumper; screen params are never a Gate quality condition"
+      }
+    }
+  },
+  "migration_scope": {
+    "included_features": [
+      "FEAT-LOCAL-ACCOUNT",
+      "FEAT-ADD-FEED",
+      "FEAT-FEED-REFRESH",
+      "FEAT-ARTICLE-LIST",
+      "FEAT-ARTICLE-READ",
+      "FEAT-READ-UNREAD",
+      "FEAT-STAR",
+      "FEAT-LOCAL-PERSISTENCE",
+      "FEAT-SETTINGS",
+      "FEAT-ONLINE-ACCOUNT-UI"
+    ],
+    "excluded_features": [
+      "FEAT-ONLINE-SYNC-RUNTIME"
+    ],
+    "feature_notes": {
+      "FEAT-LOCAL-ACCOUNT": "Add-account screen Local (On Device) path: create local account, enter main app",
+      "FEAT-ADD-FEED": "Add RSS/Atom subscription by URL, confirm feed added and listed",
+      "FEAT-FEED-REFRESH": "Manual refresh pulls latest entries from network feed",
+      "FEAT-ARTICLE-LIST": "Article list per feed/filter view (unread/all/starred)",
+      "FEAT-ARTICLE-READ": "Open article reading view, render title/content, in-app reader behavior",
+      "FEAT-READ-UNREAD": "Toggle read/unread state of an article (manual mark and open-marks-read)",
+      "FEAT-STAR": "Add/remove star (saved) state of an article",
+      "FEAT-LOCAL-PERSISTENCE": "Feeds, articles, read/star states and settings persist locally across app restart",
+      "FEAT-SETTINGS": "Settings screen: view and change core local preferences (theme/sort/refresh behavior)",
+      "FEAT-ONLINE-ACCOUNT-UI": "Add-account screen online options (Feedbin/FreshRSS/Miniflux/Reader): entry presence, login form surfaces, source-level behavior contract",
+      "FEAT-ONLINE-SYNC-RUNTIME": "Real online-account login plus bidirectional sync executed at runtime against Feedbin/FreshRSS/Miniflux/Reader servers"
+    },
+    "feature_verify_modes": {
+      "FEAT-LOCAL-ACCOUNT": "RUNTIME",
+      "FEAT-ADD-FEED": "RUNTIME",
+      "FEAT-FEED-REFRESH": "RUNTIME",
+      "FEAT-ARTICLE-LIST": "RUNTIME",
+      "FEAT-ARTICLE-READ": "RUNTIME",
+      "FEAT-READ-UNREAD": "RUNTIME",
+      "FEAT-STAR": "RUNTIME",
+      "FEAT-LOCAL-PERSISTENCE": "RUNTIME",
+      "FEAT-SETTINGS": "RUNTIME",
+      "FEAT-ONLINE-ACCOUNT-UI": "SOURCE_CONFIRM",
+      "_note": "verify_mode consumed by Phase 2 feature-map; RUNTIME features require oracle-backed before/after evidence on ENV-001; SOURCE_CONFIRM features require source-anchored behavior contracts without runtime evidence"
+    },
+    "key_business_capabilities": [
+      "RSS/Atom subscription management (add/remove/list feeds)",
+      "Article fetch and manual refresh from network feeds",
+      "Article list with unread/all/starred filtering",
+      "Article reading view with content rendering",
+      "Read/unread state management",
+      "Star (saved) state management",
+      "Local persistence of feeds, articles, read/star states and settings",
+      "Settings management of core user preferences",
+      "Account model: local device account (runtime); online account surfaces (source-confirm)"
+    ],
+    "data_scope": {
+      "local_database": "feeds (subscriptions), articles (entries incl. read/star flags), tags/folders",
+      "preferences": "local user preferences (theme, sort order, refresh behavior, reader options)",
+      "accounts": "local account configuration only (no credentials)",
+      "network_data": "public stable RSS feeds used for RUNTIME fetch tests; feed content varies over time and is environment noise: assertions must target structural facts, never specific article titles/dates",
+      "excluded_data": "online account credentials and server-side data (environment unavailable)"
+    },
+    "allowed_platform_substitutions": [
+      {"capability": "navigation", "reason": "Android navigation (back stack, Navigation Compose) replaced by ArkUI Navigation and system back", "native_equivalence_allowed": true},
+      {"capability": "bottom-tabs", "reason": "Bottom navigation bar replaced by ArkUI Tabs", "native_equivalence_allowed": true},
+      {"capability": "system-back", "reason": "Android back gesture/button replaced by HarmonyOS system back interaction", "native_equivalence_allowed": true},
+      {"capability": "sheet", "reason": "ModalBottomSheet/Drawer surfaces replaced by ArkUI Sheet", "native_equivalence_allowed": true},
+      {"capability": "dialog", "reason": "AlertDialog/Dialog surfaces replaced by ArkUI CustomDialog/AlertDialog", "native_equivalence_allowed": true},
+      {"capability": "toggle", "reason": "Switch/Toggle controls replaced by ArkUI Toggle", "native_equivalence_allowed": true},
+      {"capability": "picker", "reason": "Selection/date/time pickers replaced by ArkUI Picker", "native_equivalence_allowed": true},
+      {"capability": "system-menu", "reason": "ContextMenu/long-press menus replaced by HarmonyOS system menus", "native_equivalence_allowed": true},
+      {"capability": "permission-interaction", "reason": "Runtime permission dialogs and flows adapted to HarmonyOS permission model", "native_equivalence_allowed": true}
+    ],
+    "migration_policies": {
+      "FUNCTIONAL_EQUIVALENCE": "HARD",
+      "_FUNCTIONAL_EQUIVALENCE_note": "data/business computation/state transitions/persistence/side effects must not drift",
+      "UI_FIDELITY": "HIGH",
+      "_UI_FIDELITY_note": "page information architecture/content/key controls/icons/visual hierarchy/key colors must be preserved",
+      "NATIVE_ADAPTATION": "CONSTRAINED",
+      "_NATIVE_ADAPTATION_note": "only Navigation/Tabs/back/Sheet/Dialog/Toggle/Picker/system menus/permission interactions may be platform-substituted (see allowed_platform_substitutions); consumed by Phase 3/4 gates"
+    },
+    "visual_parity_mode": "native-adaptive",
+    "_visual_parity_mode_note": "enum: strict | native-adaptive; new runs default to native-adaptive; runs missing this field are treated as legacy strict",
+    "parity_dimensions": ["function", "page", "state", "data", "interaction", "error"]
+  },
+  "test_seed": {
+    "seed_id": "SEED-COLD-START-001",
+    "initial_state": "cold-start first screen is Add Account with exactly five options: Local (On Device)/Feedbin/FreshRSS/Miniflux/Reader",
+    "initial_locale": "zh-CN",
+    "initial_theme": "light",
+    "preset_feeds": 0,
+    "preset_articles": 0,
+    "default_sort": "factory default sort for fresh install (exact default value to be source-confirmed in Phase 2)",
+    "reset_procedure": "adb -s emulator-5554 shell pm clear com.capyreader.app.debug, then cold start; first screen must be Add Account (five options)",
+    "screenshot_evidence": "evidence/android-baseline/capy_first.png",
+    "phase2_phase4_same_seed": true,
+    "_note": "Phase 2 and Phase 4 must test from this identical seed; seed facts measured on 2026-08-31 from screenshot /tmp/capy_first.png and live device"
+  },
+  "ownership": {
+    "migration_controller_id": "controller.capy-01",
+    "inventory_lead_id": "inventory-lead.capy-01",
+    "code_map_agent_id": "codemap.capy-01",
+    "runtime_state_agent_ids": ["runtime-oracle.capy-01"],
+    "business_rule_agent_id": "bizrule.capy-01",
+    "data_dependency_agent_id": "datadep.capy-01",
+    "evidence_administrator_id": "evidence-admin.capy-01",
+    "coverage_checker_id": "coverage-checker.capy-01"
+  },
+  "pending_confirmations": [],
+  "environments": [
+    {
+      "env_id": "ENV-001",
+      "is_baseline": true,
+      "account_id": "local-device-only",
+      "account_role": "local-device-account-no-credentials",
+      "seed_data_id": "SEED-COLD-START-001",
+      "seed_reset_ref": "pm clear + cold start returns to Add-Account first screen (see test_seed.reset_procedure)",
+      "network_profile": "normal",
+      "network_conditions_ref": "Wi-Fi online, public internet reachable, public stable RSS feeds fetchable",
+      "network_toggle_available": true,
+      "emulator_model": "sdk_gphone16k_arm64",
+      "device_serial": "emulator-5554",
+      "resolution": "1080x2400",
+      "density_dpi": 440,
+      "screen_purpose": "reproducibility_only",
+      "_screen_purpose_note": "resolution and density_dpi are experiment reproducibility metadata only, never a quality or equivalence condition",
+      "android_api_level": 37,
+      "orientation": "portrait",
+      "locale": "zh-CN",
+      "theme": "light",
+      "font_scale": 1.0,
+      "timezone": "Asia/Shanghai",
+      "permissions_profile": "fresh-install"
+    }
+  ],
+  "tool_policy": {
+    "runtime_ui_tool": "android-cli",
+    "apk_analyzer_bin": "apkanalyzer",
+    "layout_inspector_allowed": false
+  }
+}

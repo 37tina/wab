@@ -1,0 +1,6 @@
+{
+ "bc_id": "BC-0016",
+ "status": "PRECONDITION_FAILED",
+ "note": "prepare_steps interrupted at 1/1: tap target not found: 'class=article_row_index_0'",
+ "results": []
+}

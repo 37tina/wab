@@ -1,0 +1,13 @@
+{
+  "assertions": [],
+  "bc_id": "BC-0006",
+  "categories": {
+    "data": "FAIL",
+    "observable": "FAIL",
+    "persistence": "FAIL",
+    "side_effect": "FAIL"
+  },
+  "feature_id": "FEAT-ADD-FEED",
+  "precondition_status": "SKIPPED_NO_STEPS",
+  "replay_verdict": "FAIL"
+}

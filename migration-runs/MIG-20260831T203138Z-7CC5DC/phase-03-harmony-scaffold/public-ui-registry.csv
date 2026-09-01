@@ -1,0 +1,10 @@
+foundation_id,foundation_type,harmony_module_id,file_path,symbol,may_bind_to_placeholder,created_by,status,notes
+PU-THEME-CAPY-01,theme,entry,entry/src/main/ets/foundation/AppTheme.ets,AppTheme,no,public-ui.capy-01,READY,9 槽 token 自 Android TachiyomiColorScheme 明暗实值派生（Theme.kt:117 DEFAULT 映射）；明暗双资源 base/dark color.json；scrim 无源对应保持平台默认
+PU-COLOR-CAPY-01,color,entry,entry/src/main/ets/foundation/AppTheme.ets,AppTheme.colors,no,public-ui.capy-01,READY,明暗 18 色槽（9 token × light/dark）Tachiyomi 源码实值，逐槽 Kotlin file:line 溯源（RT-P3-0002 补齐）
+PU-TYPO-CAPY-01,typography,entry,entry/src/main/ets/foundation/AppTheme.ets,AppTheme.typography,no,public-ui.capy-01,READY,字号阶梯 display32/title24/subtitle20/body16/caption12 fp；源无 font-size 数据（uiautomator 限制）用平台标准阶梯（RT-P3-0002 补齐）
+PU-SPACING-CAPY-01,spacing,entry,entry/src/main/ets/foundation/AppTheme.ets,AppTheme.spacing,no,public-ui.capy-01,READY,间距阶梯 xs4/s8/m12/l16/xl24 vp，平台标准（RT-P3-0002 补齐）
+PU-CONTAINER-CAPY-01,page container,entry,entry/src/main/ets/foundation/AppNavigationShell.ets,AppNavigationShell,no,public-ui.capy-01,READY,Navigation+NavPathStack 页面容器（7 路由 ROUTE_REGISTRY/pageMap 确定性映射；nav-shell.capy-01 登记）（RT-P3-0002 补齐）
+PU-LOADING-CAPY-01,loading shell,entry,entry/src/main/ets/foundation/AppListShell.ets,AppListShell.loadingSlot,no,public-ui.capy-01,READY,AppListShell 内建 loading slot（模板 foundation；Phase 3 未挂业务占位）（RT-P3-0002 补齐）
+PU-EMPTY-CAPY-01,empty shell,entry,entry/src/main/ets/foundation/AppListShell.ets,AppListShell.emptySlot,no,public-ui.capy-01,READY,AppListShell 内建 empty slot（对应 Android No feeds yet 空态载体；Phase 3 未挂业务占位）（RT-P3-0002 补齐）
+PU-ERROR-CAPY-01,error shell,entry,entry/src/main/ets/foundation/ErrorShell.ets,ErrorShell,no,public-ui.capy-01,READY,RT-P3-0002 新建最小纯壳：icon/message/retry 三槽 Builder 占位，零业务（具体错误文案与重试行为属 Phase 4）
+PU-RESPONSIVE-CAPY-01,responsive rules,entry,entry/src/main/ets/foundation/ResponsiveRules.ets,ResponsiveRules,no,public-ui.capy-01,READY,RT-P3-0002 新建最小声明壳：compact600/medium840/expanded1440 vp 断点阶梯+栅格列数+双栏最小宽（Android w600dp 两-pane 对齐），零业务

@@ -1,0 +1,136 @@
+{
+  "phase": 4,
+  "status": "MACHINE_GATE_FAILED",
+  "coverage": {
+    "included_features": 10
+  },
+  "critical_count": 5,
+  "warning_count": 3,
+  "top_risks": [
+    {
+      "id": "GATE-ERROR-001",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/replay-results.csv",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-002",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-003",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/stage-04-closure-manifest.sha256",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-004",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/CLOSED",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-005",
+      "severity": "CRITICAL",
+      "title": "Missing file: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "BC-0017: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (ANR_BLOCKED): FORENSICS_TOOL_LIMITATION: coll'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-002",
+      "severity": "MEDIUM",
+      "title": "BC-0019: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigat'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-003",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "GATE-ERROR-001",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/replay-results.csv",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-002",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-003",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/stage-04-closure-manifest.sha256",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-004",
+      "severity": "CRITICAL",
+      "title": "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/CLOSED",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-ERROR-005",
+      "severity": "CRITICAL",
+      "title": "Missing file: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/stage-04-gate-report.json",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-001",
+      "severity": "MEDIUM",
+      "title": "BC-0017: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (ANR_BLOCKED): FORENSICS_TOOL_LIMITATION: coll'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-002",
+      "severity": "MEDIUM",
+      "title": "BC-0019: high-impact RUNTIME contract resolved as GAP (reason='chain blocked (NAV_FAIL): FORENSICS_TOOL_LIMITATION: navigat'); verify reason quality in human review — Phase 4 will lack this standard answer",
+      "source": "machine_gate"
+    },
+    {
+      "id": "GATE-WARNING-003",
+      "severity": "MEDIUM",
+      "title": "Phase 2 validated through Gate 2 v2 (functional coverage + behavior contracts + reconciliation + explicit gaps)",
+      "source": "machine_gate"
+    }
+  ],
+  "key_samples": [
+    {
+      "kind": "feature",
+      "id": "FEAT-ADD-FEED"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-ARTICLE-LIST"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-ARTICLE-READ"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-FEED-REFRESH"
+    },
+    {
+      "kind": "feature",
+      "id": "FEAT-LOCAL-ACCOUNT"
+    }
+  ],
+  "evidence_links": [
+    "controller/gate-report.json",
+    "phase-04-harmony-implementation/evidence-index.csv"
+  ],
+  "recommended_action": "REWORK"
+}

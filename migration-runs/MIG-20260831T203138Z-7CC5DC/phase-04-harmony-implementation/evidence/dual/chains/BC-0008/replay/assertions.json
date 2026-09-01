@@ -1,0 +1,20 @@
+{
+  "assertions": [
+    {
+      "category": "persistence",
+      "kind": "recheck_data_object",
+      "object": "prefs:last_refreshed_at",
+      "verdict": "FAIL"
+    }
+  ],
+  "bc_id": "BC-0008",
+  "categories": {
+    "data": "MANUAL_VERIFY_REQUIRED",
+    "observable": "MANUAL_VERIFY_REQUIRED",
+    "persistence": "FAIL",
+    "side_effect": "MANUAL_VERIFY_REQUIRED"
+  },
+  "feature_id": "FEAT-FEED-REFRESH",
+  "precondition_status": "ESTABLISHED",
+  "replay_verdict": "FAIL"
+}

@@ -1,0 +1,63 @@
+{
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "run_id": "MIG-20260831T203138Z-7CC5DC",
+  "phase": 3,
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T00:01:51Z",
+  "issued_by": "controller.capy-01",
+  "scope_relative_path": "controller/scope.json",
+  "scope_sha256": "be4445aa9dcf8321c81d5698b9402d3c0aeec61f1fcbf9664336aa7d659b924e",
+  "phase2_gate_snapshot_relative_path": "controller/work-orders/WO-PHASE-03-36743C869835.phase-02-gate-report.json",
+  "phase2_gate_sha256": "efec77ebf235c0f2fef8e6a1bdc0eba573ce12c705490d943c0d9d7587bc6823",
+  "human_review_id": "HR-P2-CAPY-001",
+  "human_review_decision": "APPROVED_DEVIATION",
+  "human_review_gate_sha256": "efec77ebf235c0f2fef8e6a1bdc0eba573ce12c705490d943c0d9d7587bc6823",
+  "included_features": [
+    "FEAT-LOCAL-ACCOUNT",
+    "FEAT-ADD-FEED",
+    "FEAT-FEED-REFRESH",
+    "FEAT-ARTICLE-LIST",
+    "FEAT-ARTICLE-READ",
+    "FEAT-READ-UNREAD",
+    "FEAT-STAR",
+    "FEAT-LOCAL-PERSISTENCE",
+    "FEAT-SETTINGS",
+    "FEAT-ONLINE-ACCOUNT-UI"
+  ],
+  "excluded_features": [
+    "FEAT-ONLINE-SYNC-RUNTIME"
+  ],
+  "ownership": {
+    "architecture_lead_id": "arch-lead.capy-01",
+    "toolchain_agent_id": "toolchain.capy-01",
+    "navigation_agent_id": "nav-shell.capy-01",
+    "public_ui_agent_id": "public-ui.capy-01",
+    "capability_contract_agent_id": "capcon.capy-01",
+    "architecture_acceptance_agent_id": "arch-accept.capy-01"
+  },
+  "required_skill": "harmonyos-migration-scaffold",
+  "business_implementation_allowed": false,
+  "required_return": [
+    "stage-03-input-lock.json",
+    "template-generation.json",
+    "advanced-obligations.json",
+    "phase-manifest.json",
+    "asset-registry.csv",
+    "environments/",
+    "harmony-project/",
+    "verification/",
+    "scaffold-snapshot-manifest.json",
+    "build-report.json",
+    "stage-03-gate-report.json",
+    "stage-03-closure-manifest.sha256",
+    "CLOSED"
+  ],
+  "phase2_closure_sha256": "3eceddac3e24715dd17418576547a33e934b72ce81b7c552659268b0cd4fdbf9",
+  "phase2_closure_relative_path": "phase-02-android-inventory/phase-2-closure.json",
+  "phase2_inventory_sha256": "81df74b23dabf5f48d839cdb15baebd5fd5d8ff3ec4ac014bbbfcf72d68de093",
+  "phase2_inventory_relative_path": "phase-02-android-inventory/inventory.csv",
+  "phase2_asset_inventory_sha256": "d03cfc9cffd7c29907f7c946936bc8cdb60d1b3c432084bbcaede83c3267e1a9",
+  "phase2_asset_inventory_relative_path": "phase-02-android-inventory/asset-inventory.csv",
+  "controller_anchor_registry_sha256": "af1d0b02361a6c46f4c661acf1895d9f18c09fd78535fab83e03e8785f46afc9",
+  "controller_anchor_registry_relative_path": "controller/evidence-anchor-registry.csv"
+}

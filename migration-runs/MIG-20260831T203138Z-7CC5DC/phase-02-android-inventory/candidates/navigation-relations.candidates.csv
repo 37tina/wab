@@ -1,0 +1,7 @@
+candidate_id,from_page_id,from_page_symbol,trigger,action,to_page_id,relation_type,source_ref
+CAND-NAV-0001,PAGE-ADDLINKACTIVITY-F9EC19DF,AddLinkActivity,BackHandler(,,,BACK_HANDLER,app/src/main/java/com/capyreader/app/ui/articles/ArticleListBackHandler.kt:30
+CAND-NAV-0002,PAGE-ADDLINKACTIVITY-F9EC19DF,AddLinkActivity,BackHandler(,,,BACK_HANDLER,app/src/main/java/com/capyreader/app/ui/articles/ArticleListBackHandler.kt:34
+CAND-NAV-0003,PAGE-ADDLINKACTIVITY-F9EC19DF,AddLinkActivity,BackHandler(,,,BACK_HANDLER,app/src/main/java/com/capyreader/app/ui/articles/ArticleListBackHandler.kt:38
+CAND-NAV-0004,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,BackHandler(,,,BACK_HANDLER,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:753
+CAND-NAV-0005,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,BackHandler(,,,BACK_HANDLER,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:757
+CAND-NAV-0006,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,BackHandler(,,,BACK_HANDLER,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:762

@@ -1,0 +1,20 @@
+{
+  "included_features": [
+    "FEAT-LOCAL-ACCOUNT",
+    "FEAT-ADD-FEED",
+    "FEAT-FEED-REFRESH",
+    "FEAT-ARTICLE-LIST",
+    "FEAT-ARTICLE-READ",
+    "FEAT-READ-UNREAD",
+    "FEAT-STAR",
+    "FEAT-LOCAL-PERSISTENCE",
+    "FEAT-SETTINGS",
+    "FEAT-ONLINE-ACCOUNT-UI",
+    "APP-NAVIGATION",
+    "DATA"
+  ],
+  "android_project_root": "/Users/rainyday/Desktop/finale/android/CapyReader",
+  "phase": 2,
+  "status": "GENERATED",
+  "generator": "gmi"
+}

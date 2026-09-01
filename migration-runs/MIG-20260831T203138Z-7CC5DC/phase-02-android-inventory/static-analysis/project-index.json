@@ -1,0 +1,2284 @@
+{
+  "schema_version": 1,
+  "project_root": "/Users/rainyday/Desktop/finale/android/CapyReader",
+  "source_revision": "6aa1ddfd154189c3deb107210e35952dceddf2a3",
+  "source_file_count": 686,
+  "source_scan": {
+    "discovered_count": 686,
+    "parsed_count": 686,
+    "skipped_count": 0,
+    "skipped": []
+  },
+  "layout_count": 0,
+  "resource_value_count": 370,
+  "generated_at": "2026-08-31T20:58:09Z",
+  "generated_by": "codemap.capy-01",
+  "asset_count": 72,
+  "assets": [
+    {
+      "source_path": "app/src/debug/res/values/ic_launcher_background.xml",
+      "sha256": "f116a6e2b3ab6dc0808fc1cd1077d601108127be7c5097c00a7b8ed052f52e84"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/capy_icon_small.xml",
+      "sha256": "2560c4b93302c392bb11a40b5cf5af723a3401f645962c60ad1da2d9930ca799"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/capy_resting.xml",
+      "sha256": "9d7352400819b2bb0be56d887f3ce6a2001d3a30c191b84af1a78d28c3341ef8"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/capy_surprised.xml",
+      "sha256": "fbaf0b89c7beb857be0a12dd5581b1c7754d2468f9290d1b1830aa8fd1137990"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/favicon_badge_placeholder.xml",
+      "sha256": "91c940d9afb9503d2869f5b80722d3a152e112a8542c14fcc1d97130c9747afb"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/feedbin_logo.xml",
+      "sha256": "4efdc0d7e7ea1ad53b23045b5b252b44724ed903f02c58e867999d94032efd3a"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/freshrss_logo.xml",
+      "sha256": "bce474d9930c08c1ce6cceb1ad7fa60e68237bf131ae8be49a1b2ff07f5b9265"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/headlines_widget_preview.png",
+      "sha256": "7036e90cb654221af48bcf8562fff49822fa846e36d744b668ef22861ed98870"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/hello_world.jpeg",
+      "sha256": "05aaa19e9ce5780e2f8c9fd797c61887da034971c26af21da3ece4144ff4e525"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/ic_chevron_left.xml",
+      "sha256": "63432791517a1b682c4ed11359f43dcf9c884a2b9b1f30749ed2b49b9f76ce85"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/ic_chevron_right.xml",
+      "sha256": "3d5b896344f6197a088d7d745d5a99b56719a6f1b19187d3adb6dea39c9000a8"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/ic_launcher_foreground.xml",
+      "sha256": "fd3057ea9adef6f2cccf81174b6342cd639f62d51cdf4e0703517acbe3093613"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/ic_launcher_foreground_full_color.xml",
+      "sha256": "15370a785633087d31d46e7cb5b7aea49813e6420a34847a090c6f1f231f479c"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/ic_rounded_close.xml",
+      "sha256": "a347e3cb03fc1d6a98df8612f057fc9e5edbb5dca4e4eb2e3b81b8b0fff3adf8"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/ic_rounded_sync.xml",
+      "sha256": "d0cd8bdc2de7c8095f26a9acf1839bf028630412bfdc269cfcd73e2eac3c948b"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/icon_add.xml",
+      "sha256": "400d9efc8ae9f2b91c8f7c71f11b1929665fb1ee2721b7ba15b0a2b50eedb7bb"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/icon_article_empty.xml",
+      "sha256": "879e2c3af272925e3f73db8315e31be92e75b1efd198e8d6866dc3a2948b331b"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/icon_article_error.xml",
+      "sha256": "ac2910b452272a06372dea279f28b79e3a2cee8736216a17ae9b605d0e1dea73"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/icon_article_filled.xml",
+      "sha256": "d9fad3e9e08bb9e48089a6b54a8503c0f27a09c6913f9254b3dd28c3e4319653"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/icon_article_loading.xml",
+      "sha256": "7b8a6f316a288e35d16e88adbd715e2e34786a17fe351e59a243560338638888"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/icon_circle_filled.xml",
+      "sha256": "718afbd907b92d965e59b6ac76e34e23fd13f0fb30955507f9729ddd1294fbf2"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/icon_empty_list.xml",
+      "sha256": "40135dcfc85a147bdbc36714fd9ad1e2d3d94b074d47fcfd38a3165f124118c1"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/miniflux_logo.xml",
+      "sha256": "5b1c32b30a662fba348b1c853c507313c542aa6d48c3cd3cecf71932a69cf7a8"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/newsmode.xml",
+      "sha256": "6f641e0e826216c986aa03a4fbff1606eeef8a57f5ccba24c8fc04ead80fa2e4"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/rss_logo.xml",
+      "sha256": "e56e43a5ff55ca484c4d3bdab318b1885f93a886e517eb14d816f893b7cf89ce"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/spotlight_scrim.xml",
+      "sha256": "b1e61e106b4d2e718f3ca85f51557077f5f99928e8a437e9e049792c60015aee"
+    },
+    {
+      "source_path": "app/src/main/res/drawable/spotlight_widget_preview.png",
+      "sha256": "868bb1842f23271df95803e758ffa56dc365e5623193675d8f7b97c970fea55b"
+    },
+    {
+      "source_path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "sha256": "321209835d70eca177078d089a3c6aa31bf413a6af8b28ed0a81b84b91449d94"
+    },
+    {
+      "source_path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "sha256": "981ee6533dde5da4513307a09ccc873d9de988e96c582ee5998306b5b960f22e"
+    },
+    {
+      "source_path": "app/src/main/res/values/colors.xml",
+      "sha256": "57681038afd005dcd260eabdd6d16619709c4a3fe20324362ea00e093e85b5fd"
+    },
+    {
+      "source_path": "app/src/main/res/values/ic_launcher_background.xml",
+      "sha256": "1d29fb2fd6399b25aeacf0069c4d4b89a1047fae67b41f141351c85ecb44c023"
+    },
+    {
+      "source_path": "app/src/main/res/values/strings.xml",
+      "sha256": "a916e555aeca2586316e9fa5370a6bcaeb94eda58a321bee22d4230fd7682370"
+    },
+    {
+      "source_path": "app/src/main/res/values/themes.xml",
+      "sha256": "d5a66b07d74ca317aa1ac6d037088759ad36bb2362ef47c3e7939506fce4db63"
+    },
+    {
+      "source_path": "app/src/main/res/values-ar/strings.xml",
+      "sha256": "003236f658b2a3ebea6b54ada4421029a436734105dea5c6ada92d449dbd5f2d"
+    },
+    {
+      "source_path": "app/src/main/res/values-b+sr+Latn/strings.xml",
+      "sha256": "94dc4e93f89aabdd1f540217793de545b7f53b9f7dfe57415392f204ff6232e0"
+    },
+    {
+      "source_path": "app/src/main/res/values-bg/strings.xml",
+      "sha256": "042eada97a59926823c6298205916a1e711fd34903704303ef87660e27a50435"
+    },
+    {
+      "source_path": "app/src/main/res/values-ca/strings.xml",
+      "sha256": "7d721e5b7e0cdb67047eda2b4ba20914279bddd7af4d0f6d5e1daf39bb395f5e"
+    },
+    {
+      "source_path": "app/src/main/res/values-cs/strings.xml",
+      "sha256": "4a12366d75701b7b30285a3d8e145f595858652aa11bcfa42d6972166e22feae"
+    },
+    {
+      "source_path": "app/src/main/res/values-cy/strings.xml",
+      "sha256": "513444ef78f8da85d2c283e1f4bbdfb23cf53452e0f7a635a8c6ff293e4d15ef"
+    },
+    {
+      "source_path": "app/src/main/res/values-da/strings.xml",
+      "sha256": "250f4ebca4b019030cb81b80b589f199c7bc0d9b6085b7f8a87954c17da159df"
+    },
+    {
+      "source_path": "app/src/main/res/values-de/strings.xml",
+      "sha256": "6144862b3161703e19fcaee5c24948aaefca93e93806de11a782a62ebfa52dc2"
+    },
+    {
+      "source_path": "app/src/main/res/values-el/strings.xml",
+      "sha256": "7727d28ac30eee39e891c3e5e3572953e1f2d2621f0da11481a5f1335d5448e2"
+    },
+    {
+      "source_path": "app/src/main/res/values-es/strings.xml",
+      "sha256": "2f9c4ab1b2b42ac4ca0be1cee691329c2714c631979722e616b2e1bd9640db30"
+    },
+    {
+      "source_path": "app/src/main/res/values-et/strings.xml",
+      "sha256": "31c1f10808d4bdddcc64498f43c2e36cc5478ad60cb58d151d4ec0585461fb4e"
+    },
+    {
+      "source_path": "app/src/main/res/values-eu/strings.xml",
+      "sha256": "bb7bb3ef1295caed82c198854ca9983e72777c304621344afcb76dab18f44629"
+    },
+    {
+      "source_path": "app/src/main/res/values-fr/strings.xml",
+      "sha256": "fd2a5aa9f2da3ee84050083be7629cced8e72a4621a8ae563183433ccdad8fe1"
+    },
+    {
+      "source_path": "app/src/main/res/values-gl/strings.xml",
+      "sha256": "fa3e4223eb9bcde8b1cc500e85d770d3854bdd0d2f1f3a5b8fb035b72fcf9828"
+    },
+    {
+      "source_path": "app/src/main/res/values-hu/strings.xml",
+      "sha256": "af350d57127e70d775c007e54014045915f1f85d9c46f04eba20b661df5d7b76"
+    },
+    {
+      "source_path": "app/src/main/res/values-in/strings.xml",
+      "sha256": "42b853e9662be884201652f23fe76e415182239cb199e67ae40c2097335f8adc"
+    },
+    {
+      "source_path": "app/src/main/res/values-it/strings.xml",
+      "sha256": "c65bde2d924c7ec992d89f05755a4dcc2c305ec9d778e2a512ea480c506b755b"
+    },
+    {
+      "source_path": "app/src/main/res/values-iw/strings.xml",
+      "sha256": "283be46524b79757654674e47cfe500eaa581a0c4ccedcd2d07fa803081124f4"
+    },
+    {
+      "source_path": "app/src/main/res/values-ja/strings.xml",
+      "sha256": "0740bb7f263170fc7603beb0a6627bea158b8f2cbe5e9a8a26676a9492f57fa6"
+    },
+    {
+      "source_path": "app/src/main/res/values-lv/strings.xml",
+      "sha256": "5aaaf9bab7687dca5945c408cf07f5a5629320247e24b5c0b70a52799cfca359"
+    },
+    {
+      "source_path": "app/src/main/res/values-ml/strings.xml",
+      "sha256": "80da181b51e4aeac3a162c65b877cec2a749676f45cb0bf31fc59cda6e33da19"
+    },
+    {
+      "source_path": "app/src/main/res/values-nb-rNO/strings.xml",
+      "sha256": "eddf8b01f6eb13d60be3b6eb884b18d35dd7ccef043a289716ed4ddbbdb96f27"
+    },
+    {
+      "source_path": "app/src/main/res/values-ne/strings.xml",
+      "sha256": "40931925bb13f3511212ee075ba699c06dac654b0550aa6ded17a327d36edbc0"
+    },
+    {
+      "source_path": "app/src/main/res/values-nl/strings.xml",
+      "sha256": "66b797ef8ae47c95a9129ff02cb55afa6fe3b04ddba451a32a61400e2eb49f9a"
+    },
+    {
+      "source_path": "app/src/main/res/values-pl/strings.xml",
+      "sha256": "b4b9eed28497eb553a4ae0207f7796f86c934f0c2960fae586e626370fe41d21"
+    },
+    {
+      "source_path": "app/src/main/res/values-pt/strings.xml",
+      "sha256": "2d3f31dfc03e5db2b50a900642635983488c46b921f9cd3c11a5d2ea87451c80"
+    },
+    {
+      "source_path": "app/src/main/res/values-pt-rBR/strings.xml",
+      "sha256": "e6679c2ada1fc57c1cf3790893cffbaf2837701e0c3c78674539db2c3509d9ca"
+    },
+    {
+      "source_path": "app/src/main/res/values-ro/strings.xml",
+      "sha256": "4903686ceea88ea4984136767948a1d5c68c8ffb4a1e698ce450661fba1a5ebf"
+    },
+    {
+      "source_path": "app/src/main/res/values-ru/strings.xml",
+      "sha256": "f5c28a6b8b2061ff9c191e372401b66469c8111f6ad2675884feeabfb596c005"
+    },
+    {
+      "source_path": "app/src/main/res/values-sv/strings.xml",
+      "sha256": "3a78b6c30a2b6c53044a6b19e7d26e3c9dc8e5044b58a6a86d8c8c957225faf1"
+    },
+    {
+      "source_path": "app/src/main/res/values-ta/strings.xml",
+      "sha256": "5a20461f1306b1dd84f7b864141ba2a2090d7ff2bc97d255237b780338d7da34"
+    },
+    {
+      "source_path": "app/src/main/res/values-tr/strings.xml",
+      "sha256": "0124669cf365d9cc6b1a4ed3a0eea94d7aaaba2698a713d77567807098c88059"
+    },
+    {
+      "source_path": "app/src/main/res/values-uk/strings.xml",
+      "sha256": "074aaf74a7db6f7d48c97f0f305b1ad345088f017a6d662067aae3f382a4ca80"
+    },
+    {
+      "source_path": "app/src/main/res/values-zh-rCN/strings.xml",
+      "sha256": "39c13d57143dc04a11611f5b7eec6b8ca21bf6fc96aeb30f7b462607b6d88417"
+    },
+    {
+      "source_path": "app/src/main/res/values-zh-rTW/strings.xml",
+      "sha256": "b28a7d45dab2b8aea3f4e02e0e4ed10006f0bbdeaa0c2f27f745306cc19c473b"
+    },
+    {
+      "source_path": "app/src/nightly/res/drawable/ic_launcher_foreground.xml",
+      "sha256": "40135dcfc85a147bdbc36714fd9ad1e2d3d94b074d47fcfd38a3165f124118c1"
+    },
+    {
+      "source_path": "app/src/nightly/res/drawable/ic_launcher_foreground_full_color.xml",
+      "sha256": "30af6af8c7089ac7d48d9850b547a59f8cca832a0f1ca821b76bb3008e812646"
+    },
+    {
+      "source_path": "app/src/nightly/res/values/ic_launcher_background.xml",
+      "sha256": "4ab798b07cd754351d1693353d25edf2f34f2f2b70a32d1fdd068f658d5c8e3f"
+    },
+    {
+      "source_path": "app/src/nightly/res/values/strings.xml",
+      "sha256": "c38d991ffa4e63575dd99558753741cb911a2822c1a3eced62669c844a659858"
+    }
+  ],
+  "fidelity_index": {
+    "colors": {
+      "@color/ic_launcher_background": "#D0D7D2",
+      "@color/purple_200": "#FFBB86FC",
+      "@color/purple_500": "#FF6200EE",
+      "@color/purple_700": "#FF3700B3",
+      "@color/teal_200": "#FF03DAC5",
+      "@color/teal_700": "#FF018786",
+      "@color/black": "#FF000000",
+      "@color/white": "#FFFFFFFF",
+      "@string/settings_accent_colors": "強調色"
+    },
+    "strings": {
+      "@string/app_name": "Capy Nightly",
+      "@string/add_feed_url_title": "訂閱源或網站 URL",
+      "@string/add_feed_name_title": "名稱",
+      "@string/add_feed_new_folder_title": "新資料夾",
+      "@string/add_feed_submit": "新增",
+      "@string/add_feed_success": "訂閱源已新增",
+      "@string/feed_form_cancel": "取消",
+      "@string/filter_starred": "已加星標",
+      "@string/filter_read_later": "已儲存供稍後閱讀",
+      "@string/article_actions_save_for_later": "儲存以稍後閱讀",
+      "@string/saved_for_later_success": "已儲存供稍後閱讀",
+      "@string/filter_unread": "未讀",
+      "@string/filter_all": "全部",
+      "@string/filter_today": "今天",
+      "@string/feed_action_unsubscribe": "取消訂閱",
+      "@string/filter_action_menu_description": "編輯",
+      "@string/feed_action_edit": "編輯訂閱源",
+      "@string/feed_action_reload_icon": "重新載入圖示",
+      "@string/feed_action_unsubscribe_message": "您確定要取消訂閱 \\\"%1$s\\\" 嗎？",
+      "@string/feed_action_unsubscribe_confirm": "取消訂閱",
+      "@string/edit_feed_submit": "儲存",
+      "@string/dialog_cancel": "取消",
+      "@string/folder_action_delete_title": "刪除資料夾",
+      "@string/folder_action_delete_message": "您確定要刪除標籤 \\\"%1$s\\\" 嗎？",
+      "@string/folder_action_delete_confirm": "刪除",
+      "@string/folder_action_edit": "重新命名",
+      "@string/folder_action_edit_success": "標籤已更新",
+      "@string/folder_action_edit_error": "更新標籤時出現錯誤",
+      "@string/folder_name_title": "名稱",
+      "@string/feed_action_unsubscribe_title": "取消訂閱",
+      "@string/settings": "開啟設定",
+      "@string/settings_remove_account_button_service": "登出",
+      "@string/settings_remove_account_title_service": "登出",
+      "@string/settings_remove_account_message_service": "您確定要登出嗎？",
+      "@string/settings_remove_account_confirm_service": "登出",
+      "@string/settings_remove_account_button_local": "刪除帳戶",
+      "@string/settings_remove_account_title_local": "刪除帳戶",
+      "@string/settings_remove_account_message_local": "您確定要刪除帳戶嗎？此操作不可復原。",
+      "@string/settings_remove_account_confirm_local": "確認",
+      "@string/account_settings_save_name": "名稱已儲存",
+      "@string/article_view_mark_as_read": "標為已讀",
+      "@string/article_view_mark_as_unread": "標為未讀",
+      "@string/article_view_star": "星標",
+      "@string/article_view_unstar": "移除星標",
+      "@string/refresh_manually_only": "僅手動",
+      "@string/refresh_minutes": "每 %1$d 分鐘",
+      "@string/refresh_feeds_menu_label": "重新整理訂閱源",
+      "@string/nav_headline_folders": "標籤",
+      "@string/nav_headline_saved_searches": "搜尋",
+      "@string/freshrss_nav_headline_my_labels": "我的標籤",
+      "@string/nav_headline_feeds": "訂閱源",
+      "@string/nav_add_feed": "新增訂閱源",
+      "@string/add_feed_feed_not_error": "無法找到訂閱源",
+      "@string/add_feed_save_error": "無法儲存訂閱源",
+      "@string/add_feed_network_error": "無法找到訂閱源，請檢查您的連線。",
+      "@string/add_link_title": "新增連結",
+      "@string/tab_add_feed": "新增訂閱源",
+      "@string/tab_save_page": "儲存頁面",
+      "@string/save_page_success": "頁面已儲存",
+      "@string/save_page_error": "無法儲存頁面",
+      "@string/save_page_network_error": "無法儲存頁面。請檢查您的連線。",
+      "@string/save_page_submit": "儲存",
+      "@string/add_link_searching": "尋找訂閱源…",
+      "@string/add_link_subscribe": "訂閱",
+      "@string/add_link_feed_added": "訂閱源已新增",
+      "@string/add_link_page_saved": "頁面已儲存",
+      "@string/delete_folder_error": "刪除資料夾時出現錯誤",
+      "@string/relative_time_just_now": "剛剛",
+      "@string/relative_time_minutes": "%1$d 分鐘",
+      "@string/relative_time_hours": "%1$d 小時",
+      "@string/relative_time_days": "%1$d 天",
+      "@string/article_share": "分享文章",
+      "@string/extract_full_content": "載入全文",
+      "@string/action_mark_all_read": "全部標為已讀",
+      "@string/mark_all_read_dialog_description": "將全部文章標爲已讀？",
+      "@string/mark_all_read_dialog_submit": "確認",
+      "@string/article_actions_open_menu": "開啟文章操作",
+      "@string/article_actions_mark_below_as_read": "將之前文章標爲已讀",
+      "@string/article_actions_mark_after_as_read": "將之後文章標爲已讀",
+      "@string/article_actions_copy_link": "複製連結",
+      "@string/freshrss_article_actions_label": "標籤",
+      "@string/freshrss_nav_headline_categories": "類別",
+      "@string/freshrss_labels_sheet_title": "標籤",
+      "@string/freshrss_labels_new_label": "新標籤",
+      "@string/freshrss_labels_create_dialog_title": "新標籤",
+      "@string/freshrss_labels_create_dialog_label_name": "標籤名稱",
+      "@string/freshrss_labels_create_dialog_save": "儲存",
+      "@string/unauthorized_dialog_title": "您已登出",
+      "@string/unauthorized_dialog_description": "連線帳戶時發生錯誤，請重新登入。",
+      "@string/unauthorized_dialog_dismiss_text": "稍後",
+      "@string/unauthorized_dialog_confirm_text": "登入",
+      "@string/auth_fields_password": "密碼",
+      "@string/auth_fields_email": "電子郵件",
+      "@string/auth_fields_username": "用戶名",
+      "@string/auth_fields_api_url": "伺服器",
+      "@string/auth_fields_api_url_placeholder": "https://example.com/",
+      "@string/auth_fields_client_certificate": "用戶端憑證 (可選)",
+      "@string/auth_fields_hide_password": "隱藏密碼",
+      "@string/auth_fields_show_password": "顯示密碼",
+      "@string/auth_fields_log_in_button": "登入",
+      "@string/auth_fields_remove_client_cert": "移除用戶端憑證",
+      "@string/settings_top_bar_title": "設定",
+      "@string/update_auth_success_message": "登入成功",
+      "@string/crash_reporting_checkbox_title": "啟用崩潰報告",
+      "@string/account_source_feedbin": "Feedbin",
+      "@string/account_source_freshrss": "FreshRSS",
+      "@string/account_source_miniflux": "Miniflux",
+      "@string/account_source_reader": "Reader",
+      "@string/account_source_local": "本地",
+      "@string/add_account_title": "新增帳戶",
+      "@string/add_account_local_subtitle": "在您的裝置上",
+      "@string/add_account_feedbin_subtitle": "feedbin.com",
+      "@string/add_account_freshrss_subtitle": "freshrss.org",
+      "@string/add_account_miniflux_subtitle": "miniflux.app",
+      "@string/add_account_reader_subtitle": "自託管的 Google Reader API",
+      "@string/add_account_feedbin_signup_prompt": "沒有 Feedbin 帳戶？",
+      "@string/add_account_feedbin_signup_link_text": "在這裡建立一個。",
+      "@string/add_account_freshrss_signup_prompt": "沒有 FreshRSS 實例？",
+      "@string/add_account_freshrss_signup_link_text": "了解更多。",
+      "@string/add_account_miniflux_signup_prompt": "沒有 Miniflux 實例？",
+      "@string/add_account_miniflux_signup_link_text": "了解更多。",
+      "@string/transfers_export_subscriptions": "匯出訂閲",
+      "@string/settings_section_account": "帳戶",
+      "@string/settings_section_account_server": "伺服器",
+      "@string/settings_account_refresh_value": "%1$s 在 %2$s",
+      "@string/settings_account_refresh_value_today": "今天在 %1$s",
+      "@string/settings_account_never_refreshed": "永不",
+      "@string/settings_section_import": "匯入",
+      "@string/settings_section_export": "匯出",
+      "@string/opml_import_notification_title": "正在匯入訂閲…",
+      "@string/notifications_channel_title_opml_import": "匯入訂閲",
+      "@string/notifications_channel_title_feed_update": "訂閱源更新",
+      "@string/notification_mark_as_read_action": "標為已讀",
+      "@string/settings_section_privacy": "隱私",
+      "@string/settings_section_refresh": "上次更新",
+      "@string/settings_refresh_on_wifi_only": "僅在 Wi-Fi 上重新整理",
+      "@string/refresh_skipped_mobile": "已在行動網路上略過重新整理",
+      "@string/opml_import_button_text": "從檔案匯入",
+      "@string/opml_export_button_text": "匯出到 OPML",
+      "@string/opml_import_progress_content_text_start": "開始匯入",
+      "@string/settings_import_progress_placeholder": "正在匯入訂閲…",
+      "@string/settings_import_progress": "正在匯入 %1$d 個訂閲 (共 %2$d 個)",
+      "@string/opml_import_toast_complete": "匯入完成",
+      "@string/opml_import_toast_failed": "匯入失敗",
+      "@string/theme_menu_label": "主題",
+      "@string/theme_mode_system": "系統",
+      "@string/theme_mode_light": "淺色",
+      "@string/theme_mode_dark": "深色",
+      "@string/theme_mode_label": "模式",
+      "@string/theme_default": "預設",
+      "@string/theme_dynamic": "動態",
+      "@string/theme_newsprint": "新聞紙",
+      "@string/theme_monochrome": "單色",
+      "@string/theme_sunset": "日落",
+      "@string/settings_pure_black_dark_mode": "純黑暗模式",
+      "@string/settings_accent_colors": "強調色",
+      "@string/theme_menu_option_light": "淺色",
+      "@string/theme_menu_option_dark": "深色",
+      "@string/theme_menu_option_system_default": "系統預設",
+      "@string/edit_feed_folders": "標籤",
+      "@string/settings_option_in_app_browser": "使用應用程式内建瀏覽器",
+      "@string/opml_import_notification_cancel": "停止",
+      "@string/image_preview_menu_option_none": "無",
+      "@string/image_preview_menu_option_small": "小",
+      "@string/image_preview_menu_option_medium": "中",
+      "@string/image_preview_menu_option_large": "大",
+      "@string/image_preview_label": "圖片預覽",
+      "@string/settings_article_list_feed_name": "訂閱源名稱",
+      "@string/settings_article_list_feed_icons": "訂閱源圖標",
+      "@string/settings_article_list_summary": "摘要",
+      "@string/settings_article_list_shorten_titles": "縮短標題",
+      "@string/settings_section_version": "版本",
+      "@string/settings_option_copy_version": "複製版本號",
+      "@string/settings_option_full_content_title": "保持全文",
+      "@string/settings_option_full_content_subtitle": "記住選擇以載入全文",
+      "@string/empty_onboarding_title": "還沒有訂閱源",
+      "@string/empty_onboarding_prompt": "從新增一個訂閱源開始",
+      "@string/article_list_empty": "這裡什麼都沒有",
+      "@string/article_style_options": "字體樣式選項",
+      "@string/font_option_vollkorn": "Vollkorn",
+      "@string/font_option_atkinson_hyperlegible": "Atkinson Hyperlegible",
+      "@string/font_option_poppins": "Poppins",
+      "@string/font_option_system_default": "系統預設",
+      "@string/font_option_inter": "Inter",
+      "@string/font_option_jost": "Jost",
+      "@string/font_option_literata": "Literata",
+      "@string/article_font_menu_label": "字體",
+      "@string/article_font_scale_label": "字體大小",
+      "@string/article_style_title_section": "標題",
+      "@string/article_style_text_section": "文字",
+      "@string/article_style_title_follow_body_font": "標題使用內文字體",
+      "@string/title_alignment_left": "靠左對齊",
+      "@string/title_alignment_center": "置中",
+      "@string/article_title_font_scale_label": "字體大小",
+      "@string/image_error_text": "載入圖片時發生錯誤",
+      "@string/article_byline": "%1$s 於 %2$s%3$s",
+      "@string/article_byline_date_only": "%1$s 於 %2$s",
+      "@string/settings_option_auto_delete_articles_subtitle": "刪除 3 個月前已讀且未加星標的文章",
+      "@string/settings_option_auto_delete_articles_title": "自動刪除文章",
+      "@string/refresh_every_day": "每天",
+      "@string/feed_form_feed_url_title": "訂閱源 URL",
+      "@string/feed_form_copy_feed_url_to_clipboard": "複製訂閱源 URL 到剪貼簿",
+      "@string/filter_action_menu_search_articles": "搜尋文章",
+      "@string/feed_list_top_bar_close_search": "取消搜尋",
+      "@string/settings_panel_general_title": "通用",
+      "@string/settings_panel_display_title": "顯示與外觀",
+      "@string/settings_panel_notifications_title": "通知",
+      "@string/settings_panel_gestures_title": "手勢",
+      "@string/settings_account_title": "帳戶",
+      "@string/settings_about_title": "關於",
+      "@string/settings_list_top_bar_title": "設定",
+      "@string/settings_auto_delete_articles_title": "文章保留時長",
+      "@string/settings_auto_delete_option_keep_forever": "永遠",
+      "@string/settings_auto_delete_option_keep_for_one_week": "1 個星期",
+      "@string/settings_auto_delete_option_keep_for_two_week": "2 個星期",
+      "@string/settings_auto_delete_option_keep_for_one_month": "1 個月",
+      "@string/settings_auto_delete_option_keep_for_three_month": "3 個月",
+      "@string/settings_section_advanced": "進階",
+      "@string/settings_section_experimental": "實驗性",
+      "@string/settings_option_enable_audio_player": "音訊播放器",
+      "@string/settings_clear_all_articles_confirm": "確認",
+      "@string/settings_clear_all_articles_text": "確認要從裝置中刪除全部已讀且未加星標的文章嗎？此操作不可撤銷。",
+      "@string/settings_clear_all_articles_button": "清空所有文章",
+      "@string/settings_support_button": "支援",
+      "@string/settings_donate_button": "捐贈",
+      "@string/settings_article_list_title": "文章清單",
+      "@string/opml_exporter_success": "匯出完成",
+      "@string/opml_exporter_failure": "匯出失敗",
+      "@string/starred_export_button_text": "匯出已加星標的文章",
+      "@string/starred_exporter_success": "匯出完成",
+      "@string/starred_exporter_failure": "匯出失敗",
+      "@string/settings_reader_title": "Reader",
+      "@string/settings_options_reader_pin_top_toolbar": "固定頂部工具列",
+      "@string/article_bottom_bar_next_article": "下一篇文章",
+      "@string/settings_gestures_reader_swipe_down": "向下滑動",
+      "@string/settings_gestures_reader_swipe_up": "向上滑動",
+      "@string/settings_gestures_list_row_swipe_start": "向右滑動",
+      "@string/settings_gestures_list_row_swipe_end": "向左滑動",
+      "@string/settings_gestures_list_swipe_up": "向上滑動",
+      "@string/article_vertical_swipe_previous_article": "上一篇文章",
+      "@string/article_vertical_swipe_next_article": "下一篇文章",
+      "@string/article_vertical_swipe_disabled": "停用",
+      "@string/article_vertical_swipe_full_content": "載入全文",
+      "@string/article_vertical_open_article_in_browser": "在瀏覽器中開啟文章",
+      "@string/article_list_row_swipe_disabled": "停用",
+      "@string/article_list_row_swipe_toggle_read": "切換閲讀狀態",
+      "@string/article_list_row_swipe_toggle_starred": "切換星標狀態",
+      "@string/article_list_swipe_next_feed": "轉到下個訂閱源",
+      "@string/article_list_swipe_mark_all_read": "標記全部為已讀",
+      "@string/article_list_swipe_disabled": "停用",
+      "@string/article_list_sort_title": "文章排序",
+      "@string/article_list_sort_newest_first": "最新優先",
+      "@string/article_list_sort_oldest_first": "最舊優先",
+      "@string/settings_gestures_list_back_navigation_action": "返回導覽動作",
+      "@string/settings_gestures_list_back_navigation_system_back": "預設",
+      "@string/settings_gestures_list_back_navigation_open_drawer": "開啟導覽匣",
+      "@string/settings_gestures_list_back_navigation_navigate_to_parent": "導覽到上一階",
+      "@string/action_share": "分享",
+      "@string/crash_log_export_item_title": "分享崩潰紀錄",
+      "@string/crash_log_export_item_subtitle": "將崩潰紀錄儲存到檔案中以便與開發人員分享",
+      "@string/edit_feed_folders_section": "標籤",
+      "@string/edit_feed_notifications_title": "啟用通知",
+      "@string/notifications_permissions_disabled_call_to_action": "設定",
+      "@string/notifications_permission_disabled_title": "通知權限被封鎖",
+      "@string/settings_enable_refresh_call_to_action": "必須先啟用定期重新整理",
+      "@string/settings_select_none": "全部不選",
+      "@string/settings_select_all": "全部選擇",
+      "@string/article_list_row_swipe_open_externally": "在瀏覽器中開啟文章",
+      "@string/article_view_open_externally": "外部開啟",
+      "@string/settings_confirm_mark_all_read": "全部標爲已讀時需確認",
+      "@string/settings_mark_read_on_scroll": "滾動時標為已讀",
+      "@string/article_list_new_articles_pill": "新文章",
+      "@string/settings_gestures_reader_tap_to_page_title": "E Ink 手勢",
+      "@string/settings_gestures_enable_horizontal_pagination_title": "水平滑動",
+      "@string/settings_gestures_enable_horizontal_pagination_subtitle": "向左右滑動切換文章",
+      "@string/settings_gestures_reader_tap_to_page_subtitle": "點擊底部角落上下翻頁",
+      "@string/settings_enable_high_contrast_dark_theme": "高對比度深色主題",
+      "@string/settings_section_mark_all_as_read": "全部標為已讀",
+      "@string/settings_section_browser": "瀏覽器",
+      "@string/settings_option_show_today_filter": "今天",
+      "@string/reader_image_visibility_show_on_wifi": "僅連上 Wi-Fi 時顯示圖片",
+      "@string/reader_image_visibility_always_hide": "不顯示",
+      "@string/reader_image_visibility_always_show": "始終顯示",
+      "@string/reader_image_visibility_label": "圖片",
+      "@string/end_of_feed_text": "全部讀完了！",
+      "@string/after_read_all_behavior_label": "全部已讀後的操作",
+      "@string/after_read_all_behavior_default": "預設",
+      "@string/after_read_all_behavior_open_drawer": "開啟導覽匣",
+      "@string/after_read_all_behavior_open_next_feed": "開啟下個訂閱源",
+      "@string/full_content_error_missing_response": "取得文章失敗",
+      "@string/full_content_error_generic": "解析文章失敗",
+      "@string/full_content_error_forbidden": "擷取被網站封鎖",
+      "@string/feed_nav_drawer_title": "訂閱源",
+      "@string/search_bar_placeholder": "搜尋",
+      "@string/media_save": "儲存",
+      "@string/media_save_success": "圖片已儲存",
+      "@string/media_save_failure": "儲存圖片失敗",
+      "@string/media_share_failure": "分享圖片失敗",
+      "@string/media_share": "分享",
+      "@string/feed_nav_drawer_refresh_all": "重新整理全部",
+      "@string/filters_title": "封鎖清單",
+      "@string/filters_supporting_text": "移除標題或內容中與關鍵字相符的文章",
+      "@string/filters_remove_keyword": "移除關鍵字",
+      "@string/filters_add_keyword": "新增關鍵字",
+      "@string/tag_action_delete_title": "刪除",
+      "@string/tag_action_delete_message": "您確定要刪除標籤 \\\"%1$s\\\" 嗎？",
+      "@string/tag_action_delete_confirm": "刪除",
+      "@string/tag_name_title": "名稱",
+      "@string/tag_action_edit_success": "標籤已更新",
+      "@string/tag_action_edit_error": "更新標籤時發生錯誤",
+      "@string/tag_action_edit": "編輯標籤",
+      "@string/actions_copy_link": "複製連結",
+      "@string/actions_share_link": "分享連結",
+      "@string/actions_share_link_with_title": "分享文字和連結",
+      "@string/widget_receiver_headlines_title": "頭條",
+      "@string/widget_headlines_title": "最新頭條",
+      "@string/widget_headlines_see_more_button": "查看更多文章",
+      "@string/widget_headlines_account_error": "先新增一個帳戶",
+      "@string/widget_receiver_spotlight_title": "亮點",
+      "@string/widget_spotlight_empty": "無未讀文章",
+      "@string/widget_spotlight_see_all": "查看全部",
+      "@string/widget_spotlight_previous": "上一個",
+      "@string/widget_spotlight_next": "下一個",
+      "@string/settings_gestures_improve_talkback_title": "改善 TalkBack",
+      "@string/settings_gestures_improve_talkback_subtitle": "停用某些設定以改善 TalkBack 文字轉語音功能",
+      "@string/mark_read_position_toolbar": "工具列",
+      "@string/mark_read_position_floating_action_button": "浮動操作按鈕",
+      "@string/mark_all_read_button_position": "全部標為已讀按鈕位置",
+      "@string/settings_display_miscellaneous_title": "雜類",
+      "@string/open_articles_in_browser": "在瀏覽器中開啟文章",
+      "@string/selected": "已選擇",
+      "@string/auth_fields_freshrss_api_password": "API 密碼",
+      "@string/auth_fields_miniflux_api_token": "API 權杖",
+      "@string/auth_fields_miniflux_use_api_token": "改為使用 API 權杖",
+      "@string/auth_fields_miniflux_use_password": "改為使用密碼",
+      "@string/auth_fields_show_advanced": "進階選項",
+      "@string/auth_fields_hide_advanced": "隱藏進階選項",
+      "@string/freshrss_visibility": "可見性",
+      "@string/freshrss_visibility_option_main": "主資訊流",
+      "@string/freshrss_visibility_option_important": "重要",
+      "@string/freshrss_visibility_option_folder": "資料夾",
+      "@string/freshrss_visibility_option_feed": "訂閱源",
+      "@string/audio_player_play": "播放",
+      "@string/audio_player_pause": "暫停",
+      "@string/audio_player_close": "關閉播放器",
+      "@string/audio_player_skip_back": "倒轉 30 秒",
+      "@string/audio_player_skip_forward": "快轉 30 秒",
+      "@string/settings_panel_unread_counts_title": "未讀徽章",
+      "@string/settings_option_badge_style": "徽章風格",
+      "@string/badge_style_simple": "簡單",
+      "@string/badge_style_exact": "精確",
+      "@string/show_unread_badge": "顯示未讀徽章",
+      "@string/article_actions_save_externally": "儲存",
+      "@string/article_actions_save_externally_success": "已儲存",
+      "@string/article_actions_save_externally_failure": "儲存失敗",
+      "@string/article_actions_delete_page": "刪除頁面",
+      "@string/article_actions_delete_page_title": "刪除",
+      "@string/article_actions_delete_page_message": "您確定要刪除此頁面嗎？",
+      "@string/article_actions_delete_page_confirm": "刪除"
+    },
+    "layouts": [],
+    "component_fidelity": [
+      {
+        "component_id": "COMP-1-1133B3E4",
+        "layout": "COMPOSE",
+        "type": "AddAccountView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/AddAccountScreen.kt:13"
+      },
+      {
+        "component_id": "COMP-1-F05A2741",
+        "layout": "COMPOSE",
+        "type": "Dialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:15"
+      },
+      {
+        "component_id": "COMP-2-0069273B",
+        "layout": "COMPOSE",
+        "type": "AddFeedView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedDialog.kt:17"
+      },
+      {
+        "component_id": "COMP-1-9805EEA0",
+        "layout": "COMPOSE",
+        "type": "AddFeedView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:249"
+      },
+      {
+        "component_id": "COMP-2-7CDCBFB2",
+        "layout": "COMPOSE",
+        "type": "FeedOption",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:251"
+      },
+      {
+        "component_id": "COMP-3-DAFB1DA3",
+        "layout": "COMPOSE",
+        "type": "FeedOption",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt:255"
+      },
+      {
+        "component_id": "COMP-1-34BC1E95",
+        "layout": "COMPOSE",
+        "type": "AddLinkView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:56"
+      },
+      {
+        "component_id": "COMP-2-6A151434",
+        "layout": "COMPOSE",
+        "type": "OptIn",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt:89"
+      },
+      {
+        "component_id": "COMP-1-7C0B6F4A",
+        "layout": "COMPOSE",
+        "type": "DropdownMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:48"
+      },
+      {
+        "component_id": "COMP-2-A25297B3",
+        "layout": "COMPOSE",
+        "type": "DpOffset",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:51"
+      },
+      {
+        "component_id": "COMP-3-2F12EC7A",
+        "layout": "COMPOSE",
+        "type": "ToggleStarMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:53"
+      },
+      {
+        "component_id": "COMP-4-8A9CF2E8",
+        "layout": "COMPOSE",
+        "type": "ToggleReadMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:54"
+      },
+      {
+        "component_id": "COMP-5-05C62A9A",
+        "layout": "COMPOSE",
+        "type": "SaveForLaterMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:56"
+      },
+      {
+        "component_id": "COMP-6-2015833D",
+        "layout": "COMPOSE",
+        "type": "LabelMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:59"
+      },
+      {
+        "component_id": "COMP-7-5A8DF988",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:63"
+      },
+      {
+        "component_id": "COMP-8-54A953A4",
+        "layout": "COMPOSE",
+        "type": "Icon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:65"
+      },
+      {
+        "component_id": "COMP-9-0F3A9D55",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:70"
+      },
+      {
+        "component_id": "COMP-10-8BFA4CA8",
+        "layout": "COMPOSE",
+        "type": "After",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:71"
+      },
+      {
+        "component_id": "COMP-11-0FA05BC2",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:74"
+      },
+      {
+        "component_id": "COMP-12-6081E192",
+        "layout": "COMPOSE",
+        "type": "Icon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:76"
+      },
+      {
+        "component_id": "COMP-13-E4C678DB",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:81"
+      },
+      {
+        "component_id": "COMP-14-8311EC13",
+        "layout": "COMPOSE",
+        "type": "Before",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:82"
+      },
+      {
+        "component_id": "COMP-15-722875C7",
+        "layout": "COMPOSE",
+        "type": "CopyLinkMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:85"
+      },
+      {
+        "component_id": "COMP-16-BA2FE180",
+        "layout": "COMPOSE",
+        "type": "ShareLinkMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt:86"
+      },
+      {
+        "component_id": "COMP-1-ED8CA40F",
+        "layout": "COMPOSE",
+        "type": "ExposedDropdownMenuBox",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:37"
+      },
+      {
+        "component_id": "COMP-2-C058CEB0",
+        "layout": "COMPOSE",
+        "type": "OutlinedTextField",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:41"
+      },
+      {
+        "component_id": "COMP-3-FA3639A2",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:48"
+      },
+      {
+        "component_id": "COMP-4-2A6114FB",
+        "layout": "COMPOSE",
+        "type": "TrailingIcon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:49"
+      },
+      {
+        "component_id": "COMP-5-663D0DCB",
+        "layout": "COMPOSE",
+        "type": "ExposedDropdownMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:52"
+      },
+      {
+        "component_id": "COMP-6-B647FC71",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:57"
+      },
+      {
+        "component_id": "COMP-7-0CC8D269",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:59"
+      },
+      {
+        "component_id": "COMP-8-D9C80951",
+        "layout": "COMPOSE",
+        "type": "Font",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:90"
+      },
+      {
+        "component_id": "COMP-9-C9EF269C",
+        "layout": "COMPOSE",
+        "type": "Font",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:91"
+      },
+      {
+        "component_id": "COMP-10-68A1A1D3",
+        "layout": "COMPOSE",
+        "type": "Font",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:92"
+      },
+      {
+        "component_id": "COMP-11-0F68FC72",
+        "layout": "COMPOSE",
+        "type": "Font",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:93"
+      },
+      {
+        "component_id": "COMP-12-7CF5A246",
+        "layout": "COMPOSE",
+        "type": "Font",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:94"
+      },
+      {
+        "component_id": "COMP-13-3EDB0C64",
+        "layout": "COMPOSE",
+        "type": "Font",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleFontMenu.kt:95"
+      },
+      {
+        "component_id": "COMP-1-728F60C7",
+        "layout": "COMPOSE",
+        "type": "ArticleSearch",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:178"
+      },
+      {
+        "component_id": "COMP-2-E28EBBD8",
+        "layout": "COMPOSE",
+        "type": "SnackbarHostState",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:186"
+      },
+      {
+        "component_id": "COMP-3-D6C97B3C",
+        "layout": "COMPOSE",
+        "type": "CompositionLocalProvider",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:191"
+      },
+      {
+        "component_id": "COMP-4-4F1FC25C",
+        "layout": "COMPOSE",
+        "type": "LaunchedEffect",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:269"
+      },
+      {
+        "component_id": "COMP-5-51411EAC",
+        "layout": "COMPOSE",
+        "type": "LaunchedEffect",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:282"
+      },
+      {
+        "component_id": "COMP-6-778EB64C",
+        "layout": "COMPOSE",
+        "type": "MarkReadOnScroll",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:291"
+      },
+      {
+        "component_id": "COMP-1-6EBAC23F",
+        "layout": "COMPOSE",
+        "type": "Column",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:66"
+      },
+      {
+        "component_id": "COMP-2-3F6B0249",
+        "layout": "COMPOSE",
+        "type": "FormSection",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:69"
+      },
+      {
+        "component_id": "COMP-3-2F0FF69C",
+        "layout": "COMPOSE",
+        "type": "ArticleFontMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:71"
+      },
+      {
+        "component_id": "COMP-4-36BAC400",
+        "layout": "COMPOSE",
+        "type": "FormSection",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:81"
+      },
+      {
+        "component_id": "COMP-5-FBA1D9C8",
+        "layout": "COMPOSE",
+        "type": "Row",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:85"
+      },
+      {
+        "component_id": "COMP-6-D1B24AA7",
+        "layout": "COMPOSE",
+        "type": "Slider",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:90"
+      },
+      {
+        "component_id": "COMP-7-09CBDACE",
+        "layout": "COMPOSE",
+        "type": "Box",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:102"
+      },
+      {
+        "component_id": "COMP-8-06C7ED1E",
+        "layout": "COMPOSE",
+        "type": "RoundedCornerShape",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:105"
+      },
+      {
+        "component_id": "COMP-9-30D1E37B",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:110"
+      },
+      {
+        "component_id": "COMP-10-2B560588",
+        "layout": "COMPOSE",
+        "type": "FormSection",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:118"
+      },
+      {
+        "component_id": "COMP-11-A85E4337",
+        "layout": "COMPOSE",
+        "type": "TitleAlignmentButtons",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:120"
+      },
+      {
+        "component_id": "COMP-12-36E2C48C",
+        "layout": "COMPOSE",
+        "type": "FormSection",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:130"
+      },
+      {
+        "component_id": "COMP-13-32EBF415",
+        "layout": "COMPOSE",
+        "type": "Row",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:134"
+      },
+      {
+        "component_id": "COMP-14-7DE36222",
+        "layout": "COMPOSE",
+        "type": "Slider",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:139"
+      },
+      {
+        "component_id": "COMP-15-5C8CA18B",
+        "layout": "COMPOSE",
+        "type": "Box",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:151"
+      },
+      {
+        "component_id": "COMP-16-CE8F47D3",
+        "layout": "COMPOSE",
+        "type": "RoundedCornerShape",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:154"
+      },
+      {
+        "component_id": "COMP-17-0C67F9C5",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:159"
+      },
+      {
+        "component_id": "COMP-18-C98B38E1",
+        "layout": "COMPOSE",
+        "type": "TextSwitch",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:166"
+      },
+      {
+        "component_id": "COMP-19-1B3E1311",
+        "layout": "COMPOSE",
+        "type": "OptIn",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt:179"
+      },
+      {
+        "component_id": "COMP-1-610F5326",
+        "layout": "COMPOSE",
+        "type": "Column",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AutoDeleteMenu.kt:23"
+      },
+      {
+        "component_id": "COMP-2-A05A4220",
+        "layout": "COMPOSE",
+        "type": "PreferenceSelect",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/AutoDeleteMenu.kt:26"
+      },
+      {
+        "component_id": "COMP-1-F4A85F64",
+        "layout": "COMPOSE",
+        "type": "AlertDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:157"
+      },
+      {
+        "component_id": "COMP-2-EDE51364",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:159"
+      },
+      {
+        "component_id": "COMP-3-0F9C3266",
+        "layout": "COMPOSE",
+        "type": "OutlinedTextField",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:162"
+      },
+      {
+        "component_id": "COMP-4-0A37EEF9",
+        "layout": "COMPOSE",
+        "type": "KeyboardOptions",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:168"
+      },
+      {
+        "component_id": "COMP-5-F0993CEB",
+        "layout": "COMPOSE",
+        "type": "KeyboardActions",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:172"
+      },
+      {
+        "component_id": "COMP-6-77245F03",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:175"
+      },
+      {
+        "component_id": "COMP-7-4F5B6CD9",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:181"
+      },
+      {
+        "component_id": "COMP-8-30CD2349",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:191"
+      },
+      {
+        "component_id": "COMP-9-2CDEC3EF",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:197"
+      },
+      {
+        "component_id": "COMP-10-BBBB5ACD",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:201"
+      },
+      {
+        "component_id": "COMP-11-F87AA96F",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:204"
+      },
+      {
+        "component_id": "COMP-1-67CE9B84",
+        "layout": "COMPOSE",
+        "type": "AlertDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:15"
+      },
+      {
+        "component_id": "COMP-2-F7F29EE0",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:17"
+      },
+      {
+        "component_id": "COMP-3-4FB3ADCC",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:18"
+      },
+      {
+        "component_id": "COMP-4-5EB2E0E5",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:20"
+      },
+      {
+        "component_id": "COMP-5-5DEF929D",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:21"
+      },
+      {
+        "component_id": "COMP-6-C8F17555",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:25"
+      },
+      {
+        "component_id": "COMP-7-848637BF",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/DeletePageDialog.kt:26"
+      },
+      {
+        "component_id": "COMP-1-D9300B26",
+        "layout": "COMPOSE",
+        "type": "Dialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedDialog.kt:25"
+      },
+      {
+        "component_id": "COMP-2-5FEC1338",
+        "layout": "COMPOSE",
+        "type": "EditFeedView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedDialog.kt:27"
+      },
+      {
+        "component_id": "COMP-1-26339D25",
+        "layout": "COMPOSE",
+        "type": "Dialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/EditFolderDialog.kt:30"
+      },
+      {
+        "component_id": "COMP-2-300CB789",
+        "layout": "COMPOSE",
+        "type": "EditFolderView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/EditFolderDialog.kt:32"
+      },
+      {
+        "component_id": "COMP-1-A05D79F1",
+        "layout": "COMPOSE",
+        "type": "DropdownMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FeedActionMenu.kt:53"
+      },
+      {
+        "component_id": "COMP-2-29A5FE21",
+        "layout": "COMPOSE",
+        "type": "FeedActionMenuItems",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FeedActionMenu.kt:57"
+      },
+      {
+        "component_id": "COMP-3-3E7610B8",
+        "layout": "COMPOSE",
+        "type": "RemoveFeedDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FeedActionMenu.kt:76"
+      },
+      {
+        "component_id": "COMP-4-610E4280",
+        "layout": "COMPOSE",
+        "type": "EditFeedDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FeedActionMenu.kt:87"
+      },
+      {
+        "component_id": "COMP-1-56B26623",
+        "layout": "COMPOSE",
+        "type": "Spacer",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:49"
+      },
+      {
+        "component_id": "COMP-2-ECCB777E",
+        "layout": "COMPOSE",
+        "type": "IconButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:51"
+      },
+      {
+        "component_id": "COMP-3-C3C87DC7",
+        "layout": "COMPOSE",
+        "type": "Icon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:52"
+      },
+      {
+        "component_id": "COMP-4-92A07CF7",
+        "layout": "COMPOSE",
+        "type": "MarkAllReadButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:60"
+      },
+      {
+        "component_id": "COMP-5-866952F8",
+        "layout": "COMPOSE",
+        "type": "IconButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:65"
+      },
+      {
+        "component_id": "COMP-6-E96B61BE",
+        "layout": "COMPOSE",
+        "type": "Icon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:66"
+      },
+      {
+        "component_id": "COMP-7-521279E8",
+        "layout": "COMPOSE",
+        "type": "FeedActionMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:74"
+      },
+      {
+        "component_id": "COMP-8-A5C22E31",
+        "layout": "COMPOSE",
+        "type": "FolderActionMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt:84"
+      },
+      {
+        "component_id": "COMP-1-827CAD67",
+        "layout": "COMPOSE",
+        "type": "DropdownMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:41"
+      },
+      {
+        "component_id": "COMP-2-BAEEC4CA",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:46"
+      },
+      {
+        "component_id": "COMP-3-5E5A315A",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:48"
+      },
+      {
+        "component_id": "COMP-4-E52FE245",
+        "layout": "COMPOSE",
+        "type": "HorizontalDivider",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:55"
+      },
+      {
+        "component_id": "COMP-5-F17535E3",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:57"
+      },
+      {
+        "component_id": "COMP-6-D7E3EAD1",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:59"
+      },
+      {
+        "component_id": "COMP-7-F3BBC1D0",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:67"
+      },
+      {
+        "component_id": "COMP-8-A48FB3D6",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:69"
+      },
+      {
+        "component_id": "COMP-9-2B1807BA",
+        "layout": "COMPOSE",
+        "type": "RemoveFolderDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:80"
+      },
+      {
+        "component_id": "COMP-10-71850274",
+        "layout": "COMPOSE",
+        "type": "EditFolderDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/FolderActionMenu.kt:92"
+      },
+      {
+        "component_id": "COMP-1-3F50F758",
+        "layout": "COMPOSE",
+        "type": "ZoomSpec",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:174"
+      },
+      {
+        "component_id": "COMP-2-37936EF2",
+        "layout": "COMPOSE",
+        "type": "Box",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:177"
+      },
+      {
+        "component_id": "COMP-3-BF75A6B7",
+        "layout": "COMPOSE",
+        "type": "ZoomableAsyncImage",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:178"
+      },
+      {
+        "component_id": "COMP-4-2AB83825",
+        "layout": "COMPOSE",
+        "type": "Builder",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:179"
+      },
+      {
+        "component_id": "COMP-5-41FCBA86",
+        "layout": "COMPOSE",
+        "type": "LoadingView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:195"
+      },
+      {
+        "component_id": "COMP-6-29F674B5",
+        "layout": "COMPOSE",
+        "type": "ImageErrorView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt:197"
+      },
+      {
+        "component_id": "COMP-1-AEF86040",
+        "layout": "COMPOSE",
+        "type": "ModalBottomSheet",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:62"
+      },
+      {
+        "component_id": "COMP-2-3C067267",
+        "layout": "COMPOSE",
+        "type": "Row",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:63"
+      },
+      {
+        "component_id": "COMP-3-5EF81922",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:70"
+      },
+      {
+        "component_id": "COMP-4-E326DE4F",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:74"
+      },
+      {
+        "component_id": "COMP-5-4A04A5BF",
+        "layout": "COMPOSE",
+        "type": "Row",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:75"
+      },
+      {
+        "component_id": "COMP-6-86442F1D",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:79"
+      },
+      {
+        "component_id": "COMP-7-E3789EFD",
+        "layout": "COMPOSE",
+        "type": "Icon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:80"
+      },
+      {
+        "component_id": "COMP-8-DD41E503",
+        "layout": "COMPOSE",
+        "type": "LazyColumn",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:89"
+      },
+      {
+        "component_id": "COMP-9-6CCD2C16",
+        "layout": "COMPOSE",
+        "type": "LabelRow",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:93"
+      },
+      {
+        "component_id": "COMP-10-8E2C8537",
+        "layout": "COMPOSE",
+        "type": "Spacer",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:109"
+      },
+      {
+        "component_id": "COMP-11-4D6AD06A",
+        "layout": "COMPOSE",
+        "type": "CreateLabelDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt:115"
+      },
+      {
+        "component_id": "COMP-1-8ED987E3",
+        "layout": "COMPOSE",
+        "type": "LoginView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/accounts/LoginScreen.kt:14"
+      },
+      {
+        "component_id": "COMP-1-3571CA49",
+        "layout": "COMPOSE",
+        "type": "AlertDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:19"
+      },
+      {
+        "component_id": "COMP-2-DCCE1A11",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:21"
+      },
+      {
+        "component_id": "COMP-3-F3198B8C",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:23"
+      },
+      {
+        "component_id": "COMP-4-7FF1D9F8",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:24"
+      },
+      {
+        "component_id": "COMP-5-F8330591",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:28"
+      },
+      {
+        "component_id": "COMP-6-7A7F86DC",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:29"
+      },
+      {
+        "component_id": "COMP-1-73103DEA",
+        "layout": "COMPOSE",
+        "type": "DropdownMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadMenu.kt:16"
+      },
+      {
+        "component_id": "COMP-2-07DBD548",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadMenu.kt:20"
+      },
+      {
+        "component_id": "COMP-3-0292C643",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadMenu.kt:22"
+      },
+      {
+        "component_id": "COMP-1-6810130E",
+        "layout": "COMPOSE",
+        "type": "PreferenceSelect",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/panels/RefreshIntervalMenu.kt:25"
+      },
+      {
+        "component_id": "COMP-1-B42BCB73",
+        "layout": "COMPOSE",
+        "type": "AlertDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:22"
+      },
+      {
+        "component_id": "COMP-2-476B1154",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:24"
+      },
+      {
+        "component_id": "COMP-3-AC72F6F2",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:25"
+      },
+      {
+        "component_id": "COMP-4-E687CC45",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:27"
+      },
+      {
+        "component_id": "COMP-5-A2C86686",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:28"
+      },
+      {
+        "component_id": "COMP-6-2CCA9E6A",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:32"
+      },
+      {
+        "component_id": "COMP-7-86AB7B3A",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFeedDialog.kt:33"
+      },
+      {
+        "component_id": "COMP-1-552E11E0",
+        "layout": "COMPOSE",
+        "type": "AlertDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:20"
+      },
+      {
+        "component_id": "COMP-2-19553F3E",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:22"
+      },
+      {
+        "component_id": "COMP-3-64C3A800",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:23"
+      },
+      {
+        "component_id": "COMP-4-25F3E9A6",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:25"
+      },
+      {
+        "component_id": "COMP-5-32D7A388",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:26"
+      },
+      {
+        "component_id": "COMP-6-27D7CA4E",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:30"
+      },
+      {
+        "component_id": "COMP-7-FA84F98E",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/RemoveFolderDialog.kt:31"
+      },
+      {
+        "component_id": "COMP-1-18390EAB",
+        "layout": "COMPOSE",
+        "type": "DropdownMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/list/SavedSearchActionMenu.kt:40"
+      },
+      {
+        "component_id": "COMP-1-E4FD9534",
+        "layout": "COMPOSE",
+        "type": "SettingsView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/settings/SettingsScreen.kt:10"
+      },
+      {
+        "component_id": "COMP-1-5A221333",
+        "layout": "COMPOSE",
+        "type": "Dialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:50"
+      },
+      {
+        "component_id": "COMP-2-47A60684",
+        "layout": "COMPOSE",
+        "type": "Column",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:52"
+      },
+      {
+        "component_id": "COMP-3-4E46AD92",
+        "layout": "COMPOSE",
+        "type": "Row",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:57"
+      },
+      {
+        "component_id": "COMP-4-6C4CC3FC",
+        "layout": "COMPOSE",
+        "type": "AsyncImage",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:62"
+      },
+      {
+        "component_id": "COMP-5-3B473F06",
+        "layout": "COMPOSE",
+        "type": "RoundedCornerShape",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:68"
+      },
+      {
+        "component_id": "COMP-6-12B7FB88",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:71"
+      },
+      {
+        "component_id": "COMP-7-CF06B62F",
+        "layout": "COMPOSE",
+        "type": "HorizontalDivider",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:79"
+      },
+      {
+        "component_id": "COMP-8-3538959E",
+        "layout": "COMPOSE",
+        "type": "Column",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:80"
+      },
+      {
+        "component_id": "COMP-9-CE8D2846",
+        "layout": "COMPOSE",
+        "type": "ListItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:83"
+      },
+      {
+        "component_id": "COMP-10-0D5AD9F0",
+        "layout": "COMPOSE",
+        "type": "Icon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:87"
+      },
+      {
+        "component_id": "COMP-11-775D4503",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:92"
+      },
+      {
+        "component_id": "COMP-12-95DF1B3D",
+        "layout": "COMPOSE",
+        "type": "ListItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:95"
+      },
+      {
+        "component_id": "COMP-13-83166BB7",
+        "layout": "COMPOSE",
+        "type": "Icon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:99"
+      },
+      {
+        "component_id": "COMP-14-DDC6990F",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt:104"
+      },
+      {
+        "component_id": "COMP-1-F01BC350",
+        "layout": "COMPOSE",
+        "type": "Dialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:58"
+      },
+      {
+        "component_id": "COMP-2-FACD3769",
+        "layout": "COMPOSE",
+        "type": "Column",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:60"
+      },
+      {
+        "component_id": "COMP-3-0AF931C9",
+        "layout": "COMPOSE",
+        "type": "Column",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:65"
+      },
+      {
+        "component_id": "COMP-4-F447BF9B",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:69"
+      },
+      {
+        "component_id": "COMP-5-AD79CE46",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:75"
+      },
+      {
+        "component_id": "COMP-6-4DA40F56",
+        "layout": "COMPOSE",
+        "type": "HorizontalDivider",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:82"
+      },
+      {
+        "component_id": "COMP-7-206B65AB",
+        "layout": "COMPOSE",
+        "type": "Column",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:83"
+      },
+      {
+        "component_id": "COMP-8-56DB0646",
+        "layout": "COMPOSE",
+        "type": "ListItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:86"
+      },
+      {
+        "component_id": "COMP-9-CBCCA236",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:91"
+      },
+      {
+        "component_id": "COMP-10-9FF3239F",
+        "layout": "COMPOSE",
+        "type": "ListItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:94"
+      },
+      {
+        "component_id": "COMP-11-F52C7EED",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:99"
+      },
+      {
+        "component_id": "COMP-12-261A9922",
+        "layout": "COMPOSE",
+        "type": "ListItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:102"
+      },
+      {
+        "component_id": "COMP-13-B19E61F1",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt:107"
+      },
+      {
+        "component_id": "COMP-1-E00562FD",
+        "layout": "COMPOSE",
+        "type": "ExposedDropdownMenuBox",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:59"
+      },
+      {
+        "component_id": "COMP-2-C19953F7",
+        "layout": "COMPOSE",
+        "type": "OutlinedTextField",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:66"
+      },
+      {
+        "component_id": "COMP-3-3491CD56",
+        "layout": "COMPOSE",
+        "type": "CapyTheme",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:71"
+      },
+      {
+        "component_id": "COMP-4-8347805E",
+        "layout": "COMPOSE",
+        "type": "ThemePreviewSquare",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:77"
+      },
+      {
+        "component_id": "COMP-5-DE57D8BA",
+        "layout": "COMPOSE",
+        "type": "TrailingIcon",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:81"
+      },
+      {
+        "component_id": "COMP-6-9B8ECA7D",
+        "layout": "COMPOSE",
+        "type": "ExposedDropdownMenu",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:92"
+      },
+      {
+        "component_id": "COMP-7-D894C30D",
+        "layout": "COMPOSE",
+        "type": "DropdownMenuItem",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:97"
+      },
+      {
+        "component_id": "COMP-8-406E18BD",
+        "layout": "COMPOSE",
+        "type": "Row",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:99"
+      },
+      {
+        "component_id": "COMP-9-2EF94800",
+        "layout": "COMPOSE",
+        "type": "CapyTheme",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:103"
+      },
+      {
+        "component_id": "COMP-10-64B572D8",
+        "layout": "COMPOSE",
+        "type": "ThemePreviewSquare",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:109"
+      },
+      {
+        "component_id": "COMP-11-DB14276A",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt:111"
+      },
+      {
+        "component_id": "COMP-1-407F3AE8",
+        "layout": "COMPOSE",
+        "type": "AlertDialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:15"
+      },
+      {
+        "component_id": "COMP-2-28B9B6F3",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:17"
+      },
+      {
+        "component_id": "COMP-3-364FC0EE",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:20"
+      },
+      {
+        "component_id": "COMP-4-122E809D",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:24"
+      },
+      {
+        "component_id": "COMP-5-5884E78A",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:25"
+      },
+      {
+        "component_id": "COMP-6-96D567B5",
+        "layout": "COMPOSE",
+        "type": "TextButton",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:29"
+      },
+      {
+        "component_id": "COMP-7-1B2F6A2D",
+        "layout": "COMPOSE",
+        "type": "Text",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UnauthorizedAlertDialog.kt:30"
+      },
+      {
+        "component_id": "COMP-1-A012A109",
+        "layout": "COMPOSE",
+        "type": "Dialog",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthDialog.kt:22"
+      },
+      {
+        "component_id": "COMP-2-C41DF93A",
+        "layout": "COMPOSE",
+        "type": "DialogProperties",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthDialog.kt:24"
+      },
+      {
+        "component_id": "COMP-3-E7E22495",
+        "layout": "COMPOSE",
+        "type": "UpdateAuthView",
+        "resource_id": "",
+        "fidelity_attrs": {},
+        "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthDialog.kt:27"
+      }
+    ]
+  }
+}

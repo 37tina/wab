@@ -1,0 +1,367 @@
+candidate_id,page_id,page_symbol,motion_type,signal,file,line
+CAND-MOTION-0001,,,size, 450.dp),app/src/main/java/com/capyreader/app/PreferredMaxWidth.kt,12
+CAND-MOTION-0002,,,size, 600.dp),app/src/main/java/com/capyreader/app/PreferredMaxWidth.kt,19
+CAND-MOTION-0003,,,size, 16.dp),app/src/main/java/com/capyreader/app/common/RowItem.kt,13
+CAND-MOTION-0004,,,size,36.dp),app/src/main/java/com/capyreader/app/ui/accounts/AccountRow.kt,41
+CAND-MOTION-0005,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt,51
+CAND-MOTION-0006,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt,86
+CAND-MOTION-0007,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt,117
+CAND-MOTION-0008,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/accounts/AddAccountView.kt,119
+CAND-MOTION-0009,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,299
+CAND-MOTION-0010,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,98
+CAND-MOTION-0011,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,216
+CAND-MOTION-0012,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,281
+CAND-MOTION-0013,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,286
+CAND-MOTION-0014,,,size, 12.dp),app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,288
+CAND-MOTION-0015,,,size, 4.dp),app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,305
+CAND-MOTION-0016,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,317
+CAND-MOTION-0017,,,shape,.clip(RoundedCornerShape(8.dp,app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,286
+CAND-MOTION-0018,,,shape,.clip(RoundedCornerShape(8.dp,app/src/main/java/com/capyreader/app/ui/accounts/AuthFields.kt,317
+CAND-MOTION-0019,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt,92
+CAND-MOTION-0020,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt,93
+CAND-MOTION-0021,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/accounts/LoginView.kt,100
+CAND-MOTION-0022,PAGE-MINISETTINGS-2235D2DC,MiniSettings,size, 16.dp),app/src/main/java/com/capyreader/app/ui/accounts/MiniSettings.kt,83
+CAND-MOTION-0023,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size, 28.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,134
+CAND-MOTION-0024,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size, 8.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,147
+CAND-MOTION-0025,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size,8.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,157
+CAND-MOTION-0026,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size, 120.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,170
+CAND-MOTION-0027,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size,12.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,210
+CAND-MOTION-0028,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size, 32.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,213
+CAND-MOTION-0029,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size,.size(32.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,215
+CAND-MOTION-0030,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size,8.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,233
+CAND-MOTION-0031,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size, 32.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,236
+CAND-MOTION-0032,PAGE-ADDLINKSCREEN-C6EC3530,AddLinkScreen,size,.size(48.dp),app/src/main/java/com/capyreader/app/ui/addintent/AddLinkScreen.kt,242
+CAND-MOTION-0033,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt,31
+CAND-MOTION-0034,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt,32
+CAND-MOTION-0035,,,size, 4.dp),app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt,60
+CAND-MOTION-0036,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt,68
+CAND-MOTION-0037,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt,72
+CAND-MOTION-0038,,,size,.size(16.dp),app/src/main/java/com/capyreader/app/ui/addintent/SavePageView.kt,76
+CAND-MOTION-0039,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,65
+CAND-MOTION-0040,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,54
+CAND-MOTION-0041,,,size, 4.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,61
+CAND-MOTION-0042,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,85
+CAND-MOTION-0043,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,89
+CAND-MOTION-0044,,,size,.size(16.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,93
+CAND-MOTION-0045,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,113
+CAND-MOTION-0046,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,137
+CAND-MOTION-0047,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/addintent/SubscribeView.kt,142
+CAND-MOTION-0048,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt,47
+CAND-MOTION-0049,,,size,".size(18.dp)
+                ",app/src/main/java/com/capyreader/app/ui/articles/AddFeedButton.kt,51
+CAND-MOTION-0050,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,213
+CAND-MOTION-0051,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,79
+CAND-MOTION-0052,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,98
+CAND-MOTION-0053,,,size,".size(24.dp)
+                    ",app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,110
+CAND-MOTION-0054,,,size, 300.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,118
+CAND-MOTION-0055,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,135
+CAND-MOTION-0056,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,142
+CAND-MOTION-0057,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,153
+CAND-MOTION-0058,,,size,56.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,177
+CAND-MOTION-0059,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,185
+CAND-MOTION-0060,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/AddFeedView.kt,189
+CAND-MOTION-0061,,,size,0.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt,55
+CAND-MOTION-0062,,,size,120.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt,96
+CAND-MOTION-0063,,,size, 32.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleList.kt,118
+CAND-MOTION-0064,,,size,100.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleListEmptyView.kt,42
+CAND-MOTION-0065,,,size, 2.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,147
+CAND-MOTION-0066,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,159
+CAND-MOTION-0067,,,size,2.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,162
+CAND-MOTION-0068,,,size, 2.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,181
+CAND-MOTION-0069,,,size,4.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,198
+CAND-MOTION-0070,,,size, 4.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,199
+CAND-MOTION-0071,,,size,".size(16.dp)
+                    ",app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,304
+CAND-MOTION-0072,,,size,2.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,305
+CAND-MOTION-0073,,,size,12.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,313
+CAND-MOTION-0074,,,size, 4.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,321
+CAND-MOTION-0075,,,size,14.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,323
+CAND-MOTION-0076,,,shape,.clip(MaterialTheme.shapes.small,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,293
+CAND-MOTION-0077,,,shape,.clip(RoundedCornerShape(2.dp,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,305
+CAND-MOTION-0078,,,shape,.clip(MaterialTheme.shapes.small,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,314
+CAND-MOTION-0079,,,shape,.clip(MaterialTheme.shapes.small,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,324
+CAND-MOTION-0080,,,shape,.clip(MaterialTheme.shapes.small,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,334
+CAND-MOTION-0081,,,shape,.clip(MaterialTheme.shapes.small,app/src/main/java/com/capyreader/app/ui/articles/ArticleRow.kt,349
+CAND-MOTION-0082,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,692
+CAND-MOTION-0083,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,nested-scroll-fold,NestedScrollConnection,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,37
+CAND-MOTION-0084,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,nested-scroll-fold,nestedScroll(,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,526
+CAND-MOTION-0085,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,nested-scroll-fold,nestedScroll(,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,527
+CAND-MOTION-0086,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,nested-scroll-fold,NestedScrollConnection,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,527
+CAND-MOTION-0087,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,nested-scroll-fold,onPostScroll,app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,528
+CAND-MOTION-0088,PAGE-ARTICLESCREEN-5C3108E6,ArticleScreen,size, 56.dp),app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt,563
+CAND-MOTION-0089,,,size,.size(8.dp),app/src/main/java/com/capyreader/app/ui/articles/CountBadge.kt,30
+CAND-MOTION-0090,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt,36
+CAND-MOTION-0091,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt,50
+CAND-MOTION-0092,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/EditFolderView.kt,56
+CAND-MOTION-0093,,,size,2.dp),app/src/main/java/com/capyreader/app/ui/articles/FaviconBadge.kt,32
+CAND-MOTION-0094,,,size,2.dp),app/src/main/java/com/capyreader/app/ui/articles/FaviconBadge.kt,33
+CAND-MOTION-0095,,,size,1.dp),app/src/main/java/com/capyreader/app/ui/articles/FaviconBadge.kt,35
+CAND-MOTION-0096,,,shape,.clip(RoundedCornerShape(2.dp,app/src/main/java/com/capyreader/app/ui/articles/FaviconBadge.kt,32
+CAND-MOTION-0097,,,size,48.dp),app/src/main/java/com/capyreader/app/ui/articles/FilterActionMenu.kt,49
+CAND-MOTION-0098,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/ListHeadline.kt,16
+CAND-MOTION-0099,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthView.kt,61
+CAND-MOTION-0100,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/UpdateAuthView.kt,62
+CAND-MOTION-0101,,,size, 12.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,92
+CAND-MOTION-0102,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,93
+CAND-MOTION-0103,,,size,".size(56.dp)
+                        ",app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,100
+CAND-MOTION-0104,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,101
+CAND-MOTION-0105,,,size,.size(56.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,110
+CAND-MOTION-0106,,,size,.size(32.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,117
+CAND-MOTION-0107,,,size,12.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,122
+CAND-MOTION-0108,,,size,.size(32.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,147
+CAND-MOTION-0109,,,size,.size(32.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,155
+CAND-MOTION-0110,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,163
+CAND-MOTION-0111,,,size, 24.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,182
+CAND-MOTION-0112,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,194
+CAND-MOTION-0113,,,shape,.clip(RoundedCornerShape(8.dp,app/src/main/java/com/capyreader/app/ui/articles/audio/FloatingAudioPlayer.kt,101
+CAND-MOTION-0114,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt,131
+CAND-MOTION-0115,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleActions.kt,132
+CAND-MOTION-0116,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt,66
+CAND-MOTION-0117,,,size,".size(24.dp)
+                        ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt,87
+CAND-MOTION-0118,,,size,".size(24.dp)
+                        ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt,99
+CAND-MOTION-0119,,,size,".size(24.dp)
+                        ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt,117
+CAND-MOTION-0120,,,size,".size(24.dp)
+                            ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt,132
+CAND-MOTION-0121,,,size,".size(24.dp)
+                        ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt,145
+CAND-MOTION-0122,,,nested-scroll-fold,NestedScrollConnection,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleScrollState.kt,11
+CAND-MOTION-0123,,,nested-scroll-fold,NestedScrollConnection,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleScrollState.kt,28
+CAND-MOTION-0124,,,nested-scroll-fold,onPreScroll,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleScrollState.kt,29
+CAND-MOTION-0125,,,nested-scroll-fold,onPostScroll,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleScrollState.kt,36
+CAND-MOTION-0126,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,67
+CAND-MOTION-0127,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,86
+CAND-MOTION-0128,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,87
+CAND-MOTION-0129,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size,6.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,105
+CAND-MOTION-0130,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size, 4.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,107
+CAND-MOTION-0131,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size,36.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,108
+CAND-MOTION-0132,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,135
+CAND-MOTION-0133,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,136
+CAND-MOTION-0134,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size,6.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,154
+CAND-MOTION-0135,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size, 4.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,156
+CAND-MOTION-0136,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,size,36.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,157
+CAND-MOTION-0137,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,shape,.clip(RoundedCornerShape(6.dp,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,105
+CAND-MOTION-0138,PAGE-ARTICLESTYLEPICKER-848F9DCA,ArticleStylePicker,shape,.clip(RoundedCornerShape(6.dp,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleStylePicker.kt,154
+CAND-MOTION-0139,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,85
+CAND-MOTION-0140,,,size,".size(24.dp)
+                                    ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,128
+CAND-MOTION-0141,,,size,".size(24.dp)
+                                    ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,143
+CAND-MOTION-0142,,,size,".size(24.dp)
+                                    ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,158
+CAND-MOTION-0143,,,size,".size(24.dp)
+                                ",app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,172
+CAND-MOTION-0144,,,size,0.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,177
+CAND-MOTION-0145,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,196
+CAND-MOTION-0146,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTopBar.kt,197
+CAND-MOTION-0147,,,animation,AnimatedContent(,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleTransition.kt,38
+CAND-MOTION-0148,,,nested-scroll-fold,nestedScroll(,app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleView.kt,141
+CAND-MOTION-0149,,,size, 0.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleView.kt,142
+CAND-MOTION-0150,,,size, 80.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleView.kt,207
+CAND-MOTION-0151,,,size, 100.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleView.kt,245
+CAND-MOTION-0152,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/HorizontalReaderPager.kt,64
+CAND-MOTION-0153,PAGE-SHAREIMAGEDIALOG-2DE264D4,ShareImageDialog,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt,60
+CAND-MOTION-0154,PAGE-SHAREIMAGEDIALOG-2DE264D4,ShareImageDialog,size,".size(48.dp)
+                            ",app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt,67
+CAND-MOTION-0155,PAGE-SHAREIMAGEDIALOG-2DE264D4,ShareImageDialog,size,4.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt,68
+CAND-MOTION-0156,PAGE-SHAREIMAGEDIALOG-2DE264D4,ShareImageDialog,size, 12.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt,76
+CAND-MOTION-0157,PAGE-SHAREIMAGEDIALOG-2DE264D4,ShareImageDialog,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt,81
+CAND-MOTION-0158,PAGE-SHAREIMAGEDIALOG-2DE264D4,ShareImageDialog,shape,.clip(RoundedCornerShape(4.dp,app/src/main/java/com/capyreader/app/ui/articles/detail/ShareImageDialog.kt,68
+CAND-MOTION-0159,PAGE-SHARELINKDIALOG-B04D3B89,ShareLinkDialog,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt,67
+CAND-MOTION-0160,PAGE-SHARELINKDIALOG-B04D3B89,ShareLinkDialog,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/detail/ShareLinkDialog.kt,84
+CAND-MOTION-0161,,,size,".size(32.dp)
+                ",app/src/main/java/com/capyreader/app/ui/articles/feeds/CapyIcon.kt,46
+CAND-MOTION-0162,,,size, 56.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt,48
+CAND-MOTION-0163,,,size, 24.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt,60
+CAND-MOTION-0164,,,size,12.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt,68
+CAND-MOTION-0165,,,size,12.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt,77
+CAND-MOTION-0166,,,shape,.clip(shape,app/src/main/java/com/capyreader/app/ui/articles/feeds/DrawerItem.kt,50
+CAND-MOTION-0167,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedGroupList.kt,72
+CAND-MOTION-0168,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedGroupList.kt,49
+CAND-MOTION-0169,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedGroupList.kt,69
+CAND-MOTION-0170,,,size,300.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedGroupList.kt,89
+CAND-MOTION-0171,,,size, 12.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt,83
+CAND-MOTION-0172,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt,95
+CAND-MOTION-0173,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt,214
+CAND-MOTION-0174,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt,281
+CAND-MOTION-0175,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt,289
+CAND-MOTION-0176,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FeedList.kt,302
+CAND-MOTION-0177,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/feeds/FolderRow.kt,89
+CAND-MOTION-0178,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/FolderRow.kt,96
+CAND-MOTION-0179,,,animation,animateFloatAsState(,app/src/main/java/com/capyreader/app/ui/articles/feeds/IconDropdown.kt,33
+CAND-MOTION-0180,,,size,".size(30.dp)
+                ",app/src/main/java/com/capyreader/app/ui/articles/feeds/IconDropdown.kt,63
+CAND-MOTION-0181,,,animation,Animatable(,app/src/main/java/com/capyreader/app/ui/articles/feeds/RefreshButtonState.kt,20
+CAND-MOTION-0182,,,shape,.clip(shapes.extraSmall,app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedURLDisplay.kt,33
+CAND-MOTION-0183,,,size, 500.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,105
+CAND-MOTION-0184,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,109
+CAND-MOTION-0185,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,111
+CAND-MOTION-0186,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,139
+CAND-MOTION-0187,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,145
+CAND-MOTION-0188,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,163
+CAND-MOTION-0189,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,181
+CAND-MOTION-0190,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,205
+CAND-MOTION-0191,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,233
+CAND-MOTION-0192,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,234
+CAND-MOTION-0193,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,269
+CAND-MOTION-0194,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,287
+CAND-MOTION-0195,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,291
+CAND-MOTION-0196,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,329
+CAND-MOTION-0197,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,338
+CAND-MOTION-0198,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,344
+CAND-MOTION-0199,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,352
+CAND-MOTION-0200,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,363
+CAND-MOTION-0201,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,369
+CAND-MOTION-0202,,,size,600.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,400
+CAND-MOTION-0203,,,size,600.dp),app/src/main/java/com/capyreader/app/ui/articles/feeds/edit/EditFeedView.kt,425
+CAND-MOTION-0204,,,size, 0.dp),app/src/main/java/com/capyreader/app/ui/articles/list/ArticleActionMenu.kt,51
+CAND-MOTION-0205,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt,93
+CAND-MOTION-0206,,,size,48.dp),app/src/main/java/com/capyreader/app/ui/articles/list/ArticleListTopBar.kt,96
+CAND-MOTION-0207,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/articles/list/ArticleRowSwipeState.kt,74
+CAND-MOTION-0208,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/list/EmptyOnboardingView.kt,27
+CAND-MOTION-0209,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/list/EmptyOnboardingView.kt,31
+CAND-MOTION-0210,PAGE-LABELBOTTOMSHEET-0225305A,LabelBottomSheet,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,66
+CAND-MOTION-0211,PAGE-LABELBOTTOMSHEET-0225305A,LabelBottomSheet,size,4.dp),app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,76
+CAND-MOTION-0212,PAGE-LABELBOTTOMSHEET-0225305A,LabelBottomSheet,size,".size(16.dp)
+                    ",app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,83
+CAND-MOTION-0213,PAGE-LABELBOTTOMSHEET-0225305A,LabelBottomSheet,size,32.dp),app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,109
+CAND-MOTION-0214,PAGE-LABELBOTTOMSHEET-0225305A,LabelBottomSheet,size, 4.dp),app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,185
+CAND-MOTION-0215,PAGE-LABELBOTTOMSHEET-0225305A,LabelBottomSheet,size, 4.dp),app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,221
+CAND-MOTION-0216,PAGE-LABELBOTTOMSHEET-0225305A,LabelBottomSheet,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/list/LabelBottomSheet.kt,230
+CAND-MOTION-0217,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt,27
+CAND-MOTION-0218,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,258
+CAND-MOTION-0219,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,334
+CAND-MOTION-0220,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,354
+CAND-MOTION-0221,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,296
+CAND-MOTION-0222,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,305
+CAND-MOTION-0223,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,316
+CAND-MOTION-0224,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,321
+CAND-MOTION-0225,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,361
+CAND-MOTION-0226,,,size,".size(48.dp)
+                    ",app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,366
+CAND-MOTION-0227,,,size,".size(32.dp)
+                ",app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,384
+CAND-MOTION-0228,,,shape,.clip(CircleShape,app/src/main/java/com/capyreader/app/ui/articles/media/ArticleMediaView.kt,367
+CAND-MOTION-0229,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/articles/media/CloseIconButton.kt,27
+CAND-MOTION-0230,,,size,".size(48.dp)
+                ",app/src/main/java/com/capyreader/app/ui/articles/media/CloseIconButton.kt,32
+CAND-MOTION-0231,,,shape,.clip(CircleShape,app/src/main/java/com/capyreader/app/ui/articles/media/CloseIconButton.kt,34
+CAND-MOTION-0232,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/articles/media/ImageErrorView.kt,28
+CAND-MOTION-0233,,,size, 360.dp),app/src/main/java/com/capyreader/app/ui/components/DialogCard.kt,12
+CAND-MOTION-0234,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/components/FormSection.kt,28
+CAND-MOTION-0235,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/components/FormSection.kt,35
+CAND-MOTION-0236,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/components/FormSection.kt,59
+CAND-MOTION-0237,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/components/SearchTextField.kt,109
+CAND-MOTION-0238,,,animation,Animatable(,app/src/main/java/com/capyreader/app/ui/components/SwiperState.kt,43
+CAND-MOTION-0239,,,size,4.dp),app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt,37
+CAND-MOTION-0240,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt,40
+CAND-MOTION-0241,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/components/TextSwitch.kt,62
+CAND-MOTION-0242,PAGE-THEMEPICKER-926677D4,ThemePicker,size, 16.dp),app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,64
+CAND-MOTION-0243,PAGE-THEMEPICKER-926677D4,ThemePicker,size,12.dp),app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,100
+CAND-MOTION-0244,PAGE-THEMEPICKER-926677D4,ThemePicker,size,".size(40.dp)
+            ",app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,129
+CAND-MOTION-0245,PAGE-THEMEPICKER-926677D4,ThemePicker,size,8.dp),app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,130
+CAND-MOTION-0246,PAGE-THEMEPICKER-926677D4,ThemePicker,size,8.dp),app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,134
+CAND-MOTION-0247,PAGE-THEMEPICKER-926677D4,ThemePicker,shape,.clip(RoundedCornerShape(8.dp,app/src/main/java/com/capyreader/app/ui/components/ThemePicker.kt,130
+CAND-MOTION-0248,,,size,0.dp),app/src/main/java/com/capyreader/app/ui/components/pullrefresh/CircularProgressPainter.kt,29
+CAND-MOTION-0249,,,size,5.dp),app/src/main/java/com/capyreader/app/ui/components/pullrefresh/CircularProgressPainter.kt,30
+CAND-MOTION-0250,,,size,0.dp),app/src/main/java/com/capyreader/app/ui/components/pullrefresh/CircularProgressPainter.kt,32
+CAND-MOTION-0251,,,size,0.dp),app/src/main/java/com/capyreader/app/ui/components/pullrefresh/CircularProgressPainter.kt,33
+CAND-MOTION-0252,,,size,".size(20.dp)
+                ",app/src/main/java/com/capyreader/app/ui/components/pullrefresh/PullRefreshIndicator.kt,172
+CAND-MOTION-0253,,,animation,Animatable(,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt,70
+CAND-MOTION-0254,,,nested-scroll-fold,NestedScrollConnection,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt,26
+CAND-MOTION-0255,,,nested-scroll-fold,NestedScrollConnection,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt,110
+CAND-MOTION-0256,,,nested-scroll-fold,onPreScroll,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt,114
+CAND-MOTION-0257,,,nested-scroll-fold,onPostScroll,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt,131
+CAND-MOTION-0258,,,nested-scroll-fold,nestedScroll(,app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt,290
+CAND-MOTION-0259,,,size,0.dp),app/src/main/java/com/capyreader/app/ui/components/pullrefresh/SwipeRefresh.kt,240
+CAND-MOTION-0260,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt,84
+CAND-MOTION-0261,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt,90
+CAND-MOTION-0262,,,size, 24.dp),app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt,91
+CAND-MOTION-0263,,,size,56.dp),app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt,100
+CAND-MOTION-0264,,,size, 24.dp),app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt,109
+CAND-MOTION-0265,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/settings/PreferenceSelect.kt,113
+CAND-MOTION-0266,,,nested-scroll-fold,nestedScroll(,app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt,46
+CAND-MOTION-0267,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt,73
+CAND-MOTION-0268,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt,78
+CAND-MOTION-0269,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt,79
+CAND-MOTION-0270,,,shape,.clip(RoundedCornerShape(8.dp,app/src/main/java/com/capyreader/app/ui/settings/SettingsList.kt,79
+CAND-MOTION-0271,,,nested-scroll-fold,nestedScroll(,app/src/main/java/com/capyreader/app/ui/settings/SettingsPanelScaffold.kt,42
+CAND-MOTION-0272,,,animation,AnimatedContent(,app/src/main/java/com/capyreader/app/ui/settings/SettingsView.kt,86
+CAND-MOTION-0273,,,size, 450.dp),app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt,59
+CAND-MOTION-0274,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt,66
+CAND-MOTION-0275,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt,67
+CAND-MOTION-0276,,,size, 200.dp),app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt,72
+CAND-MOTION-0277,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt,96
+CAND-MOTION-0278,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/settings/filters/FiltersView.kt,98
+CAND-MOTION-0279,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AboutSettingsPanel.kt,59
+CAND-MOTION-0280,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AboutSettingsPanel.kt,103
+CAND-MOTION-0281,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AboutSettingsPanel.kt,111
+CAND-MOTION-0282,,,size, 4.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AboutSettingsPanel.kt,117
+CAND-MOTION-0283,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AboutSettingsPanel.kt,127
+CAND-MOTION-0284,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt,128
+CAND-MOTION-0285,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt,192
+CAND-MOTION-0286,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AccountSettingsPanel.kt,202
+CAND-MOTION-0287,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,144
+CAND-MOTION-0288,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,size, 2.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,166
+CAND-MOTION-0289,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,176
+CAND-MOTION-0290,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,size,4.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,188
+CAND-MOTION-0291,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,size, 4.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,189
+CAND-MOTION-0292,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,size,".size(56.dp)
+        ",app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,224
+CAND-MOTION-0293,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,size,".size(84.dp)
+        ",app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,225
+CAND-MOTION-0294,PAGE-ARTICLELISTSETTINGS-ACD03C79,ArticleListSettings,shape,.clip(shape,app/src/main/java/com/capyreader/app/ui/settings/panels/ArticleListSettings.kt,235
+CAND-MOTION-0295,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/AutoDeleteMenu.kt,24
+CAND-MOTION-0296,,,animation,AnimatedVisibility(,app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt,118
+CAND-MOTION-0297,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt,94
+CAND-MOTION-0298,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/DisplaySettingsPanel.kt,179
+CAND-MOTION-0299,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt,145
+CAND-MOTION-0300,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/GeneralSettingsPanel.kt,260
+CAND-MOTION-0301,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt,74
+CAND-MOTION-0302,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/GesturesSettingsPanel.kt,168
+CAND-MOTION-0303,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/NotificationsSettingsPanel.kt,40
+CAND-MOTION-0304,,,size, 20.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt,73
+CAND-MOTION-0305,,,size,32.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt,122
+CAND-MOTION-0306,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/settings/panels/UnreadBadgesSettingsPanel.kt,138
+CAND-MOTION-0307,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt,54
+CAND-MOTION-0308,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt,55
+CAND-MOTION-0309,,,size, 8.dp),app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt,76
+CAND-MOTION-0310,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt,78
+CAND-MOTION-0311,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,53
+CAND-MOTION-0312,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,58
+CAND-MOTION-0313,,,size,".size(24.dp)
+            ",app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,67
+CAND-MOTION-0314,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,69
+CAND-MOTION-0315,,,size, 4.dp),app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,80
+CAND-MOTION-0316,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt,89
+CAND-MOTION-0317,,,size,16.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,63
+CAND-MOTION-0318,,,size, 16.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,92
+CAND-MOTION-0319,,,size,12.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,125
+CAND-MOTION-0320,,,size,".size(48.dp)
+                ",app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,126
+CAND-MOTION-0321,,,size,8.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,134
+CAND-MOTION-0322,,,size,".size(40.dp)
+                ",app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,149
+CAND-MOTION-0323,,,size,20.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,150
+CAND-MOTION-0324,,,size,".size(20.dp)
+            ",app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,156
+CAND-MOTION-0325,,,size,.size(4.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,160
+CAND-MOTION-0326,,,size,".size(40.dp)
+                ",app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,165
+CAND-MOTION-0327,,,size,20.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,166
+CAND-MOTION-0328,,,size,".size(20.dp)
+            ",app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,172
+CAND-MOTION-0329,,,size,.size(8.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt,191
+CAND-MOTION-0330,,,size, 110.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightWidget.kt,205
+CAND-MOTION-0331,,,size, 110.dp),app/src/main/java/com/capyreader/app/ui/widget/SpotlightWidget.kt,206
+CAND-MOTION-0332,,,size,16.dp),app/src/main/java/me/saket/swipe/SwipeAction.kt,67
+CAND-MOTION-0333,,,animation,Animatable(,app/src/main/java/me/saket/swipe/SwipeRipple.kt,39
+CAND-MOTION-0334,,,animation,Animatable(,app/src/main/java/me/saket/swipe/SwipeRipple.kt,48
+CAND-MOTION-0335,,,animation,animateColorAsState(,app/src/main/java/me/saket/swipe/SwipeableActionsBox.kt,75
+CAND-MOTION-0336,,,animation,Animatable(,app/src/main/java/me/saket/swipe/SwipeableActionsState.kt,85

@@ -1,0 +1,155 @@
+{
+  "captured_at": "",
+  "key_inputs": {
+    "apk_sha": "",
+    "bc_id": "BC-0016",
+    "bc_row_sha": "9a788344e47585be6db76425866ec425e99a1b0bbd9a9c920e8bab1f2726e684",
+    "seed": "cold-reset-v1"
+  },
+  "observation": {
+    "anchor_assertions": [],
+    "bc_id": "BC-0016",
+    "blocked_reason": "UNRESOLVED_PAGE_REF",
+    "data_access_mode": "run-as",
+    "data_after": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T04:55:47Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "CachedFlagsDisabled": [],
+        "CachedFlagsEnabled": [
+          "EnablePerfettoSystemTracing"
+        ],
+        "account_id": "f44529b1-80f8-4259-9ff7-8e579349d0df",
+        "article_filter": "{\"type\":\"com.jocmp.capy.ArticleFilter.Articles\",\"status\":\"ALL\",\"articleStatus\":\"ALL\"}",
+        "lastVersionCodeUsed": 787118103,
+        "last_refreshed_at": 1788237206,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 3,
+          "path": "shared_prefs/WebViewChromiumPrefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:WebViewChromiumPrefs.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml"
+        },
+        {
+          "keys": 3,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "db:article_statuses.starred(opened_article)"
+          ],
+          "path": "databases/articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "status": "READ",
+          "store": "sqlite:articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_f44529b1-80f8-4259-9ff7-8e579349d0df#db:article_statuses.starred(opened_article)"
+        }
+      ]
+    },
+    "data_restart": {
+      "access_mode": "run-as",
+      "captured_at": "2026-09-01T04:55:47Z",
+      "device": "emulator-5554",
+      "package": "com.capyreader.app.debug",
+      "preferences": {
+        "CachedFlagsDisabled": [],
+        "CachedFlagsEnabled": [
+          "EnablePerfettoSystemTracing"
+        ],
+        "account_id": "f44529b1-80f8-4259-9ff7-8e579349d0df",
+        "article_filter": "{\"type\":\"com.jocmp.capy.ArticleFilter.Articles\",\"status\":\"ALL\",\"articleStatus\":\"ALL\"}",
+        "lastVersionCodeUsed": 787118103,
+        "last_refreshed_at": 1788237206,
+        "pane_expansion_index": 4,
+        "source": "LOCAL"
+      },
+      "schema": "android-data-probe/1",
+      "stores": [
+        {
+          "keys": 3,
+          "path": "shared_prefs/WebViewChromiumPrefs.xml",
+          "status": "READ",
+          "store": "shared_prefs:WebViewChromiumPrefs.xml"
+        },
+        {
+          "keys": 2,
+          "path": "shared_prefs/account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml",
+          "status": "READ",
+          "store": "shared_prefs:account_f44529b1-80f8-4259-9ff7-8e579349d0df.xml"
+        },
+        {
+          "keys": 3,
+          "path": "shared_prefs/com.capyreader.app.debug_preferences.xml",
+          "status": "READ",
+          "store": "shared_prefs:com.capyreader.app.debug_preferences.xml"
+        },
+        {
+          "path": "files/datastore/GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb",
+          "reason": "DataStore protobuf not parsed in v1 (.preferences_pb schema-dependent)",
+          "status": "TOOL_GAP",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "missing_objects": [
+            "db:article_statuses.starred(opened_article)"
+          ],
+          "path": "databases/articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "status": "READ",
+          "store": "sqlite:articles_f44529b1-80f8-4259-9ff7-8e579349d0df",
+          "tables": 0
+        }
+      ],
+      "tables": {},
+      "tool_gaps": [
+        {
+          "reason": "DataStore parsing is TOOL_GAP in v1",
+          "store": "datastore:GlanceAppWidgetManager-com.capyreader.app.debug.preferences_pb"
+        },
+        {
+          "reason": "MISSING_IN_DB: object declared in --objects but table absent",
+          "store": "sqlite:articles_f44529b1-80f8-4259-9ff7-8e579349d0df#db:article_statuses.starred(opened_article)"
+        }
+      ]
+    },
+    "evidence_dir": "/var/folders/pd/k7fy62m93dj57c9_jg7dtzl40000gn/T/dual-android-ws-dxklbtsu/runtime-evidence/evidence/chains/BC-0016",
+    "executed": false,
+    "feature_id": "FEAT-STAR",
+    "note": "page_ref 'PAGE-ARTICLESCREEN-5C3108E6' not in candidate Page-ID map",
+    "precondition_ok": true,
+    "side": "android",
+    "side_effect_verdicts": [],
+    "texts_after": [],
+    "texts_restart": []
+  },
+  "schema": "dual-verify-oracle-cache/1"
+}

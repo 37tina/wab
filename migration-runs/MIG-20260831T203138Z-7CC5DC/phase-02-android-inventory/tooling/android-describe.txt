@@ -1,0 +1,25 @@
+Target project directory: /Users/rainyday/Desktop/finale/android/CapyReader
+Project directory exists: /Users/rainyday/Desktop/finale/android/CapyReader
+init.gradle.kts is up to date.
+Parsed tasks:
+Task: :app
+  Variants:
+    Variant: freeDebug
+      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/freeDebug/createFreeDebugApkListingFileRedirect/redirect.txt
+        APK: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/outputs/apk/free/debug/app-free-debug.apk (Exists)
+    Variant: gplayDebug
+      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/gplayDebug/createGplayDebugApkListingFileRedirect/redirect.txt
+        APK: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/outputs/apk/gplay/debug/app-gplay-debug.apk (Exists)
+    Variant: freeRelease
+      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/freeRelease/createFreeReleaseApkListingFileRedirect/redirect.txt
+        Output listing file does not exist on disk.
+    Variant: gplayRelease
+      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/gplayRelease/createGplayReleaseApkListingFileRedirect/redirect.txt
+        Output listing file does not exist on disk.
+    Variant: freeNightly
+      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/freeNightly/createFreeNightlyApkListingFileRedirect/redirect.txt
+        Output listing file does not exist on disk.
+    Variant: gplayNightly
+      Output Listing File: /Users/rainyday/Desktop/finale/android/CapyReader/app/build/intermediates/apk_ide_redirect_file/gplayNightly/createGplayNightlyApkListingFileRedirect/redirect.txt
+        Output listing file does not exist on disk.
+gradlew completed successfully.

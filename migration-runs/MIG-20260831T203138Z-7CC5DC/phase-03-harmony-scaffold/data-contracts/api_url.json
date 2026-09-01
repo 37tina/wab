@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "contract_kind": "data-repository-interface",
+  "interface_only": true,
+  "paradigm": "feature-semantic",
+  "object_id": "api_url",
+  "raw_name": "api_url",
+  "repository_symbol": "ApiUrlRepository",
+  "semantics": {
+    "directions": [
+      "write"
+    ],
+    "note": "语义层读写集契约：仅声明业务数据对象的读写方向，不规定物理载体；鸿蒙侧实现自由选择 Preferences/RelationalStore 等。"
+  },
+  "required_operations": [
+    "set"
+  ],
+  "required_operations_evidence": {
+    "base_rule": "directions-fallback",
+    "bc_ids": [],
+    "bc_derived_ops": []
+  },
+  "android_reference_persistence": [
+    {
+      "kind": "preference_key",
+      "location": "account_<accountID>.prefs:api_url"
+    }
+  ],
+  "feature_ids": [
+    "FEAT-ONLINE-ACCOUNT-UI"
+  ],
+  "relation_ids": [
+    "REL-0057"
+  ],
+  "source_refs": [
+    "capy/src/main/java/com/jocmp/capy/AccountManager.kt:42"
+  ],
+  "source": {
+    "data_relations_sha256": "fac9d36c3d41540d0b713a9f8028546158a4326c89ad6da927b1b7bf5c06a4fe"
+  },
+  "generated_at": "2026-09-01T00:11:30Z"
+}

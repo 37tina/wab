@@ -1,0 +1,13 @@
+{
+  "review_id": "HR-P2-CAPY-001",
+  "phase": 2,
+  "decision": "APPROVED_DEVIATION",
+  "reviewer": "task-mandate-operator",
+  "gate_report_relative_path": "controller/gate-report.json",
+  "gate_report_sha256": "efec77ebf235c0f2fef8e6a1bdc0eba573ce12c705490d943c0d9d7587bc6823",
+  "reason": "User-issued Phase 3 work order states Phase 2 passed controller-level final acceptance (Gate 2 PASS 0 error/3 warning) and explicitly instructs to proceed with Phase 3; this sealed record captures that human decision expressed in the work order",
+  "deviations": [
+    "Accepted deviations: (1) BC-0017 restart-persistence high-impact chain GAP (ANR_BLOCKED, forensics tool limitation) - Android-side standard answer delegated to Phase 4 hdc-side dual-device differential per DEC-008; (2) BC-0019 theme-switch high-impact chain GAP (NAV_FAIL, same limitation, same delegation); (3) PHASE2_AMEND DEC-010 three assertion-anchor corrections re-derived offline from sealed evidence"
+  ],
+  "recorded_at": "2026-08-31T23:59:34Z"
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "contract_kind": "data-repository-interface",
+  "interface_only": true,
+  "paradigm": "feature-semantic",
+  "object_id": "article_statuses",
+  "raw_name": "article_statuses",
+  "repository_symbol": "ArticleStatusesRepository",
+  "semantics": {
+    "directions": [
+      "read",
+      "write"
+    ],
+    "note": "语义层读写集契约：仅声明业务数据对象的读写方向，不规定物理载体；鸿蒙侧实现自由选择 Preferences/RelationalStore 等。"
+  },
+  "required_operations": [
+    "update",
+    "delete",
+    "restore",
+    "list",
+    "get",
+    "set",
+    "reset"
+  ],
+  "required_operations_evidence": {
+    "base_rule": "directions-fallback",
+    "bc_ids": [
+      "BC-0007",
+      "BC-0011",
+      "BC-0014",
+      "BC-0015",
+      "BC-0016",
+      "BC-0017"
+    ],
+    "bc_derived_ops": [
+      "delete",
+      "reset",
+      "restore",
+      "update"
+    ]
+  },
+  "android_reference_persistence": [
+    {
+      "kind": "room_table",
+      "location": "articles_<accountID>.db#article_statuses"
+    }
+  ],
+  "feature_ids": [
+    "FEAT-LOCAL-PERSISTENCE",
+    "FEAT-READ-UNREAD",
+    "FEAT-STAR"
+  ],
+  "relation_ids": [
+    "REL-0037",
+    "REL-0038",
+    "REL-0039",
+    "REL-0040",
+    "REL-0041",
+    "REL-0048"
+  ],
+  "source_refs": [
+    "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreen.kt:620",
+    "capy/src/main/java/com/jocmp/capy/Account.kt:312",
+    "capy/src/main/java/com/jocmp/capy/Account.kt:366",
+    "capy/src/main/java/com/jocmp/capy/Account.kt:385",
+    "capy/src/main/sqldelight/com/jocmp/capy/db/articles.sq:199",
+    "capy/src/main/sqldelight/com/jocmp/capy/db/articles.sq:204"
+  ],
+  "source": {
+    "data_relations_sha256": "fac9d36c3d41540d0b713a9f8028546158a4326c89ad6da927b1b7bf5c06a4fe"
+  },
+  "generated_at": "2026-09-01T00:11:30Z",
+  "domain_operations": [
+    {
+      "op": "markRead",
+      "bc_ids": [
+        "BC-0011",
+        "BC-0014"
+      ],
+      "intent": "打开即已读/底部栏切换已读"
+    },
+    {
+      "op": "markUnread",
+      "bc_ids": [
+        "BC-0014"
+      ],
+      "intent": "切回未读（Unread 过滤重现行）"
+    },
+    {
+      "op": "markAllRead",
+      "bc_ids": [
+        "BC-0015"
+      ],
+      "intent": "当前过滤范围批量 read=1（分批500）"
+    },
+    {
+      "op": "star",
+      "bc_ids": [
+        "BC-0016"
+      ],
+      "intent": "加星（Starred 过滤可见）"
+    },
+    {
+      "op": "unstar",
+      "bc_ids": [
+        "BC-0016"
+      ],
+      "intent": "取消星标"
+    }
+  ],
+  "domain_operations_note": "BC 行为动词推导的领域操作面（interface-only 声明；与 required_operations 通用词表互补，Phase 4 实施以 BC 断言为准）"
+}

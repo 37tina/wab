@@ -1,0 +1,53 @@
+{
+ "feature_id": "FEAT-ONLINE-ACCOUNT-UI",
+ "work_order_id": "FWO-4E36499BADFF",
+ "checked_by": "impl-lead.capy-01 (R6)",
+ "checked_at": "2026-09-01T06:08:49Z",
+ "scope": "SOURCE_CONFIRM (feature-level four gates, r1 recheck after gate1/gate2 fix)",
+ "supersedes": "source-confirm-check.json (4B verdict: gate1/gate2 FAIL)",
+ "fix_summary": "ShellPageLoginscreen9d67f9d2.ets finalized into the real login form (BC-0003 parity: service-name title, Username/Password, Advanced options disclosure hosting Server URL for hasCustomURL services, Log In with loading->error states); ShellPageAddaccountscreenA9c749bc.ets onSelect online branch now navigates to PAGE-LOGINSCREEN-9D67F9D2 (no-op removed).",
+ "gates": {
+  "gate1_implementation_exists": {
+   "verdict": "PASS",
+   "evidence": {
+    "login_form_dump": "PASS — device dump r1-02-feedbin-login.json shows ← back arrow, service title 'Feedbin', 'Username' (hint 'Email'), 'Password' (hint 'Password', masked input), 'Advanced options' disclosure (▼ collapsed), 'Log In' button; no URL field for Feedbin (Source.kt hasCustomURL=false parity)",
+    "hascustomurl_form_difference": "PASS — dump r1-05-freshrss-login.json shows FreshRSS login with 'Advanced options' (▲ default-open) + 'Server URL' field + 'API URL' placeholder (BC-0003 observed difference confirmed on-device)",
+    "addaccount_five_options_ui": "PASS — dump r1-01-addaccount-coldstart.json (after bm clean) shows Add Account + Local/On your device + Feedbin/feedbin.com + FreshRSS/freshrss.org + Miniflux/miniflux.app + Reader/Self-hosted Google Reader API",
+    "field_input_works": "PASS — dump r1-03a-login-filled.json echoes 'capy@example.com' in Username and '**************' mask in Password (fields are real TextInputs, not static shells)"
+   }
+  },
+  "gate2_no_noop_placeholder": {
+   "verdict": "PASS",
+   "evidence": {
+    "online_option_navigation": "PASS — onSelect() online branch replaced the no-op return with AppStorage service param + pathStack.pushPathByName('PAGE-LOGINSCREEN-9D67F9D2', opt.title) (ShellPageAddaccountscreenA9c749bc.ets:50-56); on-device taps on Feedbin and FreshRSS rows both landed on the login screen (r1-02, r1-05)",
+    "login_submit_behavior": "PASS — Log In click performs form validation -> loading state -> real network attempt (GET https://api.feedbin.com/authentication.json with Basic Auth, 10s timeouts; custom-URL services probe the entered server) -> Android-parity error string; device dump r1-03b-login-error.json shows feedback 'Connection failed' after fake-credential submit (emulator without external reachability -> connection-error path; 401 path renders 'Incorrect username or password')",
+    "no_op_scan": "PASS — no 'navigation placeholder' comment or unconditional return remains in the online branch; Local branch (BC-0001 createLocalAccount) preserved unchanged"
+   }
+  },
+  "gate3_source_traceable": {
+   "verdict": "PASS",
+   "source_refs": [
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets:37-56 (onSelect: Local create + online pushPathByName branches)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets:53 (AppStorage loginService param)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageAddaccountscreenA9c749bc.ets:55 (pushPathByName PAGE-LOGINSCREEN-9D67F9D2)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets:52 (@StorageLink loginService parameterization)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets:85-119 (attemptLogin: Feedbin authentication.json + Basic Auth; custom-URL probe)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets:121-146 (submitLogIn: validation, loading, error feedback)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets:193/198/204 (Username/Password-InputType.Password/Server URL fields)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets:208 (Advanced options disclosure)",
+    "harmony-project/entry/src/main/ets/pages/shells/ShellPageLoginscreen9d67f9d2.ets:244-246 (Log In button onClick)",
+    "harmony-project/entry/src/main/ets/foundation/AppNavigationShell.ets:29/65-66 (route registry + pageMap binding, unchanged)"
+   ],
+   "android_source_parity": "BC-0002 (AddAccountView.kt onNavigateToLogin -> Route.Login(service)); BC-0003 (LoginScreen.kt/LoginView.kt AuthFields, Source.kt hasCustomURL: Feedbin no URL field, FreshRSS/Miniflux/Reader API URL field)"
+  },
+  "gate4_buildable": {
+   "verdict": "PASS",
+   "evidence": "hvigorw clean assembleHap BUILD SUCCESSFUL (2 compile errors fixed: arkts-no-any-unknown via AppStorage channel, Base64 via TextEncoder); signed hap-sign-tool sign-app -mode localSign keyAlias=p3app; installed on 127.0.0.1:5557 'install bundle successfully'; full on-device self-test (bm clean cold start -> five options -> Feedbin login -> fake credentials -> Log In -> 'Connection failed' -> back -> FreshRSS Server URL form) all green",
+   "hap": "builds/BATCH4-ONLINE-UI-signed.hap",
+   "sha256": "e670fecbac54924ca24c3ebcd835ece07509065006b06966b554c16c711bdd34"
+  }
+ },
+ "device_evidence_dir": "evidence/batch4-online-account/ (r1-01-addaccount-coldstart.json, r1-02-feedbin-login.json, r1-03a-login-filled.json, r1-03b-login-error.json, r1-04-back-addaccount.json, r1-05-freshrss-login.json, r1-probe.json, harmony_r1_probe.py)",
+ "constraints_respected": "DebugSemanticProbe.ets untouched (hash-locked); no BC/P2/skill changes; no persistent account data written by login submit (BC-0003 NONE data-write)",
+ "overall": "PASS (4/4 gates)"
+}

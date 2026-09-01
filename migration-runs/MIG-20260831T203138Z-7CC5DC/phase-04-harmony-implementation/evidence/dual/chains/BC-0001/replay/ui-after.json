@@ -1,0 +1,697 @@
+{
+  "components": [
+    {
+      "checked": "",
+      "enabled": "",
+      "id": "",
+      "text": "",
+      "type": "",
+      "visible": ""
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "root",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "MigrationScaffold",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "AppNavigationShell",
+      "text": "",
+      "type": "Navigation",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "NavigationContent",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellPageArticlescreen23af0624",
+      "text": "",
+      "type": "NavDestination",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "NavDestinationContent",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-ARTICLESCREEN-23AF0624",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SideBarContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "No feeds yet",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "Start by adding a feed",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "Add Feed",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "Feeds",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "Refresh all",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "Open settings",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Divider",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalAddfeeddialogDbec7e69",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-ADDFEEDDIALOG-DBEC7E69",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalArticleactionmenu128442e3",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-ARTICLEACTIONMENU-128442E3",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalArticlefontmenuD9b99022",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-ARTICLEFONTMENU-D9B99022",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalArticlestylepicker397873e0",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-ARTICLESTYLEPICKER-397873E0",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalEditfeeddialog69fc6e07",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-EDITFEEDDIALOG-69FC6E07",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalEditfolderdialog9506cebf",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-EDITFOLDERDIALOG-9506CEBF",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalFeedactionmenu075c1a17",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-FEEDACTIONMENU-075C1A17",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalFilteractionmenu07e67060",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-FILTERACTIONMENU-07E67060",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalFolderactionmenuC5428ea8",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-FOLDERACTIONMENU-C5428EA8",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalMarkallreaddialog46a35015",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-MARKALLREADDIALOG-46A35015",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalMarkallreadmenu464f3414",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-MARKALLREADMENU-464F3414",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalRemovefeeddialogFdf24ff7",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-REMOVEFEEDDIALOG-FDF24FF7",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ShellModalRemovefolderdialog0de275ba",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "PAGE-REMOVEFOLDERDIALOG-0DE275BA",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "session21",
+      "text": "",
+      "type": "WindowScene",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBox",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBridgeView",
+      "text": "",
+      "type": "__Common__",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "status_bar_color_picker",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarView",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarBackground_Row_0",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "sbg_left",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_clock",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "ClockStatusView",
+      "text": "10, :, 30",
+      "type": "Flex",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": "",
+      "type": "TextClock",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "10",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": ":",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "TimeView_Text_timeText",
+      "text": "",
+      "type": "TextClock",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "30",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "sbg_right",
+      "text": "",
+      "type": "RelativeContainer",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_ethernet",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconItemEthernetComponent_Image_icon",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_signal",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SignalComponent-SignalIcon_Image_cellular",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "SignalComponent-SignalIcon_Image_cellularImage",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarIconWrapper_status_bar_battery",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Image_batteryIcon",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Image_batteryBorder",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Text_batterySoc",
+      "text": "100",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "StatusBarView_LiveCapsuleListContainer",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "[Live]LiveCapsuleListView",
+      "text": "",
+      "type": "Stack",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "LiveMetaBallBaseVm",
+      "text": "",
+      "type": "metaballNode",
+      "visible": "true"
+    }
+  ],
+  "texts": [
+    "No feeds yet",
+    "Start by adding a feed",
+    "Add Feed",
+    "Feeds",
+    "Refresh all",
+    "Open settings",
+    "10, :, 30",
+    "10",
+    ":",
+    "30",
+    "100"
+  ]
+}

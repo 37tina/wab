@@ -1,0 +1,20 @@
+{
+ "bc_id": "BC-0001",
+ "status": "CHAIN_PASS",
+ "note": "ok",
+ "results": [
+  {
+   "kind": "text_visible",
+   "value": "Add Account",
+   "verdict": "PASS",
+   "optional": "false",
+   "note": "judged at before-snapshot (expected 'visible before ...')"
+  },
+  {
+   "kind": "text_visible",
+   "value": "No feeds yet",
+   "verdict": "PASS",
+   "optional": "false"
+  }
+ ]
+}

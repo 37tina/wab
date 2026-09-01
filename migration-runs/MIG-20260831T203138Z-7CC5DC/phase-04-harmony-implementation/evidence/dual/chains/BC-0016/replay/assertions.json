@@ -1,0 +1,44 @@
+{
+  "assertions": [
+    {
+      "amended_from": "element_present: desc=Star (equiv per 2B precedent)",
+      "category": "observable",
+      "kind": "text_visible",
+      "note": "",
+      "value": "Star",
+      "verdict": "PASS"
+    },
+    {
+      "amended_from": "data_equals: db:article_statuses.starred(opened_article)",
+      "category": "data",
+      "kind": "data_object",
+      "note": "",
+      "object": "db:article_statuses.starred(opened_article)",
+      "op": "equals",
+      "value": "1 after star toggle",
+      "verdict": "FAIL"
+    },
+    {
+      "category": "persistence",
+      "kind": "recheck_text_visible",
+      "value": "Star",
+      "verdict": "PASS"
+    },
+    {
+      "category": "persistence",
+      "kind": "recheck_data_object",
+      "object": "db:article_statuses.starred(opened_article)",
+      "verdict": "FAIL"
+    }
+  ],
+  "bc_id": "BC-0016",
+  "categories": {
+    "data": "FAIL",
+    "observable": "PASS",
+    "persistence": "FAIL",
+    "side_effect": "MANUAL_VERIFY_REQUIRED"
+  },
+  "feature_id": "FEAT-STAR",
+  "precondition_status": "ESTABLISHED",
+  "replay_verdict": "FAIL"
+}

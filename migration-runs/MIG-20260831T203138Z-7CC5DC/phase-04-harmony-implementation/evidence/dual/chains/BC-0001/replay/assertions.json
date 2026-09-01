@@ -1,0 +1,42 @@
+{
+  "assertions": [
+    {
+      "amended_from": "text_visible: text=Add Account",
+      "category": "observable",
+      "kind": "text_visible",
+      "note": "",
+      "value": "Add Account",
+      "verdict": "FAIL"
+    },
+    {
+      "amended_from": "text_visible: text=No feeds yet",
+      "category": "observable",
+      "kind": "text_visible",
+      "note": "",
+      "value": "No feeds yet",
+      "verdict": "PASS"
+    },
+    {
+      "category": "persistence",
+      "kind": "recheck_text_visible",
+      "value": "Add Account",
+      "verdict": "FAIL"
+    },
+    {
+      "category": "persistence",
+      "kind": "recheck_text_visible",
+      "value": "No feeds yet",
+      "verdict": "PASS"
+    }
+  ],
+  "bc_id": "BC-0001",
+  "categories": {
+    "data": "MANUAL_VERIFY_REQUIRED",
+    "observable": "FAIL",
+    "persistence": "FAIL",
+    "side_effect": "MANUAL_VERIFY_REQUIRED"
+  },
+  "feature_id": "FEAT-LOCAL-ACCOUNT",
+  "precondition_status": "ESTABLISHED",
+  "replay_verdict": "FAIL"
+}

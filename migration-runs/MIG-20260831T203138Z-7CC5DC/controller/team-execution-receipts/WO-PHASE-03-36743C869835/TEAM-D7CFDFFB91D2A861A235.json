@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-D7CFDFFB91D2A861A235",
+  "phase": 3,
+  "work_order_id": "WO-PHASE-03-36743C869835",
+  "work_order_sha256": "9f952fd9774bbb564e70ef0be653617d1191760dbdc4f91307126b3c5228d7b9",
+  "role_key": "architecture_lead_id",
+  "actor_id": "arch-lead.capy-01",
+  "platform_task_id": "ses_fa5b9c072ffeysHsyqivOsKrhP-ARCH",
+  "started_at": "2026-09-01T00:05:00Z",
+  "ended_at": "2026-09-01T01:01:08Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-09-01T01:10:08Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-03-harmony-scaffold/surface-plan.json",
+      "sha256": "b3fb24958adc562eea279f10d466d2c00f1b3f3bbaa42aaf45db2bd4c4c6bd12"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+ "collected_by": "verify-exec.capy-01",
+ "collected_at": "2026-09-01T05:55:49Z",
+ "machine_diff_ref": "dual-diff-results-batch3.csv (20/20 MANUAL: android oracle chain limits — UNRESOLVED_PAGE_REF/PRECONDITION_FAILED/UNSUPPORTED_ORACLE/chain-not-executed; manual dual-side evidence is primary)",
+ "android_evidence_dir": "evidence/dual/manual-batch3/android/",
+ "harmony_evidence_dir": "evidence/batch3/ (impl-lead.capy-01 R5)",
+ "per_bc": [
+  {
+   "bc": "BC-0017",
+   "aspect": "cold-restart persistence",
+   "android": {
+    "no_add_account": true,
+    "ars_feed_listed": true,
+    "article_rows": 15,
+    "prefs_account_id": "b6a8be47-9b76-411c-b681-76b221a9bab9 (account_<UUID>.xml present)",
+    "prefs_theme_mode_kept": "DARK",
+    "prefs_sort_kept": "OLDEST_FIRST",
+    "dumps": [
+     "bc0017-android-coldstart-final2.xml",
+     "prefs-bc0017-final.xml"
+    ]
+   },
+   "harmony": {
+    "no_add_account": true,
+    "ars_feed_listed": true,
+    "read_state_kept": "Bentley ○ / others ● (b3-restart-dark-kept.png)",
+    "survived": "force-stop cold restart + install -r",
+    "dumps": [
+     "evidence/batch3/b3-restart-dark-kept.png",
+     "harmony-steps.csv BC-0017 row"
+    ]
+   },
+   "comparison": "ALIGNED — both cold-boot direct to Articles with feeds/articles/prefs fully restored",
+   "diffs": []
+  },
+  {
+   "bc": "BC-0018",
+   "aspect": "settings page host",
+   "android": {
+    "settings_root_sections": [
+     "General",
+     "Display & Appearance",
+     "Gestures",
+     "Account",
+     "About"
+    ],
+    "entry": "drawer desc 'Open settings'",
+    "dumps": [
+     "bc0018-android-settings.xml"
+    ]
+   },
+   "harmony": {
+    "settings_sections": "Display/General with Theme + Sort order rows",
+    "dumps": [
+     "evidence/batch3/b3-settings-dark.png",
+     "harmony-steps.csv BC-0018 row"
+    ]
+   },
+   "comparison": "ALIGNED — navigation host with Display+General sections both sides",
+   "diffs": [
+    "UI literal: Android current HEAD labels section 'Display & Appearance' (contract literal 'Display'); Harmony uses 'Display' — semantic equivalent, literal drift recorded (NOT a behavior DIFF)"
+   ]
+  },
+  {
+   "bc": "BC-0019",
+   "aspect": "theme switch + persistence",
+   "android": {
+    "theme_control": "segmented Theme: System/Light/Dark/Dynamic (Display & Appearance panel)",
+    "switched": "Dark",
+    "prefs_after": {
+     "theme_mode": "DARK",
+     "app_theme": "<key absent in current Android build>"
+    },
+    "note": "contract steps 'Default→Newsprint' are stale for current Android HEAD (Newsprint option no longer exists in picker); mode-level switch verified instead",
+    "dumps": [
+     "bc0019-android-display-panel.xml",
+     "bc0019-android-after-dark.xml",
+     "prefs-bc0019-dark.xml"
+    ]
+   },
+   "harmony": {
+    "theme_control": "Theme triple System default/Light/Dark",
+    "switched": "Dark",
+    "prefs_after": {
+     "app_theme": "DARK",
+     "theme_mode": "dark"
+    },
+    "dumps": [
+     "evidence/batch3/b3-settings-dark.png",
+     "b3-restart-dark-kept.png"
+    ]
+   },
+   "comparison": "ALIGNED at semantics level — mode persisted and reapplied after restart on both sides",
+   "diffs": [
+    "REAL DIFF (must record): persisted key set differs — Android writes theme_mode=DARK only (no app_theme key in current build); Harmony writes app_theme=DARK + theme_mode=dark. Contract assertion key prefs:app_theme=NEWSPRINT unfulfillable on current Android HEAD (option removed upstream) — flag for contract refresh, not an implementation regression of Harmony"
+   ]
+  },
+  {
+   "bc": "BC-0020",
+   "aspect": "sort order switch + list reorder + persistence",
+   "android": {
+    "control": "General > Article Sort",
+    "options_in_menu": [
+     "Newest First",
+     "Oldest First"
+    ],
+    "switched": "Oldest First",
+    "prefs_after": {
+     "article_list_sort_order": "OLDEST_FIRST"
+    },
+    "list_first_row": "changed from newest (Bentley) to oldest (RFK Jr. Samoa…)",
+    "dumps": [
+     "bc0020-android-sort-menu.xml",
+     "bc0020-android-list-after-sort.xml",
+     "prefs-bc0020-after.xml"
+    ]
+   },
+   "harmony": {
+    "control": "General > Sort order",
+    "switched": "Oldest first",
+    "prefs_after": {
+     "article_list_sort_order": "OLDEST_FIRST"
+    },
+    "list_first_row": "changed to oldest (Cities terminate Flock contracts…)",
+    "dumps": [
+     "evidence/batch3/bc0020-oldest-first-list.png"
+    ]
+   },
+   "comparison": "ALIGNED — same prefs key+value, same list-reorder behavior",
+   "diffs": [
+    "UI literal: Android label 'Article Sort' vs contract 'Sort order' (Harmony matches contract); menu options 'Newest First/Oldest First' (Android) vs 'Newest first/Oldest first' (Harmony) — case-only, semantic equivalent"
+   ]
+  },
+  {
+   "bc": "BC-0021",
+   "aspect": "reader style shell (STATIC_ONLY)",
+   "android": {
+    "style_entry": "reader top-bar content-desc 'Font style options'",
+    "panel": [
+     "Text/System default",
+     "Font size 16",
+     "Title font size 24",
+     "Use body font for title"
+    ],
+    "dumps": [
+     "bc0021-android-reader.xml",
+     "bc0021-android-style-panel.xml"
+    ]
+   },
+   "harmony": {
+    "style_entry": "reader top-bar 'Aa'",
+    "panel": [
+     "font Small/Medium/Large",
+     "title align left/center"
+    ],
+    "dumps": [
+     "harmony-steps.csv BC-0021 row"
+    ]
+   },
+   "comparison": "ALIGNED — style entry + panel with font/align options exist on both sides (STATIC_ONLY shell contract satisfied)",
+   "diffs": [
+    "entry glyph 'Aa' (Harmony) vs desc 'Font style options' (Android); panel option granularity differs (Harmony discrete S/M/L; Android numeric stepper) — STATIC_ONLY scope: display-only, recorded as cosmetic"
+   ]
+  },
+  {
+   "dc": "DC-1",
+   "aspect": "reader body render fix re-check",
+   "android_ref": "A2 dump (android正文, existing oracle evidence)",
+   "harmony_ref": "evidence/batch3/dc1-reader-layout.json + dc1-reader-body.png — CDATA feed body renders 'It's the lightest Bentley in 85 years.'",
+   "comparison": "FIX CONFIRMED — RssParser CDSECT accumulation renders CDATA-feed article bodies; no '(no content)'"
+  }
+ ],
+ "diff_summary": {
+  "behavior_diffs": 0,
+  "real_value_diffs_recorded": 1,
+  "cosmetic_literal_drifts": 3,
+  "note": "BC-0019 persisted-key-set difference recorded as REAL value diff per redline; root cause is upstream Android HEAD picker/key change (contract stale), Harmony implementation sound"
+ },
+ "recheck_4b_r4": {
+  "executor": "verify-exec.capy-01 (4B-R4, 13:28-14:18 时间盒)",
+  "machine_diff_rerun": {
+   "out": "dual-diff-results-batch3.csv",
+   "result": "5 BC x 4 = 20 cells, MANUAL x20 (android UNRESOLVED_PAGE_REF/PRECONDITION_FAILED(harmony)/UNSUPPORTED_ORACLE x2/chain-not-executed)",
+   "harmony_chains": "evidence/dual/chains/BC-0017~0021/replay/ 本轮13:31-13:37全新产出"
+  },
+  "independent_evidence": {
+   "android": [
+    "batch3-4b/A3_00_addaccount_coldstart.json 无账号态五选项",
+    "batch3-4b/A3_01_settings_root.png/.json 设置五分组",
+    "batch3-4b/A3_02_reader_bentley_body.png Bentley正文完整渲染(DC-1 Android实测)",
+    "batch3-4b/A3_03_article_list.png NEWEST_FIRST默认序",
+    "batch3-4b/A3_04_sidebar_open.png 侧栏"
+   ],
+   "harmony": [
+    "batch3-4b/H3_01_fullstate_darkfeedlist.jpeg 清数据前完整状态(深色+Ars列表+已读点)",
+    "batch3-4b/H3_02_afterdiffclean_emptylist.jpeg 差分清数据事件",
+    "batch3-4b/H3_03_light_coldstate.jpeg prefs清除主题回浅色",
+    "batch3-4b/H3_04_settings_tap_crash_todesktop.jpeg 环境故障记录"
+   ]
+  },
+  "cross_check_conclusions": {
+   "BC-0017": "维持ALIGNED(三路互证:并行prefs dump+H3_01快照+A3_03)",
+   "BC-0018": "维持ALIGNED+cosmetic drift",
+   "BC-0019": "维持REAL DIFF记录(Android仅theme_mode/ Harmony app_theme+theme_mode;契约NEWSPRINT在Android HEAD不存在)——红线遵守不降级",
+   "BC-0020": "维持ALIGNED(默认序两路一致+切换重排互证)",
+   "BC-0021": "维持ALIGNED(STATIC_ONLY,并行style-panel dump补齐)",
+   "DC-1": "维持FIX CONFIRMED(A3_02 Android实测+4A dc1-reader-layout.json闭环;本轮Harmony数据被差分链清除无法现场重放,如实注明)"
+  },
+  "env_incidents_4b_r4": [
+   "机器差分链清空Harmony数据(H3_01→H3_02可证)",
+   "harmony uitest dumpLayout卡死+致前台掉台;android uiautomator竞态崩溃+过期快照",
+   "android左边缘swipe=back陷阱;两台若干点击即退事件"
+  ],
+  "final_batch3_verdict": "behavior DIFF 0 / REAL value DIFF 1(BC-0019键集差异,上游契约陈旧) / cosmetic drift 3 / DC-1修复闭环成立"
+ }
+}

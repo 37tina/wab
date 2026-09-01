@@ -1,0 +1,107 @@
+{
+  "schema_version": "2.0",
+  "work_order_id": "FWO-E81787586954",
+  "phase": 4,
+  "feature_id": "FEAT-READ-UNREAD",
+  "status": "ISSUED",
+  "issued_at": "2026-09-01T03:28:59Z",
+  "issued_by": "impl-lead.capy-01",
+  "verify_mode": "SOURCE_CONFIRM",
+  "risk_level": "normal",
+  "bc_ids": [
+    "BC-0014",
+    "BC-0015"
+  ],
+  "runtime_bc_ids": [
+    "BC-0014",
+    "BC-0015"
+  ],
+  "data_reads": [],
+  "data_writes": [],
+  "data_relation_ids": [
+    "REL-0037",
+    "REL-0038",
+    "REL-0039"
+  ],
+  "surfaces": [
+    {
+      "id": "PAGE-ARTICLEACTIONMENU-128442E3",
+      "is_container": false,
+      "kind": "menu"
+    },
+    {
+      "id": "PAGE-MARKALLREADDIALOG-46A35015",
+      "is_container": false,
+      "kind": "dialog"
+    },
+    {
+      "id": "PAGE-MARKALLREADMENU-464F3414",
+      "is_container": false,
+      "kind": "menu"
+    }
+  ],
+  "harmony_steps": [],
+  "ownership": {
+    "feature_owner_id": "impl-lead.capy-01",
+    "ui_agent_id": "impl-lead.capy-01",
+    "business_data_agent_id": "impl-lead.capy-01",
+    "native_capability_agent_id": "impl-lead.capy-01"
+  },
+  "must_read": {
+    "behavior_contract_ids": [
+      "BC-0014",
+      "BC-0015"
+    ],
+    "android_source_refs": [
+      "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:83",
+      "app/src/main/java/com/capyreader/app/ui/articles/detail/ArticleBottomBar.kt:86",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:598",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:602",
+      "capy/src/main/java/com/jocmp/capy/Account.kt:385",
+      "capy/src/main/java/com/jocmp/capy/persistence/ArticleRecords.kt:200",
+      "capy/src/main/sqldelight/com/jocmp/capy/db/articles.sq:199",
+      "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadButton.kt:39",
+      "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:21",
+      "app/src/main/java/com/capyreader/app/ui/articles/list/MarkAllReadDialog.kt:29",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:354",
+      "app/src/main/java/com/capyreader/app/ui/articles/ArticleScreenViewModel.kt:368",
+      "capy/src/main/java/com/jocmp/capy/Account.kt:366",
+      "capy/src/main/java/com/jocmp/capy/persistence/ArticleRecords.kt:188",
+      "app/src/main/res/values/strings.xml:82",
+      "app/src/main/res/values/strings.xml:83"
+    ],
+    "runtime_evidence_refs": [
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0014",
+      "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0015"
+    ],
+    "data_relations": [
+      "REL-0023",
+      "REL-0037",
+      "REL-0038",
+      "REL-0039"
+    ],
+    "visual_memory_surface": [
+      "PAGE-ARTICLEACTIONMENU-128442E3",
+      "PAGE-MARKALLREADDIALOG-46A35015",
+      "PAGE-MARKALLREADMENU-464F3414"
+    ],
+    "p3_surface_plan": [
+      "ShellModalArticleactionmenu128442e3",
+      "ShellModalMarkallreaddialog46a35015",
+      "ShellModalMarkallreadmenu464f3414"
+    ]
+  },
+  "read_receipt_contract": {
+    "consumed_bc_ids": "implementation-declarations.csv column; subset of must_read.behavior_contract_ids",
+    "consumed_source_refs": "implementation-declarations.csv column; subset of must_read.android_source_refs",
+    "consumed_runtime_refs": "implementation-declarations.csv column; subset of must_read.runtime_evidence_refs",
+    "gate_rule": "verify_stage4 rule must_read_receipt: RUNTIME feature with empty consumed_source_refs fails the gate"
+  },
+  "semantic_probe": {
+    "probe_relative_path": "entry/src/main/ets/probe/DebugSemanticProbe.ets",
+    "expected_sha256": "39e4a9ba9c3b9578206358d5f9af53131a998584a14964659e8284ae1b132ccd",
+    "immutable": true,
+    "note": "Phase 4 implementers must NOT modify this file; wire providers via SemanticProbeRegistry.registerProbe in their own source files instead"
+  },
+  "stage04_input_lock_sha256": "4fd247faa21c406f3e5f626fb022b120e72683ecda1ba6e75a71877707e74555"
+}

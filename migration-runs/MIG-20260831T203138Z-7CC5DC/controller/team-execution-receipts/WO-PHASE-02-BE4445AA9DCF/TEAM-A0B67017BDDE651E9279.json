@@ -1,0 +1,20 @@
+{
+  "receipt_id": "TEAM-A0B67017BDDE651E9279",
+  "phase": 2,
+  "work_order_id": "WO-PHASE-02-BE4445AA9DCF",
+  "work_order_sha256": "1ecc48b505b09ea62d490ce8f901f815b5f45829f3539608b908e9920d36d048",
+  "role_key": "evidence_administrator_id",
+  "actor_id": "evidence-admin.capy-01",
+  "platform_task_id": "ses_fa67ed390ffeWlWJdWtR0Qsby1-EVD",
+  "started_at": "2026-08-31T23:40:00Z",
+  "ended_at": "2026-08-31T23:50:00Z",
+  "terminal_task_state": "SUCCEEDED",
+  "status": "COMPLETED",
+  "recorded_at": "2026-09-01T00:01:42Z",
+  "artifacts": [
+    {
+      "relative_path": "phase-02-android-inventory/reconciliation.csv",
+      "sha256": "4c25c1b4d2e1d63633e9eb299be7d825fcf54b6651539762ec82698d5a54ff87"
+    }
+  ]
+}

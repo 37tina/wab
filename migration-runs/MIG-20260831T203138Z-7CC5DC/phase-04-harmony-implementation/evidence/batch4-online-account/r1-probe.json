@@ -1,0 +1,69 @@
+{
+ "addaccount_options_visible": {
+  "Feedbin": true,
+  "FreshRSS": true,
+  "Miniflux": true,
+  "Reader": true,
+  "Local": true
+ },
+ "feedbin_tappable": true,
+ "feedbin_login_texts": [
+  "←",
+  "Feedbin",
+  "Username",
+  "Password",
+  "Advanced options",
+  "▼",
+  "Log In",
+  "02, :, 07",
+  "02",
+  ":",
+  "07",
+  "100"
+ ],
+ "login_form_gate1": {
+  "Username": true,
+  "Password": true,
+  "Log In": true,
+  "Advanced options": true
+ },
+ "feedbin_no_url_field": true,
+ "fields_locatable": true,
+ "username_echo_in_dump": true,
+ "password_masked": true,
+ "after_login_texts": [
+  "←",
+  "Feedbin",
+  "Username",
+  "capy@example.com",
+  "Password",
+  "**************",
+  "Advanced options",
+  "▼",
+  "Log In",
+  "Connection failed",
+  "02, :, 08",
+  "02",
+  ":",
+  "08",
+  "100"
+ ],
+ "error_feedback": {
+  "Incorrect username or password": false,
+  "Connection failed": true,
+  "Logging in": false
+ },
+ "back_to_addaccount": {
+  "Add Account": true,
+  "Feedbin": true,
+  "Local": true
+ },
+ "freshrss_form": {
+  "FreshRSS": true,
+  "Username": true,
+  "Password": true,
+  "Log In": true,
+  "Server URL": true
+ },
+ "freshrss_apiurl_hint": true
+}

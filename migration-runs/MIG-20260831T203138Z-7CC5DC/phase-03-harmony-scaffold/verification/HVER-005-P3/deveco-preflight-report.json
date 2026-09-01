@@ -1,0 +1,49 @@
+{
+  "henv_id": "HENV-004-P3",
+  "verdict": "PASS",
+  "verification_id": "HVER-005-P3",
+  "environment_sha256": "e1b40a1e712cc29f3613fec253a3e5f54ba98cc11a33be8af9af2a2aa41b0392",
+  "bundle_conflict_check_scope": "LOCAL_DEVICE",
+  "required_devices": [
+    "HDEVICE-001"
+  ],
+  "commands": [
+    {
+      "command_id": "CMD-P3-TOOLCHAIN",
+      "category": "TOOLCHAIN",
+      "device_id": "",
+      "command_verdict": "PASS",
+      "executable_sha256": "6447d9acfff04aa14691baeb11df7d918f55df57c98be9967d62ff4541f83aa0",
+      "stdout_sha256": "684aa4f4bdd851f66c5ef2be00ec925f4f27288ff156edab79a6239478b40e24",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command_id": "CMD-P3-DEVICE",
+      "category": "DEVICE",
+      "device_id": "HDEVICE-001",
+      "command_verdict": "PASS",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "stdout_sha256": "d861ba83146515f001b5ca1ff526d7b6c1689de5c4e7b6ceee4e169e1e31ca82",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command_id": "CMD-P3-BUNDLE",
+      "category": "BUNDLE_CHECK",
+      "device_id": "HDEVICE-001",
+      "command_verdict": "PASS",
+      "executable_sha256": "72534d4284d40a2184cf01c987bc6dcdbdd73f171637cab24a965dc1ea79042b",
+      "stdout_sha256": "11870ca139e6ec870a3c0919cec22696ae10630cbe889de2e075996c08fb871f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command_id": "CMD-P3-SIGNING",
+      "category": "SIGNING_CHECK",
+      "device_id": "",
+      "command_verdict": "PASS",
+      "executable_sha256": "9938dc83f4f032c83e3ae6c352f75699e8dc1f1d661a4802113ca9ff1b060db6",
+      "stdout_sha256": "88dbc27668e8a7881852c8f6bba6f2a7a807b7e2848e258357e66a04b9717026",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "created_at": "2026-09-01T00:37:18Z"
+}

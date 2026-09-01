@@ -1,0 +1,127 @@
+{
+ "device": "emulator-5554",
+ "package": "com.capyreader.app.debug",
+ "log": [
+  [
+   "BC-0018",
+   "settings-page",
+   {
+    "drawer_has_settings_entry": true,
+    "display_section": true,
+    "general_section": true,
+    "sections_snapshot": [
+     "General",
+     "Display & Appearance",
+     "Gestures",
+     "Account",
+     "About",
+     "Settings"
+    ],
+    "drawer_descs": [
+     "Close navigation menu",
+     "Open settings",
+     "Refresh all",
+     "Add Feed"
+    ]
+   }
+  ],
+  [
+   "BC-0021",
+   "style-shell",
+   {
+    "style_entry": true,
+    "panel": {
+     "font": true,
+     "align": true,
+     "texts": [
+      "Text",
+      "System default",
+      "Font",
+      "Font size",
+      "16",
+      "Title",
+      "Font size",
+      "24",
+      "Use body font for title"
+     ]
+    },
+    "reader_dump_ref": "bc0021-android-reader.xml",
+    "prefs_article_font_size": null
+   }
+  ],
+  [
+   "BC-0019",
+   "theme-switch-dark",
+   {
+    "panel_snapshot": [
+     "Theme",
+     "System",
+     "Light",
+     "Dark",
+     "Dynamic",
+     "Pure black dark mode",
+     "Accent colors",
+     "Article List",
+     "Unread Badges",
+     "Reader",
+     "Images",
+     "Always show images",
+     "Pin Toolbars",
+     "Miscellaneous",
+     "Toolbar",
+     "Display &amp; Appearance"
+    ],
+    "dark_tapped": true,
+    "prefs_app_theme": null,
+    "prefs_theme_mode": "DARK"
+   }
+  ],
+  [
+   "BC-0020",
+   "article-sort-switch",
+   {
+    "general_snapshot": [
+     "Article Sort",
+     "Newest First",
+     "Last Updated",
+     "Refresh Feeds",
+     "Every 2 hours",
+     "Refresh on Wi-Fi only",
+     "Notifications",
+     "Filters",
+     "Browser",
+     "Use in-app browser",
+     "Reader",
+     "Sticky Full Content",
+     "Mark All As Read",
+     "Mark as read on scroll",
+     "General"
+    ],
+    "sort_menu_snapshot": [
+     "Article Sort",
+     "Newest First",
+     "Oldest First"
+    ],
+    "picked": "Oldest First",
+    "prefs_sort": "OLDEST_FIRST",
+    "list_first_titles": [
+     "Ars Technica - All content",
+     "RFK Jr. went to Samoa to spread vaccine fe"
+    ]
+   }
+  ],
+  [
+   "BC-0017",
+   "cold-restart-persistence-final",
+   {
+    "no_add_account": true,
+    "ars_feed_listed": true,
+    "article_rows": 13,
+    "prefs_account_id_present": true,
+    "prefs_app_theme_kept": null,
+    "prefs_theme_mode_kept": "DARK",
+    "prefs_sort_kept": "OLDEST_FIRST"
+   }
+  ]
+ ]
+}

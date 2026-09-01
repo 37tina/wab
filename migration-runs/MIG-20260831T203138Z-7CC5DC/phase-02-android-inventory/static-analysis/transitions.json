@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "transitions": [
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "MainActivity",
+      "navigation_type": "ACTIVITY_INTENT",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/notifications/NotificationHelper.kt:209",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-NOTIFIC-D680F85D",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "Route.Articles",
+      "navigation_type": "NAVIGATE",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/App.kt:36",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-APP--E6E82939",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-ROUTE-ARTICLES-402D7046"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "Route.Login",
+      "navigation_type": "NAVIGATE",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/App.kt:48",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-APP--794D5251",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-ROUTE-LOGIN-60D289E9"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "Route.AddAccount",
+      "navigation_type": "NAVIGATE",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/App.kt:51",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-APP--48AAAE1D",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-ROUTE-ADDACCOUNT-4C4101FB"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "Route.Settings",
+      "navigation_type": "NAVIGATE",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/articles/ArticleNavigation.kt:18",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-ARTI-4963971C",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-ROUTE-SETTINGS-CFF34E73"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "OpenArticleInBrowserActivity",
+      "navigation_type": "ACTIVITY_INTENT",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt:110",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-A320A747",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "MainActivity",
+      "navigation_type": "ACTIVITY_INTENT",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/ArticleHeadline.kt:117",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-3C607C7A",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "MainActivity",
+      "navigation_type": "ACTIVITY_INTENT",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/HeadlinesLayout.kt:103",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-85DCBADA",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "context",
+      "navigation_type": "NAVIGATE",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/SpotlightActions.kt:14",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-F1A1ABD4",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-CONTEXT-EA7792A2"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "context",
+      "navigation_type": "NAVIGATE",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/SpotlightActions.kt:24",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-19DA0564",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-CONTEXT-EA7792A2"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "MainActivity",
+      "navigation_type": "ACTIVITY_INTENT",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt:201",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-3FE8CD42",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "OpenArticleInBrowserActivity",
+      "navigation_type": "ACTIVITY_INTENT",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt:210",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-11CFC8E9",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "MainActivity",
+      "navigation_type": "ACTIVITY_INTENT",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/SpotlightLayout.kt:217",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-A24E84E5",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-MAINACTIVITY-3FDE9431"
+    },
+    {
+      "source_symbol": "PENDING_SOURCE_BINDING",
+      "target_symbol": "context",
+      "navigation_type": "NAVIGATE",
+      "condition": "PENDING_RUNTIME_CONFIRMATION",
+      "source_ref": "app/src/main/java/com/capyreader/app/ui/widget/SpotlightWidget.kt:128",
+      "transition_id": "TRANSITION-APP-SRC-MAIN-JAVA-COM-CAPYREADER-APP-UI-WIDG-D9776C43",
+      "source_page_id": "PENDING_SOURCE_BINDING",
+      "target_page_id": "PAGE-CONTEXT-EA7792A2"
+    }
+  ]
+}

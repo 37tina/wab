@@ -1,0 +1,18 @@
+{
+  "account_id": "7af8118b-101f-4ea9-8c4a-645e7e08debd",
+  "accounts_dir": "/data/storage/el2/base/haps/entry/files/accounts/7af8118b-101f-4ea9-8c4a-645e7e08debd",
+  "api_url": null,
+  "app_theme": null,
+  "article_filter": "status=STARRED",
+  "article_list_sort_order": null,
+  "article_statuses": "{\"read_count\":0,\"starred_count\":0,\"count\":0,\"items\":\"[]\"}",
+  "articles": "[]",
+  "articles__accountid_db": null,
+  "feeds": "[]",
+  "last_refreshed_at": 1788238356,
+  "password": null,
+  "settings": "{\"article_filter\":\"status=STARRED\",\"theme\":\"system\"}",
+  "source": "local",
+  "theme_mode": null,
+  "username": null
+}
