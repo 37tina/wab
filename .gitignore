@@ -24,7 +24,10 @@ backend/skill-proposals.json
 
 # 第三方工具仓库（ws-scrcpy 为外部 clone，体积大不入库）
 tools/
-# Android 构建产物
+# 完整排除：按用户要求不上传（已在远端的部分保留历史，此后不再跟踪）
+android/
+migration-runs/
+# Android 构建产物（已由上方整目录排除，此处保留以防粒度恢复）
 android/*/app/build/
 android/*/.gradle/
 android/*/build/
