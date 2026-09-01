@@ -48,3 +48,13 @@ Asset modes are exactly `DIRECT_COPY`, `FORMAT_CONVERSION`, or `RECREATE_FROM_PU
 Each parity row allows one initial execution and at most two automated repairs. Deleting a local failure package does not restore the budget because the controller mirror is authoritative. Runtime event/transition coverage must come from raw operation traces with before/after snapshots; a self-declared ID list is not evidence. Controller Gate 4 normalizes Android and Harmony coordinates to their frozen viewports and rejects geometry beyond the configured tolerance or differing visual semantics.
 
 The closure manifest uses `<sha256><two spaces><relative path>` lines. It excludes only the final report, closure manifest, `CLOSED`, transient lock/staging/cache files, and generated HarmonyOS project output. `CLOSED` is the SHA-256 of the final Stage 4 report. Controller Gate 4 recomputes all inputs, packages, ledgers, hashes, and the complete closure file set.
+
+## 分派指引（2026-09-01 增补）
+签发本工单后，implementation lead 按 implementation SKILL.md 的角色强制矩阵执行：
+1. 先出《页面分片表》（controller 确认）
+2. page-implementer 按页面并行（每片 ≤45 分钟，R10 四要件）
+3. visual-asset agent 独立处理图标/资源（R8）
+4. merge-builder 统一构建安装
+5. verification executor 按片走查（错开自己的页面）
+6. parity-acceptance 终审（截图+布局模式+R7-R10）
+质量优先：时间不是约束，partial 续做不硬凑。

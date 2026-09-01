@@ -50,3 +50,16 @@ architecture-lead（壳与路由）、navigation agent（注册表登记）、to
 - [environment-toolchain.md](references/environment-toolchain.md): frozen commands and emulator.
 - [verification-and-rework.md](references/verification-and-rework.md): evidence, tickets, and closure.
 - [roles-and-authority.md](references/roles-and-authority.md): responsibility and receipt rules.
+
+## Agent 分派执行表（2026-09-01 增补）
+
+| 序 | 角色 | 职责一句话 | 产出物 | 并行 |
+|---|---|---|---|---|
+| 1 | architecture lead | 消费 P2 地图/出分面规则/冻结蓝图 schema | surface 分面清单 | 前置 |
+| 2 | navigation-page-shell agent | 搭壳/路由表/模态挂载（纯结构，不写业务） | shells/*.ets + Index.ets | 主线 |
+| 3 | public-UI agent ×N | **按页面分片**写蓝图四字段（对照 visual-memory，逐 surface 编写不退化） | surface-plan.json 分片 | 与②并行 |
+| 4 | capability-contract agent | 数据契约 interface + 探针 + 主题层 | data-contracts/*.json | 与②③并行 |
+| 5 | toolchain-scaffold agent | 构建链/签名/安装/冒烟 | HAP + 构建三证 | ②③④完成后 |
+| 6 | architecture acceptance agent | 截图身份校验（防同质）/蓝图完整性/独立于创建者 | HVER + gate 快照 | 末置 |
+
+**蓝图质量红线**：public-UI agent 写的 android_structure **禁止出现"结构描述退化"字样**——visual-memory 未覆盖的 surface 必须回溯源码写出具体组件树（读 Compose/XML 源码），写不出就标 GAP 留痕（CapyReader 教训：退化蓝图 → P4 无从对齐）。

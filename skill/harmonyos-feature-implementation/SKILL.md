@@ -50,3 +50,22 @@ page_acceptance 页面验收体系、六维比较器家族（compare_behavior/co
 - [phase-4-handoff.md](references/phase-4-handoff.md) and [review-and-rework.md](references/review-and-rework.md): handoff and bounded repair (still applicable sections).
 - [evidence-contract.md](references/evidence-contract.md): immutable evidence rules.
 - [ui-test-snapshot-evidence.md](references/ui-test-snapshot-evidence.md): ArkUI Inspector / UiTest snapshot evidence rules (still applicable sections).
+
+## Agent 角色强制矩阵（2026-09-01 增补：CapyReader 教训——曾用一个 agent 兼 UI+业务+资产，质量崩塌）
+
+**必派独立 agent 的角色**（不可合并）：
+| 角色 | 职责 | 分片方式 |
+|---|---|---|
+| 4-impl-lead | 分片清单/合并共享文件/统一构建 | Controller 兼任 |
+| page-implementer ×N | **按页面分片**：一个页面=布局+组件+数据接线+导航入口（R10 四要件） | pages/<name>/ 专属目录 |
+| visual-asset agent | 图标/图片资源迁移与 SymbolGlyph 映射（R8 执行者） | 全局资源目录 |
+| merge-builder | 收集各片代码→统一构建→安装→冒烟 | 唯一构建者 |
+| emulator-verification executor ×N | 按页面/BC 真机走查+截图+断言 | 与 page-implementer 错开（不能验自己的页面） |
+| parity-acceptance agent | 终审：截图对比+**布局模式核对**+R7-R10 红线 | 独立（不能是任何创建者） |
+
+**禁止**：
+- 一个 agent 同时实现 3 个以上页面（会话超时风险+上下文污染）
+- page-implementer 兼 visual-asset（会跳过图标直接文字——CapyReader 实锤）
+- merge-builder 由 page-implementer 兼任（版本碎片）
+
+**分片清单前置**：4-impl-lead 必须先出《页面分片表》（页面/文件范围/蓝图引用/预估时长），经 controller 确认后并行派发。

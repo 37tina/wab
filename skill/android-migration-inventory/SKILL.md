@@ -42,3 +42,20 @@ Use focused logical lenses (feature mapping, behavior contracts, runtime chains,
 - [android-cli-procedure.md](references/android-cli-procedure.md) and [evidence-contract.md](references/evidence-contract.md): formal runtime capture.
 - [advanced-runtime-analysis.md](references/advanced-runtime-analysis.md): dynamic risks, side effects, and scenarios.
 - [deterministic-page-gates.md](references/deterministic-page-gates.md) and [review-and-rework.md](references/review-and-rework.md): closure and failure routing.
+
+## Agent 分派执行表（2026-09-01 增补：角色已定义于 roles-and-authority.md，此处规定怎么派）
+
+大规模源码（>1万行）必须拆多 agent 并行/接力；小项目可合并但角色职责不变。
+
+| 序 | 角色 | 职责一句话 | 产出物 | 依赖 | 并行 |
+|---|---|---|---|---|---|
+| 1 | inventory lead | 领工单/分号段/仲裁冲突 | 分片表+ENV-ID | — | 前置 |
+| 2 | code-map agent ×N | 按模块出代码地图 | code-map-<module>.json | ① | 可并行 |
+| 3 | business-rule agent ×N | 按模块出 BC 十字段 | bc-<module>.csv | ② | 可并行 |
+| 4 | data-dependency agent | 全局数据/能力/第三方依赖 | data-relations.csv | ② | 与③并行 |
+| 5 | runtime-state agent ×N | 按功能域真机取证 | chains/BC-*/evidence | ③ | 可并行 |
+| 6 | visual-memory agent | 色板/ui_tree_summary/截图基准（**独立角色**，别让 code-map 兼） | visual-memory.json | ⑤ | 与⑤并行 |
+| 7 | evidence administrator | 封 Evidence-ID/索引/哈希 | evidence-index | ⑤⑥ | 接力 |
+| 8 | coverage checker | 终审覆盖/开返工 | closure report | ⑦ | 末置 |
+
+**规则**：角色 2-6 每个可派多个实例（按模块/功能域分片，≤45 分钟/片）；同一 agent 不得兼任 2-6 中互为上下游的两个角色；visual-memory agent 是独立角色（CapyReader 教训：色板空集导致下游无视觉基准）。

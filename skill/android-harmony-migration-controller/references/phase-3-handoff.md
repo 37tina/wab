@@ -51,3 +51,6 @@ Required invariants:
 The Phase 3 closure manifest covers the complete workspace except `stage-03-gate-report.json`, `stage-03-closure-manifest.sha256`, and `CLOSED`. `CLOSED` contains the SHA-256 of the final Stage 3 report. Controller Gate 3 recomputes the entire file set and every hash.
 
 Phase 3 rework changes only through `manage_stage3_rework.py`. The frozen architecture acceptance agent opens or closes it, the architecture lead confirms deterministic routing, and closing requires a newer sealed PASS HVER from the frozen toolchain agent. The manager mirrors every ticket into controller `rework-log.csv`; either side being open or inconsistent blocks Gate 3.
+
+## 分派指引（2026-09-01 增补）
+签发本工单后，architecture lead 按 scaffold SKILL.md 的分派执行表执行：public-UI agent 按页面分片写蓝图（禁止退化），acceptance agent 独立核验截图身份。

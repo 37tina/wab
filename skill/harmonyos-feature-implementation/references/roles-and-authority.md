@@ -35,3 +35,6 @@ Runs the exact sealed build on the frozen emulator, prepares the source environm
 Is the sole final reviewer. It visually opens every screenshot, checks functional/data assertions, verifies asset provenance and nativeization decisions, opens or closes rework, and never edits code, claims, or evidence.
 
 The implementation lead, asset agent, emulator verification executor, and parity acceptance agent IDs are distinct and frozen by the controller work order. For each feature, its owner, UI agent, business/data agent, and native-capability agent are also mutually distinct and cannot reuse any of those four governance IDs.
+
+## 布局模式核对职责（2026-09-01 增补）
+Parity acceptance agent 在截图终审时，必须执行 verify-core.md 的「布局模式核对」：每核心页面写明 Android=X / Harmony=X 布局模式比对结论（Overlay 抽屉/固定并排/BottomNav/Tabs 等），不一致且无豁免 → 表现差异项。

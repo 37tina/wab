@@ -54,3 +54,6 @@ The controller recomputes the closure manifest and rejects any package changed a
 `page-gate-report.json` 和 `advanced-gate-report.json` 必须由确定性脚本计算为 `PASS`。模型给出的总结、置信度或“看起来正确”不能代替门禁结果。每个静态页面对象必须关联真实运行证据；事件和跳转还必须同时提供操作前、操作后的证据。
 
 Each active inventory row has a nonempty JSON `asset_ids` array: exactly `["NONE_FOUND"]` or real Asset-IDs. Each real asset is reviewed, linked back to at least one feature/page/state row, archived below `asset-package/files/<Asset-ID>/`, listed exactly once in the asset-package manifest, and sealed by `COMMITTED`.
+
+## 分派指引（2026-09-01 增补）
+签发本工单后，inventory lead 按 inventory SKILL.md 的分派执行表拆片：大规模源码按模块并行派 code-map/business-rule/data-dependency/visual-memory 多实例；每个子任务 ≤45 分钟；BC 号段在分片表中冻结。参考 _shared/controller-core.md「超时治理与任务分发粒度」。

@@ -41,3 +41,6 @@ Document backend APIs, authentication/session handling, databases, preferences, 
 - Opens rework and re-runs closure validation after the responsible agent fixes the source material.
 - Reviews the one-to-one asset inventory/package/reference chain before assets receive `REVIEWED`.
 - Its actor ID is frozen by the controller. The validator rejects blank, substituted, lead, controller, issuer, or collector identities.
+
+## Visual-memory 独立性（2026-09-01 增补）
+Visual-memory 采集（色板/ui_tree_summary/截图基准）由独立 agent 执行，不得由 code-map 或 business-rule agent 兼任——视觉取证需要设备操作专注，兼任会导致色板空集（CapyReader 实锤教训）。色板为空时必须回溯源码提取颜色值（Compose MaterialTheme/XML 资源），禁止空集交付。
