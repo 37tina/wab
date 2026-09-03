@@ -68,6 +68,9 @@ async function restoreProjectFromMirror(id: string): Promise<Project | undefined
     const version = Number(recipe.version ?? 1);
     const local = mockService.getProject(id);
     if (local && local.mirrorVersion === version) return local;
+    // 空镜像不覆盖本地：网关镜像可能只存了 id/name（旧 autocreate 上报），此时保留本地项目
+    const recipeHasSubstance = Boolean(recipe.workspace || (recipe.phases && recipe.phases.length > 0));
+    if (local && !recipeHasSubstance) return local;
     // 一次性镜像导入：直接构造终态项目（不走 createProject/record/review 状态机，零副作用零定时器）
     const imported = mockService.importExternalProject({
       id,
@@ -192,11 +195,11 @@ function LiveAppShell() {
         mockService.recordCodeArtsExecution(project.id, 1, { mode: "codearts-agentteam", status: "running", sessionId: session, agent: "team-leader" });
       }
     }
-    // 把项目 ID 上报给网关，供外部总控构造 sync URL
+    // 把项目上报给网关（带 workspace/source/model，镜像恢复时实况面板可直连 RUN 产物）
     void fetch("/api/mirror/project", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ id: project.id, name: project.name, sessionId: session ?? project.activeSessionId ?? "" }),
+      body: JSON.stringify({ id: project.id, name: project.name, sessionId: session ?? project.activeSessionId ?? "", workspace: params.get("workspace") || project.workspaceDir || undefined, source: params.get("source") || undefined, model: params.get("model") || undefined }),
     }).catch(() => {});
     navigate(`/projects/${project.id}`, { replace: true });
   }, [navigate]);
@@ -1406,7 +1409,7 @@ type Phase3Evidence = {
   dataContracts: Array<{ objectId: string; repositorySymbol: string; directions: string[]; featureIds: string[]; requiredOperations: string[]; file: string }>;
   probeFiles: Array<{ name: string; path: string }>;
   probeLockNote: string;
-  hverShots: Array<{ id: string; verificationId: string; path: string }>;
+  hverShots: Array<{ id: string; verificationId: string; path: string; contentHash?: string; duplicateCount?: number; duplicateIds?: string[] }>;
   baselineShot: string;
   buildSmoke: { status: string; verificationId: string; cleanBuildPassed: boolean; installDevices: string[]; launchDevices: string[]; hapSha256: string; errors: string[] } | null;
   gate: { verdict: string; checkedAt: string } | null;
@@ -1629,7 +1632,7 @@ function Phase1Body({ data, ws }: { data: Phase1Evidence; ws: string }) {
     ? String((data.testSeed.expected_initial_texts as unknown[])[0])
     : identity.applicationId;
   return <>
-    <p className="lp-eyebrow">Phase 1 · 冻结了什么（应用身份 + 7 项功能范围）</p>
+    <p className="lp-eyebrow">Phase 1 · 冻结了什么（应用身份 + {data.includedFeatures.length} 项功能范围）</p>
     <div className="ev-grid">
       <div className="ev-info-card">
         <div className="ev-kv"><span>应用</span><b>{appName}（{identity.applicationId}）</b></div>
@@ -1751,7 +1754,7 @@ function Phase3Body({ data, ws }: { data: Phase3Evidence; ws: string }) {
     <p className="lp-eyebrow">迁移前后 GUI 对比（同一页面）</p>
     <div className="duo-shot">
       {data.baselineShot && <figure><img src={runFileUrl(ws, data.baselineShot)} alt="P2 Android 基线截图" loading="lazy" /><figcaption>Android 基准（Phase 2 取证）</figcaption></figure>}
-      {data.hverShots.map((shot) => <figure key={shot.path}><img src={runFileUrl(ws, shot.path)} alt="HVER 鸿蒙实机截图" loading="lazy" /><figcaption>HarmonyOS 实机（骨架冒烟截图）</figcaption></figure>)}
+      {data.hverShots.map((shot) => <figure key={shot.path} title={(shot.duplicateIds ?? []).join(" · ")}><img src={runFileUrl(ws, shot.path)} alt="HVER 鸿蒙实机截图" loading="lazy" /><figcaption>HarmonyOS 实机（骨架冒烟截图）{(shot.duplicateCount ?? 1) > 1 ? ` · ${shot.duplicateCount} 个id复用同一底` : ""}</figcaption></figure>)}
     </div>
     <div className="gate-row-pair">
       {data.buildSmoke && <div className="gate-card pass">
@@ -2698,6 +2701,12 @@ function DeliveryPage() {
   const { id } = useParams();
   const project = useProject(id);
   if (!project) return <NotFound />;
+  if (!project.workspaceDir) return <DeliveryMockBody project={project} />;
+  return <DeliveryLiveBody project={project} workspaceDir={project.workspaceDir} />;
+}
+
+/** 演示项目交付页（mock 数据，仅无 workspaceDir 时渲染） */
+function DeliveryMockBody({ project }: { project: Project }) {
   const deliveryArtifacts = [
     { name: "harmony-project.zip", desc: "完整 HarmonyOS 工程源码", size: "4.2 MB", type: "code", color: "mint" },
     { name: "migration-full-report.pdf", desc: "完整迁移报告（可打印）", size: "1.8 MB", type: "report", color: "red" },
@@ -2707,6 +2716,31 @@ function DeliveryPage() {
     { name: "hvigor-build.log", desc: "鸿蒙构建与修复日志", size: "31 KB", type: "build", color: "slate" }
   ];
   return <div className="delivery-page"><div className="workspace-header"><div className="breadcrumb"><Link to={`/projects/${project.id}`}>工作台</Link><span>/</span><b>交付中心</b></div><div className="workspace-actions"><button className="primary-button small" onClick={() => downloadText("delivery-manifest.json", JSON.stringify({ project: project.name, generatedAt: new Date().toISOString(), artifacts: deliveryArtifacts }, null, 2))}>↓ 下载交付清单</button></div></div><div className="page-heading"><div><h1>交付中心</h1><p className="heading-subtitle">所有文件来自已审核版本 · revision 4.0</p></div><div className="delivery-ready"><span>✓</span><div><b>交付包已就绪</b><small>6 个文件 · 8.4 MB</small></div></div></div><div className="delivery-layout"><main><div className="delivery-hero"><div className="package-icon">包</div><div><h2>{project.name} · HarmonyOS 迁移包</h2><p>含完整工程、执行证据与双层报告</p></div><button className="primary-button" onClick={() => downloadText("delivery-manifest.json", JSON.stringify(deliveryArtifacts, null, 2))}>下载全部 <span>↓</span></button></div><div className="artifact-grid">{deliveryArtifacts.map((artifact) => <button className="delivery-artifact" key={artifact.name} onClick={() => downloadText(artifact.name.endsWith("json") ? artifact.name : `${artifact.name}.txt`, `${artifact.name}\n\n${artifact.desc}\n\n当前为演示数据。`)}><span className={`delivery-file-icon ${artifact.color}`}>{artifact.type === "code" ? "码" : artifact.type === "screenshot" ? "图" : artifact.type === "trace" ? "迹" : artifact.type === "build" ? "建" : "报"}</span><span><b>{artifact.name}</b><small>{artifact.desc}</small></span><em>{artifact.size}</em><i>↓</i></button>)}</div></main><aside className="delivery-aside"><div className="aside-card"><p className="eyebrow">交付清单</p><div className="manifest-row"><span>源项目</span><b>{project.source.type === "github" ? "GitHub" : "ZIP"}</b></div><div className="manifest-row"><span>目标平台</span><b>HarmonyOS</b></div><div className="manifest-row"><span>审核阶段</span><b>4 / 4</b></div><div className="manifest-row"><span>一致性评分</span><b className="mint-text">94 / 100</b></div><div className="manifest-row"><span>数据模式</span><b>演示数据</b></div></div></aside></div></div>;
+}
+
+/** RUN 真交付中心：文件全部来自后端 /api/run/overview + /api/run/file 下载/查看，零编造 */
+function DeliveryLiveBody({ project, workspaceDir }: { project: Project; workspaceDir: string }) {
+  const [overview, setOverview] = useState<RunOverview | null>(null);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const response = await fetch(`/api/run/overview?workspace=${encodeURIComponent(workspaceDir)}`);
+        if (!response.ok) { if (alive) setFailed(true); return; }
+        const data = await response.json() as RunOverview;
+        if (alive && data?.metrics) setOverview(data); else if (alive) setFailed(true);
+      } catch { if (alive) setFailed(true); }
+    })();
+    return () => { alive = false; };
+  }, [workspaceDir]);
+  if (!overview) return <div className="workspace-page"><div className="workspace-header"><div className="breadcrumb"><Link to={`/projects/${project.id}`}>工作台</Link><span>/</span><b>交付中心</b></div></div><p className="field-note">{failed ? "RUN 产物读取失败，请确认网关与工作区目录。" : "正在读取 RUN 交付物…"}</p></div>;
+  const m = overview.metrics;
+  const colorOf = (a: RunArtifact) => /hap|apk|签名|基线/i.test(a.name) ? "mint" : /报告|Gate/i.test(a.name) ? "red" : /契约|盘点|冻结|scope/i.test(`${a.name}${a.desc}`) ? "blue" : /差分|重放|dual|replay/i.test(a.name) ? "violet" : /日志|decision/i.test(a.name) ? "amber" : "slate";
+  const iconOf = (a: RunArtifact) => a.type === "download" ? "包" : /\.csv/i.test(a.path) ? "迹" : /\.(png|jpe?g)/i.test(a.path) ? "图" : /\.(hap|apk)/i.test(a.path) ? "建" : "报";
+  const manifest = { runId: overview.runId, runStatus: overview.runStatus, project: project.name, generatedAt: new Date().toISOString(), metrics: m, artifacts: overview.artifacts };
+  const gateSummary = `P1/P2/P3 ${[m.gates.p1, m.gates.p2, m.gates.p3].every((g) => g === "PASS") ? "PASS" : "—"} · Gate 4 ${m.gates.p4 === "PASS" ? "PASS" : "待人工裁决"}`;
+  return <div className="delivery-page"><div className="workspace-header"><div className="breadcrumb"><Link to={`/projects/${project.id}`}>工作台</Link><span>/</span><b>交付中心</b></div><div className="workspace-actions"><button className="primary-button small" onClick={() => downloadText("delivery-manifest.json", JSON.stringify(manifest, null, 2))}>↓ 下载交付清单</button></div></div><div className="page-heading"><div><h1>交付中心</h1><p className="heading-subtitle">文件来自 RUN {overview.runId}（实时读取）</p></div><div className="delivery-ready"><span>✓</span><div><b>{overview.artifacts.length} 个文件 · {overview.runStatus || "进行中"}</b><small>操作重放 {m.stepsPassed} · {gateSummary}</small></div></div></div><div className="delivery-layout"><main><div className="delivery-hero"><div className="package-icon">包</div><div><h2>{project.name} · HarmonyOS 迁移包</h2><p>RUN 产物直出：冻结书、契约、构建报告、差分与重放证据、签名 HAP</p></div><button className="primary-button" onClick={() => downloadText("delivery-manifest.json", JSON.stringify(manifest, null, 2))}>下载清单 <span>↓</span></button></div><div className="artifact-grid">{overview.artifacts.map((artifact) => <a className="delivery-artifact" key={artifact.path || artifact.name} href={artifact.path.startsWith("/") ? artifact.path : runFileUrl(workspaceDir, artifact.path)} target={artifact.type === "download" ? undefined : "_blank"} rel="noreferrer" download={artifact.type === "download" ? artifact.path.split("/").pop() : undefined}><span className={`delivery-file-icon ${colorOf(artifact)}`}>{iconOf(artifact)}</span><span><b>{artifact.name}</b><small>{artifact.desc}</small></span><em>{artifact.type === "download" ? "下载" : "查看"}</em><i>↓</i></a>)}</div></main><aside className="delivery-aside"><div className="aside-card"><p className="eyebrow">交付清单</p><div className="manifest-row"><span>RUN</span><b>{overview.runId}</b></div><div className="manifest-row"><span>目标平台</span><b>HarmonyOS</b></div><div className="manifest-row"><span>门禁</span><b>{gateSummary}</b></div><div className="manifest-row"><span>操作重放</span><b>{m.stepsPassed} 步</b></div><div className="manifest-row"><span>数据模式</span><b className="mint-text">RUN 真值</b></div></div></aside></div></div>;
 }
 
 function downloadText(filename: string, content: string) {

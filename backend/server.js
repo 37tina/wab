@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require("mysql2/promise");
 const { Readable } = require("node:stream");
 const { statSync, readFileSync, writeFileSync, readdirSync, existsSync } = require("node:fs");
+const { createHash } = require("node:crypto");
 const { join } = require("node:path");
 const gateway = require("./agentGateway");
 const skillGov = require("./skillGovernance");
@@ -1274,6 +1275,7 @@ app.get("/api/run/phase/:n", (req, res) => {
         reason: s.reason ?? "",
       }));
       // HVER 实机截图 + P2 基线截图（迁移前后 GUI 对比）
+      // 内容去重：冒烟 runner 曾把当前屏存全量 surface id，多轮同底图在此合并展示（数据文件零改动）
       const hverShots = [];
       const verRoot = join(runRoot, "phase-03-harmony-scaffold", "verification");
       for (const verId of listDirSafe(verRoot)) {
@@ -1281,6 +1283,25 @@ app.get("/api/run/phase/:n", (req, res) => {
         for (const shotId of listDirSafe(shotRoot)) {
           const rel = `phase-03-harmony-scaffold/verification/${verId}/screenshots/${shotId}/screenshot.png`;
           if (fileExistsIn(runRoot, rel)) hverShots.push({ id: shotId, verificationId: verId, path: rel });
+        }
+      }
+      const dedupedShots = [];
+      const seenShotContent = new Map();
+      for (const shot of hverShots) {
+        let digest = "";
+        try {
+          digest = createHash("sha256").update(readFileSync(join(runRoot, shot.path))).digest("hex").slice(0, 16);
+        } catch {
+          digest = `unreadable:${shot.path}`;
+        }
+        const group = seenShotContent.get(digest);
+        if (group) {
+          group.duplicateCount += 1;
+          group.duplicateIds.push(`${shot.verificationId}/${shot.id}`);
+        } else {
+          const entry = { ...shot, contentHash: digest, duplicateCount: 1, duplicateIds: [`${shot.verificationId}/${shot.id}`] };
+          seenShotContent.set(digest, entry);
+          dedupedShots.push(entry);
         }
       }
       const probeDecision = decisions.find((d) => d.decision === "DATA_CARRIER");
@@ -1298,7 +1319,7 @@ app.get("/api/run/phase/:n", (req, res) => {
           { name: "SemanticProbeRegistry.ets", path: "phase-03-harmony-scaffold/harmony-project/entry/src/main/ets/probe/SemanticProbeRegistry.ets" },
         ].filter((f) => fileExistsIn(runRoot, f.path)),
         probeLockNote: probeDecision ? (probeDecision.rationale || "").slice(0, 300) : "",
-        hverShots,
+        hverShots: dedupedShots,
         baselineShot: shotOrNull(runRoot, "phase-02-android-inventory/runtime-evidence/evidence/chains/BC-0001/before/screenshot.png"),
         buildSmoke: p3Build ? {
           status: p3Build.status,
