@@ -14,7 +14,7 @@
   "harmony_build_ids": [],
   "harmony_evidence_ids": [],
   "scope_sha256": "be4445aa9dcf8321c81d5698b9402d3c0aeec61f1fcbf9664336aa7d659b924e",
-  "run_manifest_sha256": "a297de4db27c196a1e435bd2410269eeb919391dea165f34b9e0e6aa229a644f",
+  "run_manifest_sha256": "efe3ebaa3b03d6d77da8bfe363d7b076f84a31b1ecbde5bc84967f81f582ce04",
   "source_revision": "6aa1ddfd154189c3deb107210e35952dceddf2a3",
   "apk_sha256": "db018a2122e16767de49d1105fc901736c1492d76315145006a6a9f84a34785f",
   "runtime_bc_pass_rate": null,
@@ -33,7 +33,7 @@
     "FEAT-SETTINGS",
     "FEAT-ONLINE-ACCOUNT-UI"
   ],
-  "checked_at": "2026-09-01T06:15:52Z",
+  "checked_at": "2026-09-01T13:14:26Z",
   "errors": [
     "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/replay-results.csv",
     "Missing or unsafe Phase 4 artifact: /Users/rainyday/Desktop/finale/migration-runs/MIG-20260831T203138Z-7CC5DC/phase-04-harmony-implementation/stage-04-gate-report.json",

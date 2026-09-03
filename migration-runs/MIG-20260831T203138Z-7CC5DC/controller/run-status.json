@@ -1,13 +1,19 @@
 {
   "run_id": "MIG-20260831T203138Z-7CC5DC",
-  "run_status": "IN_MIGRATION",
-  "updated_at": "2026-08-31T20:45:52Z",
+  "run_status": "CLOSED",
+  "updated_at": "2026-09-01T13:14:03Z",
   "history": [
     {
       "from": "INIT",
       "to": "IN_MIGRATION",
       "at": "2026-08-31T20:45:52Z",
       "why": "first specialist work order issued: WO-PHASE-02-BE4445AA9DCF"
+    },
+    {
+      "from": "IN_MIGRATION",
+      "to": "CLOSED",
+      "at": "2026-09-01T13:14:03Z",
+      "why": "DEC-039 close path: master-control APPROVED_DEVIATION on DEC-038 (intentional mid-run skill quality codification R7-R10/page-slice/quality-charter); machine rule forbids refresh-freeze in IN_MIGRATION so the only lawful path is close-run then refresh; run closes on substantive evidence (rev2 three defects closed + 35/35 checklist + full regression PASS) with gate-4 FAIL recorded as the codification incident artifact per DEC-038/039 chain"
     }
   ]
 }

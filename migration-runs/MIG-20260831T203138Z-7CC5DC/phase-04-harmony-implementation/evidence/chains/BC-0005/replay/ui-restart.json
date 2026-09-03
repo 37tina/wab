@@ -69,14 +69,6 @@
       "enabled": "true",
       "id": "",
       "text": "",
-      "type": "Row",
-      "visible": "true"
-    },
-    {
-      "checked": "false",
-      "enabled": "true",
-      "id": "",
-      "text": "",
       "type": "Column",
       "visible": "true"
     },
@@ -92,7 +84,15 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Settings",
+      "text": "☰",
+      "type": "Button",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "文章",
       "type": "Text",
       "visible": "true"
     },
@@ -100,7 +100,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Refresh all",
+      "text": "搜索",
       "type": "Text",
       "visible": "true"
     },
@@ -108,7 +108,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Add Feed",
+      "text": "全部标为已读",
       "type": "Text",
       "visible": "true"
     },
@@ -116,30 +116,38 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "All Articles",
-      "type": "Text",
+      "text": "",
+      "type": "Row",
       "visible": "true"
     },
     {
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Starred",
-      "type": "Text",
+      "text": "",
+      "type": "SymbolGlyph",
       "visible": "true"
     },
     {
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Feeds",
-      "type": "Text",
+      "text": "",
+      "type": "Refresh",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "false",
+      "id": "",
+      "text": "",
+      "type": "LoadingProgress",
       "visible": "true"
     },
     {
       "checked": "false",
       "enabled": "true",
-      "id": "",
+      "id": "PAGE-ARTICLELIST-AB5566F8",
       "text": "",
       "type": "List",
       "visible": "true"
@@ -149,6 +157,14 @@
       "enabled": "true",
       "id": "",
       "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
       "type": "Row",
       "visible": "true"
     },
@@ -156,7 +172,15 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Unread",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "本月玩什么｜Big Walk、潜龙谍影 大师合辑 Vol. 2",
       "type": "Text",
       "visible": "true"
     },
@@ -164,7 +188,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "All",
+      "text": "在多人联机游戏里， 你都跟同伴一起创造过怎样的回忆？ 查看全文",
       "type": "Text",
       "visible": "true"
     },
@@ -172,8 +196,48 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Starred",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "2026-08-31",
       "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Blank",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
       "visible": "true"
     },
     {
@@ -188,8 +252,64 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Articles",
+      "text": "派早报：OpenClaw 推出 2.0 版本更新，网易 CC 直播正式停运等",
       "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "少数派的近期动态能让AI助手通过自然语言指令直接与您的Quote/0摘录墨水屏交互的DotSkill已上线。点击了解你可能错过的文章全球仅剩三位数的物种，科学家却连一个准数都数不出来屏幕之外，桌面之上",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "2026-09-01",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Blank",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
       "visible": "true"
     },
     {
@@ -204,7 +324,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "No feeds yet",
+      "text": "线索若隐若现：深入 Tim Cook 和 Nike 的商业连接",
       "type": "Text",
       "visible": "true"
     },
@@ -212,7 +332,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Start by adding a feed",
+      "text": "一直以来，Apple 和 Nike 之间的商业关系在公众视野里简单明了。但在两者中间，Apple 的前任 CEO Tim Cook 一直扮演着连接者的角色，他和 Nike 之间的关系也因此而显得十分微",
       "type": "Text",
       "visible": "true"
     },
@@ -220,8 +340,368 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "Add Feed",
-      "type": "Button",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "2026-09-01",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Blank",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "开学季｜值得关注的官翻渠道汇总（2026）",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "不管你是大学新生想要购置数码产品，还是即将踏入职场的毕业生租房想要添置小家电，在处于身份和环境转换的新阶段里，都可以试着把钱用在刀刃上、选择性价比更高的产品和销售渠道。 查看全文",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "2026-09-01",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Blank",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "线下活动 | 全新 iPhone 发布在即，来与少数派一起看 Apple 发布会",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "北京时间9月10日凌晨，Apple一年一度的秋季特别活动即将拉开帷幕，我们会在Keynote讲演环节中见到新一年度的iPhone、AppleWatch等多个新品。除了备受期待的iPhone18Pro系",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "2026-09-01",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Blank",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "社区速递 156 | 满血全功能磁吸转换头与手机 AI 通话的真实体验",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "除了首页时间流和侧栏的精选展位，少数派Matrix社区还有很多优秀内容因条件所限无法得到有效曝光，因此我们决定重启Matrix周报，并在此基础上添加更多社区内容、作者投稿新玩意呈现给大家。上周社区速递",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "2026-09-01",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Blank",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "Private group wants to launch \"cheapest possible\" mission to Alpha Centauri",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "\"We could really be facing the great filter.\"",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "SymbolGlyph",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "2026-09-01",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Blank",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "ListItem",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Row",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Column",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "Without new landers or rovers, it's helicopters or bust for NASA's Mars program",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
+      "id": "",
+      "text": "",
+      "type": "Image",
       "visible": "true"
     },
     {
@@ -324,7 +804,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "ClockStatusView",
-      "text": "02, :, 13",
+      "text": "09, :, 46",
       "type": "Flex",
       "visible": "true"
     },
@@ -348,7 +828,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "02",
+      "text": "09",
       "type": "Text",
       "visible": "true"
     },
@@ -372,7 +852,7 @@
       "checked": "false",
       "enabled": "true",
       "id": "",
-      "text": "13",
+      "text": "46",
       "type": "Text",
       "visible": "true"
     },
@@ -499,6 +979,14 @@
     {
       "checked": "false",
       "enabled": "true",
+      "id": "BatteryComponent-batteryIcon_Text_batterySoc",
+      "text": "100",
+      "type": "Text",
+      "visible": "true"
+    },
+    {
+      "checked": "false",
+      "enabled": "true",
       "id": "StatusBarView_LiveCapsuleListContainer",
       "text": "",
       "type": "Stack",
@@ -522,23 +1010,37 @@
     }
   ],
   "texts": [
-    "Settings",
-    "Refresh all",
-    "Add Feed",
-    "All Articles",
-    "Starred",
-    "Feeds",
-    "Unread",
-    "All",
-    "Starred",
-    "Articles",
-    "No feeds yet",
-    "Start by adding a feed",
-    "Add Feed",
-    "02, :, 13",
-    "02",
+    "☰",
+    "文章",
+    "搜索",
+    "全部标为已读",
+    "本月玩什么｜Big Walk、潜龙谍影 大师合辑 Vol. 2",
+    "在多人联机游戏里， 你都跟同伴一起创造过怎样的回忆？ 查看全文",
+    "2026-08-31",
+    "派早报：OpenClaw 推出 2.0 版本更新，网易 CC 直播正式停运等",
+    "少数派的近期动态能让AI助手通过自然语言指令直接与您的Quote/0摘录墨水屏交互的DotSkill已上线。点击了解你可能错过的文章全球仅剩三位数的物种，科学家却连一个准数都数不出来屏幕之外，桌面之上",
+    "2026-09-01",
+    "线索若隐若现：深入 Tim Cook 和 Nike 的商业连接",
+    "一直以来，Apple 和 Nike 之间的商业关系在公众视野里简单明了。但在两者中间，Apple 的前任 CEO Tim Cook 一直扮演着连接者的角色，他和 Nike 之间的关系也因此而显得十分微",
+    "2026-09-01",
+    "开学季｜值得关注的官翻渠道汇总（2026）",
+    "不管你是大学新生想要购置数码产品，还是即将踏入职场的毕业生租房想要添置小家电，在处于身份和环境转换的新阶段里，都可以试着把钱用在刀刃上、选择性价比更高的产品和销售渠道。 查看全文",
+    "2026-09-01",
+    "线下活动 | 全新 iPhone 发布在即，来与少数派一起看 Apple 发布会",
+    "北京时间9月10日凌晨，Apple一年一度的秋季特别活动即将拉开帷幕，我们会在Keynote讲演环节中见到新一年度的iPhone、AppleWatch等多个新品。除了备受期待的iPhone18Pro系",
+    "2026-09-01",
+    "社区速递 156 | 满血全功能磁吸转换头与手机 AI 通话的真实体验",
+    "除了首页时间流和侧栏的精选展位，少数派Matrix社区还有很多优秀内容因条件所限无法得到有效曝光，因此我们决定重启Matrix周报，并在此基础上添加更多社区内容、作者投稿新玩意呈现给大家。上周社区速递",
+    "2026-09-01",
+    "Private group wants to launch \"cheapest possible\" mission to Alpha Centauri",
+    "\"We could really be facing the great filter.\"",
+    "2026-09-01",
+    "Without new landers or rovers, it's helicopters or bust for NASA's Mars program",
+    "09, :, 46",
+    "09",
     ":",
-    "13",
+    "46",
+    "100",
     "100"
   ]
 }

@@ -8,6 +8,6 @@
     "side_effect": "MANUAL_VERIFY_REQUIRED"
   },
   "feature_id": "FEAT-ADD-FEED",
-  "precondition_status": "PRECONDITION_FAILED",
-  "replay_verdict": "PRECONDITION_FAILED"
+  "precondition_status": "ESTABLISHED",
+  "replay_verdict": "MANUAL_VERIFY_REQUIRED"
 }

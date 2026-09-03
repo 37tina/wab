@@ -41,6 +41,8 @@ export class ArticleRow {
   title: string = '';
   url: string = '';
   summary: string = '';
+  content: string = '';
+  thumbnail: string = '';
   publishedAt: number = 0;
   read: number = 0;
   starred: number = 0;
@@ -52,7 +54,38 @@ const CREATE_FEEDS = 'CREATE TABLE IF NOT EXISTS feeds (' +
 const CREATE_ARTICLES = 'CREATE TABLE IF NOT EXISTS articles (' +
   'id TEXT PRIMARY KEY, feed_id TEXT NOT NULL, title TEXT NOT NULL, ' +
   'url TEXT, summary TEXT, published_at INTEGER, ' +
-  'read INTEGER DEFAULT 0, starred INTEGER DEFAULT 0, last_read_at INTEGER DEFAULT 0)';
+  'read INTEGER DEFAULT 0, starred INTEGER DEFAULT 0, last_read_at INTEGER DEFAULT 0, ' +
+  'content TEXT, thumbnail TEXT)';
+
+// Rev2 defect-1 migration: existing installs got the table without the
+// content column; ADD COLUMN is idempotent-tolerant (failure swallowed,
+// presence re-checked) so already-installed data keeps working.
+async function ensureContentColumn(store: relationalStore.RdbStore): Promise<void> {
+  try {
+    const rs = await store.querySql(
+      'SELECT content FROM articles LIMIT 0', []);
+    rs.close();
+  } catch (e) {
+  }
+  try {
+    await store.executeSql('ALTER TABLE articles ADD COLUMN content TEXT');
+    hilog.info(0x0000, TAG, 'articles.content column added (Rev2 migration)');
+  } catch (e2) {
+    hilog.warn(0x0000, TAG, 'content migration skipped: %{public}s', JSON.stringify(e2));
+  }
+  try {
+    const rs2 = await store.querySql(
+      'SELECT thumbnail FROM articles LIMIT 0', []);
+    rs2.close();
+  } catch (e3) {
+  }
+  try {
+    await store.executeSql('ALTER TABLE articles ADD COLUMN thumbnail TEXT');
+    hilog.info(0x0000, TAG, 'articles.thumbnail column added');
+  } catch (e4) {
+    hilog.warn(0x0000, TAG, 'thumbnail migration skipped: %{public}s', JSON.stringify(e4));
+  }
+}
 
 function decodeBody(buf: ArrayBuffer): string {
   const arr = new Uint8Array(buf);
@@ -77,6 +110,7 @@ export class FeedRepository {
       } as relationalStore.StoreConfig);
       await store.executeSql(CREATE_FEEDS);
       await store.executeSql(CREATE_ARTICLES);
+      await ensureContentColumn(store);
       FeedRepository.rdb = store;
     }
     return new FeedRepository(ctx);
@@ -106,9 +140,13 @@ export class FeedRepository {
     return new Promise<string>((resolve, reject) => {
       const req = http.createHttp();
       req.request(url, {
-        connectTimeout: 15000,
-        readTimeout: 20000,
-        usingCache: false
+        connectTimeout: 90000, // Rev2-S5: emulator NAT latency observed ~32s
+        readTimeout: 90000,
+        usingCache: false,
+        header: {
+          'User-Agent': 'Mozilla/5.0 (Linux; Android 14) CapyReader/1212',
+          'Accept-Encoding': 'identity'
+        } as Record<string, string>
       } as http.HttpRequestOptions).then((resp: http.HttpResponse) => {
         req.destroy();
         if (resp.responseCode < 200 || resp.responseCode >= 300) {
@@ -141,8 +179,22 @@ export class FeedRepository {
       hilog.warn(0x0000, TAG, 'fetch failed: %{public}s', JSON.stringify(e));
       return AddFeedResultCode.CONNECTION_ERROR;
     }
+    hilog.info(0x0000, TAG, 'addFeed url=%{public}s bodyLen=%{public}d head=%{public}s tail=%{public}s', url, body.length, body.substring(0, 60), body.substring(body.length - 60));
     const feed = RssParser.parse(body);
     if (feed === null || feed.items.length === 0) {
+      hilog.warn(0x0000, TAG, 'parse fail feedNull=%{public}s items=0', feed === null ? 'y' : 'n');
+      // SLICE-6 (#38) diagnostics: persist the exact body that failed so
+      // the device-side input can be pulled (hdc file recv) and diffed
+      // against the host corpus. Harmless write, kept for evidence.
+      try {
+        const dumpPath = this.ctx.filesDir + '/s6-fetchdump.txt';
+        const f = fs.openSync(dumpPath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
+        fs.writeSync(f.fd, body);
+        fs.closeSync(f);
+        hilog.warn(0x0000, TAG, 's6 body dumped len=%{public}d path=%{public}s', body.length, dumpPath);
+      } catch (e2) {
+        hilog.warn(0x0000, TAG, 's6 dump failed: %{public}s', JSON.stringify(e2));
+      }
       return AddFeedResultCode.FEED_NOT_FOUND;
     }
     const code = await this.upsertFeedAndArticles(url, feed);
@@ -176,11 +228,29 @@ export class FeedRepository {
           'SELECT id FROM articles WHERE id = ?', [articleId]);
         const has = dup.goToNextRow();
         dup.close();
+        // Android local accounts refresh article payloads while keeping the
+        // local read/starred state. This also repairs rows created by an
+        // older parser version (for example sspai rows whose summary was
+        // reduced to only "查看全文").
+        const listSummary = item.summary !== ''
+          ? item.summary
+          : RssParser.stripHtml(item.content).substring(0, 500);
         if (!has) {
+          // Rev2 defect-1: keep raw content HTML; feeds that only expose
+          // content (no description) get the list summary derived from it.
           await store.executeSql(
-            'INSERT INTO articles (id, feed_id, title, url, summary, published_at, read, starred) ' +
-            'VALUES (?, ?, ?, ?, ?, ?, 0, 0)',
-            [articleId, feedId, item.title, item.link, item.summary, item.publishedAt]);
+            'INSERT INTO articles (id, feed_id, title, url, summary, published_at, read, starred, content, thumbnail) ' +
+            'VALUES (?, ?, ?, ?, ?, ?, 0, 0, ?, ?)',
+            [articleId, feedId, item.title, item.link, listSummary, item.publishedAt, item.content, item.thumbnail]);
+        } else {
+          // Preserve state columns and retain previously available rich
+          // content/images when a later feed response omits them.
+          await store.executeSql(
+            'UPDATE articles SET title = ?, url = ?, summary = ?, published_at = ?, ' +
+            'content = CASE WHEN ? <> \'\' THEN ? ELSE content END, ' +
+            'thumbnail = CASE WHEN ? <> \'\' THEN ? ELSE thumbnail END WHERE id = ?',
+            [item.title, item.link, listSummary, item.publishedAt,
+              item.content, item.content, item.thumbnail, item.thumbnail, articleId]);
         }
       }
       return AddFeedResultCode.SUCCESS;
@@ -188,6 +258,14 @@ export class FeedRepository {
       hilog.error(0x0000, TAG, 'save failed: %{public}s', JSON.stringify(e));
       return AddFeedResultCode.SAVE_FAILURE;
     }
+  }
+
+  // Rev2 #27: sidebar "Edit Feed" entry (feed_action_edit parity).
+  public async renameFeed(feedId: string, newTitle: string): Promise<void> {
+    const store = FeedRepository.rdb!;
+    await store.executeSql('UPDATE feeds SET title = ? WHERE id = ?',
+      [newTitle, feedId]);
+    await this.refreshCacheAndExport();
   }
 
   // --- domain op remove (BC-0007) ---------------------------------------
@@ -219,7 +297,7 @@ export class FeedRepository {
 
   public async listArticles(feedId: string | null, status: string = 'all'): Promise<ArticleRow[]> {
     const store = FeedRepository.rdb!;
-    let sql = 'SELECT id, feed_id, title, url, summary, published_at, read, starred, last_read_at FROM articles';
+    let sql = 'SELECT id, feed_id, title, url, summary, published_at, read, starred, last_read_at, content, thumbnail FROM articles';
     const args: string[] = [];
     const conds: string[] = [];
     if (feedId !== null) {
@@ -247,6 +325,8 @@ export class FeedRepository {
       row.title = rs.getString(rs.getColumnIndex('title'));
       row.url = rs.getString(rs.getColumnIndex('url'));
       row.summary = rs.getString(rs.getColumnIndex('summary'));
+      row.content = rs.getString(rs.getColumnIndex('content'));
+      row.thumbnail = rs.getString(rs.getColumnIndex('thumbnail'));
       row.publishedAt = rs.getLong(rs.getColumnIndex('published_at'));
       row.read = rs.getLong(rs.getColumnIndex('read'));
       row.starred = rs.getLong(rs.getColumnIndex('starred'));
@@ -262,7 +342,7 @@ export class FeedRepository {
   public async getArticle(articleId: string): Promise<ArticleRow | null> {
     const store = FeedRepository.rdb!;
     const rs = await store.querySql(
-      'SELECT id, feed_id, title, url, summary, published_at, read, starred, last_read_at FROM articles WHERE id = ?',
+      'SELECT id, feed_id, title, url, summary, published_at, read, starred, last_read_at, content, thumbnail FROM articles WHERE id = ?',
       [articleId]);
     let row: ArticleRow | null = null;
     if (rs.goToNextRow()) {
@@ -272,6 +352,8 @@ export class FeedRepository {
       row.title = rs.getString(rs.getColumnIndex('title'));
       row.url = rs.getString(rs.getColumnIndex('url'));
       row.summary = rs.getString(rs.getColumnIndex('summary'));
+      row.content = rs.getString(rs.getColumnIndex('content'));
+      row.thumbnail = rs.getString(rs.getColumnIndex('thumbnail'));
       row.publishedAt = rs.getLong(rs.getColumnIndex('published_at'));
       row.read = rs.getLong(rs.getColumnIndex('read'));
       row.starred = rs.getLong(rs.getColumnIndex('starred'));

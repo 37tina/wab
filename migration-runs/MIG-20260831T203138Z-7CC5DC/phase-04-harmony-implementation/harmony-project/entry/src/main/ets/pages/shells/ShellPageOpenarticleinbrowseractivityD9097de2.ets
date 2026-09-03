@@ -2,17 +2,39 @@
 // P2 navigation-relations (+ behavior-contracts). Pure shell, no business
 // logic; the navigation agent finalizes registration and identity literals.
 // Feature-ID: FEAT-ARTICLE-READ
-
+//
+// SLICE-4 (revision 2) minimal completion: this shell is the routed host
+// for the Android external-link containers AddLinkActivity
+// (PAGE-ADDLINKACTIVITY-3ED2961B) and AddLinkScreen
+// (PAGE-ADDLINKSCREEN-9E051065), which have no standalone page semantics
+// on HarmonyOS: outbound article links are opened by the system browser
+// via openLink, and the actual jump is already triggered by the reader
+// page's open-in-browser action. Per the SLICE-4 brief, no redirect
+// logic is implemented here (waived surfaces — passthrough-disposition.csv).
 
 @Component
 export struct ShellPageOpenarticleinbrowseractivityD9097de2 {
   build() {
     NavDestination() {
       Stack() {
-        Column() {}
-          .width('100%')
-          .height('100%')
-          .id('PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2')
+        Column() {
+          Text('在浏览器打开')
+            .fontSize(22)
+            .fontWeight(FontWeight.Bold)
+            .width('100%')
+            .padding({ left: 16, right: 16 })
+            .margin({ top: 32, bottom: 8 })
+          Text('此页面为路由占位壳。文章通过系统浏览器（openLink）打开，实际跳转由阅读页的「在浏览器打开」操作触发。')
+            .fontSize(14)
+            .fontColor('#6f7682')
+            .width('100%')
+            .padding({ left: 16, right: 16 })
+            .id('openarticle-explain')
+        }
+        .width('100%')
+        .height('100%')
+        .alignItems(HorizontalAlign.Start)
+        .id('PAGE-OPENARTICLEINBROWSERACTIVITY-D9097DE2')
 
       }
       .width('100%')

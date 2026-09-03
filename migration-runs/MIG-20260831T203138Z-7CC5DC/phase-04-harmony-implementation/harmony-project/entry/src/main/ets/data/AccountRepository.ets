@@ -96,6 +96,17 @@ export class AccountRepository {
     return accountId;
   }
 
+  // Rev2 #27: Settings > Account > Log Out (Android parity
+  // settings_remove_account_button_service). Clears the selected account
+  // id; next launch lands on Add Account (MainActivity.startDestination).
+  public logOut(): void {
+    const dp = this.defaultPrefs();
+    dp.deleteSync(KEY_ACCOUNT_ID);
+    dp.flushSync();
+    hilog.info(0x0000, TAG, 'account logged out');
+    this.exportReplayData();
+  }
+
   // --- data-contract: accounts_dir (AccountsDirRepository) ---
 
   public accountsDirFor(accountId: string): string {

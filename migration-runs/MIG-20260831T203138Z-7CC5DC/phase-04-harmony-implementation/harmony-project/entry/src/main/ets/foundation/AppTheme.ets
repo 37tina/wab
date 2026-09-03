@@ -10,26 +10,37 @@
 // defines no direct equivalent.
 
 export class AppTheme {
-  // ---- colors (light + dark variants; sources annotated inline) ----
   static readonly colors: Record<string, string> = {
-    background: '#FEFBFF',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:70
-    backgroundDark: '#1B1B1F',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:34
-    pageBackground: '#F3EDF7',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:87
-    pageBackgroundDark: '#211F26',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:51
-    surface: '#FCF7FF',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:88
-    surfaceDark: '#292730',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:52
-    elevatedSurface: '#FCF7FF',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:89
-    elevatedSurfaceDark: '#302E38',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:53
-    onBackground: '#1B1B1F',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:71
-    onBackgroundDark: '#E3E2E6',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:35
-    onBackgroundVariant: '#44464F',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:75
-    onBackgroundVariantDark: '#C5C6D0',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:39
-    onPrimary: '#FFFFFF',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:58
-    onPrimaryDark: '#002D6E',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:22
-    primary: '#0058CA',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:57
-    primaryDark: '#B0C6FF',  // app/src/main/java/com/capyreader/app/ui/theme/colorschemes/TachiyomiColorScheme.kt:21
-    scrim: '#66000000',  // platform-default
-    scrimDark: '#66000000',  // platform-default
+    background: '#FEFBFF',
+    backgroundDark: '#1B1B1F',
+    pageBackground: '#F3EDF7',
+    pageBackgroundDark: '#211F26',
+    surface: '#FCF7FF',
+    surfaceDark: '#292730',
+    elevatedSurface: '#FCF7FF',
+    elevatedSurfaceDark: '#302E38',
+    onBackground: '#1B1B1F',
+    onBackgroundDark: '#E3E2E6',
+    onBackgroundVariant: '#44464F',
+    onBackgroundVariantDark: '#C5C6D0',
+    onPrimary: '#FFFFFF',
+    onPrimaryDark: '#002D6E',
+    primary: '#0058CA',
+    primaryDark: '#B0C6FF',
+    scrim: '#66000000',
+    scrimDark: '#66000000',
+    accent: '#2b7cf6',
+    accentDark: '#2b7cf6',
+    textPrimary: '#111111',
+    textPrimaryDark: '#1a1a1a',
+    textSecondary: '#6f7682',
+    textSecondaryDark: '#eceef2',
+    cardBackground: '#ffffff',
+    cardBackgroundDark: '#262b33',
+    danger: '#e23c3c',
+    dangerDark: '#e23c3c',
+    pageBg: '#f5f6f8',
+    pageBgDark: '#262b33',
   }
 
   // ---- gradients (none in source theme) ----

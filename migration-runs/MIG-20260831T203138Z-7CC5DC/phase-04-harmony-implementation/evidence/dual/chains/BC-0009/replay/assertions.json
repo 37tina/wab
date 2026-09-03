@@ -1,28 +1,11 @@
 {
-  "assertions": [
-    {
-      "amended_from": "data_equals: prefs:article_filter",
-      "category": "data",
-      "kind": "data_object",
-      "note": "",
-      "object": "prefs:article_filter",
-      "op": "equals",
-      "value": "status=UNREAD after selecting Unread",
-      "verdict": "FAIL"
-    },
-    {
-      "category": "persistence",
-      "kind": "recheck_data_object",
-      "object": "prefs:article_filter",
-      "verdict": "FAIL"
-    }
-  ],
+  "assertions": [],
   "bc_id": "BC-0009",
   "categories": {
     "data": "FAIL",
-    "observable": "MANUAL_VERIFY_REQUIRED",
+    "observable": "FAIL",
     "persistence": "FAIL",
-    "side_effect": "MANUAL_VERIFY_REQUIRED"
+    "side_effect": "FAIL"
   },
   "feature_id": "FEAT-ARTICLE-LIST",
   "precondition_status": "ESTABLISHED",

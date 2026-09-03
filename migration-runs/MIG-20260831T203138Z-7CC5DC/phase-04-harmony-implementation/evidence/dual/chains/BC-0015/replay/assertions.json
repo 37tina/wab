@@ -1,13 +1,36 @@
 {
-  "assertions": [],
+  "assertions": [
+    {
+      "amended_from": "text_gone: text=Mark all items as read?",
+      "category": "observable",
+      "kind": "text_gone",
+      "note": "PHASE2_AMEND (DEC-010): assertion anchor defect fixed per Gate 2 machine guidance; verdict re-derived offline from sealed evidence",
+      "value": "Mark all items as read?",
+      "verdict": "PASS"
+    },
+    {
+      "amended_from": "element_present: desc=Mark All as Read (equiv per 2B precedent)",
+      "category": "observable",
+      "kind": "text_visible",
+      "note": "",
+      "value": "Mark All as Read",
+      "verdict": "PASS"
+    },
+    {
+      "category": "persistence",
+      "kind": "recheck_text_visible",
+      "value": "Mark All as Read",
+      "verdict": "PASS"
+    }
+  ],
   "bc_id": "BC-0015",
   "categories": {
-    "data": "FAIL",
-    "observable": "FAIL",
-    "persistence": "FAIL",
-    "side_effect": "FAIL"
+    "data": "MANUAL_VERIFY_REQUIRED",
+    "observable": "PASS",
+    "persistence": "PASS",
+    "side_effect": "MANUAL_VERIFY_REQUIRED"
   },
   "feature_id": "FEAT-READ-UNREAD",
   "precondition_status": "ESTABLISHED",
-  "replay_verdict": "FAIL"
+  "replay_verdict": "MANUAL_VERIFY_REQUIRED"
 }

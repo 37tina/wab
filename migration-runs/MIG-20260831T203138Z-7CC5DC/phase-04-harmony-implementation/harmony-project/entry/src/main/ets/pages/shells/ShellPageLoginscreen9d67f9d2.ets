@@ -37,11 +37,12 @@ const SERVICES: Record<string, OnlineServiceDef> = {
 };
 
 // Android parity error strings (login error surface).
-const MSG_FIELD_REQUIRED = 'Username and password are required';
-const MSG_URL_REQUIRED = 'Server URL is required';
-const MSG_INCORRECT = 'Incorrect username or password';
-const MSG_CONNECTION = 'Connection failed';
-const MSG_LOGGING_IN = 'Logging in…';
+const MSG_FIELD_REQUIRED = '请输入用户名和密码';
+const MSG_URL_REQUIRED = '请输入服务器地址';
+const MSG_INCORRECT = '用户名或密码错误';
+const MSG_CONNECTION = '连接失败';
+const MSG_LOGGING_IN = '登录中…';
+const MSG_LOGGED_IN = '登录成功';
 
 @Component
 export struct ShellPageLoginscreen9d67f9d2 {
@@ -106,7 +107,7 @@ export struct ShellPageLoginscreen9d67f9d2 {
         } else if (code === 401 || code === 403) {
           resolve(MSG_INCORRECT);
         } else if (code >= 200 && code < 300) {
-          resolve('Logged in');
+          resolve(MSG_LOGGED_IN);
         } else {
           resolve(MSG_CONNECTION);
         }
@@ -141,7 +142,7 @@ export struct ShellPageLoginscreen9d67f9d2 {
     this.attemptLogin(def).then((msg: string): void => {
       this.submitting = false;
       this.feedback = msg;
-      this.feedbackIsError = msg !== 'Logged in';
+      this.feedbackIsError = msg !== MSG_LOGGED_IN;
     });
   }
 
@@ -149,7 +150,7 @@ export struct ShellPageLoginscreen9d67f9d2 {
   fieldLabel(label: string) {
     Text(label)
       .fontSize(14)
-      .fontColor('#666666')
+      .fontColor('#6f7682')
       .width('100%')
       .margin({ bottom: 4 })
   }
@@ -161,7 +162,7 @@ export struct ShellPageLoginscreen9d67f9d2 {
         Row() {
           Text('←')
             .fontSize(22)
-            .fontColor('#1A73E8')
+            .fontColor('#2b7cf6')
             .width(48)
             .height(48)
             .textAlign(TextAlign.Center)
@@ -183,8 +184,8 @@ export struct ShellPageLoginscreen9d67f9d2 {
         Scroll() {
           Column() {
             // Username (AuthFields parity).
-            this.fieldLabel('Username')
-            TextInput({ placeholder: 'Email', text: this.username })
+            this.fieldLabel('用户名')
+            TextInput({ placeholder: '邮箱', text: this.username })
               .onChange((v: string) => {
                 this.username = v;
               })
@@ -193,8 +194,8 @@ export struct ShellPageLoginscreen9d67f9d2 {
               .id('login-username')
 
             // Password (AuthFields parity, password mode).
-            this.fieldLabel('Password')
-            TextInput({ placeholder: 'Password', text: this.password })
+            this.fieldLabel('密码')
+            TextInput({ placeholder: '密码', text: this.password })
               .type(InputType.Password)
               .onChange((v: string) => {
                 this.password = v;
@@ -205,13 +206,13 @@ export struct ShellPageLoginscreen9d67f9d2 {
 
             // Advanced options disclosure (LoginScreen.kt parity).
             Row() {
-              Text('Advanced options')
+              Text('高级选项')
                 .fontSize(14)
                 .fontWeight(FontWeight.Medium)
                 .layoutWeight(1)
               Text(this.advancedOpen ? '▲' : '▼')
                 .fontSize(12)
-                .fontColor('#666666')
+                .fontColor('#6f7682')
             }
             .width('100%')
             .height(44)
@@ -222,8 +223,8 @@ export struct ShellPageLoginscreen9d67f9d2 {
             .id('login-advanced-toggle')
 
             if (this.advancedOpen && this.serviceDef().hasCustomUrl) {
-              this.fieldLabel('Server URL')
-              TextInput({ placeholder: 'API URL', text: this.serverUrl })
+              this.fieldLabel('服务器')
+              TextInput({ placeholder: 'API 地址', text: this.serverUrl })
                 .onChange((v: string) => {
                   this.serverUrl = v;
                 })
@@ -233,7 +234,7 @@ export struct ShellPageLoginscreen9d67f9d2 {
             }
 
             // Log In button with real loading/error states (gate2).
-            Button(this.submitting ? MSG_LOGGING_IN : 'Log In')
+            Button(this.submitting ? MSG_LOGGING_IN : '登录')
               .width('100%')
               .height(48)
               .fontSize(16)
@@ -248,7 +249,7 @@ export struct ShellPageLoginscreen9d67f9d2 {
             if (this.feedback !== '') {
               Text(this.feedback)
                 .fontSize(14)
-                .fontColor(this.feedbackIsError ? '#B3261E' : '#666666')
+                .fontColor(this.feedbackIsError ? '#e23c3c' : '#6f7682')
                 .width('100%')
                 .margin({ top: 12 })
                 .id('login-feedback')
@@ -257,6 +258,10 @@ export struct ShellPageLoginscreen9d67f9d2 {
           .width('100%')
           .padding({ left: 16, right: 16, top: 8, bottom: 24 })
           .alignItems(HorizontalAlign.Start)
+          // P3 passthrough surface anchor: this form Column carries the
+          // reusable LoginView component (Android LoginView.kt) declared
+          // in surface-plan.json passthrough (FEAT-ONLINE-ACCOUNT-UI).
+          .id('PAGE-LOGINVIEW-49F18417')
         }
         .layoutWeight(1)
         .scrollBar(BarState.Off)

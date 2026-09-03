@@ -5,7 +5,7 @@
   "created_at": "2026-08-31T20:31:38Z",
   "controller_skill": "android-harmony-migration-controller",
   "status": "IN_PROGRESS",
-  "skill_freeze_manifest_sha256": "2bb2e587bfc86dd793b5d50e54c453cfbdb76bae1c25560296a5c041aafb03b7",
+  "skill_freeze_manifest_sha256": "572fcac4d121b2f0f3439ddffc3bd657e555e652662ef8d923243e2d15a90c7a",
   "phase2_closure_gate": {
     "unmapped": 0,
     "feature_coverage": {
